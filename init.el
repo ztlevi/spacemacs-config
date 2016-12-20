@@ -443,55 +443,19 @@ values."
                             (projectile-switch-project-by-name project)
                             (setq default-directory old-default-directory))))))
 
-  ;; set perspective auto save
-  (setq persp-auto-save-persps-to-their-file nil)
-  (setq persp-auto-save-num-of-backups 0)
-  (setq persp-auto-resume-time 0)
-
-  ;; set default open scratch
-  (when (string= "*scratch*" (buffer-name))
-    (spacemacs/switch-to-scratch-buffer))
-
   ;; load ztlevi's keybindings.el
   ;;================================================================================
-  (setq init-keybindings-file (expand-file-name "ztlevi-keybindings.el" dotspacemacs-directory))
-  (load init-keybindings-file 'no-error 'no-message)
+  (setq ztlevi-keybindings-file (expand-file-name "ztlevi-keybindings.el" dotspacemacs-directory))
+  (load ztlevi-keybindings-file 'no-error 'no-message)
   ;;================================================================================
 
-  ;; more useful frame title, that show either a file or a
-  ;; buffer name (if the buffer isn't visiting a file)
-  (setq frame-title-format
-        '("" " ztlevi - "
-          (:eval (if (buffer-file-name)
-                     (abbreviate-file-name (buffer-file-name)) "%b"))))
-
-  ;; set others
-  (setq evil-insert-state-cursor '("chartreuse3" (bar . 2)))
-  (setq zilongshanren-programming/post-init-js-doc nil)
+  ;; load ztlevi's init.el
+  ;;================================================================================
+  (setq ztlevi--file (expand-file-name "ztlevi-init.el" dotspacemacs-directory))
+  (load ztlevi--file 'no-error 'no-message)
+  ;;================================================================================
 
   )
 
-
-
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
 (load custom-file 'no-error 'no-message)
-(defun dotspacemacs/emacs-custom-settings ()
-  "Emacs custom settings.
-This is an auto-generated function, do not modify its content directly, use
-Emacs customize menu instead.
-This function is called at the very end of Spacemacs initialization."
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (origami wrap-region visual-regexp-steroids visual-regexp tiny peep-dired helm-github-stars find-file-in-project discover-my-major makey 4clojure org-octopress ctable orglue epic org-mac-link nodejs-repl lispy zoutline impatient-mode etags-select editorconfig cmake-font-lock evil-unimpaired web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode reveal-in-osx-finder rainbow-mode rainbow-identifiers pbcopy osx-trash osx-dictionary launchctl helm-company helm-c-yasnippet company-statistics company color-identifiers-mode auto-yasnippet yasnippet ac-ispell auto-complete mmm-mode markdown-toc markdown-mode gh-md ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-)

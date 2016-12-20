@@ -1,4 +1,7 @@
 * ztlevi的配置（基于子龙山人的配置）
+ztlevi's init setting is in ztlevi-init.el.
+ztlevi's keybingding setting is in ztlevi-keybindings.el.
+
 * 子龙山人的 Emacs 配置
 Hacking 始于 2013 年。
 
