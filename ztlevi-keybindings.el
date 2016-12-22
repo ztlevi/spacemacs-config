@@ -18,10 +18,18 @@
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
 ;; bind help keybindings
-(global-set-key (kbd "C-h C-f") `find-function)
-(global-set-key (kbd "C-h C-v") `find-variable)
-(global-set-key (kbd "C-h C-k") `find-function-on-key)
+(global-set-key (kbd "C-h C-f") 'find-function)
+(global-set-key (kbd "C-h C-v") 'find-variable)
+(global-set-key (kbd "C-h C-k") 'find-function-on-key)
 
 ;; window split and focus
-(define-key evil-normal-state-local-map (kbd "SPC w v") `split-window-right-and-focus)
-(define-key evil-normal-state-local-map (kbd "SPC w s") `split-window-below-and-focus)
+(define-key evil-normal-state-local-map (kbd "SPC w v") 'split-window-right-and-focus)
+(define-key evil-normal-state-local-map (kbd "SPC w s") 'split-window-below-and-focus)
+
+;; helm bookmark keybindings
+(define-key spacemacs-default-map (kbd "h b") 'helm-bookmarks)
+(define-key helm-bookmark-map (kbd "C-o") 'helm-bookmark-run-jump-other-window)
+(define-key helm-bookmark-map (kbd "C-d")   'helm-bookmark-run-delete)
+(define-key helm-bookmark-map (kbd "C-f")   'helm-bookmark-toggle-filename)
+(define-key helm-bookmark-map (kbd "C-e")   'helm-bookmark-run-edit)
+map)
