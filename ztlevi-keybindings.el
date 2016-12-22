@@ -28,8 +28,10 @@
 
 ;; helm bookmark keybindings
 (define-key spacemacs-default-map (kbd "h b") 'helm-bookmarks)
-(define-key helm-bookmark-map (kbd "C-o") 'helm-bookmark-run-jump-other-window)
-(define-key helm-bookmark-map (kbd "C-d")   'helm-bookmark-run-delete)
-(define-key helm-bookmark-map (kbd "C-f")   'helm-bookmark-toggle-filename)
-(define-key helm-bookmark-map (kbd "C-e")   'helm-bookmark-run-edit)
-map)
+(with-eval-after-load 'helm-bookmark
+  (progn
+    (bb/define-key helm-bookmark-map (kbd "C-o") 'helm-bookmark-run-jump-other-window)
+    (bb/define-key helm-bookmark-map (kbd "C-d") 'helm-bookmark-run-delete)
+    (bb/define-key helm-bookmark-map (kbd "C-f") 'helm-bookmark-toggle-filename)
+    (bb/define-key helm-bookmark-map (kbd "C-e") 'helm-bookmark-run-edit))
+)

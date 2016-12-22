@@ -88,6 +88,7 @@ values."
      (chinese :packages youdao-dictionary fcitx
               :variables chinese-enable-fcitx nil
               chinese-enable-youdao-dict t)
+     dash
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -443,16 +444,16 @@ values."
                             (projectile-switch-project-by-name project)
                             (setq default-directory old-default-directory))))))
 
-  ;; load ztlevi's keybindings.el
-  ;;================================================================================
-  (setq ztlevi-keybindings-file (expand-file-name "ztlevi-keybindings.el" dotspacemacs-directory))
-  (load ztlevi-keybindings-file 'no-error 'no-message)
-  ;;================================================================================
-
   ;; load ztlevi's init.el
   ;;================================================================================
   (setq ztlevi--file (expand-file-name "ztlevi-init.el" dotspacemacs-directory))
   (load ztlevi--file 'no-error 'no-message)
+  ;;================================================================================
+
+  ;; load ztlevi's keybindings.el
+  ;;================================================================================
+  (setq ztlevi-keybindings-file (expand-file-name "ztlevi-keybindings.el" dotspacemacs-directory))
+  (load ztlevi-keybindings-file 'no-error 'no-message)
   ;;================================================================================
 
   )

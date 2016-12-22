@@ -18,6 +18,12 @@
         (:eval (if (buffer-file-name)
                    (abbreviate-file-name (buffer-file-name)) "%b"))))
 
+;; add dash
+(autoload 'dash-at-point "dash-at-point"
+  "Search the word at point with Dash." t nil)
+(global-set-key "\C-cd" 'dash-at-point)
+(global-set-key "\C-ce" 'dash-at-point-with-docset)
+
 ;; set others
 (setq evil-insert-state-cursor '("chartreuse3" (bar . 2)))
 (setq zilongshanren-programming/post-init-js-doc nil)
