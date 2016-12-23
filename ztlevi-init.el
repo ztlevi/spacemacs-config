@@ -28,3 +28,4 @@
 (setq evil-insert-state-cursor '("chartreuse3" (bar . 2)))
 (setq zilongshanren-programming/post-init-js-doc nil)
 (setq tab-always-indent 'complete)
+(bind-key* "M-s o" 'occur-dwim)
