@@ -35,3 +35,6 @@
     (bb/define-key helm-bookmark-map (kbd "C-f") 'helm-bookmark-toggle-filename)
     (bb/define-key helm-bookmark-map (kbd "C-e") 'helm-bookmark-run-edit))
 )
+
+;; occur
+(bind-key* "M-s o" 'occur-dwim)
