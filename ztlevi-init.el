@@ -24,6 +24,10 @@
 (global-set-key "\C-cd" 'dash-at-point)
 (global-set-key "\C-ce" 'dash-at-point-with-docset)
 
+;; set scrolling speed
+(setq mouse-wheel-scroll-amount '(2 ((shift) . 1) ((control) . nil)))
+(setq mouse-wheel-progressive-speed nil)
+
 ;; set others
 (setq evil-insert-state-cursor '("chartreuse3" (bar . 2)))
 (setq zilongshanren-programming/post-init-js-doc nil)
