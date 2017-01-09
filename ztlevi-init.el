@@ -20,13 +20,39 @@
 
 ;; add dash
 (autoload 'dash-at-point "dash-at-point"
-  "Search the word at point with Dash." t nil)
+  "search the word at point with dash." t nil)
 (global-set-key "\C-cd" 'dash-at-point)
 (global-set-key "\C-ce" 'dash-at-point-with-docset)
 
 ;; set scrolling speed
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 1) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
+
+;; set evil surround
+(evil-define-key 'visual evil-surround-mode-map "Cs" 'evil-surround-change)
+(evil-define-key 'visual evil-surround-mode-map "Ds" 'evil-surround-delete)
+
+;; get safari url
+(defun insert-safari-current-tab-url()
+  "Get the URL of the active tab of the first window"
+  (interactive)
+  (insert (retrieve-safari-current-tab-url)))
+
+(defun retrieve-safari-current-tab-url()
+  "Get the URL of the active tab of the first window"
+  (interactive)
+  (let ((result (do-applescript
+                 (concat
+                  "set frontmostApplication to path to frontmost application\n"
+                  "tell application \"Safari\"\n"
+                  "	set theUrl to get URL of active tab of first window\n"
+                  "	set theResult to (get theUrl) \n"
+                  "end tell\n"
+                  "activate application (frontmostApplication as text)\n"
+                  "set links to {}\n"
+                  "copy theResult to the end of links\n"
+                  "return links as string\n"))))
+    (format "%s" (s-chop-suffix "\"" (s-chop-prefix "\"" result)))))
 
 ;; set others
 (setq evil-insert-state-cursor '("chartreuse3" (bar . 2)))
