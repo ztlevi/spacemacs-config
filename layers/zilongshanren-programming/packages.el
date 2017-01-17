@@ -42,7 +42,7 @@
         dumb-jump
         graphviz-dot-mode
         cider
-        editorconfig
+        ;; editorconfig
         robe
         ))
 
@@ -370,7 +370,7 @@
         (setq-default js2-bounce-indent nil)
         (setq-default js-indent-level 4)
         (setq-default js2-basic-offset 4)
-        (setq-default js-switch-indent-offset 2)
+        (setq-default js-switch-indent-offset 4)
         ;; Let flycheck handle parse errors
         (setq-default js2-mode-show-parse-errors nil)
         (setq-default js2-mode-show-strict-warnings nil)
@@ -575,17 +575,8 @@
           company-idle-delay 0.08)
 
     (when (configuration-layer/package-usedp 'company)
-      (spacemacs|add-company-hook shell-script-mode)
-      (spacemacs|add-company-hook makefile-bsdmake-mode)
-      (spacemacs|add-company-hook sh-mode)
-      (spacemacs|add-company-hook lua-mode)
-      (spacemacs|add-company-hook nxml-mode)
-      (spacemacs|add-company-hook conf-unix-mode)
-      (spacemacs|add-company-hook json-mode)
-      (spacemacs|add-company-hook graphviz-dot-mode)
-      )
+      (spacemacs|add-company-backends :modes shell-script-mode makefile-bsdmake-mode sh-mode lua-mode nxml-mode conf-unix-mode json-mode graphviz-dot-mode))
     ))
-
 (defun zilongshanren-programming/post-init-company-c-headers ()
   (progn
     (setq company-c-headers-path-system
