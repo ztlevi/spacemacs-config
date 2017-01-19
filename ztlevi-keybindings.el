@@ -34,7 +34,12 @@
     (bb/define-key helm-bookmark-map (kbd "C-d") 'helm-bookmark-run-delete)
     (bb/define-key helm-bookmark-map (kbd "C-f") 'helm-bookmark-toggle-filename)
     (bb/define-key helm-bookmark-map (kbd "C-e") 'helm-bookmark-run-edit))
-)
+  )
 
 ;; occur
 (bind-key* "M-s o" 'occur-dwim)
+
+;; ranger quit
+(with-eval-after-load 'ranger
+  (progn
+    (define-key ranger-normal-mode-map (kbd "q") 'ranger-close)))
