@@ -36,6 +36,9 @@
     (bb/define-key helm-bookmark-map (kbd "C-e") 'helm-bookmark-run-edit))
   )
 
+;; comment
+(global-set-key (kbd "s-/") 'comment-dwim)
+
 ;; occur
 (bind-key* "M-s o" 'occur-dwim)
 
