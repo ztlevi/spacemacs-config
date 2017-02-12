@@ -54,8 +54,11 @@
                   "return links as string\n"))))
     (format "%s" (s-chop-suffix "\"" (s-chop-prefix "\"" result)))))
 
+;; set evil state cursor
+(setq evil-normal-state-cursor '("#ff007f" box))
+(setq evil-insert-state-cursor '("#ff007f" (bar . 2)))
+
 ;; set others
-(setq evil-insert-state-cursor '("chartreuse3" (bar . 2)))
 (setq zilongshanren-programming/post-init-js-doc nil)
 (setq tab-always-indent 'complete)
 (ranger-override-dired-mode t)
