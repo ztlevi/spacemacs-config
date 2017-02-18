@@ -58,7 +58,10 @@
 (setq evil-normal-state-cursor '("#ff007f" box))
 (setq evil-insert-state-cursor '("#ff007f" (bar . 2)))
 
+;; ranger mode fix
+(require 'bookmark)
+(ranger-override-dired-mode t)
+
 ;; set others
 (setq zilongshanren-programming/post-init-js-doc nil)
 (setq tab-always-indent 'complete)
-(ranger-override-dired-mode t)
