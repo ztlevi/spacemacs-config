@@ -65,8 +65,6 @@
 ;; set initl screen size
 (setq initial-frame-alist
       '(
-        (width . 102) ; character
-        (height . 54) ; lines
         ))
 
 ;; set others
