@@ -62,6 +62,13 @@
 (require 'bookmark)
 (ranger-override-dired-mode t)
 
+;; set initl screen size
+(setq initial-frame-alist
+      '(
+        (width . 102) ; character
+        (height . 54) ; lines
+        ))
+
 ;; set others
 (setq zilongshanren-programming/post-init-js-doc nil)
 (setq tab-always-indent 'complete)
