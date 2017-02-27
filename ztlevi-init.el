@@ -6,7 +6,7 @@
 ;; set initl screen size
 (setq initial-frame-alist
       '(
-        (width . 85) ; character
+        (width . 86) ; character
         (height . 45) ; lines
         ))
 
@@ -26,7 +26,7 @@
 (setq evil-insert-state-cursor '("#ff007f" (bar . 2)))
 
 ;; File colum indicator 80 chars
-(setq-default fci-rule-column 80)
+(setq-default fci-rule-column 81)
 (setq fci-rule-color "grey80")
 (add-hook 'prog-mode-hook 'fci-mode)
 
@@ -34,6 +34,8 @@
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
+;; SPC t l // toggle-truncate-lines
+(add-hook 'org-mode-hook 'toggle-truncate-lines)
 ;; ==============================UI settings end================================
 
 ;; set perspective auto save
