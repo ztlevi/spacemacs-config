@@ -51,3 +51,7 @@
 ;; set evil surround
 (evil-define-key 'visual evil-surround-mode-map "Cs" 'evil-surround-change)
 (evil-define-key 'visual evil-surround-mode-map "Ds" 'evil-surround-delete)
+
+;; dash
+(global-set-key "\C-cd" 'dash-at-point)
+(global-set-key "\C-ce" 'dash-at-point-with-docset)
