@@ -30,6 +30,10 @@
 (setq fci-rule-color "grey80")
 (add-hook 'prog-mode-hook 'fci-mode)
 
+;; set all-the-icons
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+
 ;; ==============================UI settings end================================
 
 ;; set perspective auto save

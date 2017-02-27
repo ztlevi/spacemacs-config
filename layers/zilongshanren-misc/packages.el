@@ -669,7 +669,6 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
     (push "TAGS" spacemacs-useless-buffers-regexp)
 
     (adjust-major-mode-keymap-with-evil "git-timemachine")
-    (adjust-major-mode-keymap-with-evil "edebug")
     (adjust-major-mode-keymap-with-evil "tabulated-list")
 
     (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
@@ -1011,8 +1010,9 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
 (defun zilongshanren-misc/init-moz-controller ()
   (use-package moz-controller
     :init
-    (moz-controller-global-mode t)
-    :diminish moz-controller-mode))
+    (progn
+      (moz-controller-global-mode t)
+      (spacemacs|hide-lighter moz-controller-mode))))
 
 
 (defun zilongshanren-misc/init-ag ()
