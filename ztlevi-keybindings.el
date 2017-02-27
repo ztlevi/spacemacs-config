@@ -42,7 +42,12 @@
 ;; occur
 (bind-key* "M-s o" 'occur-dwim)
 
-;; ranger quit
+;; ranger
 (with-eval-after-load 'ranger
   (progn
-    (define-key ranger-normal-mode-map (kbd "q") 'ranger-close)))
+    (define-key ranger-normal-mode-map (kbd "q") 'ranger-close)
+    (define-key evil-normal-state-local-map (kbd "SPC f j") 'deer)))
+
+;; set evil surround
+(evil-define-key 'visual evil-surround-mode-map "Cs" 'evil-surround-change)
+(evil-define-key 'visual evil-surround-mode-map "Ds" 'evil-surround-delete)

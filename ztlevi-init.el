@@ -28,32 +28,6 @@
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 1) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
 
-;; set evil surround
-(evil-define-key 'visual evil-surround-mode-map "Cs" 'evil-surround-change)
-(evil-define-key 'visual evil-surround-mode-map "Ds" 'evil-surround-delete)
-
-;; get safari url
-(defun insert-safari-current-tab-url()
-  "Get the URL of the active tab of the first window"
-  (interactive)
-  (insert (retrieve-safari-current-tab-url)))
-
-(defun retrieve-safari-current-tab-url()
-  "Get the URL of the active tab of the first window"
-  (interactive)
-  (let ((result (do-applescript
-                 (concat
-                  "set frontmostApplication to path to frontmost application\n"
-                  "tell application \"Safari\"\n"
-                  "	set theUrl to get URL of active tab of first window\n"
-                  "	set theResult to (get theUrl) \n"
-                  "end tell\n"
-                  "activate application (frontmostApplication as text)\n"
-                  "set links to {}\n"
-                  "copy theResult to the end of links\n"
-                  "return links as string\n"))))
-    (format "%s" (s-chop-suffix "\"" (s-chop-prefix "\"" result)))))
-
 ;; set evil state cursor
 (setq evil-normal-state-cursor '("#ff007f" box))
 (setq evil-insert-state-cursor '("#ff007f" (bar . 2)))
@@ -65,9 +39,66 @@
 ;; set initl screen size
 (setq initial-frame-alist
       '(
-        (width . 83) ; character
+        (width . 85) ; character
         (height . 45) ; lines
         ))
+
+;; set org notes dir
+(setq-default
+ org-agenda-dir "~/Documents/Org-notes"
+ deft-dir "~/Documents/Org-notes"
+ blog-admin-dir "")
+
+;; File colum indicator 80 chars
+(setq-default fci-rule-column 80)
+(setq fci-rule-color "grey80")
+(add-hook 'prog-mode-hook 'fci-mode)
+
+;; ===================flycheck settings start====================
+;; use web-mode for .jsx files
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+
+;; http://www.flycheck.org/manual/latest/index.html
+(require 'flycheck)
+
+;; disable jshint since we prefer eslint checking
+(setq-default flycheck-disabled-checkers
+              (append flycheck-disabled-checkers
+                      '(javascript-jshint)))
+
+;; use eslint with web-mode for jsx files
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+
+;; customize flycheck temp file prefix
+(setq-default flycheck-temp-prefix ".flycheck")
+
+;; disable json-jsonlist checking for json files
+(setq-default flycheck-disabled-checkers
+              (append flycheck-disabled-checkers
+                      '(json-jsonlist)))
+
+;; https://github.com/purcell/exec-path-from-shell
+;; only need exec-path-from-shell on OSX
+;; this hopefully sets up path and other vars better
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+;; for better jsx syntax-highlighting in web-mode
+;; - courtesy of Patrick @halbtuerke
+(defadvice web-mode-highlight-part (around tweak-jsx activate)
+  (if (equal web-mode-content-type "jsx")
+      (let ((web-mode-enable-part-face nil))
+        ad-do-it)
+    ad-do-it))
+
+;; c++
+(add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++11")))
+
+;; Enable for other modes
+(add-hook 'c++-mode-hook 'flycheck-mode)
+(add-hook 'web-mode-hook 'flycheck-mode)
+(add-hook 'json-mode-hook 'flycheck-mode)
+;; ===================flycheck settings end======================
 
 ;; set others
 (setq zilongshanren-programming/post-init-js-doc nil)
