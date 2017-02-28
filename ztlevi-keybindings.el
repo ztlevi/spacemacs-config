@@ -78,6 +78,8 @@
              (if (looking-back "^\s*")
                  (back-to-indentation))))))))
 (define-key yas-minor-mode-map (kbd "<C-tab>") 'yas-expand)
+(define-key evil-normal-state-local-map (kbd "SPC y r") 'yas-reload-all)
+(define-key evil-normal-state-local-map (kbd "SPC y d") 'yas-describe-tables)
 
 ;; fix yasnippet with unbinding emmet keys
 (eval-after-load 'emmet-mode
