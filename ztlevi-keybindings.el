@@ -16,6 +16,8 @@
   (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
+(define-key global-map (kbd "M-/") nil)
+(define-key global-map (kbd "M-/") 'company-complete)
 
 ;; bind help keybindings
 (global-set-key (kbd "C-h C-f") 'find-function)
