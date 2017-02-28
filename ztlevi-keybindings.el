@@ -55,3 +55,37 @@
 ;; dash
 (global-set-key "\C-cd" 'dash-at-point)
 (global-set-key "\C-ce" 'dash-at-point-with-docset)
+
+;; yasnippet fix tab
+(eval-after-load 'js2-mode
+  '(progn
+     (define-key js2-mode-map (kbd "TAB")
+       (lambda()
+         (interactive)
+         (let ((yas/fallback-behavior 'return-nil))
+           (unless (yas/expand)
+             (indent-for-tab-command)
+             (if (looking-back "^\s*")
+                 (back-to-indentation))))))))
+(eval-after-load 'css-mode
+  '(progn
+     (define-key css-mode-map (kbd "TAB")
+       (lambda()
+         (interactive)
+         (let ((yas/fallback-behavior 'return-nil))
+           (unless (yas/expand)
+             (indent-for-tab-command)
+             (if (looking-back "^\s*")
+                 (back-to-indentation))))))))
+(define-key yas-minor-mode-map (kbd "<C-tab>") 'yas-expand)
+
+;; fix yasnippet with unbinding emmet keys
+(eval-after-load 'emmet-mode
+  '(progn
+     (evil-define-key 'insert emmet-mode-keymap (kbd "TAB") nil)
+     (evil-define-key 'insert emmet-mode-keymap (kbd "<tab>") nil)
+     (evil-define-key 'emacs emmet-mode-keymap (kbd "TAB") nil)
+     (evil-define-key 'emacs emmet-mode-keymap (kbd "<tab>") nil)
+     (evil-define-key 'hybrid emmet-mode-keymap (kbd "TAB") nil)
+     (evil-define-key 'hybrid emmet-mode-keymap (kbd "<tab>") nil)))
+     
