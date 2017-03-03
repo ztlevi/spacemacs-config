@@ -9,6 +9,7 @@
 (define-key evil-insert-state-map (kbd "C-n") 'next-line)      ;; was 'evil-complete-next
 (define-key evil-insert-state-map (kbd "C-p") 'previous-line)  ;; was 'evil-complete-previous
 (setq-default evil-escape-key-sequence "jk")
+(setq-default evil-escape-delay 0.2)
 
 ;; define company-mode keybindings
 (with-eval-after-load 'company
