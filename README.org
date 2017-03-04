@@ -1,5 +1,5 @@
 * My personal Emacs configuration
-Hacking journey begins start from 2013.
+My Spacemacs configuration is based on zilongshanren.
 
 ** What's the highlight of this configuration
 1. It's a highly customize optimized Spacemacs configuration, it's relied on the develop branch of the officially Spacemacs.
