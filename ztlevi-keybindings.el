@@ -94,3 +94,6 @@
      (evil-define-key 'hybrid emmet-mode-keymap (kbd "TAB") nil)
      (evil-define-key 'hybrid emmet-mode-keymap (kbd "<tab>") nil)))
      
+;; layout keybindings
+(spacemacs/set-leader-keys "oll" 'ztlevi/load-my-layout)
+(spacemacs/set-leader-keys "ols" 'ztlevi/save-my-layout)

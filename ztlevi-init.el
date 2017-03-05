@@ -107,6 +107,15 @@
 (add-hook 'json-mode-hook 'flycheck-mode)
 ;; ===================flycheck settings end======================
 
+;; Layout
+(defun ztlevi/load-my-layout ()
+  (interactive)
+  (persp-load-state-from-file (concat persp-save-dir "ztlevi")))
+
+(defun ztlevi/save-my-layout ()
+  (interactive)
+  (persp-save-state-to-file (concat persp-save-dir "ztlevi")))
+
 ;; set others
 (setq zilongshanren-programming/post-init-js-doc nil)
 (setq tab-always-indent 'complete)
