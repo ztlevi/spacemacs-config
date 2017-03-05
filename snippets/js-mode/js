@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : JSON.stringify
+# --
+JSON.stringify(${1:obj});

@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : prompt
+# --
+prompt('${1:msg}');

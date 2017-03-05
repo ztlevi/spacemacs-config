@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+#name : forEach
+# --
+${1:myArray}.forEach(function(${2:elem}) {
+    ${0:// body...}
+});

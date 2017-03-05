@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : function apply
+# --
+${1:methodName}.apply(${2:context}, [${3:arguments}])

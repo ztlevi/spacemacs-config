@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : console.error
+# --
+console.error(${1:obj});

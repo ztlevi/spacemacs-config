@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : getAttribute
+# --
+${1:document}.getAttribute('${2:attr}');

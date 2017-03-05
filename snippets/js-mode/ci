@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : console.info
+# --
+console.info(${1:obj});

@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : it pending
+# --
+it('${1:description}');

@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : textContent
+# --
+${1:document}.textContent = '${2:content}';

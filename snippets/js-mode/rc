@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+#name : removeChild
+# --
+${1:document}.removeChild(${2:elem});
+

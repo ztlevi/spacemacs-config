@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : process.exit
+# --
+process.exit(${1:code});

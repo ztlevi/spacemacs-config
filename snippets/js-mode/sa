@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : setAttribute
+# --
+${1:document}.setAttribute('${2:attr}', ${3:value});

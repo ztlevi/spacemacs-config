@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : querySelector
+# --
+${1:document}.querySelector('${2:selector}');

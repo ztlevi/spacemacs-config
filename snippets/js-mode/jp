@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : JSON.parse
+# --
+JSON.parse(${1:obj});

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+#name : describe
+# --
+describe('${1:description}', function() {
+    ${0:// body...}
+});

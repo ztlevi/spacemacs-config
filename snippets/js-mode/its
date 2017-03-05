@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+#name : it synchronous
+# --
+it('${1:description}', function() {
+    ${0:// body...}
+});

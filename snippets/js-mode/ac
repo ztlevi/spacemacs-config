@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : appendChild
+# --
+${1:document}.appendChild(${2:elem});

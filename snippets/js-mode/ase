@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : assert.equal
+# --
+assert.equal(${1:actual}, ${2:expected});

@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : createDocumentFragment
+# --
+${1:document}.createDocumentFragment();

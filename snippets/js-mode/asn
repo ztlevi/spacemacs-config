@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : assert.notEqual
+# --
+assert.notEqual(${1:actual}, ${2:expected});

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+#name : it asynchronous
+# --
+it('${1:description}', function(done) {
+    ${0:// body...}
+});

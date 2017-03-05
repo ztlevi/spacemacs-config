@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : getElementsByTagName
+# --
+${1:document}.getElementsByTagName('${2:tag}');

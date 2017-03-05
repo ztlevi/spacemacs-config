@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : module.exports
+# --
+module.exports = ${1:name};

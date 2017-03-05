@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+#name : setInterval
+# --
+setInterval(function() {
+    ${0:// body...}
+}, ${1:delay});

@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : classList.remove
+# --
+${1:document}.classList.remove('${2:class}');

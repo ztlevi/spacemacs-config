@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : console.warn
+# --
+console.warn(${1:obj});

@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : innerHTML
+# --
+${1:document}.innerHTML = '${2:elem}';

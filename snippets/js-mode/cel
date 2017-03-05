@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : createElement
+# --
+${1:document}.createElement(${2:elem});

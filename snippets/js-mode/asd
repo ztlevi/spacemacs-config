@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : assert.deepEqual
+# --
+assert.deepEqual(${1:actual}, ${2:expected});

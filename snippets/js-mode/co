@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : confirm
+# --
+confirm('${1:msg}');

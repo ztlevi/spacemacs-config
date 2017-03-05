@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : classList.add
+# --
+${1:document}.classList.add('${2:class}');

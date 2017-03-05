@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : removeAttribute
+# --
+${1:document}.removeAttribute('${2:attr}');

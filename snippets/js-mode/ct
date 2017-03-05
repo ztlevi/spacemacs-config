@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+#name : classList.toggle
+# --
+${1:document}.classList.toggle('${2:class}');
