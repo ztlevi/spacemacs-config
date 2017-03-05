@@ -1,4 +1,5 @@
-;; define the emacs move keys
+;; ================================Evil Mode Start===============================
+;; define the emacs move keys in evil-mode
 (define-key evil-insert-state-map (kbd "C-d") 'evil-delete-char)
 ;; (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char)
 (define-key evil-insert-state-map (kbd "C-k") 'kill-line)
@@ -10,6 +11,15 @@
 (define-key evil-insert-state-map (kbd "C-p") 'previous-line)  ;; was 'evil-complete-previous
 (setq-default evil-escape-key-sequence "jk")
 (setq-default evil-escape-delay 0.2)
+
+;; window split and focus
+(define-key evil-normal-state-local-map (kbd "SPC w v") 'split-window-right-and-focus)
+(define-key evil-normal-state-local-map (kbd "SPC w s") 'split-window-below-and-focus)
+
+;; set evil surround
+(evil-define-key 'visual evil-surround-mode-map "Cs" 'evil-surround-change)
+(evil-define-key 'visual evil-surround-mode-map "Ds" 'evil-surround-delete)
+;; ================================Evil Mode END=================================
 
 ;; define company-mode keybindings
 (with-eval-after-load 'company
@@ -24,10 +34,6 @@
 (global-set-key (kbd "C-h C-f") 'find-function)
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
-
-;; window split and focus
-(define-key evil-normal-state-local-map (kbd "SPC w v") 'split-window-right-and-focus)
-(define-key evil-normal-state-local-map (kbd "SPC w s") 'split-window-below-and-focus)
 
 ;; helm bookmark keybindings
 (define-key spacemacs-default-map (kbd "h b") 'helm-bookmarks)
@@ -50,10 +56,6 @@
   (progn
     (define-key ranger-normal-mode-map (kbd "q") 'ranger-close)
     (define-key evil-normal-state-local-map (kbd "SPC f j") 'deer)))
-
-;; set evil surround
-(evil-define-key 'visual evil-surround-mode-map "Cs" 'evil-surround-change)
-(evil-define-key 'visual evil-surround-mode-map "Ds" 'evil-surround-delete)
 
 ;; dash
 (global-set-key "\C-cd" 'dash-at-point)
