@@ -43,10 +43,6 @@
 (setq persp-auto-save-num-of-backups 0)
 (setq persp-auto-resume-time 0)
 
-;; set default open scratch
-(when (string= "*scratch*" (buffer-name))
-  (spacemacs/switch-to-scratch-buffer))
-
 ;; add dash
 (autoload 'dash-at-point "dash-at-point"
   "search the word at point with dash." t nil)
