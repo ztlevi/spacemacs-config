@@ -61,27 +61,7 @@
 (global-set-key "\C-cd" 'dash-at-point)
 (global-set-key "\C-ce" 'dash-at-point-with-docset)
 
-;; yasnippet fix tab
-(eval-after-load 'prog-mode
-  '(progn
-     (define-key prog-mode-map (kbd "TAB")
-       (lambda()
-         (interactive)
-         (let ((yas/fallback-behavior 'return-nil))
-           (unless (yas/expand)
-             (indent-for-tab-command)
-             (if (looking-back "^\s*")
-                 (back-to-indentation))))))))
-(eval-after-load 'js2-mode
-  '(progn
-     (define-key js2-mode-map (kbd "TAB")
-       (lambda()
-         (interactive)
-         (let ((yas/fallback-behavior 'return-nil))
-           (unless (yas/expand)
-             (indent-for-tab-command)
-             (if (looking-back "^\s*")
-                 (back-to-indentation))))))))
+;; yasnippet
 (define-key yas-minor-mode-map (kbd "<C-tab>") 'yas-expand)
 (define-key evil-normal-state-local-map (kbd "SPC y r") 'yas-reload-all)
 (define-key evil-normal-state-local-map (kbd "SPC y d") 'yas-describe-tables)
