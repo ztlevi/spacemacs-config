@@ -53,8 +53,8 @@
 
 ;; set org notes dir
 (setq-default
- org-agenda-dir "~/Documents/Org-notes"
- deft-dir "~/Documents/Org-notes"
+ org-agenda-dir "~/Developer/Org-notes"
+ deft-dir "~/Developer/Org-notes"
  blog-admin-dir "")
 
 ;; ===================flycheck settings start====================
