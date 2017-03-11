@@ -3,6 +3,11 @@
 ;; =============================================================================
 
 ;; ==============================UI settings start==============================
+
+;; settings for transparent
+(set-frame-parameter (selected-frame) 'alpha '(95 . 95))
+(add-to-list 'default-frame-alist '(alpha . (95 . 95)))
+
 ;; set initl screen size
 (setq initial-frame-alist
       '(
