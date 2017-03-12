@@ -142,6 +142,14 @@
 (with-eval-after-load 'yasnippet
   (setq yas-snippet-dirs (remq 'yas-installed-snippets-dir yas-snippet-dirs)))
 
+;; define replace-dos-eol
+(defun ztlevi/replace-dos-eol ()
+  "Replace DOS eolns CR LF with Unix eolns CR"
+  (interactive)
+  (goto-char (point-min))
+  (while (search-forward "\r" nil t) (replace-match "
+")))
+
 ;; set other
 (setq zilongshanren-programming/post-init-js-doc nil)
 (setq tab-always-indent 'complete)
