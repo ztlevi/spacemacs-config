@@ -78,7 +78,8 @@
   (deactivate-mark)
   (occur "[^[:ascii:]]"))
 
-;; Wordpress Blog settings
+;; ===================Wordpress Org2Blog setting start====================
+(setq load-path (cons "~/.spacemacs.d/layers/org2blog/" load-path))
 (require 'org2blog-autoloads)
 (require 'auth-source) ;; or nothing if already in the load-path
 (setq org2blog/wp-blog-alist
@@ -94,6 +95,7 @@
            :url "https://ztlevi.wordpress.com/xmlrpc.php"
            :username ,(car credentials)
            :password ,(cadr credentials)))))
+;; ===================Wordpress Org2Blog setting end======================
 
 ;; ===================flycheck settings start====================
 ;; use web-mode for .jsx files
@@ -155,16 +157,6 @@
 (eval-after-load 'js2-mode
   '(progn
      (define-key js2-mode-map (kbd "TAB")
-       (lambda()
-         (interactive)
-         (let ((yas/fallback-behavior 'return-nil))
-           (unless (yas/expand)
-             (indent-for-tab-command)
-             (if (looking-back "^\s*")
-                 (back-to-indentation))))))))
-(eval-after-load 'org-mode
-  '(progn
-     (define-key org-mode-map (kbd "TAB")
        (lambda()
          (interactive)
          (let ((yas/fallback-behavior 'return-nil))

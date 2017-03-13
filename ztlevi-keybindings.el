@@ -52,6 +52,11 @@
 (spacemacs/set-leader-keys "on" 'occur-non-ascii)
 (spacemacs/set-leader-keys "ov" 'org-preview-html/preview)
 
+;; org2blog login
+(spacemacs/set-leader-keys "owl" 'org2blog/wp-login)
+(spacemacs/set-leader-keys "owb" 'org2blog/wp-post-buffer)
+(spacemacs/set-leader-keys "owp" 'org2blog/wp-post-buffer-and-publish)
+
 ;; ranger
 (with-eval-after-load 'ranger
   (progn
