@@ -40,6 +40,7 @@
 
 ;; SPC t l // toggle-truncate-lines
 (add-hook 'org-mode-hook 'toggle-truncate-lines)
+
 ;; ==============================UI settings end================================
 
 ;; set perspective auto save
@@ -59,7 +60,40 @@
 (setq-default
  org-agenda-dir "~/Developer/Org-notes"
  deft-dir "~/Developer/Org-notes"
- blog-admin-dir "")
+ blog-admin-dir "~/Developer/Wordpress")
+(setq org-blog-dir blog-admin-dir)
+
+;; occur non ascii, used to check non-ascii in Wordpress
+(defun occur-non-ascii ()
+  "Find any non-ascii characters in the current buffer."
+  (interactive)
+  (push (if (region-active-p)
+            (buffer-substring-no-properties
+             (region-beginning)
+             (region-end))
+          (let ((sym (thing-at-point 'symbol)))
+            (when (stringp sym)
+              (regexp-quote sym))))
+        regexp-history)
+  (deactivate-mark)
+  (occur "[^[:ascii:]]"))
+
+;; Wordpress Blog settings
+(require 'org2blog-autoloads)
+(require 'auth-source) ;; or nothing if already in the load-path
+(setq org2blog/wp-blog-alist
+      '(("my-blog"
+         :url "https://ztlevi.wordpress.com/xmlrpc.php"
+         :username "ztlevi")))
+(let (credentials)
+  ;; only required if your auth file is not already in the list of auth-sources
+  (add-to-list 'auth-sources "~/.netrc")
+  (setq credentials (auth-source-user-and-password "wp-ztlevi"))
+  (setq org2blog/wp-blog-alist
+        `(("my-blog"
+           :url "https://ztlevi.wordpress.com/xmlrpc.php"
+           :username ,(car credentials)
+           :password ,(cadr credentials)))))
 
 ;; ===================flycheck settings start====================
 ;; use web-mode for .jsx files
@@ -121,6 +155,16 @@
 (eval-after-load 'js2-mode
   '(progn
      (define-key js2-mode-map (kbd "TAB")
+       (lambda()
+         (interactive)
+         (let ((yas/fallback-behavior 'return-nil))
+           (unless (yas/expand)
+             (indent-for-tab-command)
+             (if (looking-back "^\s*")
+                 (back-to-indentation))))))))
+(eval-after-load 'org-mode
+  '(progn
+     (define-key org-mode-map (kbd "TAB")
        (lambda()
          (interactive)
          (let ((yas/fallback-behavior 'return-nil))

@@ -48,8 +48,9 @@
 ;; comment
 (global-set-key (kbd "s-/") 'comment-dwim)
 
-;; occur
-(bind-key* "M-s o" 'occur-dwim)
+;; occur 
+(spacemacs/set-leader-keys "on" 'occur-non-ascii)
+(spacemacs/set-leader-keys "ov" 'org-preview-html/preview)
 
 ;; ranger
 (with-eval-after-load 'ranger

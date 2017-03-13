@@ -96,6 +96,8 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(sicp
+                                      org2blog
+                                      org-preview-html
                                       all-the-icons
                                       all-the-icons-dired)
    ;; A list of packages that cannot be updated.
