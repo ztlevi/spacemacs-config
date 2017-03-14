@@ -141,7 +141,12 @@
 (add-hook 'c++-mode-hook 'flycheck-mode)
 (add-hook 'web-mode-hook 'flycheck-mode)
 (add-hook 'json-mode-hook 'flycheck-mode)
+
 ;; ===================flycheck settings end======================
+
+;; flyspell
+(add-hook 'org-mode-hook 'flyspell-mode)
+(add-hook 'markdown-mode-hook 'flyspell-mode)
 
 ;; yasnippet fix tab
 (eval-after-load 'prog-mode
