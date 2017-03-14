@@ -449,13 +449,19 @@ values."
                             (projectile-switch-project-by-name project)
                             (setq default-directory old-default-directory))))))
 
-  ;; load ztlevi's init.el
+  ;; load ztlevi-init.el
   ;;================================================================================
-  (setq ztlevi--file (expand-file-name "ztlevi-init.el" dotspacemacs-directory))
-  (load ztlevi--file 'no-error 'no-message)
+  (setq ztlevi-init-file (expand-file-name "ztlevi-init.el" dotspacemacs-directory))
+  (load ztlevi-init-file 'no-error 'no-message)
   ;;================================================================================
 
-  ;; load ztlevi's keybindings.el
+  ;; load ztlevi-org.el
+  ;;================================================================================
+  (setq ztlevi-org-file (expand-file-name "ztlevi-org.el" dotspacemacs-directory))
+  (load ztlevi-org-file 'no-error 'no-message)
+  ;;================================================================================
+  
+  ;; load ztlevi-keybindings.el
   ;;================================================================================
   (setq ztlevi-keybindings-file (expand-file-name "ztlevi-keybindings.el" dotspacemacs-directory))
   (load ztlevi-keybindings-file 'no-error 'no-message)

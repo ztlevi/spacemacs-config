@@ -56,47 +56,6 @@
 (require 'bookmark)
 (ranger-override-dired-mode t)
 
-;; set org notes dir
-(setq-default
- org-agenda-dir "~/Developer/Org-notes"
- deft-dir "~/Developer/Org-notes"
- blog-admin-dir "~/Developer/Wordpress")
-(setq org-blog-dir blog-admin-dir)
-
-;; occur non ascii, used to check non-ascii in Wordpress
-(defun occur-non-ascii ()
-  "Find any non-ascii characters in the current buffer."
-  (interactive)
-  (push (if (region-active-p)
-            (buffer-substring-no-properties
-             (region-beginning)
-             (region-end))
-          (let ((sym (thing-at-point 'symbol)))
-            (when (stringp sym)
-              (regexp-quote sym))))
-        regexp-history)
-  (deactivate-mark)
-  (occur "[^[:ascii:]]"))
-
-;; ===================Wordpress Org2Blog setting start====================
-(setq load-path (cons "~/.spacemacs.d/layers/org2blog/" load-path))
-(require 'org2blog-autoloads)
-(require 'auth-source) ;; or nothing if already in the load-path
-(setq org2blog/wp-blog-alist
-      '(("my-blog"
-         :url "https://ztlevi.wordpress.com/xmlrpc.php"
-         :username "ztlevi")))
-(let (credentials)
-  ;; only required if your auth file is not already in the list of auth-sources
-  (add-to-list 'auth-sources "~/.netrc")
-  (setq credentials (auth-source-user-and-password "wp-ztlevi"))
-  (setq org2blog/wp-blog-alist
-        `(("my-blog"
-           :url "https://ztlevi.wordpress.com/xmlrpc.php"
-           :username ,(car credentials)
-           :password ,(cadr credentials)))))
-;; ===================Wordpress Org2Blog setting end======================
-
 ;; ===================flycheck settings start====================
 ;; use web-mode for .jsx files
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
