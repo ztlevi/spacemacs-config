@@ -143,6 +143,18 @@
 (add-hook 'json-mode-hook 'flycheck-mode)
 ;; ===================flycheck settings end======================
 
+;; yasnippet fix tab
+(eval-after-load 'prog-mode
+  '(progn
+     (define-key prog-mode-map (kbd "TAB")
+       (lambda()
+         (interactive)
+         (let ((yas/fallback-behavior 'return-nil))
+           (unless (yas/expand)
+             (indent-for-tab-command)
+             (if (looking-back "^\s*")
+                 (back-to-indentation))))))))
+
 ;; Layout
 (defun ztlevi/load-my-layout ()
   (interactive)
