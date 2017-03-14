@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
 #name : removeChild
+#key : rc->
 # --
 ${1:document}.removeChild(${2:elem});
 

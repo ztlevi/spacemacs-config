@@ -1,4 +1,5 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: debugger
+#key : de->
 # --
 debugger;

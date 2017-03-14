@@ -1,4 +1,5 @@
 # -*- mode: snippet -*-
 #name : textContent
+#key : tc->
 # --
 ${1:document}.textContent = '${2:content}';

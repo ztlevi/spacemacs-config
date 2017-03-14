@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
 #name : immediately-invoked function expression
+#key : iife->
 # --
 (function(${1:window}, ${2:document}) {
     ${0:// body...}

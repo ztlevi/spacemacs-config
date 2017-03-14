@@ -1,4 +1,5 @@
 # -*- mode: snippet -*-
 # name: todo
+# key: todo->
 # --
 `(yas-with-comment "TODO: ")`

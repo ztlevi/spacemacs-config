@@ -1,4 +1,5 @@
 # -*- mode: snippet -*-
 #name : createElement
+#key : cel->
 # --
 ${1:document}.createElement(${2:elem});

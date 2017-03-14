@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 #name : templete
-# key: tem_
+# key: tem->
 # --
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil
 #+CATEGORY: Developer

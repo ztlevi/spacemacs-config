@@ -1,4 +1,5 @@
 # -*- mode: snippet -*-
 #name : innerHTML
+#key : ih->
 # --
 ${1:document}.innerHTML = '${2:elem}';

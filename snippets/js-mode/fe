@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
 #name : forEach
+#key : fe->
 # --
 ${1:myArray}.forEach(function(${2:elem}) {
     ${0:// body...}

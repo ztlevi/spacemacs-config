@@ -1,4 +1,5 @@
 # -*- mode: snippet -*-
 #name : getElementById
+#key : gi->
 # --
 ${1:document}.getElementById('${2:id}');

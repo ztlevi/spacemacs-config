@@ -1,4 +1,5 @@
 # -*- mode: snippet -*-
 #name : module.exports
+#key : me->
 # --
 module.exports = ${1:name};

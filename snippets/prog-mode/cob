@@ -1,6 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: sh-ow <sh-ow@users.noreply.github.com>
 # name: commentblock
+# key: cob->
 # --
 ${1:$(let* ((col (current-column))
            (str "")

@@ -1,4 +1,5 @@
 # -*- mode: snippet -*-
 #name : console.dir
+#key : cd->
 # --
 console.dir(${1:obj});

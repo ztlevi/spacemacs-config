@@ -1,4 +1,5 @@
 # -*- mode: snippet -*-
 #name : console.info
+#key : ci->
 # --
 console.info(${1:obj});

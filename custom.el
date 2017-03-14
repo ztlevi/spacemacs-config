@@ -72,7 +72,7 @@
  '(iedit-occurrence ((t (:inherit cursor))))
  '(ivy-virtual ((t (:background "skyblue"))))
  '(js2-external-variable ((t (:foreground "plum3"))))
- '(match ((t (:background "DeepSkyBlue1" :foreground "gray90" :weight bold))))
+ '(match ((t (:background "DodgerBlue" :foreground "gray90" :weight bold))))
  '(mc/cursor-bar-face ((t (:background "chartreuse3"))))
  '(show-paren-match ((t (:background "dark gray" :foreground "#d33682" :weight bold))))
  '(sp-show-pair-match-face ((t (:background "#272822" :foreground "gray" :inverse-video t :weight normal))))

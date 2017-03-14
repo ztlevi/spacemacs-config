@@ -1,4 +1,5 @@
 # -*- mode: snippet -*-
 #name : JSON.parse
+#key : jp->
 # --
 JSON.parse(${1:obj});

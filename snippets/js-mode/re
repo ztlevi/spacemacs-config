@@ -1,4 +1,5 @@
 # -*- mode: snippet -*-
 #name : require
+#key : re->
 # --
 require('${1:module}');

@@ -1,4 +1,5 @@
 # -*- mode: snippet -*-
 #name : prompt
+#key : pm->
 # --
 prompt('${1:msg}');

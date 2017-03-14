@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
 #name : it synchronous
+#key : its->
 # --
 it('${1:description}', function() {
     ${0:// body...}

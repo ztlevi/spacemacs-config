@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
 #name : setTimeout
+#key : st->
 # --
 setTimeout(function() {
     ${0:// body...}

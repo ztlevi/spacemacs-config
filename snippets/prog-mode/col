@@ -1,6 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: sh-ow <sh-ow@users.noreply.github.com>
 # name: commentline
+# key: col->
 # --
 ${1:$(yas-trimmed-comment-start)} ${1:comment} ${1:$(let* ((str "")
                                                (curr (current-column))

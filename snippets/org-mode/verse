@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: verse
-# key: verse_
+# key: verse->
 # --
 #+begin_verse
         $0
