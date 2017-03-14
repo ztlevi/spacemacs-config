@@ -1,5 +1,5 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: assert
-# key: as
+# key: as->
 # --
 assert ${1:expression};

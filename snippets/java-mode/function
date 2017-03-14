@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: method
-# key: m
+# name: function
+# key: fn->
 # --
 ${1:public} ${2:void} ${3:name}(${4:args}) {
             $0
