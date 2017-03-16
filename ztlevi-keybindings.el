@@ -2,7 +2,7 @@
 ;; define the emacs move keys in evil-mode
 (define-key evil-insert-state-map (kbd "C-d") 'evil-delete-char)
 ;; (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char)
-(define-key evil-insert-state-map (kbd "C-k") 'evil-delete-line)
+(define-key evil-insert-state-map (kbd "C-k") 'kill-line)
 (define-key evil-insert-state-map (kbd "C-a") 'evil-first-non-blank)
 (define-key evil-insert-state-map (kbd "C-e") 'evil-end-of-line)
 (define-key evil-normal-state-map "\C-e" 'evil-end-of-line)
