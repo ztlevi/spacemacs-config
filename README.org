@@ -1,5 +1,10 @@
 * My personal Emacs configuration
-My Spacemacs configuration is based on zilongshanren.
+My Spacemacs configuration is based on [[https://github.com/zilongshanren/spacemacs-private][zilongshanren]].
+
+** Installation on Mac
+1. Install [[https://github.com/railwaycat/homebrew-emacsmacport][Emacs-mac]]. Make a symbolic alias, e.g. ~ln -s /usr/local/Cellar/emacs-mac/emacs-25.2-rc1-mac-6.2/Emacs.app /Applications/Emacs.app~ 
+2. Install spacemacs: ~git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d~
+3. Install Ubuntu Mono font
 
 ** What's the highlight of this configuration
 1. It's a highly customize optimized Spacemacs configuration, it's relied on the develop branch of the officially Spacemacs.
