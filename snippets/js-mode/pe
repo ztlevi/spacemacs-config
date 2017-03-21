@@ -2,4 +2,4 @@
 #name : process.exit
 #key : pe->
 # --
-process.exit(${1:code});
+process.exit(${1:code})

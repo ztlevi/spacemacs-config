@@ -2,4 +2,4 @@
 #name : getAttribute
 #key : ga->
 # --
-${1:document}.getAttribute('${2:attr}');
+${1:document}.getAttribute('${2:attr}')

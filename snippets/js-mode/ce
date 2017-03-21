@@ -2,4 +2,4 @@
 #name : console.error
 #key : ce->
 # --
-console.error(${1:obj});
+console.error(${1:obj})

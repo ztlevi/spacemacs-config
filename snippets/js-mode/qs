@@ -2,4 +2,4 @@
 #name : querySelector
 #key : qs->
 # --
-${1:document}.querySelector('${2:selector}');
+${1:document}.querySelector('${2:selector}')

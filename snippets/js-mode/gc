@@ -2,4 +2,4 @@
 #name : getElementsByClassName
 #key : gc->
 # --
-${1:document}.getElementsByClassName('${2:class}');
+${1:document}.getElementsByClassName('${2:class}')

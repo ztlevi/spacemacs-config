@@ -39,7 +39,7 @@
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
 ;; SPC t l // toggle-truncate-lines
-(add-hook 'org-mode-hook 'toggle-truncate-lines)
+(add-hook 'text-mode-hook 'toggle-truncate-lines)
 
 ;; ==============================UI settings end================================
 

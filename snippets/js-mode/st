@@ -4,4 +4,4 @@
 # --
 setTimeout(function() {
     ${0:// body...}
-}, ${1:delay});
+}, ${1:delay})

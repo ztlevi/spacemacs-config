@@ -2,4 +2,4 @@
 #name : JSON.stringify
 #key : js->
 # --
-JSON.stringify(${1:obj});
+JSON.stringify(${1:obj})

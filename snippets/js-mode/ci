@@ -2,4 +2,4 @@
 #name : console.info
 #key : ci->
 # --
-console.info(${1:obj});
+console.info(${1:obj})

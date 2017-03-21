@@ -2,4 +2,4 @@
 #name : require
 #key : re->
 # --
-require('${1:module}');
+require('${1:module}')

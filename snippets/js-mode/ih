@@ -2,4 +2,4 @@
 #name : innerHTML
 #key : ih->
 # --
-${1:document}.innerHTML = '${2:elem}';
+${1:document}.innerHTML = '${2:elem}'

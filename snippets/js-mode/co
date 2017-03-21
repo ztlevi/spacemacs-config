@@ -2,4 +2,4 @@
 #name : confirm
 #key : co->
 # --
-confirm('${1:msg}');
+confirm('${1:msg}')

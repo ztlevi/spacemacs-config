@@ -2,4 +2,4 @@
 #name : module.exports
 #key : me->
 # --
-module.exports = ${1:name};
+module.exports = ${1:name}

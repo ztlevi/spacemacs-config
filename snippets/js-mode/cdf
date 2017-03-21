@@ -2,4 +2,4 @@
 #name : createDocumentFragment
 #key : cdf->
 # --
-${1:document}.createDocumentFragment();
+${1:document}.createDocumentFragment()

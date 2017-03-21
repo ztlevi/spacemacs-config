@@ -4,4 +4,4 @@
 # --
 describe('${1:description}', function() {
     ${0:// body...}
-});
+})

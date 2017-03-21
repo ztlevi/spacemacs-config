@@ -2,4 +2,4 @@
 #name : it pending
 #key : itp->
 # --
-it('${1:description}');
+it('${1:description}')
