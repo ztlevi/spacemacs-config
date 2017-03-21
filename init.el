@@ -341,7 +341,7 @@ values."
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
    dotspacemacs-whitespace-cleanup nil)
-)
+  )
 
 (defun dotspacemacs/user-init ()
   ;; https://github.com/syl20bnr/spacemacs/issues/2705
@@ -476,4 +476,4 @@ values."
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
-)
+  )

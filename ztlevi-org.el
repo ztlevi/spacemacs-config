@@ -26,8 +26,8 @@
 
 ;; ===================Wordpress Org2Blog setting start====================
 (setq load-path (cons "~/.spacemacs.d/layers/org2blog/" load-path))
-(require 'org2blog-autoloads)
-(require 'auth-source) ;; or nothing if already in the load-path
+(use-package org2blog-autoloads)
+(use-package auth-source) ;; or nothing if already in the load-path
 (setq org2blog/wp-blog-alist
       '(("my-blog"
          :url "https://ztlevi.wordpress.com/xmlrpc.php"

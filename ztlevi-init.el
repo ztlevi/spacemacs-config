@@ -53,7 +53,7 @@
   "search the word at point with dash." t nil)
 
 ;; ranger mode fix
-(require 'bookmark)
+(use-package bookmark)
 (ranger-override-dired-mode t)
 
 ;; ===================flycheck settings start====================
@@ -61,7 +61,7 @@
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 
 ;; http://www.flycheck.org/manual/latest/index.html
-(require 'flycheck)
+(use-package flycheck)
 
 ;; disable jshint since we prefer eslint checking
 (setq-default flycheck-disabled-checkers
