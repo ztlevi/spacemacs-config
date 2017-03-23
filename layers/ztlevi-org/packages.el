@@ -1,10 +1,25 @@
+;;; packages.el --- ztlevi-ui layer packages file for Spacemacs.
+;;
+;; Copyright (c) 2016-2017 ztlevi
+;;
+;; Author: ztlevi <zhouting@umich.edu>
+;; URL: https://github.com/ztlevi/Spacemacs-config
+;;
+;; This file is not part of GNU Emacs.
+;;
+;;; License: GPLv3
+
 (defconst ztlevi-org-packages
   '(
+    ;; org-preview-html
     (org2blog location: local)
     )
   )
 
-(defun ztlevi-org/init-org2blog()
+;; (defun ztlevi-org/init-org-preview-html ()
+;;   (use-package org-preview-html))
+
+(defun ztlevi-org/init-org2blog ()
   (use-package org2blog
     :defer t
     :config
