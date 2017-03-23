@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     dash
      version-control
      php
      ivy
@@ -117,6 +118,7 @@ values."
                     helm-themes helm-swoop helm-spacemacs-help smeargle
                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
                     window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
+                    counsel-dash helm-dash
                     )
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))

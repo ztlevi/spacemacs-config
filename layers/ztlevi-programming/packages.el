@@ -11,25 +11,16 @@
 
 (defconst ztlevi-programming-packages
   '(
-    (dash-at-point location: local)
     flycheck
     )
   )
 
-(defun ztlevi-programming/init-dash-at-point ()
-  (use-package dash-at-point
-    :init
-    (autoload 'dash-at-point "dash-at-point"
-      "Search the word at point with Dash." t nil)
-    ))
-
 (defun ztlevi-programming/post-init-flycheck()
-  (use-package flycheck
-    :init
-    ;; use web-mode for .jsx files
-    (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
-    :config
+  (eval-after-load 'flycheck
     (progn
+      ;; use web-mode for .jsx files
+      (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+
       ;; disable jshint since we prefer eslint checking
       (setq-default flycheck-disabled-checkers
                     (append flycheck-disabled-checkers
