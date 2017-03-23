@@ -72,10 +72,10 @@
  '(iedit-occurrence ((t (:inherit cursor))))
  '(ivy-virtual ((t (:background "skyblue"))))
  '(js2-external-variable ((t (:foreground "plum3"))))
- '(lazy-highlight ((t (:background "DodgerBlue" :foreground "#fdf6e3" :weight normal))))
- '(match ((t (:background "DodgerBlue" :foreground "black" :weight bold))))
+ ;; '(lazy-highlight ((t (:background "DodgerBlue" :foreground "#fdf6e3"))))
+ '(match ((t (:foreground "#b58900" :background "#fdf6e3" :weight bold))))
  '(mc/cursor-bar-face ((t (:background "chartreuse3"))))
- '(show-paren-match ((t (:background "dark gray" :foreground "#d33682" :weight bold))))
+ '(show-paren-match ((t (:background "dark gray" :foreground "#d33682"))))
  '(sp-show-pair-match-face ((t (:background "#272822" :foreground "gray" :inverse-video t :weight normal))))
  '(web-mode-current-element-highlight-face ((t (:background "dark gray")))))
 ;; Do not write anything past this comment. This is where Emacs will
