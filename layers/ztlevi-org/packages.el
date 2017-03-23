@@ -11,13 +11,14 @@
 
 (defconst ztlevi-org-packages
   '(
-    ;; org-preview-html
+    org-preview-html
     (org2blog location: local)
     )
   )
 
-;; (defun ztlevi-org/init-org-preview-html ()
-;;   (use-package org-preview-html))
+(defun ztlevi-org/init-org-preview-html ()
+  (use-package org-preview-html
+    :defer t))
 
 (defun ztlevi-org/init-org2blog ()
   (use-package org2blog

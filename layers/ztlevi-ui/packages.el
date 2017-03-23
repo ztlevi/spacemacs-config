@@ -11,16 +11,18 @@
 
 (defconst ztlevi-ui-packages
   '(
-    ;; all-the-icons-dired
+    all-the-icons-dired
     all-the-icons
     )
   )
 
-;; (defun ztlevi-ui/init-all-the-icons-dired ()
-;;   (use-package all-the-icons-dired))
+(defun ztlevi-ui/init-all-the-icons-dired ()
+  (use-package all-the-icons-dired
+    :defer t))
 
 (defun ztlevi-ui/init-all-the-icons ()
   (use-package all-the-icons
+    :defer t
     :init
     (progn
       (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
