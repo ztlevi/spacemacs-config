@@ -34,10 +34,6 @@
 (setq fci-rule-color "grey80")
 (add-hook 'prog-mode-hook 'fci-mode)
 
-;; set all-the-icons
-(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
-
 ;; SPC t l // toggle-truncate-lines
 (add-hook 'text-mode-hook 'toggle-truncate-lines)
 
@@ -48,60 +44,9 @@
 (setq persp-auto-save-num-of-backups 0)
 (setq persp-auto-resume-time 0)
 
-;; add dash
-(autoload 'dash-at-point "dash-at-point"
-  "search the word at point with dash." t nil)
-
 ;; ranger mode fix
 (use-package bookmark)
 (ranger-override-dired-mode t)
-
-;; ===================flycheck settings start====================
-;; use web-mode for .jsx files
-(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
-
-;; http://www.flycheck.org/manual/latest/index.html
-(use-package flycheck)
-
-;; disable jshint since we prefer eslint checking
-(setq-default flycheck-disabled-checkers
-              (append flycheck-disabled-checkers
-                      '(javascript-jshint)))
-
-;; use eslint with web-mode for jsx files
-(flycheck-add-mode 'javascript-eslint 'web-mode)
-
-;; customize flycheck temp file prefix
-(setq-default flycheck-temp-prefix ".flycheck")
-
-;; disable json-jsonlist checking for json files
-(setq-default flycheck-disabled-checkers
-              (append flycheck-disabled-checkers
-                      '(json-jsonlist)))
-
-;; https://github.com/purcell/exec-path-from-shell
-;; only need exec-path-from-shell on OSX
-;; this hopefully sets up path and other vars better
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
-
-;; for better jsx syntax-highlighting in web-mode
-;; - courtesy of Patrick @halbtuerke
-(defadvice web-mode-highlight-part (around tweak-jsx activate)
-  (if (equal web-mode-content-type "jsx")
-      (let ((web-mode-enable-part-face nil))
-        ad-do-it)
-    ad-do-it))
-
-;; c++
-(add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++11")))
-
-;; Enable for other modes
-(add-hook 'c++-mode-hook 'flycheck-mode)
-(add-hook 'web-mode-hook 'flycheck-mode)
-(add-hook 'json-mode-hook 'flycheck-mode)
-
-;; ===================flycheck settings end======================
 
 ;; flyspell
 (add-hook 'org-mode-hook 'flyspell-mode)

@@ -86,10 +86,10 @@ values."
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode)
      zilongshanren
+     ztlevi
      (chinese :packages youdao-dictionary fcitx
               :variables chinese-enable-fcitx nil
               chinese-enable-youdao-dict t)
-     dash
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -454,19 +454,6 @@ values."
   (setq ztlevi-init-file (expand-file-name "ztlevi-init.el" dotspacemacs-directory))
   (load ztlevi-init-file 'no-error 'no-message)
   ;;================================================================================
-
-  ;; load ztlevi-org.el
-  ;;================================================================================
-  (setq ztlevi-org-file (expand-file-name "ztlevi-org.el" dotspacemacs-directory))
-  (load ztlevi-org-file 'no-error 'no-message)
-  ;;================================================================================
-  
-  ;; load ztlevi-keybindings.el
-  ;;================================================================================
-  (setq ztlevi-keybindings-file (expand-file-name "ztlevi-keybindings.el" dotspacemacs-directory))
-  (load ztlevi-keybindings-file 'no-error 'no-message)
-  ;;================================================================================
-
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
