@@ -37,14 +37,17 @@
                     (append flycheck-disabled-checkers
                             '(json-jsonlist)))
 
+      ;; add c++ flycheck standard
+      (add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++11")))
+
       ;; https://github.com/purcell/exec-path-from-shell
       ;; only need exec-path-from-shell on OSX
       ;; this hopefully sets up path and other vars better
       (when (memq window-system '(mac ns))
         (exec-path-from-shell-initialize))
 
-      ;; for better jsx syntax-highlighting in web-mode
-      ;; - courtesy of Patrick @halbtuerke
+      for better jsx syntax-highlighting in web-mode
+      - courtesy of Patrick @halbtuerke
       (defadvice web-mode-highlight-part (around tweak-jsx activate)
         (if (equal web-mode-content-type "jsx")
             (let ((web-mode-enable-part-face nil))
