@@ -16,9 +16,8 @@
   )
 
 (defun ztlevi-programming/post-init-flycheck()
-  (eval-after-load 'flycheck
-    (progn
-      ;; use web-mode for .jsx files
+  (progn
+    ;; use web-mode for .jsx files
       (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 
       ;; disable jshint since we prefer eslint checking
@@ -46,12 +45,11 @@
       (when (memq window-system '(mac ns))
         (exec-path-from-shell-initialize))
 
-      for better jsx syntax-highlighting in web-mode
-      - courtesy of Patrick @halbtuerke
+      ;; for better jsx syntax-highlighting in web-mode
       (defadvice web-mode-highlight-part (around tweak-jsx activate)
         (if (equal web-mode-content-type "jsx")
             (let ((web-mode-enable-part-face nil))
               ad-do-it)
           ad-do-it))
-      ))
+    )
   )
