@@ -5,3 +5,15 @@
 
 ;; ctags add hook
 (add-hook 'java-mode-hook 'my-setup-develop-environment)
+
+;; yasnippet fix tab
+(eval-after-load 'prog-mode
+  '(progn
+     (define-key prog-mode-map (kbd "TAB")
+       (lambda()
+         (interactive)
+         (let ((yas/fallback-behavior 'return-nil))
+           (unless (yas/expand)
+             (indent-for-tab-command)
+             (if (looking-back "^\s*")
+                 (back-to-indentation))))))))

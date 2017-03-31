@@ -11,7 +11,7 @@ brew install emacs-mac --with-spacemacs-icon --HEAD --with-gnutls
 
 Note: ~--with-gnutls~ is used to support ssl
 
-Make a symbolic alias, e.g. ~ln -s /usr/local/Cellar/emacs-mac/HEAD-7403929/Emacs.app /Applications/Emacs.app~
+Put emacs-mac in the Applications folder by using ~brew linkapps emacs-mac~.
 
 2. Install spacemacs: ~git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d~
 3. Install Ubuntu Mono font

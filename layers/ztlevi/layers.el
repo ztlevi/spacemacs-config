@@ -11,6 +11,8 @@
 
 (configuration-layer/declare-layers '(
                                       ztlevi-org
-                                      ztlevi-ui
+                                      ztlevi-misc
                                       ztlevi-programming
+                                      ztlevi-ui
+                                      ztlevi-better-defaults
                                       ))

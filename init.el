@@ -100,25 +100,24 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
-   '(
-     magit-gh-pulls magit-gitflow org-projectile evil-mc
-     evil-args evil-ediff evil-exchange evil-unimpaired
-     evil-indent-plus volatile-highlights smartparens
-     spaceline holy-mode skewer-mode rainbow-delimiters
-     highlight-indentation vi-tilde-fringe eyebrowse
-     org-bullets org-repo-todo org-download org-timer
-     livid-mode git-gutter git-gutter-fringe smooth-scrolling
-     leuven-theme gh-md evil-lisp-state spray lorem-ipsum
-     ac-ispell ace-jump-mode auto-complete auto-dictionary
-     clang-format define-word google-translate disaster epic
-     fancy-battery org-present orgit orglue spacemacs-theme
-     helm-flyspell flyspell-correct-helm clean-aindent-mode
-     helm-c-yasnippet ace-jump-helm-line helm-make magithub
-     helm-themes helm-swoop helm-spacemacs-help smeargle
-     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
-     window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
-     counsel-dash helm-dash
-     )
+   '(magit-gh-pulls magit-gitflow org-projectile evil-mc
+                    evil-args evil-ediff evil-exchange evil-unimpaired
+                    evil-indent-plus volatile-highlights smartparens
+                    spaceline holy-mode skewer-mode rainbow-delimiters
+                    highlight-indentation vi-tilde-fringe eyebrowse
+                    org-bullets org-repo-todo org-download org-timer
+                    livid-mode git-gutter git-gutter-fringe smooth-scrolling
+                    leuven-theme gh-md evil-lisp-state spray lorem-ipsum
+                    ac-ispell ace-jump-mode auto-complete auto-dictionary
+                    clang-format define-word google-translate disaster epic
+                    fancy-battery org-present orgit orglue spacemacs-theme
+                    helm-flyspell flyspell-correct-helm clean-aindent-mode
+                    helm-c-yasnippet ace-jump-helm-line helm-make magithub
+                    helm-themes helm-swoop helm-spacemacs-help smeargle
+                    ido-vertical-mode flx-ido company-quickhelp counsel-projectile
+                    window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
+                    counsel-dash helm-dash
+                    )
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
 
@@ -455,11 +454,14 @@ values."
                             (projectile-switch-project-by-name project)
                             (setq default-directory old-default-directory))))))
 
-  ;; load ztlevi-init.el
-  ;;================================================================================
-  (setq ztlevi-init-file (expand-file-name "ztlevi-init.el" dotspacemacs-directory))
-  (load ztlevi-init-file 'no-error 'no-message)
-  ;;================================================================================
+  ;; =======================ztlevi's personal settings==========================
+  ;; settings for transparent
+  (spacemacs/toggle-transparency)
+
+  ;; set evil state cursor
+  (setq evil-normal-state-cursor '("#ff007f" box))
+  (setq evil-insert-state-cursor '("#ff007f" (bar . 2)))
+
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
