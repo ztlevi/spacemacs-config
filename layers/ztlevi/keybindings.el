@@ -11,15 +11,9 @@
 
 ;; ================================Evil Mode Start===============================
 ;; define the emacs move keys in evil-mode
-(define-key evil-insert-state-map (kbd "C-d") 'evil-delete-char)
 ;; (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char)
-(define-key evil-insert-state-map (kbd "C-k") 'kill-line)
-(define-key evil-insert-state-map (kbd "C-a") 'evil-first-non-blank)
-(define-key evil-insert-state-map (kbd "C-e") 'evil-end-of-line)
-(define-key evil-normal-state-map "\C-e" 'evil-end-of-line)
-(define-key evil-visual-state-map "\C-e" 'evil-end-of-line)
-(define-key evil-insert-state-map (kbd "C-n") 'evil-next-line)  
-(define-key evil-insert-state-map (kbd "C-p") 'evil-previous-line)
+;; (define-key evil-normal-state-map "\C-e" 'evil-end-of-line)
+;; (define-key evil-visual-state-map "\C-e" 'evil-end-of-line)
 (setq-default evil-escape-key-sequence "jk")
 (setq-default evil-escape-delay 0.2)
 
