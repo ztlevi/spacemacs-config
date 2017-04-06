@@ -20,5 +20,6 @@
     ;; (use-package bookmark
     ;;   :defer)
     ;; ranger replace dired-mode
+    (use-package diff-hl-dired)
     (ranger-override-dired-mode t)
     ))
