@@ -19,7 +19,6 @@
 ;; File colum indicator 80 chars
 (setq-default fci-rule-column 81)
 (setq fci-rule-color "grey80")
-(add-hook 'prog-mode-hook 'fci-mode)
 
 ;; SPC t l // toggle-truncate-lines
 (add-hook 'text-mode-hook 'toggle-truncate-lines)

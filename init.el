@@ -462,6 +462,10 @@ values."
   (setq evil-normal-state-cursor '("#ff007f" box))
   (setq evil-insert-state-cursor '("#ff007f" (bar . 2)))
 
+  ;; void-function fci-mode issue when installing packages
+  ;; https://github.com/syl20bnr/spacemacs/issues/3400
+  (add-hook 'prog-mode-hook 'fci-mode)
+
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
