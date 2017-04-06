@@ -14,8 +14,9 @@ My Spacemacs configuration is based on [[https://github.com/zilongshanren/spacem
   Put emacs-mac in the Applications folder by using ~brew linkapps emacs-mac~.
 
 2. Install spacemacs: ~git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d~
-3. Install Ubuntu Mono font
-4. Solution to incoming network connection:
+3. Clone my configuration: ~git clone https://github.com/ztlevi/Spacemacs-config.git ~/.spacemacs.d~
+4. Install Ubuntu Mono font
+5. Solution to incoming network connection:
    
   Codesign your Emacs.app
 
