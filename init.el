@@ -386,8 +386,6 @@ values."
   (setq split-width-threshold 120)
   (linum-relative-on)
 
-  (spacemacs|add-company-backends :modes text-mode)
-
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
   ;; temp fix for ivy-switch-buffer
@@ -466,6 +464,20 @@ values."
   ;; https://github.com/syl20bnr/spacemacs/issues/3400
   (add-hook 'prog-mode-hook 'fci-mode)
 
+  ;; Config for different system
+  (cond
+   ((string-equal system-type "darwin") ; Mac OS X
+    (progn
+      (message "Mac OS X")
+      ;; This currently only work for mac
+      (spacemacs|add-company-backends :modes text-mode)
+      ))
+   ((string-equal system-type "gnu/linux") ; linux
+    (progn
+      (message "Linux")))
+  ((string-equal system-type "windows-nt") ; Microsoft Windows
+   (progn
+     (message "Microsoft Windows"))))
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
