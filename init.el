@@ -116,7 +116,7 @@ values."
                     helm-themes helm-swoop helm-spacemacs-help smeargle
                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
                     window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
-                    counsel-dash helm-dash
+                    counsel-dash helm-dash bracketed-paste
                     )
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
@@ -365,6 +365,19 @@ values."
   )
 
 (defun dotspacemacs/user-config ()
+  ;; ======================Config for different system==========================
+  (cond
+   ((string-equal system-type "darwin") ; Mac OS X
+    (progn
+      (message "Mac OS X")
+      ))
+   ((string-equal system-type "gnu/linux") ; linux
+    (progn
+      (message "Linux")))
+   ((string-equal system-type "windows-nt") ; Microsoft Windows
+    (progn
+      (message "Microsoft Windows"))))
+
   ;;解决org表格里面中英文对齐的问题
   (when (configuration-layer/layer-usedp 'chinese)
     (when (and (spacemacs/system-is-mac) window-system)
@@ -385,6 +398,8 @@ values."
   ;; force horizontal split window
   (setq split-width-threshold 120)
   (linum-relative-on)
+
+  (spacemacs|add-company-backends :modes text-mode)
 
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
@@ -464,20 +479,6 @@ values."
   ;; https://github.com/syl20bnr/spacemacs/issues/3400
   (add-hook 'prog-mode-hook 'fci-mode)
 
-  ;; Config for different system
-  (cond
-   ((string-equal system-type "darwin") ; Mac OS X
-    (progn
-      (message "Mac OS X")
-      ;; This currently only work for mac
-      (spacemacs|add-company-backends :modes text-mode)
-      ))
-   ((string-equal system-type "gnu/linux") ; linux
-    (progn
-      (message "Linux")))
-  ((string-equal system-type "windows-nt") ; Microsoft Windows
-   (progn
-     (message "Microsoft Windows"))))
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
