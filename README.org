@@ -27,6 +27,13 @@ My Spacemacs configuration is based on [[https://github.com/zilongshanren/spacem
   codesign --deep --force --verbose --sign ztlevi /usr/local/Cellar/emacs-mac/HEAD-7403929/Emacs.app~
   #+END_SRC
 
+** Installation on Linux
+  #+BEGIN_SRC shell
+  sudo add-apt-repository -y ppa:ubuntu-elisp
+  sudo apt-get update
+  sudo apt-get install emacs-snapshot
+  #+END_SRC
+
 ** What's the highlight of this configuration
 1. It's a highly customize optimized Spacemacs configuration, it's relied on the develop branch of the officially Spacemacs.
 2. I prefer to the =Ivy= completion interface, so I removed many helm related packages but keep the =helm-ag= package. The =counsel-ag= counterpart is not powerful as =helm-ag=.
