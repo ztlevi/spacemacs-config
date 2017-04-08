@@ -90,3 +90,6 @@
 ;; layout keybindings
 (spacemacs/set-leader-keys "oll" 'ztlevi/load-my-layout)
 (spacemacs/set-leader-keys "ols" 'ztlevi/save-my-layout)
+
+;; debug
+(define-key emacs-lisp-mode-map (kbd "<C-x> <C-e>") 'pp-eval-last-sexp)
