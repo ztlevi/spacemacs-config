@@ -11,7 +11,7 @@
 
 ;; set org notes dir
 (setq-default
- org-agenda-dir "~/Developer/Org-notes"
- deft-dir "~/Developer/Org-notes"
- blog-admin-dir "~/Developer/Wordpress")
+ org-agenda-dir "~/Dropbox/Org-Notes"
+ deft-dir "~/Dropbox/Org-Notes"
+ blog-admin-dir "~/Dropbox/Wordpress")
 (setq org-blog-dir blog-admin-dir)
