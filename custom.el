@@ -55,6 +55,7 @@
      (eval setenv "PYTHONPATH" "/Users/guanghui/cocos2d-x/tools/cocos2d-console/plugins:/Users/guanghui/cocos2d-x/tools/cocos2d-console/bin"))))
  '(sp-show-pair-from-inside t t)
  '(tags-revert-without-query t)
+ '(use-package-verbose t)
  '(vc-follow-symlinks t)
  '(web-mode-markup-indent-offset 2)
  '(ycmd-extra-conf-handler (quote load))

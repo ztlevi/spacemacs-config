@@ -1,0 +1,8 @@
+#contributor: ztlevi
+#name: test load time
+#key: time
+# --
+
+(let ((now (current-time)))
+     ($0)
+  (float-time (time-subtract (current-time) now)))
