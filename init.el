@@ -478,7 +478,13 @@ values."
   ;; void-function fci-mode issue when installing packages
   ;; https://github.com/syl20bnr/spacemacs/issues/3400
   (add-hook 'prog-mode-hook 'fci-mode)
-
+  (defun fci-mode-override-advice (&rest args))
+  (advice-add 'org-html-fontify-code :around
+              (lambda (fun &rest args)
+                (advice-add 'fci-mode :override #'fci-mode-override-advice)
+                (let ((result  (apply fun args)))
+                  (advice-remove 'fci-mode #'fci-mode-override-advice)
+                  result)))
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
