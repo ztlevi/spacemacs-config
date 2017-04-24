@@ -1,45 +1,61 @@
 * My personal Emacs configuration
-My Spacemacs configuration is based on [[https://github.com/zilongshanren/spacemacs-private][zilongshanren]].
+  My Spacemacs configuration is based on [[https://github.com/zilongshanren/spacemacs-private][zilongshanren]].
 
 ** Installation on Mac
-1. Install [[https://github.com/railwaycat/homebrew-emacsmacport][Emacs-mac]].
+   1. Install [[https://github.com/railwaycat/homebrew-emacsmacport][Emacs-mac]].
 
-  #+BEGIN_SRC shell
-  brew tap railwaycat/emacsmacport
-  brew install emacs-mac --with-spacemacs-icon --HEAD --with-gnutls
-  #+END_SRC
+      #+BEGIN_SRC shell
+     brew tap railwaycat/emacsmacport
+     brew install emacs-mac --with-spacemacs-icon --HEAD --with-gnutls
+     # Put emacs-mac in the Applications folder 
+     brew linkapps emacs-mac
+      #+END_SRC
 
-  Note: ~--with-gnutls~ is used to support ssl
+      Note: ~--with-gnutls~ is used to support ssl.
 
-  Put emacs-mac in the Applications folder by using ~brew linkapps emacs-mac~.
+      or
 
-2. Install spacemacs: ~git clone https://github.com/syl20bnr/spacemacs -b develop ~/.emacs.d~
-3. Clone my configuration: ~git clone https://github.com/ztlevi/Spacemacs-config.git ~/.spacemacs.d~
-4. Install Ubuntu Mono font
-5. Solution to incoming network connection:
-   
-  Codesign your Emacs.app
+      #+BEGIN_SRC shell
+     brew tap railwaycat/emacsmacport
+     # Automatically put the app in the Applications folder
+     brew cask install emacs-mac
+      #+END_SRC
 
-  Instructions over [[http://apple.stackexchange.com/questions/3271/how-to-get-rid-of-firewall-accept-incoming-connections-dialog/170566][here]].
 
-  Sample shell command:
-  #+BEGIN_SRC shell
-  codesign --deep --force --verbose --sign ztlevi /usr/local/Cellar/emacs-mac/HEAD-7403929/Emacs.app~
-  #+END_SRC
+   2. Install spacemacs: 
+      #+BEGIN_SRC shell
+     git clone https://github.com/syl20bnr/spacemacs -b develop ~/.emacs.d~
+      #+END_SRC
+   3. Clone my configuration:
+      #+BEGIN_SRC shell
+       git clone https://github.com/ztlevi/Spacemacs-config.git ~/.spacemacs.d~
+      #+END_SRC
+   4. Install Ubuntu Mono font
+   5. Solution to incoming network connection:
+
+      Codesign your Emacs.app
+
+      Instructions over [[http://apple.stackexchange.com/questions/3271/how-to-get-rid-of-firewall-accept-incoming-connections-dialog/170566][here]].
+
+      Sample shell command:
+      #+BEGIN_SRC shell
+     codesign --deep --force --verbose --sign ztlevi /usr/local/Cellar/emacs-mac/HEAD-7403929/Emacs.app~
+      #+END_SRC
 
 ** Installation on Linux
-  #+BEGIN_SRC shell
+   #+BEGIN_SRC shell
   sudo add-apt-repository -y ppa:ubuntu-elisp
   sudo apt-get update
   sudo apt-get install emacs-snapshot
-  #+END_SRC
+   #+END_SRC
 
 ** What's the highlight of this configuration
-1. It's a highly customize optimized Spacemacs configuration, it's relied on the develop branch of the officially Spacemacs.
-2. I prefer to the =Ivy= completion interface, so I removed many helm related packages but keep the =helm-ag= package. The =counsel-ag= counterpart is not powerful as =helm-ag=.
-3. I also removed some packages I don't have any chance to use. The complete lists are in the exclude section of the =init.el= file.
-4. I also exclude the =Spaceline= package, cause it's easy to frozen the Emacs with this package enabled. So I create my own mode line configuration based =Spaceline=.
-5. The =Swiper= package sometimes frozen the Emacs UI only when you split the window. You could use `pkill -SIGUSR2 -i emacs` command line to rescue.
+   1. It's a highly customize optimized Spacemacs configuration, it's relied on the develop branch of the officially Spacemacs.
+   2. I prefer to the =Ivy= completion interface, so I removed many helm related packages but keep the =helm-ag= package. The =counsel-ag= counterpart is not powerful as =helm-ag=.
+   3. I also removed some packages I don't have any chance to use. The complete lists are in the exclude section of the =init.el= file.
+   4. I also exclude the =Spaceline= package, cause it's easy to frozen the Emacs with this package enabled. So I create my own mode line configuration based =Spaceline=.
+   5. The =Swiper= package sometimes frozen the Emacs UI only when you split the window. You could use `pkill -SIGUSR2 -i emacs` command line to rescue.
 
 ** Happing Hacking
-1. The live server "simple-httpd" port is set to be 48080 in the custom.el. So the testing page for this live server is http://localhost:48080/imp .
+   1. The live server "simple-httpd" port is set to be 48080 in the custom.el. So the testing page for this live server is http://localhost:48080/imp .
+      
