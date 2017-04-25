@@ -17,10 +17,13 @@
 
       #+BEGIN_SRC shell
       brew tap railwaycat/emacsmacport
-      # Automatically put the app in the Applications folder
+      # Automatically put the app in the Applications folder 
+      # and do not need sign the app
       brew cask install emacs-mac
       #+END_SRC
 
+      or download the releases(with different icons) from [[https://github.com/railwaycat/homebrew-emacsmacport/releases][here]].
+      
    2. Install spacemacs: 
       #+BEGIN_SRC shell
       git clone https://github.com/syl20bnr/spacemacs -b develop ~/.emacs.d~
