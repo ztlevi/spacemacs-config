@@ -25,4 +25,7 @@
       (message "load tags for TRIdemo...")
       (setq tags-table-list
             (list (my-create-tags-if-needed "/Users/ztlevi/Sites/TRIdemo/app"))))
+     ((my-project-name-contains-substring "Leetcode/Code/Java")
+      (message "load tags for Leetcode Java repo...")
+      (setq tags-table-list (list (my-create-tags-if-needed "~/Developer/Leetcode/Code/Java"))))
      )))

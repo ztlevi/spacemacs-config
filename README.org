@@ -68,6 +68,8 @@
         (setq tags-table-list
         (list (my-create-tags-if-needed "/Users/ztlevi/Sites/TRIdemo/app"))))
       #+END_SRC
+        
+        Or ~cd /path/to/my/project~, ~ctags -e -R .~ and manually use *select-tag-table* function to select TAGS(set the tags-table-list value).
 
    3. If you want to use Wordpress org2blog, something needs to be changed in the *init-org2blog()* function.
       
