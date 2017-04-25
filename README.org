@@ -1,58 +1,36 @@
 * My personal Emacs configuration
   My Spacemacs configuration is based on [[https://github.com/zilongshanren/spacemacs-private][zilongshanren]].
 
-** Installation on Mac
-   1. Install [[https://github.com/railwaycat/homebrew-emacsmacport][Emacs-mac]].
+** Installation
+*** Install Emacs-mac on Mac
 
-      #+BEGIN_SRC shell
-      brew tap railwaycat/emacsmacport
-      brew install emacs-mac --with-spacemacs-icon --HEAD --with-gnutls
-      # Put emacs-mac in the Applications folder 
-      brew linkapps emacs-mac
-      #+END_SRC
+    #+BEGIN_SRC shell
+    brew tap railwaycat/emacsmacport
+    brew cask install emacs-mac
+    #+END_SRC
 
-      Note: ~--with-gnutls~ is used to support ssl.
+    Or download the releases(with different icons) from [[https://github.com/railwaycat/homebrew-emacsmacport/releases][here]]. You can also change the icons located in the /icons/ folder.
 
-      or
+*** Install Emacs on Linux
+    #+BEGIN_SRC shell
+    sudo add-apt-repository -y ppa:ubuntu-elisp
+    sudo apt-get update
+    sudo apt-get install emacs-snapshot
+    #+END_SRC
 
-      #+BEGIN_SRC shell
-      brew tap railwaycat/emacsmacport
-      # Automatically put the app in the Applications folder 
-      # and do not need sign the app
-      brew cask install emacs-mac
-      #+END_SRC
+*** Install Spacemacs
+    #+BEGIN_SRC shell
+    git clone https://github.com/syl20bnr/spacemacs -b develop ~/.emacs.d~
+    #+END_SRC
 
-      or download the releases(with different icons) from [[https://github.com/railwaycat/homebrew-emacsmacport/releases][here]].
-      
-   2. Install spacemacs: 
-      #+BEGIN_SRC shell
-      git clone https://github.com/syl20bnr/spacemacs -b develop ~/.emacs.d~
-      #+END_SRC
+*** My configuration
+    1. Clone my configuration:
+       #+BEGIN_SRC shell
+       git clone https://github.com/ztlevi/Spacemacs-config.git ~/.spacemacs.d~
+       #+END_SRC
 
-   3. Clone my configuration:
-      #+BEGIN_SRC shell
-      git clone https://github.com/ztlevi/Spacemacs-config.git ~/.spacemacs.d~
-      #+END_SRC
+    2. Install Ubuntu Mono font
 
-   4. Install Ubuntu Mono font
-
-   5. Solution to incoming network connection:
-
-      Codesign your Emacs.app
-
-      Instructions over [[http://apple.stackexchange.com/questions/3271/how-to-get-rid-of-firewall-accept-incoming-connections-dialog/170566][here]].
-
-      Sample shell command:
-      #+BEGIN_SRC shell
-      codesign --deep --force --verbose --sign ztlevi /usr/local/Cellar/emacs-mac/HEAD-947c38e/Emacs.app
-      #+END_SRC
-
-** Installation on Linux
-   #+BEGIN_SRC shell
-  sudo add-apt-repository -y ppa:ubuntu-elisp
-  sudo apt-get update
-  sudo apt-get install emacs-snapshot
-   #+END_SRC
 
 ** What's the highlight of this configuration
    1. It's a highly customize optimized Spacemacs configuration, it's relied on the develop branch of the officially Spacemacs.
@@ -72,7 +50,7 @@
         (list (my-create-tags-if-needed "/Users/ztlevi/Sites/TRIdemo/app"))))
       #+END_SRC
         
-        Or ~cd /path/to/my/project~, ~ctags -e -R .~ and manually use *select-tag-table* function to select TAGS(set the tags-table-list value).
+      Or ~cd /path/to/my/project~, ~ctags -e -R .~ and manually use *select-tag-table* function to select TAGS(set the tags-table-list value).
 
    3. If you want to use Wordpress org2blog, something needs to be changed in the *init-org2blog()* function.
       
