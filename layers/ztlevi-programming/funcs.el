@@ -15,3 +15,14 @@
         js-doc-author (format "Ting Zhou <%s>" js-doc-mail-address)
         js-doc-url "http://ztlevi.wordpress.com"
         js-doc-license "MIT"))
+
+;; Environment setting - Ctags here
+(defun my-setup-develop-environment ()
+  (interactive)
+  (when (my-project-name-contains-substring "ztlevi")
+    (cond
+     ((my-project-name-contains-substring "Sites/TRIdemo")
+      (message "load tags for TRIdemo...")
+      (setq tags-table-list
+            (list (my-create-tags-if-needed "/Users/ztlevi/Sites/TRIdemo/app"))))
+     )))

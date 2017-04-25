@@ -5,10 +5,10 @@
    1. Install [[https://github.com/railwaycat/homebrew-emacsmacport][Emacs-mac]].
 
       #+BEGIN_SRC shell
-     brew tap railwaycat/emacsmacport
-     brew install emacs-mac --with-spacemacs-icon --HEAD --with-gnutls
-     # Put emacs-mac in the Applications folder 
-     brew linkapps emacs-mac
+      brew tap railwaycat/emacsmacport
+      brew install emacs-mac --with-spacemacs-icon --HEAD --with-gnutls
+      # Put emacs-mac in the Applications folder 
+      brew linkapps emacs-mac
       #+END_SRC
 
       Note: ~--with-gnutls~ is used to support ssl.
@@ -16,21 +16,23 @@
       or
 
       #+BEGIN_SRC shell
-     brew tap railwaycat/emacsmacport
-     # Automatically put the app in the Applications folder
-     brew cask install emacs-mac
+      brew tap railwaycat/emacsmacport
+      # Automatically put the app in the Applications folder
+      brew cask install emacs-mac
       #+END_SRC
-
 
    2. Install spacemacs: 
       #+BEGIN_SRC shell
-     git clone https://github.com/syl20bnr/spacemacs -b develop ~/.emacs.d~
+      git clone https://github.com/syl20bnr/spacemacs -b develop ~/.emacs.d~
       #+END_SRC
+
    3. Clone my configuration:
       #+BEGIN_SRC shell
-       git clone https://github.com/ztlevi/Spacemacs-config.git ~/.spacemacs.d~
+      git clone https://github.com/ztlevi/Spacemacs-config.git ~/.spacemacs.d~
       #+END_SRC
+
    4. Install Ubuntu Mono font
+
    5. Solution to incoming network connection:
 
       Codesign your Emacs.app
@@ -39,7 +41,7 @@
 
       Sample shell command:
       #+BEGIN_SRC shell
-     codesign --deep --force --verbose --sign ztlevi /usr/local/Cellar/emacs-mac/HEAD-7403929/Emacs.app~
+      codesign --deep --force --verbose --sign ztlevi /usr/local/Cellar/emacs-mac/HEAD-947c38e/Emacs.app
       #+END_SRC
 
 ** Installation on Linux
@@ -58,4 +60,20 @@
 
 ** Happing Hacking
    1. The live server "simple-httpd" port is set to be 48080 in the custom.el. So the testing page for this live server is http://localhost:48080/imp .
+
+   2. Ctags setting is under *my-setup-develop-environment()* function. Add scripts like this to automatically generate TAGS for your project.
+      #+BEGIN_SRC lisp
+      ((my-project-name-contains-substring "Sites/TRIdemo")
+        (message "load tags for TRIdemo...")
+        (setq tags-table-list
+        (list (my-create-tags-if-needed "/Users/ztlevi/Sites/TRIdemo/app"))))
+      #+END_SRC
+
+   3. If you want to use Wordpress org2blog, something needs to be changed in the *init-org2blog()* function.
       
+      Also create a /.netrc/ file in the home directory. and put your personal info in the file.
+      #+BEGIN_SRC shell
+      machine {Credential name} login {username} password {your-password}
+      #+END_SRC
+      Note: my credential name here is wp-ztlevi
+

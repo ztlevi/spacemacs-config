@@ -13,6 +13,28 @@
   '(
     flycheck
     yasnippet
+    xref-js2
+    js2-mode
+    )
+  )
+
+(defun ztlevi-programming/post-init-js2-mode ()
+  (progn
+    ;; Better imenu
+    (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
+    (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
+    ;; js-mode (which js2 is based on) binds "M-." which conflicts with xref, so
+    ;; unbind it.
+    (define-key js-mode-map (kbd "M-.") nil)
+    (add-hook 'js2-mode-hook
+              (lambda ()
+                (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+    )
+  ) 
+
+(defun ztlevi-programming/init-xref-js2 ()
+  (use-package xref-js2
+    :defer t
     )
   )
 
