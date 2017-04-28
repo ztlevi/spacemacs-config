@@ -20,13 +20,14 @@
 
 *** Install Spacemacs
     #+BEGIN_SRC shell
-    git clone https://github.com/syl20bnr/spacemacs -b develop ~/.emacs.d~
+    rm -r ~/.emacs.d
+    git clone https://github.com/syl20bnr/spacemacs -b develop ~/.emacs.d
     #+END_SRC
 
 *** My configuration
     1. Clone my configuration:
        #+BEGIN_SRC shell
-       git clone https://github.com/ztlevi/Spacemacs-config.git ~/.spacemacs.d~
+       git clone https://github.com/ztlevi/Spacemacs-config.git ~/.spacemacs.d
        #+END_SRC
 
     2. Install Ubuntu Mono font
