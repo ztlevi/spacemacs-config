@@ -93,3 +93,6 @@
 
 ;; debug
 (define-key emacs-lisp-mode-map (kbd "<C-x> <C-e>") 'pp-eval-last-sexp)
+
+;; open in file manager
+(spacemacs/set-leader-keys "bf" 'xah-open-in-desktop)
