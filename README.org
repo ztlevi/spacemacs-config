@@ -13,9 +13,10 @@
 
 *** Install Emacs on Linux
     #+BEGIN_SRC shell
-    sudo add-apt-repository -y ppa:ubuntu-elisp
-    sudo apt-get update
-    sudo apt-get install emacs-snapshot
+    # Ubuntu
+    sudo apt-get insatll emacs
+    # Arch
+    sudo pacman -S emacs
     #+END_SRC
 
 *** Install Spacemacs
@@ -29,9 +30,8 @@
        #+BEGIN_SRC shell
        git clone https://github.com/ztlevi/Spacemacs-config.git ~/.spacemacs.d
        #+END_SRC
-
     2. Install Ubuntu Mono font
-
+    3. Install ispell, npm tern, the_silver_searcher
 
 ** What's the highlight of this configuration
    1. It's a highly customize optimized Spacemacs configuration, it's relied on the develop branch of the officially Spacemacs.
