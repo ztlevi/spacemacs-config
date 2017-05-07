@@ -666,6 +666,9 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
     (setcdr evil-insert-state-map nil)
     (define-key evil-insert-state-map [escape] 'evil-normal-state)
 
+    ;; disable highlight when use swiper or evil ex search, this option won't effect evil-ex-search-next command
+    (setq-default evil-ex-search-persistent-highlight nil)
+
     (push "TAGS" spacemacs-useless-buffers-regexp)
 
     (adjust-major-mode-keymap-with-evil "git-timemachine")
@@ -1071,7 +1074,8 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
          '(("f" my-find-file-in-git-repo "find files")
            ("!" my-open-file-in-external-app "Open file in external app")
            ("I" ivy-insert-action "insert")
-           ("C" ivy-kill-new-action "copy")))
+           ("C" ivy-kill-new-action "copy")
+           ("S" ivy-ff-checksum-action "Checksum")))
 
         (spacemacs/set-leader-keys "fad" 'counsel-goto-recent-directory)
         (spacemacs/set-leader-keys "faf" 'counsel-find-file-recent-directory)
@@ -1087,7 +1091,7 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
         (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-call)
         (define-key ivy-minibuffer-map (kbd "C-s-m") 'ivy-partial-or-done)
         (define-key ivy-minibuffer-map (kbd "C-c s") 'ivy-ff-checksum)
-        (define-key ivy-minibuffer-map (kbd "s-o") 'ivy-dispatching-done)
+        (define-key ivy-minibuffer-map (kbd "s-o") 'ivy-dispatching-done-hydra)
         (define-key ivy-minibuffer-map (kbd "C-c C-e") 'spacemacs//counsel-edit)
         (define-key ivy-minibuffer-map (kbd "<f3>") 'ivy-occur)
         (define-key ivy-minibuffer-map (kbd "C-s-j") 'ivy-immediate-done)
