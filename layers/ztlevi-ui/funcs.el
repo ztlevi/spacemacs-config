@@ -1,15 +1,15 @@
-
-;;; funcs.el --- zilongshanren Layer packages File for Spacemacs
+;;; funcs.el --- ztlevi layer packages file for Spacemacs.
 ;;
-;; Copyright (c) 2015-2016 zilongshanren
+;; Copyright (c) 2016-2017 ztlevi
 ;;
-;; Author: zilongshanren <guanghui8827@gmail.com>
-;; URL: https://github.com/zilongshanren/spacemacs-private
+;; Author: ztlevi <zhouting@umich.edu>
+;; URL: https://github.com/ztlevi/Spacemacs-config
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
 ;;; License: GPLv3
-(defun zilongshanren/update-persp-name ()
+
+(defun ztlevi/update-persp-name ()
   (when (bound-and-true-p persp-mode)
     ;; There are multiple implementations of
     ;; persp-mode with different APIs

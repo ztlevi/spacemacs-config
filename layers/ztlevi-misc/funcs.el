@@ -1,9 +1,9 @@
-;;; funcs.el --- zilongshanren Layer packages File for Spacemacs
+;;; funcs.el --- ztlevi layer packages file for Spacemacs.
 ;;
-;; Copyright (c) 2015-2016 zilongshanren 
+;; Copyright (c) 2016-2017 ztlevi
 ;;
-;; Author: zilongshanren <guanghui8827@gmail.com>
-;; URL: https://github.com/zilongshanren/spacemacs-private
+;; Author: ztlevi <zhouting@umich.edu>
+;; URL: https://github.com/ztlevi/Spacemacs-config
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -19,13 +19,13 @@
 
 
 ;; insert ; at the end of current line
-(defun zilongshanren/insert-semicolon-at-the-end-of-this-line ()
+(defun ztlevi/insert-semicolon-at-the-end-of-this-line ()
   (interactive)
   (save-excursion
     (end-of-line)
     (insert ";")))
 
-(defun zilongshanren/delete-semicolon-at-the-end-of-this-line ()
+(defun ztlevi/delete-semicolon-at-the-end-of-this-line ()
   (interactive)
   (save-excursion
     (end-of-line)
@@ -34,13 +34,13 @@
           (backward-char)
           (delete-char 1)))))
 
-(defun zilongshanren/insert-comma-at-the-end-of-this-line ()
+(defun ztlevi/insert-comma-at-the-end-of-this-line ()
   (interactive)
   (save-excursion
     (end-of-line)
     (insert ",")))
 
-(defun zilongshanren/delete-comma-at-the-end-of-this-line ()
+(defun ztlevi/delete-comma-at-the-end-of-this-line ()
   (interactive)
   (save-excursion
     (end-of-line)
@@ -50,13 +50,13 @@
           (delete-char 1)))))
 
 
-(defun zilongshanren/load-my-layout ()
+(defun ztlevi/load-my-layout ()
   (interactive)
-  (persp-load-state-from-file (concat persp-save-dir "zilong")))
+  (persp-load-state-from-file (concat persp-save-dir "ztlevi")))
 
-(defun zilongshanren/save-my-layout ()
+(defun ztlevi/save-my-layout ()
   (interactive)
-  (persp-save-state-to-file (concat persp-save-dir "zilong")))
+  (persp-save-state-to-file (concat persp-save-dir "ztlevi")))
 
 ;; http://blog.binchen.org/posts/use-ivy-mode-to-search-bash-history.html
 ;; ;FIXME: make it work with zsh
@@ -78,7 +78,7 @@
       (message "%s => kill-ring" val))))
 
   ;; my fix for tab indent
-(defun zilongshanren/indent-region(numSpaces)
+(defun ztlevi/indent-region(numSpaces)
   (progn
                                       ; default to start and end of current line
     (setq regionStart (line-beginning-position))
@@ -103,25 +103,25 @@
   )
 
 
-(defun zilongshanren/tab-region (N)
+(defun ztlevi/tab-region (N)
   (interactive "p")
   (if (use-region-p)
-      (zilongshanren/indent-region 4)               ; region was selected, call indent-region
+      (ztlevi/indent-region 4)               ; region was selected, call indent-region
     (insert "    ")                   ; else insert four spaces as expected
     ))
 
-(defun zilongshanren/untab-region (N)
+(defun ztlevi/untab-region (N)
   (interactive "p")
-  (zilongshanren/indent-region -4))
+  (ztlevi/indent-region -4))
 
-(defun zilongshanren/hack-tab-key ()
+(defun ztlevi/hack-tab-key ()
   (interactive)
-  (local-set-key (kbd "<tab>") 'zilongshanren/tab-region)
-  (local-set-key (kbd "<S-tab>") 'zilongshanren/untab-region)
+  (local-set-key (kbd "<tab>") 'ztlevi/tab-region)
+  (local-set-key (kbd "<S-tab>") 'ztlevi/untab-region)
   )
 
 ;; I'm don't like this settings too much.
-;; (add-hook 'prog-mode-hook 'zilongshanren/hack-tab-key)
+;; (add-hook 'prog-mode-hook 'ztlevi/hack-tab-key)
 (defun endless/fill-or-unfill ()
   "Like `fill-paragraph', but unfill if used twice."
   (interactive)
@@ -160,14 +160,14 @@
   (git-timemachine--start #'my-git-timemachine-show-selected-revision))
 
 
-(defun zilongshanren/helm-hotspots ()
+(defun ztlevi/helm-hotspots ()
   "helm interface to my hotspots, which includes my locations,
 org-files and bookmarks"
   (interactive)
   (helm :buffer "*helm: utities*"
-        :sources `(,(zilongshanren//hotspots-sources))))
+        :sources `(,(ztlevi//hotspots-sources))))
 
-(defun zilongshanren//hotspots-sources ()
+(defun ztlevi//hotspots-sources ()
   "Construct the helm sources for my hotspots"
   `((name . "Mail and News")
     (candidates . (("Calendar" . (lambda ()  (browse-url "https://www.google.com/calendar/render")))
@@ -175,26 +175,26 @@ org-files and bookmarks"
                    ("Blog" . org-octopress)
                    ("Github" . (lambda() (helm-github-stars)))
                    ("Calculator" . (lambda () (helm-calcul-expression)))
-                   ("Run current flie" . (lambda () (zilongshanren/run-current-file)))
+                   ("Run current flie" . (lambda () (ztlevi/run-current-file)))
                    ("Agenda" . (lambda () (org-agenda "" "a")))
                    ("sicp" . (lambda() (browse-url "http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-4.html#%_toc_start")))))
     (candidate-number-limit)
     (action . (("Open" . (lambda (x) (funcall x)))))))
 
 ;; insert date and time
-(defun zilongshanren/now ()
+(defun ztlevi/now ()
   "Insert string for the current time formatted like '2:34 PM'."
   (interactive)                 ; permit invocation in minibuffer
   (insert (format-time-string "%D %-I:%M %p")))
 
-(defun zilongshanren/today ()
+(defun ztlevi/today ()
   "Insert string for today's date nicely formatted in American style,
 e.g. Sunday, September 17, 2000."
   (interactive)                 ; permit invocation in minibuffer
   (insert (format-time-string "%A, %B %e, %Y")))
 
 ;; https://github.com/syohex/emacs-browser-refresh/blob/master/browser-refresh.el
-(defun zilongshanren/browser-refresh--chrome-applescript ()
+(defun ztlevi/browser-refresh--chrome-applescript ()
   (interactive)
   (do-applescript
    (format
@@ -222,16 +222,16 @@ e.g. Sunday, September 17, 2000."
   :group 'shadowsocks-proxy)
 
 
-(defun zilongshanren/open-file-with-projectile-or-counsel-git ()
+(defun ztlevi/open-file-with-projectile-or-counsel-git ()
   (interactive)
-  (if (or (zilongshanren/vcs-project-root)
+  (if (or (ztlevi/vcs-project-root)
           (projectile-project-p))
       (projectile-find-file)
     (counsel-file-jump)))
 
 
 ;; http://blog.lojic.com/2009/08/06/send-growl-notifications-from-carbon-emacs-on-osx/
-(defun zilongshanren/growl-notification (title message &optional sticky)
+(defun ztlevi/growl-notification (title message &optional sticky)
   "Send a Growl notification"
   (do-applescript
    (format "tell application \"GrowlHelperApp\" \n
@@ -242,18 +242,18 @@ e.g. Sunday, September 17, 2000."
            message
            (if sticky "yes" "no"))))
 
-(defun zilongshanren/growl-timer (minutes message)
+(defun ztlevi/growl-timer (minutes message)
   "Issue a Growl notification after specified minutes"
   (interactive (list (read-from-minibuffer "Minutes: " "10")
                      (read-from-minibuffer "Message: " "Reminder") ))
   (run-at-time (* (string-to-number minutes) 60)
                nil
                (lambda (minute message)
-                 (zilongshanren/growl-notification "Emacs Reminder" message t))
+                 (ztlevi/growl-notification "Emacs Reminder" message t))
                minutes
                message))
 
-(defun zilongshanren/goto-match-paren (arg)
+(defun ztlevi/goto-match-paren (arg)
   "Go to the matching  if on (){}[], similar to vi style of % "
   (interactive "p")
   ;; first, check for "outside of bracket" positions expected by forward-sexp, etc
@@ -264,24 +264,24 @@ e.g. Sunday, September 17, 2000."
         ((looking-back "[\[\(\{]" 1) (backward-char) (evil-jump-item))
         (t nil)))
 
-(defun zilongshanren/hidden-dos-eol ()
+(defun ztlevi/hidden-dos-eol ()
   "Do not show ^M in files containing mixed UNIX and DOS line endings."
   (interactive)
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
 
-(defun zilongshanren/remove-dos-eol ()
+(defun ztlevi/remove-dos-eol ()
   "Replace DOS eolns CR LF with Unix eolns CR"
   (interactive)
   (goto-char (point-min))
   (while (search-forward "\r" nil t) (replace-match "")))
 
-(defun zilongshanren/insert-chrome-current-tab-url()
+(defun ztlevi/insert-chrome-current-tab-url()
   "Get the URL of the active tab of the first window"
   (interactive)
-  (insert (zilongshanren/retrieve-chrome-current-tab-url)))
+  (insert (ztlevi/retrieve-chrome-current-tab-url)))
 
-(defun zilongshanren/retrieve-chrome-current-tab-url()
+(defun ztlevi/retrieve-chrome-current-tab-url()
   "Get the URL of the active tab of the first window"
   (interactive)
   (let ((result (do-applescript
@@ -299,7 +299,7 @@ e.g. Sunday, September 17, 2000."
 
 
 ;; remove all the duplicated emplies in current buffer
-(defun zilongshanren/single-lines-only ()
+(defun ztlevi/single-lines-only ()
   "replace multiple blank lines with a single one"
   (interactive)
   (goto-char (point-min))
@@ -308,12 +308,12 @@ e.g. Sunday, September 17, 2000."
     (forward-char 1)))
 
 ;; for running long run ansi-term
-(defun zilongshanren/named-term (name)
+(defun ztlevi/named-term (name)
   (interactive "sName: ")
   (ansi-term "/bin/zsh" name))
 
 
-(defun zilongshanren/ash-term-hooks ()
+(defun ztlevi/ash-term-hooks ()
   ;; dabbrev-expand in term
   (define-key term-raw-escape-map "/"
     (lambda ()
@@ -328,7 +328,7 @@ e.g. Sunday, September 17, 2000."
       (interactive)
       (term-send-raw-string (current-kill 0)))))
 
-(defun zilongshanren/terminal ()
+(defun ztlevi/terminal ()
   "Switch to terminal. Launch if nonexistent."
   (interactive)
   (if (get-buffer "*ansi-term*")
@@ -338,7 +338,7 @@ e.g. Sunday, September 17, 2000."
       (ansi-term "/bin/zsh")))
   (get-buffer-process "*ansi-term*"))
 
-(defalias 'tt 'zilongshanren/terminal)
+(defalias 'tt 'ztlevi/terminal)
 
 ;;add count for chinese, mainly used for writing chinese blog post
 ;; http://kuanyui.github.io/2014/01/18/count-chinese-japanese-and-english-words-in-emacs/
@@ -349,7 +349,7 @@ e.g. Sunday, September 17, 2000."
 (defvar wc-regexp-english-word
   "[a-zA-Z0-9-]+")
 
-(defun zilongshanren/word-count-for-chinese ()
+(defun ztlevi/word-count-for-chinese ()
   "「較精確地」統計中/日/英文字數。
 - 文章中的註解不算在字數內。
 - 平假名與片假名亦包含在「中日文字數」內，每個平/片假名都算單獨一個字（但片假
@@ -397,7 +397,7 @@ e.g. Sunday, September 17, 2000."
              chinese-char chinese-char-and-punc english-word
              (+ chinese-char english-word)))))
 
-(defun zilongshanren/evil-quick-replace (beg end )
+(defun ztlevi/evil-quick-replace (beg end )
   (interactive "r")
   (when (evil-visual-state-p)
     (evil-exit-visual-state)
@@ -407,7 +407,7 @@ e.g. Sunday, September 17, 2000."
           (lambda () (backward-char 2))
         (evil-ex command-string)))))
 
-(defun zilongshanren/vcs-project-root ()
+(defun ztlevi/vcs-project-root ()
   "Return the project root for current buffer."
   (let ((directory default-directory))
     (or (locate-dominating-file directory ".git")
@@ -416,13 +416,13 @@ e.g. Sunday, September 17, 2000."
 
 
 ;; "http://xuchunyang.me/Opening-iTerm-From-an-Emacs-Buffer/"
-(defun zilongshanren/iterm-shell-command (command &optional prefix)
+(defun ztlevi/iterm-shell-command (command &optional prefix)
   "cd to `default-directory' then run COMMAND in iTerm.
 With PREFIX, cd to project root."
   (interactive (list (read-shell-command
                       "iTerm Shell Command: ")
                      current-prefix-arg))
-  (let* ((dir (if prefix (zilongshanren/vcs-project-root)
+  (let* ((dir (if prefix (ztlevi/vcs-project-root)
                 default-directory))
          ;; if COMMAND is empty, just change directory
          (cmd (format "cd %s ;%s" dir command)))
@@ -443,7 +443,7 @@ With PREFIX, cd to project root."
 (defadvice persp-switch (after my-quit-helm-perspectives activate)
   (setq hydra-deactivate t))
 
-(defun zilongshanren/my-mc-mark-next-like-this ()
+(defun ztlevi/my-mc-mark-next-like-this ()
   (interactive)
   (if (region-active-p)
       (mc/mark-next-like-this 1)
@@ -464,7 +464,7 @@ With PREFIX, cd to project root."
 (defun my-erc-hook (match-type nick message)
   "Shows a growl notification, when user's nick was mentioned. If the buffer is currently not visible, makes it sticky."
   (unless (posix-string-match "^\\** *Users on #" message)
-    (zilongshanren/growl-notification
+    (ztlevi/growl-notification
      (concat "ERC: : " (buffer-name (current-buffer)))
      message
      t
@@ -504,7 +504,7 @@ With PREFIX, cd to project root."
 (defun my-open-file-in-external-app (file)
   "Open file in external application."
   (interactive)
-  (let ((default-directory (zilongshanren/vcs-project-root))
+  (let ((default-directory (ztlevi/vcs-project-root))
         (file-path file))
     (if file-path
         (cond
@@ -550,7 +550,7 @@ With PREFIX, cd to project root."
               :action 'my-find-file-in-git-repo
               :caller 'counsel-find-file-recent-directory)))
 
-(defun zilongshanren/magit-visit-pull-request ()
+(defun ztlevi/magit-visit-pull-request ()
   "Visit the current branch's PR on GitHub."
   (interactive)
   (let ((remote-branch (magit-get-current-branch)))
@@ -567,12 +567,12 @@ With PREFIX, cd to project root."
                            "url"))
                remote-branch))))))
 
-(defun zilongshanren/markdown-to-html ()
+(defun ztlevi/markdown-to-html ()
   (interactive)
   (start-process "grip" "*gfm-to-html*" "grip" (buffer-file-name) "5000")
   (browse-url (format "http://localhost:5000/%s.%s" (file-name-base) (file-name-extension (buffer-file-name)))))
 
-(defun zilong/github-browse-commit ()
+(defun ztlevi/github-browse-commit ()
   "Show the GitHub page for the current commit."
   (interactive)
   (use-package github-browse-file
@@ -586,16 +586,16 @@ With PREFIX, cd to project root."
     (github-browse--save-and-view url)
     (git-messenger:popup-close)))
 
-(defun zilongshanren/search-in-fireball ()
+(defun ztlevi/search-in-fireball ()
   (interactive)
   (helm-do-ag (expand-file-name "~/Github/fireball/")))
 
 
-(defun zilongshanren/show-current-buffer-major-mode ()
+(defun ztlevi/show-current-buffer-major-mode ()
   (interactive)
   (describe-variable 'major-mode))
 
-(defun zilongshanren/counsel-imenu ()
+(defun ztlevi/counsel-imenu ()
   (interactive)
   (counsel-imenu)
   (evil-set-jump))

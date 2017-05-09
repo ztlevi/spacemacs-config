@@ -1,4 +1,4 @@
-;;; packages.el --- ztlevi-ui layer packages file for Spacemacs.
+;;; layers.el --- ztlevi-ui layer packages file for Spacemacs.
 ;;
 ;; Copyright (c) 2016-2017 ztlevi
 ;;

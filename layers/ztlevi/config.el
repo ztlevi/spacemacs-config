@@ -1,4 +1,4 @@
-;;; packages.el --- ztlevi-ui layer packages file for Spacemacs.
+;;; config.el --- ztlevi-ui layer packages file for Spacemacs.
 ;;
 ;; Copyright (c) 2016-2017 ztlevi
 ;;
@@ -9,9 +9,16 @@
 ;;
 ;;; License: GPLv3
 
-;; set org notes dir
+(defvar org-agenda-dir ""
+  "gtd org files location")
+
+(defvar deft-dir ""
+  "deft org files locaiton")
+
+(defvar blog-admin-dir ""
+  "blog-admin files location")
+
 (setq-default
  org-agenda-dir "~/Dropbox/Org-Notes"
  deft-dir "~/Dropbox/Org-Notes"
  blog-admin-dir "~/Dropbox/Wordpress")
-(setq org-blog-dir blog-admin-dir)

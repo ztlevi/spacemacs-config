@@ -86,7 +86,6 @@ values."
      racket
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode)
-     zilongshanren
      ztlevi
      (chinese :packages youdao-dictionary fcitx
               :variables chinese-enable-fcitx nil
@@ -442,12 +441,12 @@ values."
         (when (looking-at (concat "^" (make-string tab-width ?\ )))
           (replace-match "")))))
 
-  (defun zilongshanren/toggle-major-mode ()
+  (defun ztlevi/toggle-major-mode ()
     (interactive)
     (if (eq major-mode 'fundamental-mode)
         (set-auto-mode)
       (fundamental-mode)))
-  (spacemacs/set-leader-keys "otm" 'zilongshanren/toggle-major-mode)
+  (spacemacs/set-leader-keys "otm" 'ztlevi/toggle-major-mode)
 
   ;; (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
 
