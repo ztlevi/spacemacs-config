@@ -418,7 +418,7 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
   (progn
     (defhydra hydra-hotspots (:color blue)
       "Hotspots"
-      ("b" org-octopress "blog")
+      ("b" blog-admin-start "blog")
       ("g" helm-github-stars "helm github stars")
       ("r" ztlevi/run-current-file "run current file"))
 
@@ -1013,7 +1013,15 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
       :tags '(org-mode)
       :init (lambda () (browse-url "http://localhost:8088"))
       :kill-signal 'sigkill
-      :kill-process-buffer-on-stop t)))
+      :kill-process-buffer-on-stop t)
+
+    (defun refresh-chrome-current-tab (beg end length-before)
+      (call-interactively 'zilongshanren/browser-refresh--chrome-applescript))
+    ;; add watch for prodigy-view-mode buffer change event
+    (add-hook 'prodigy-view-mode-hook
+              #'(lambda() (set (make-local-variable 'after-change-functions) #'refresh-chrome-current-tab)))
+
+    ))
 
 (defun ztlevi-misc/init-moz-controller ()
   (use-package moz-controller

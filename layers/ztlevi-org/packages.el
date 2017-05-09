@@ -15,9 +15,11 @@
     (org2blog location: local)
     (org :location built-in)
     org-mac-link
-    org-octopress
     org-pomodoro
     deft
+    (blog-admin :location (recipe
+                           :fetcher github
+                           :repo "codefalling/blog-admin"))
     ;; org-tree-slide
     ;; ox-reveal
     ;; worf
@@ -25,6 +27,21 @@
     ;; plain-org-wiki
     )
   )
+
+(defun ztlevi-org/init-blog-admin ()
+  (use-package blog-admin
+    :defer t
+    :commands blog-admin-start
+    :init
+    (progn
+      ;; do your configuration here
+      (setq blog-admin-backend-type 'hexo
+            blog-admin-backend-path blog-admin-dir
+            blog-admin-backend-new-post-with-same-name-dir nil
+            blog-admin-backend-hexo-config-file "_config.yml"
+            )
+      (add-hook 'blog-admin-backend-after-new-post-hook 'find-file)
+      )))
 
 (defun ztlevi-org/post-init-org-pomodoro ()
   (progn
@@ -414,24 +431,6 @@ holding contextual information."
 
 (defun ztlevi-org/post-init-ox-reveal ()
   (setq org-reveal-root "file:///Users/guanghui/.emacs.d/reveal-js"))
-
-(defun ztlevi-org/init-org-octopress ()
-  (use-package org-octopress
-    :commands (org-octopress org-octopress-setup-publish-project)
-    :init
-    (progn
-      (evilified-state-evilify org-octopress-summary-mode org-octopress-summary-mode-map)
-      (add-hook 'org-octopress-summary-mode-hook
-                #'(lambda () (local-set-key (kbd "q") 'bury-buffer)))
-      (setq org-blog-dir blog-admin-dir)
-      (setq org-octopress-directory-top org-blog-dir)
-      (setq org-octopress-directory-posts (concat org-blog-dir "source/_posts"))
-      (setq org-octopress-directory-org-top org-blog-dir)
-      (setq org-octopress-directory-org-posts (expand-file-name  "blog" blog-admin-dir))
-      (setq org-octopress-setup-file (concat org-blog-dir "setupfile.org"))
-
-      )))
-
 
 (defun ztlevi-org/init-org-tree-slide ()
   (use-package org-tree-slide
