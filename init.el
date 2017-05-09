@@ -32,11 +32,10 @@ values."
    dotspacemacs-configuration-layers
    '(
      dash
-     version-control
      php
      ivy
      better-defaults
-     github
+     ;; github
      ranger
      colors
      prodigy
@@ -105,7 +104,6 @@ values."
                     spaceline holy-mode skewer-mode rainbow-delimiters
                     highlight-indentation vi-tilde-fringe eyebrowse
                     org-bullets org-repo-todo org-download org-timer
-                    livid-mode git-gutter git-gutter-fringe smooth-scrolling
                     leuven-theme gh-md evil-lisp-state spray lorem-ipsum symon
                     ac-ispell ace-jump-mode auto-complete auto-dictionary
                     clang-format define-word google-translate disaster epic
@@ -115,7 +113,7 @@ values."
                     helm-themes helm-swoop helm-spacemacs-help smeargle
                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
                     window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
-                    counsel-dash helm-dash
+                    livid-mode smooth-scrolling counsel-dash helm-dash 
                     )
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))

@@ -42,9 +42,14 @@
     ranger
     golden-ratio
     (highlight-global :location (recipe :fetcher github :repo "glen-dai/highlight-global"))
-    ;; browse-at-remote
+    browse-at-remote
     )
   )
+
+(defun ztlevi-misc/init-browse-at-remote ()
+  (use-package browse-at-remote
+    :defer t
+    :init (spacemacs/set-leader-keys "gho" 'browse-at-remote)))
 
 (defun ztlevi-misc/init-highlight-global ()
   (use-package highlight-global
@@ -668,9 +673,6 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
   (progn
     (setcdr evil-insert-state-map nil)
     (define-key evil-insert-state-map [escape] 'evil-normal-state)
-
-    ;; disable highlight when use swiper or evil ex search, this option won't effect evil-ex-search-next command
-    (setq-default evil-ex-search-persistent-highlight t)
 
     (push "TAGS" spacemacs-useless-buffers-regexp)
 
