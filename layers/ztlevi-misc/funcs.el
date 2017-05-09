@@ -9,6 +9,33 @@
 ;;
 ;;; License: GPLv3
 
+;; define replace-dos-eol
+(defun ztlevi/replace-dos-eol ()
+  "Replace DOS eolns CR LF with Unix eolns CR"
+  (interactive)
+  (goto-char (point-min))
+  (while (search-forward "\r" nil t) (replace-match "
+")))
+
+(defun xah-open-in-desktop ()
+  "Show current file in desktop (OS's file manager).
+URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'
+Version 2015-11-30"
+  (interactive)
+  (cond
+   ((string-equal system-type "windows-nt")
+    (w32-shell-execute "explore" (replace-regexp-in-string "/" "\\" default-directory t t)))
+   ((string-equal system-type "darwin") (shell-command "open ."))
+   ((string-equal system-type "gnu/linux")
+    (let (
+          (process-connection-type nil)
+          (openFileProgram (if (file-exists-p "/usr/bin/xdg-open")
+                               "/usr/bin/xdg-open"
+                             "/usr/bin/gvfs-open")))
+      (start-process "" nil openFileProgram "."))
+    ;; (shell-command "xdg-open .") ;; 2013-02-10 this sometimes froze emacs till the folder is closed. For example: with nautilus
+    )))
+
 ;; @see https://bitbucket.org/lyro/evil/issue/511/let-certain-minor-modes-key-bindings
 (defmacro adjust-major-mode-keymap-with-evil (m &optional r)
   `(eval-after-load (quote ,(if r r m))
@@ -77,14 +104,14 @@
       (kill-new val)
       (message "%s => kill-ring" val))))
 
-  ;; my fix for tab indent
+;; my fix for tab indent
 (defun ztlevi/indent-region(numSpaces)
   (progn
-                                      ; default to start and end of current line
+                                        ; default to start and end of current line
     (setq regionStart (line-beginning-position))
     (setq regionEnd (line-end-position))
 
-                                      ; if there's a selection, use that instead of the current line
+                                        ; if there's a selection, use that instead of the current line
     (when (use-region-p)
       (setq regionStart (region-beginning))
       (setq regionEnd (region-end))
