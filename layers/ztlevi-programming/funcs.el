@@ -228,6 +228,10 @@ version 2015-08-21"
        (format "ctags -f %s -e -R %s" file dir)))
     file))
 
+(defun my-create-ctags-in-current-dir ()
+  (interactive)
+  (shell-command "ctags -e -R ."))
+
 (defun my-update-tags ()
   (interactive)
   "check the tags in tags-table-list and re-create it"
@@ -262,10 +266,10 @@ version 2015-08-21"
   (interactive)
   (when (my-project-name-contains-substring "ztlevi")
     (cond
-     ((my-project-name-contains-substring "Sites/TRIdemo")
-      (message "load tags for TRIdemo...")
+     ((my-project-name-contains-substring "/TRI_demo")
+      (message "load tags for TRI_demo...")
       (setq tags-table-list
-            (list (my-create-tags-if-needed "/Users/ztlevi/Sites/TRIdemo/app"))))
+            (list (my-create-tags-if-needed "~/Developer/TRI_demo/app"))))
      ((my-project-name-contains-substring "Leetcode/Code/Java")
       (message "load tags for Leetcode Java repo...")
       (setq tags-table-list (list (my-create-tags-if-needed "~/Developer/Leetcode/Code/Java"))))
