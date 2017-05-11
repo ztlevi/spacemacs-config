@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: __eq__
-# key: eq
+# key: eq->
 # group: dunder methods
 # --
 def __eq__(self, other):

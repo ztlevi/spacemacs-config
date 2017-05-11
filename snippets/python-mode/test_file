@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: test_file
-# key: tf
+# key: tf->
 # group : testing
 # --
 import unittest

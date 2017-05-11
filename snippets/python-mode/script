@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: script
-# key: script
+# key: script->
 # --
 #!/usr/bin/env python
 

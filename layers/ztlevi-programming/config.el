@@ -15,22 +15,6 @@
 (add-hook 'web-mode-hook 'flycheck-mode)
 (add-hook 'python-mode-hook 'flycheck-mode)
 
-;; ctags add hook
-(add-hook 'java-mode-hook 'my-setup-develop-environment)
-
-;; yasnippet fix tab
-(eval-after-load 'prog-mode
-  '(progn
-     (define-key prog-mode-map (kbd "TAB")
-       (lambda()
-         (interactive)
-         (let ((yas/fallback-behavior 'return-nil))
-           (unless (yas/expand)
-(add-hook 'term-mode-hook 'ztlevi/ash-term-hooks)
-             (if (looking-back "^\s*")
-                 (back-to-indentation))))))))
-
-
 (spacemacs|add-toggle iimage
   :status iimage-mode
   :on (iimage-mode)
@@ -40,7 +24,6 @@
 
 (add-hook 'term-mode-hook 'ztlevi/ash-term-hooks)
 
-
 ;; reformat your json file, it requires python
 (defun beautify-json ()
   (interactive)
@@ -48,9 +31,6 @@
         (e (if mark-active (max (point) (mark)) (point-max))))
     (shell-command-on-region b e
                              "python -mjson.tool" (current-buffer) t)))
-
-
-
 
 (add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt
                                                    '("xml"
@@ -60,8 +40,6 @@
                                                      "xsl")
                                                    t) "\\'") 'nxml-mode))
 (setq nxml-slash-auto-complete-flag t)
-
-
 
 (add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
 (add-to-list 'auto-mode-alist '("\\.c\\'" . c++-mode))
@@ -81,7 +59,6 @@
       (append
        '(("\\.mak\\'" . makefile-bsdmake-mode))
        auto-mode-alist))
-
 
 (defmacro ztlevi|toggle-company-backends (backend)
   "Push or delete the backend to company-backends"

@@ -13,6 +13,7 @@
   '(
     xref-js2
     css-mode
+    java-mode
     paredit
     lispy
     cmake-font-lock
@@ -44,6 +45,10 @@
     robe
     )
   )
+
+(defun ztlevi-programming/post-init-java-mode ()
+  ;; ctags add hook
+  (add-hook 'java-mode-hook 'my-setup-develop-environment))
 
 (defun ztlevi-programming/post-init-robe ()
   (progn
@@ -217,8 +222,8 @@
                                                                       markdown-mode-hook))
 
     (spacemacs/add-to-hooks 'ztlevi/load-yasnippet '(prog-mode-hook
-                                                            markdown-mode-hook
-                                                            org-mode-hook))
+                                                     markdown-mode-hook
+                                                     org-mode-hook))
     ))
 
 (defun ztlevi-programming/post-init-racket-mode ()

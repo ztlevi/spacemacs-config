@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: function_docstring
-# key: fd
+# key: fd->
 # group: definitions
 # NOTE: Use minimum indentation, because Emacs 25+ doesn't dedent docstrings.
 # --
