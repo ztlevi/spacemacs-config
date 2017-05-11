@@ -97,6 +97,7 @@
 
 ;; open in file manager
 (spacemacs/set-leader-keys "bf" 'xah-open-in-desktop)
+(spacemacs/set-leader-keys "bt" 'open-terminal-in-current-dir)
 
 ;; A complementary binding to the apropos-command (C-h a)
 (define-key 'help-command "A" 'apropos)

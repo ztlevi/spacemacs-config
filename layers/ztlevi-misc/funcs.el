@@ -17,6 +17,19 @@
   (while (search-forward "\r" nil t) (replace-match "
 ")))
 
+(defun open-terminal-in-current-dir ()
+  (interactive)
+  (cond
+   ((string-equal system-type "darwin") (shell-command "open -a iTerm ."))
+   ((string-equal system-type "gnu/linux")
+                  (let (
+                        (process-connection-type nil)
+                        (openFileProgram (if (file-exists-p "/usr/bin/konsole")
+                                             "/usr/bin/konsole"
+                                           "/usr/bin/gnome-terminal")))
+                    (start-process "" nil openFileProgram "."))
+                  )))
+
 (defun xah-open-in-desktop ()
   "Show current file in desktop (OS's file manager).
 URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'
