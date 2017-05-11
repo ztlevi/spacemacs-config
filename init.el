@@ -403,7 +403,8 @@ values."
   ;; temp fix for ivy-switch-buffer
   ;; (spacemacs/set-leader-keys "bb" 'helm-mini)
 
-  (global-hungry-delete-mode t)
+  (my-global-hungry-delete-mode t)
+
   (spacemacs|diminish helm-gtags-mode)
   (spacemacs|diminish ggtags-mode)
   (spacemacs|diminish which-key-mode)
