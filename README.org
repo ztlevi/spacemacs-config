@@ -25,13 +25,17 @@
     git clone https://github.com/syl20bnr/spacemacs -b develop ~/.emacs.d
     #+END_SRC
 
-*** My configuration
+*** Configuration and Dependencies
     1. Clone my configuration:
        #+BEGIN_SRC shell
        git clone https://github.com/ztlevi/Spacemacs-config.git ~/.spacemacs.d
        #+END_SRC
     2. Install Ubuntu Mono font
-    3. Install ispell, npm tern, the_silver_searcher
+    3. Install ispell, the_silver_searcher
+    4. Dependencies needed
+       #+BEGIN_SRC shell
+       npm install -g eslint babel-eslint eslint-plugin-react eslint-plugin-html tern
+       #+END_SRC
 
 ** What's the highlight of this configuration
    1. It's a highly customize optimized Spacemacs configuration, it's relied on the develop branch of the officially Spacemacs.
@@ -62,3 +66,4 @@
       Note: my credential name here is wp-ztlevi
 
       
+   
