@@ -26,6 +26,9 @@
 (evil-define-key 'visual evil-surround-mode-map "Ds" 'evil-surround-delete)
 ;; ================================Evil Mode END=================================
 
+;; use ansi term
+(spacemacs/set-leader-keys "'" 'spacemacs/shell-pop-ansi-term)
+
 ;; define company-mode keybindings
 (with-eval-after-load 'company
   (progn
