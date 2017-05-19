@@ -131,6 +131,9 @@
   (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
   ;; if you use pyton3, then you could comment the following line
   ;; (setq python-shell-interpreter "python")
+  (setq company-backends-python-mode
+        '((company-anaconda company-dabbrev-code company-keywords company-etags)
+          company-files company-dabbrev))
   )
 
 (defun ztlevi-programming/post-init-js-doc ()
