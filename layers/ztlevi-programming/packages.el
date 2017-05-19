@@ -130,11 +130,12 @@
 (defun ztlevi-programming/post-init-python ()
   (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
   ;; if you use pyton3, then you could comment the following line
-  (setq python-shell-interpreter "python"))
+  ;; (setq python-shell-interpreter "python")
+  )
 
 (defun ztlevi-programming/post-init-js-doc ()
-  (setq js-doc-mail-address "guanghui8827@gmail.com"
-        js-doc-author (format "Guanghui Qu <%s>" js-doc-mail-address)
+  (setq js-doc-mail-address "zhouting@umich.edu"
+        js-doc-author (format "ztlevi Qu <%s>" js-doc-mail-address)
         js-doc-url "http://www.ztlevi.com"
         js-doc-license "MIT")
 
