@@ -24,8 +24,10 @@
 ;; set evil surround
 (evil-define-key 'visual evil-surround-mode-map "Cs" 'evil-surround-change)
 (evil-define-key 'visual evil-surround-mode-map "Ds" 'evil-surround-delete)
-;; ================================Evil Mode END=================================
 
+(define-key evil-motion-state-map (kbd "C-u") 'ranger-half-page-up)
+(define-key evil-motion-state-map (kbd "C-d") 'ranger-half-page-down)
+;; ================================Evil Mode END=================================
 ;; use ansi term
 (spacemacs/set-leader-keys "'" 'spacemacs/shell-pop-ansi-term)
 
