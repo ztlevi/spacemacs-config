@@ -12,8 +12,8 @@
 ;; ================================Evil Mode Start===============================
 ;; define the emacs move keys in evil-mode
 ;; (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char)
-;; (define-key evil-normal-state-map "\C-e" 'evil-end-of-line)
-;; (define-key evil-visual-state-map "\C-e" 'evil-end-of-line)
+;; (define-key evil-normal-state-map "\C-e" 'mwim-end-of-code-or-line)
+;; (define-key evil-visual-state-map "\C-e" 'mwim-end-of-code-or-line)
 (setq-default evil-escape-key-sequence "jk")
 (setq-default evil-escape-delay 0.2)
 
@@ -92,7 +92,7 @@
      (evil-define-key 'emacs emmet-mode-keymap (kbd "<tab>") nil)
      (evil-define-key 'hybrid emmet-mode-keymap (kbd "TAB") nil)
      (evil-define-key 'hybrid emmet-mode-keymap (kbd "<tab>") nil)))
-     
+
 ;; layout keybindings
 (spacemacs/set-leader-keys "oll" 'ztlevi/load-my-layout)
 (spacemacs/set-leader-keys "ols" 'ztlevi/save-my-layout)
@@ -124,7 +124,7 @@
 ;; http://emacs.stackexchange.com/questions/220/how-to-bind-c-i-as-different-from-tab
 ;; (define-key input-decode-map [?\C-i] [C-i])
 ;; (define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
-(global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+(global-set-key (kbd "C-s-\\") 'indent-region-or-buffer)
 (global-set-key [remap fill-paragraph] #'endless/fill-or-unfill)
 
 ;; (global-set-key (kbd "C-.") 'company-capf)
@@ -147,7 +147,7 @@
 ;; (define-key ctl-x-map "\C-t" #'transpose-chars)
 
 (when (spacemacs/system-is-mac)
- (spacemacs/set-leader-keys "o!" 'ztlevi/iterm-shell-command))
+  (spacemacs/set-leader-keys "o!" 'ztlevi/iterm-shell-command))
 
 (spacemacs|add-toggle toggle-shadowsocks-proxy-mode
   :status shadowsocks-proxy-mode
@@ -249,7 +249,7 @@
 (spacemacs/set-leader-keys "pA" 'projectile-find-other-file-other-window)
 (spacemacs/set-leader-keys ":" 'counsel-M-x)
 
-(when (spacemacs/system-is-mswindows)
+(when (or (spacemacs/system-is-linux) (spacemacs/system-is-mswindows))
   (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
   (global-set-key (kbd "s--") 'spacemacs/scale-down-font)
   (global-set-key (kbd "s-0") 'spacemacs/reset-font-size)
