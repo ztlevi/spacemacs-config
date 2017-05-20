@@ -6,11 +6,23 @@
 
     #+BEGIN_SRC shell
     brew tap railwaycat/emacsmacport
-    brew cask install emacs-mac
+    brew install emacs-mac --with-spacemacs-icon --with-gnutls --with-natural-title-bar
+    # create alias in /Applications
+    rm /Applications/Emacs
+    osascript -e 'tell application "Finder" to make alias file to POSIX file "/usr/local/opt/emacs-mac/Emacs.app" at POSIX file "/Applications"'
     #+END_SRC
+    
+    Notes: natural-title-bar usage [[https://github.com/railwaycat/homebrew-emacsmacport/wiki/Natural-Title-Bar][here]].
 
-    Or download the releases(with different icons) from [[https://github.com/railwaycat/homebrew-emacsmacport/releases][here]]. You can also change the icons located in the /icons/ folder.
+    Or just ~brew cask install emacs-mac~
 
+    2. Solution to incoming network connection:
+
+       Codesign your Emacs.app. Instructions over [[http://apple.stackexchange.com/questions/3271/how-to-get-rid-of-firewall-accept-incoming-connections-dialog/170566][here]].
+
+       #+BEGIN_SRC shell
+       codesign --deep --force --verbose --sign ztlevi /usr/local/opt/emacs-mac/Emacs.app
+       #+END_SRC
 *** Install Emacs on Linux
     #+BEGIN_SRC shell
     # Ubuntu
