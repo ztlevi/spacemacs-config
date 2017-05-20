@@ -11,6 +11,7 @@
 
 (defconst ztlevi-misc-packages
   '(
+    atomic-chrome
     projectile
     prodigy
     find-file-in-project
@@ -45,6 +46,31 @@
     browse-at-remote
     )
   )
+
+(defun ztlevi-misc/init-atomic-chrome ()
+  (use-package atomic-chrome
+    :ensure t
+    :defer 2
+    :config
+    (setq atomic-chrome-url-major-mode-alist
+          '(("github\\.com"        . gfm-mode)
+            ("emacs-china\\.org"   . gfm-mode)
+            ("stackexchange\\.com" . gfm-mode)
+            ("stackoverflow\\.com" . gfm-mode)
+            ("leetcode\\.com" . python-mode)
+            ))
+
+    ;; (setq atomic-chrome-default-major-mode 'markdown-mode)
+    (setq atomic-chrome-buffer-open-style 'full) ;; or frame, split
+    (defun ztlevi/atomic-chrome-mode-setup ()
+      (setq header-line-format
+            (substitute-command-keys
+             "Edit Chrome text area.  Finish C-c C-c or \
+`\\[atomic-chrome-close-current-buffer]'.")))
+
+    (add-hook 'atomic-chrome-edit-mode-hook #'ztlevi/atomic-chrome-mode-setup)
+
+    (atomic-chrome-start-server)))
 
 (defun ztlevi-misc/init-browse-at-remote ()
   (use-package browse-at-remote
