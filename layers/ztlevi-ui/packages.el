@@ -77,8 +77,8 @@
             ((\` interrupted) " -")
             ((\` suspicious) '(propertize " ?" 'face 'warning)))))
 
-  (setq-default mode-line-misc-info
-                (assq-delete-all 'which-func-mode mode-line-misc-info))
+  ;; (setq-default mode-line-misc-info
+  ;;               (assq-delete-all 'which-func-mode mode-line-misc-info))
 
   (setq-default mode-line-format
                 (list
