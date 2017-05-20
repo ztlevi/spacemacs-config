@@ -77,5 +77,4 @@
       #+END_SRC
       Note: my credential name here is wp-ztlevi
 
-      
-   
+   4. Atomic Chorme is very useful to edit the textarea in Chrome. You will need to install the Chrome extension [[https://chrome.google.com/webstore/detail/atomic-chrome/lhaoghhllmiaaagaffababmkdllgfcmc][here]].
