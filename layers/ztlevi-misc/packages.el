@@ -68,6 +68,10 @@
              "Edit Chrome text area.  Finish C-c C-c or \
 `\\[atomic-chrome-close-current-buffer]'.")))
 
+    ;; fix C-c C-c confict with atomic-chrome
+    (with-eval-after-load 'orgtbl-mode
+      (define-key orgtbl-mode-map (kbd "C-c C-c") nil))
+
     (add-hook 'atomic-chrome-edit-mode-hook #'ztlevi/atomic-chrome-mode-setup)
 
     (atomic-chrome-start-server)))
@@ -84,10 +88,10 @@
       (spacemacs/set-leader-keys "hh" 'highlight-frame-toggle)
       (spacemacs/set-leader-keys "hc" 'clear-highlight-frame)
       (setq-default highlight-faces
-        '(('hi-red-b . 0)
-          ('hi-yellow . 0)
-          ('hi-pink . 0)
-          ('hi-blue-b . 0))))))
+                    '(('hi-red-b . 0)
+                      ('hi-yellow . 0)
+                      ('hi-pink . 0)
+                      ('hi-blue-b . 0))))))
 
 (defun ztlevi-misc/post-init-golden-ratio ()
   (with-eval-after-load 'golden-ratio
