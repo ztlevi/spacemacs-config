@@ -17,20 +17,20 @@
   (while (search-forward "\r" nil t) (replace-match "
 ")))
 
-(defun open-terminal-in-current-dir ()
+(defun ztlevi/open-terminal-in-current-dir ()
   (interactive)
   (cond
    ((string-equal system-type "darwin") (shell-command "open -a iTerm ."))
    ((string-equal system-type "gnu/linux")
-                  (let (
-                        (process-connection-type nil)
-                        (openFileProgram (if (file-exists-p "/usr/bin/konsole")
-                                             "/usr/bin/konsole"
-                                           "/usr/bin/gnome-terminal")))
-                    (start-process "" nil openFileProgram "."))
-                  )))
+    (let (
+          (process-connection-type nil)
+          (openFileProgram (if (file-exists-p "/usr/bin/konsole")
+                               "/usr/bin/konsole"
+                             "/usr/bin/gnome-terminal")))
+      (start-process "" nil openFileProgram ".")))
+   ))
 
-(defun xah-open-in-desktop ()
+(defun ztlevi/open-finder-in-current-dir ()
   "Show current file in desktop (OS's file manager).
 URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'
 Version 2015-11-30"
@@ -45,9 +45,19 @@ Version 2015-11-30"
           (openFileProgram (if (file-exists-p "/usr/bin/xdg-open")
                                "/usr/bin/xdg-open"
                              "/usr/bin/gvfs-open")))
-      (start-process "" nil openFileProgram "."))
-    ;; (shell-command "xdg-open .") ;; 2013-02-10 this sometimes froze emacs till the folder is closed. For example: with nautilus
-    )))
+      (start-process "" nil openFileProgram ".")))
+   ;; (shell-command "xdg-open .") ;; 2013-02-10 this sometimes froze emacs till the folder is closed. For example: with nautilus
+   ))
+
+(defun ztlevi/open-markdown-in-typora ()
+  (interactive)
+  (cond
+   ((string-equal system-type "darwin")
+    (shell-command (concat "open -a Typora " buffer-file-name)))
+   ((string-equal system-type "gnu/linux")
+    (let ((process-connection-type nil))
+      (start-process "" nil "typora" buffer-file-name)))
+   ))
 
 ;; @see https://bitbucket.org/lyro/evil/issue/511/let-certain-minor-modes-key-bindings
 (defmacro adjust-major-mode-keymap-with-evil (m &optional r)

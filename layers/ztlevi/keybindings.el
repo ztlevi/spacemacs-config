@@ -100,8 +100,9 @@
 (define-key emacs-lisp-mode-map (kbd "<C-x> <C-e>") 'pp-eval-last-sexp)
 
 ;; open in file manager
-(spacemacs/set-leader-keys "bf" 'xah-open-in-desktop)
-(spacemacs/set-leader-keys "bt" 'open-terminal-in-current-dir)
+(spacemacs/set-leader-keys "bf" 'ztlevi/open-finder-in-current-dir)
+(spacemacs/set-leader-keys "bt" 'ztlevi/open-terminal-in-current-dir)
+(spacemacs/set-leader-keys "bT" 'ztlevi/open-markdown-in-typora)
 
 ;; A complementary binding to the apropos-command (C-h a)
 (define-key 'help-command "A" 'apropos)
