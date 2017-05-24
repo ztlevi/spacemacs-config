@@ -69,15 +69,6 @@
         
       Or ~cd /path/to/my/project~, ~ctags -e -R .~ and manually use *select-tag-table* function to select TAGS(set the tags-table-list value).
 
-   3. If you want to use Wordpress org2blog, something needs to be changed in the *init-org2blog()* function.
-      
-      Also create a /.netrc/ file in the home directory. and put your personal info in the file.
-      #+BEGIN_SRC shell
-      machine {Credential name} login {username} password {your-password}
-      #+END_SRC
-      Note: my credential name here is wp-ztlevi
+   3. Atomic Chorme is very useful to edit the textarea in Chrome. You will need to install the Chrome extension [[https://chrome.google.com/webstore/detail/atomic-chrome/lhaoghhllmiaaagaffababmkdllgfcmc][here]].
 
-   4. Atomic Chorme is very useful to edit the textarea in Chrome. You will need to install the Chrome extension [[https://chrome.google.com/webstore/detail/atomic-chrome/lhaoghhllmiaaagaffababmkdllgfcmc][here]].
-
-   5. Prodigy is great to define your own services and fire up the service easily. Custom setting is under function *ztlevi-misc/post-init-prodigy*
-
+   4. Prodigy is great to define your own services and fire up the service easily. Custom setting is under function *ztlevi-misc/post-init-prodigy*
