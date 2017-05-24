@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     (pandoc :variables org-pandoc-options '((standalone . t)))
      dash
      php
      ivy

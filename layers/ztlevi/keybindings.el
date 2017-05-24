@@ -56,9 +56,6 @@
 ;; comment
 (global-set-key (kbd "s-/") 'comment-dwim)
 
-;; occur 
-(spacemacs/set-leader-keys "on" 'occur-non-ascii)
-
 ;; ranger
 (with-eval-after-load 'ranger
   (progn
@@ -148,7 +145,6 @@
   :documentation "Toggle shadowsocks proxy mode."
   :evil-leader "ots")
 
-(global-set-key (kbd "s-s") 'save-buffer)
 ;; (bind-key* "s-k" 'scroll-other-window-down)
 ;; (bind-key* "s-j"  'scroll-other-window)
 (bind-key* "C-c /" 'company-files)
@@ -201,8 +197,10 @@
 (spacemacs/set-leader-keys "bmj" 'counsel-bookmark)
 
 (spacemacs/set-leader-keys "od" 'occur-dwim)
+(spacemacs/set-leader-keys "on" 'occur-non-ascii)
 (spacemacs/set-leader-keys "ox" 'org-open-at-point)
 (spacemacs/set-leader-keys "or" 'ztlevi/browser-refresh--chrome-applescript)
+(spacemacs/set-leader-keys "om" 'org-pandoc-export-to-markdown_github-and-open)
 
 (spacemacs/set-leader-keys "rh" 'helm-resume)
 (spacemacs/set-leader-keys "sj" 'counsel-imenu)
@@ -241,6 +239,7 @@
 (spacemacs/set-leader-keys "pA" 'projectile-find-other-file-other-window)
 (spacemacs/set-leader-keys ":" 'counsel-M-x)
 
+(global-set-key (kbd "s-s") 'save-buffer)
 (when (or (spacemacs/system-is-linux) (spacemacs/system-is-mswindows))
   (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
   (global-set-key (kbd "s--") 'spacemacs/scale-down-font)
