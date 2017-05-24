@@ -40,7 +40,7 @@
 *** Configuration and Dependencies
     1. Clone my configuration:
        #+BEGIN_SRC shell
-       git clone https://github.com/ztlevi/Spacemacs-config.git ~/.spacemacs.d
+       git clone https://github.com/ztlevi/spacemacs-config.git ~/.spacemacs.d
        #+END_SRC
     2. Install Ubuntu Mono font
     3. Install ispell, the_silver_searcher
