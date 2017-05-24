@@ -63,7 +63,7 @@ values."
      restclient
      (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      (shell :variables shell-default-shell 'eshell)
-     docker
+     ;; docker
      ;; latex
      deft
      markdown
@@ -73,8 +73,8 @@ values."
      react
      (python :variables
              python-test-runner '(nose pytest))
-     (ruby :variables ruby-version-manager 'chruby)
-     ruby-on-rails
+     ;; (ruby :variables ruby-version-manager 'chruby)
+     ;; ruby-on-rails
      lua
      html
      javascript

@@ -24,8 +24,6 @@
 (evil-define-key 'visual evil-surround-mode-map "Ds" 'evil-surround-delete)
 
 (define-key evil-motion-state-map "\C-e" 'mwim-end-of-code-or-line)
-(define-key evil-motion-state-map (kbd "C-u") 'ranger-half-page-up)
-(define-key evil-motion-state-map (kbd "C-d") 'ranger-half-page-down)
 ;; ================================Evil Mode END=================================
 ;; use ansi term
 (spacemacs/set-leader-keys "'" 'spacemacs/shell-pop-ansi-term)

@@ -32,6 +32,7 @@
 
 ;; SPC t l // toggle-truncate-lines
 (add-hook 'text-mode-hook 'toggle-truncate-lines)
+(add-hook 'markdown-mode-hook 'toggle-truncate-lines)
 
 ;; all-the-icons add hook
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
