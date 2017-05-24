@@ -1003,7 +1003,7 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
       :name "Leetcode Solution Website"
       :command "python"
       :args '("-m" "SimpleHTTPServer" "6005")
-      :cwd "~/Dropbox/leetcode-viewer"
+      :cwd "~/Dropbox/leetcode"
       :tags '(leetcode)
       ;; if don't want to browse instantly, delete the following line
       :init (lambda () (browse-url "http://localhost:6005"))
@@ -1014,7 +1014,7 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
       :name "Hexo Blog Server"
       :command "hexo"
       :args '("server" "-p" "4000")
-      :cwd "~/Dropbox/Blog"
+      :cwd "~/Dropbox/ztlevi.github.io"
       :tags '(hexo server)
       :init (lambda () (browse-url "http://localhost:4000"))
       :kill-signal 'sigkill
@@ -1024,7 +1024,7 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
       :name "Hexo Blog Deploy"
       :command "hexo"
       :args '("deploy" "--generate")
-      :cwd "~/Dropbox/Blog"
+      :cwd "~/Dropbox/ztlevi.github.io"
       :tags '(hexo deploy)
       :kill-signal 'sigkill
       :kill-process-buffer-on-stop t)
