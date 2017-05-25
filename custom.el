@@ -28,6 +28,7 @@
  '(helm-move-to-line-cycle-in-source t)
  '(httpd-port 48080)
  '(ivy-height 18)
+ '(linum-relative-plusp-offset 1)
  '(lua-documentation-url "http://www.lua.org/manual/5.3/manual.html")
  '(magit-use-overlays nil)
  '(only-global-abbrevs t)
