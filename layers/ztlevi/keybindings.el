@@ -62,10 +62,6 @@
     (define-key ranger-normal-mode-map (kbd "q") 'ranger-close)
     (define-key evil-normal-state-local-map (kbd "SPC f j") 'deer)))
 
-;; dash
-(global-set-key "\C-cd" 'dash-at-point)
-(global-set-key "\C-ce" 'dash-at-point-with-docset)
-
 ;; yasnippet
 (define-key yas-minor-mode-map (kbd "<C-tab>") 'yas-expand)
 (define-key evil-normal-state-local-map (kbd "SPC y r") 'yas-reload-all)
@@ -240,6 +236,7 @@
 (spacemacs/set-leader-keys ":" 'counsel-M-x)
 
 (global-set-key (kbd "s-s") 'save-buffer)
+;; keybindings for linux and windows
 (when (or (spacemacs/system-is-linux) (spacemacs/system-is-mswindows))
   (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
   (global-set-key (kbd "s--") 'spacemacs/scale-down-font)
