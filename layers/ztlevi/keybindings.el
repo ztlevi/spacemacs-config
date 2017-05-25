@@ -24,6 +24,10 @@
 (evil-define-key 'visual evil-surround-mode-map "Ds" 'evil-surround-delete)
 
 (define-key evil-motion-state-map "\C-e" 'mwim-end-of-code-or-line)
+
+;; indent buffer
+(define-key evil-normal-state-local-map (kbd ", =") 'indent-region-or-buffer)
+(define-key evil-visual-state-local-map (kbd ", =") 'indent-region-or-buffer)
 ;; ================================Evil Mode END=================================
 ;; use ansi term
 (spacemacs/set-leader-keys "'" 'spacemacs/shell-pop-ansi-term)
@@ -109,7 +113,6 @@
 ;; http://emacs.stackexchange.com/questions/220/how-to-bind-c-i-as-different-from-tab
 ;; (define-key input-decode-map [?\C-i] [C-i])
 ;; (define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
-(global-set-key (kbd "C-s-\\") 'indent-region-or-buffer)
 (global-set-key [remap fill-paragraph] #'endless/fill-or-unfill)
 
 ;; (global-set-key (kbd "C-.") 'company-capf)

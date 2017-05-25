@@ -11,7 +11,6 @@
 
 (defconst ztlevi-programming-packages
   '(
-    web-beautify
     xref-js2
     css-mode
     java-mode
@@ -46,17 +45,6 @@
     robe
     )
   )
-
-(defun ztlevi-programming/post-init-web-beautify ()
-      (eval-after-load 'js2-mode
-        '(define-key js2-mode-map (kbd "C-s-\\") 'web-beautify-js))
-      (eval-after-load 'json-mode
-        '(define-key json-mode-map (kbd "C-s-\\") 'web-beautify-js))
-      (eval-after-load 'sgml-mode
-        '(define-key html-mode-map (kbd "C-s-\\") 'web-beautify-html))
-      (eval-after-load 'css-mode
-        '(define-key css-mode-map (kbd "C-s-\\") 'web-beautify-css))
-)
 
 (defun ztlevi-programming/post-init-java-mode ()
   ;; ctags add hook
