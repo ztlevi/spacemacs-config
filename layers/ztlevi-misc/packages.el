@@ -726,13 +726,17 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
 
     (define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
 
-    (defun my-evil-yank ()
-      (interactive)
-      (save-excursion
-        (call-interactively 'evil-yank))
-      (backward-char))
+    ;; indent buffer
+    (define-key evil-normal-state-map (kbd ",=") 'indent-region-or-buffer)
+    (define-key evil-visual-state-map (kbd ",=") 'indent-region-or-buffer)
 
-    (define-key evil-visual-state-map (kbd "y") 'my-evil-yank)
+    ;; (defun my-evil-yank ()
+    ;;   (interactive)
+    ;;   (save-excursion
+    ;;     (call-interactively 'evil-yank))
+    ;;   (backward-char))
+
+    ;; (define-key evil-visual-state-map (kbd "y") 'my-evil-yank)
 
     (define-key evil-normal-state-map
       (kbd "Y") 'ztlevi/yank-to-end-of-line)
@@ -752,10 +756,6 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
     ;; (define-key evil-insert-state-map "\C-e" 'end-of-line)
     ;; (define-key evil-insert-state-map "\C-n" 'next-line)
     ;; (define-key evil-insert-state-map "\C-k" 'kill-line)
-    (define-key evil-emacs-state-map (kbd "s-f") 'forward-word)
-    (define-key evil-insert-state-map (kbd "s-f") 'forward-word)
-    (define-key evil-emacs-state-map (kbd "s-b") 'backward-word)
-    (define-key evil-insert-state-map (kbd "s-b") 'backward-word)
 
     (spacemacs/set-leader-keys "bi" 'ibuffer)
     (define-key evil-ex-completion-map "\C-a" 'move-beginning-of-line)

@@ -24,10 +24,6 @@
 (evil-define-key 'visual evil-surround-mode-map "Ds" 'evil-surround-delete)
 
 (define-key evil-motion-state-map "\C-e" 'mwim-end-of-code-or-line)
-
-;; indent buffer
-(define-key evil-normal-state-local-map (kbd ", =") 'indent-region-or-buffer)
-(define-key evil-visual-state-local-map (kbd ", =") 'indent-region-or-buffer)
 ;; ================================Evil Mode END=================================
 ;; use ansi term
 (spacemacs/set-leader-keys "'" 'spacemacs/shell-pop-ansi-term)
