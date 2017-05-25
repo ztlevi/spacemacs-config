@@ -616,7 +616,21 @@
 
     (when (configuration-layer/package-usedp 'company)
       (spacemacs|add-company-backends :modes shell-script-mode makefile-bsdmake-mode sh-mode lua-mode nxml-mode conf-unix-mode json-mode graphviz-dot-mode))
+    
+    ;; define company-mode keybindings
+    (with-eval-after-load 'company
+      (progn
+        (bb/define-key company-active-map
+          (kbd "C-w") 'evil-delete-backward-word)
+
+        (bb/define-key company-active-map
+          (kbd "s-w") 'company-show-location)
+        (define-key company-active-map (kbd "M-n") nil)
+        (define-key company-active-map (kbd "M-p") nil)
+        (define-key company-active-map (kbd "C-n") #'company-select-next)
+        (define-key company-active-map (kbd "C-p") #'company-select-previous)))
     ))
+
 (defun ztlevi-programming/post-init-company-c-headers ()
   (progn
     (setq company-c-headers-path-system

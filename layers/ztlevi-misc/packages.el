@@ -730,6 +730,8 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
     (define-key evil-normal-state-map (kbd ",=") 'indent-region-or-buffer)
     (define-key evil-visual-state-map (kbd ",=") 'indent-region-or-buffer)
 
+    (define-key evil-motion-state-map "\C-e" 'mwim-end-of-code-or-line)
+
     ;; (defun my-evil-yank ()
     ;;   (interactive)
     ;;   (save-excursion
@@ -763,7 +765,6 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
     (define-key evil-ex-completion-map "\C-k" 'kill-line)
     (define-key minibuffer-local-map (kbd "C-w") 'evil-delete-backward-word)
 
-    (define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
     ;; (define-key evil-visual-state-map (kbd "x") 'er/expand-region)
     ;; (define-key evil-visual-state-map (kbd "X") 'er/contract-region)
     (define-key evil-visual-state-map (kbd "C-r") 'ztlevi/evil-quick-replace)
@@ -922,9 +923,6 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
                   (define-key map "=" 'chinese-wbim-next-page))))
     ))
 
-
-(defun ztlevi-misc/post-init-evil-escape ()
-  (setq evil-escape-delay 0.2))
 
 (defun ztlevi-misc/init-find-file-in-project ()
   (use-package find-file-in-project

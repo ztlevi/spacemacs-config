@@ -10,11 +10,6 @@
 ;;; License: GPLv3
 
 ;; ================================Evil Mode Start===============================
-;; define the emacs move keys in evil-mode
-;; (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char)
-(setq-default evil-escape-key-sequence "jk")
-(setq-default evil-escape-delay 0.2)
-
 ;; window split and focus
 (define-key evil-normal-state-local-map (kbd "SPC w v") 'split-window-right-and-focus)
 (define-key evil-normal-state-local-map (kbd "SPC w s") 'split-window-below-and-focus)
@@ -22,24 +17,10 @@
 ;; set evil surround
 (evil-define-key 'visual evil-surround-mode-map "Cs" 'evil-surround-change)
 (evil-define-key 'visual evil-surround-mode-map "Ds" 'evil-surround-delete)
-
-(define-key evil-motion-state-map "\C-e" 'mwim-end-of-code-or-line)
 ;; ================================Evil Mode END=================================
+
 ;; use ansi term
 (spacemacs/set-leader-keys "'" 'spacemacs/shell-pop-ansi-term)
-
-;; define company-mode keybindings
-(with-eval-after-load 'company
-  (progn
-    (bb/define-key company-active-map
-      (kbd "C-w") 'evil-delete-backward-word)
-
-    (bb/define-key company-active-map
-      (kbd "s-w") 'company-show-location)
-    (define-key company-active-map (kbd "M-n") nil)
-    (define-key company-active-map (kbd "M-p") nil)
-    (define-key company-active-map (kbd "C-n") #'company-select-next)
-    (define-key company-active-map (kbd "C-p") #'company-select-previous)))
 
 (define-key global-map (kbd "M-/") nil)
 (define-key global-map (kbd "M-/") 'company-complete)
