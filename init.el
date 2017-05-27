@@ -62,7 +62,7 @@ values."
      (osx :variables osx-dictionary-dictionary-choice "Simplified Chinese - English"
           osx-command-as 'super)
      restclient
-     (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
+     ;; (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      (shell :variables shell-default-shell 'eshell)
      ;; docker
      ;; latex
@@ -78,6 +78,7 @@ values."
      ;; ruby-on-rails
      lua
      html
+     (java :variables java-backend nil)
      javascript
      (typescript :variables
                  typescript-fmt-on-save nil
@@ -96,7 +97,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(sicp)
+   dotspacemacs-additional-packages '()
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
@@ -384,6 +385,34 @@ values."
     (progn
       (message "Microsoft Windows"))))
 
+  ;; ============================== U I ========================================
+  ;; settings for transparent
+  (spacemacs/toggle-transparency)
+
+  ;; set evil state cursor
+  (setq evil-normal-state-cursor '("#ff007f" box))
+  (setq evil-insert-state-cursor '("#ff007f" (bar . 2)))
+
+  ;; force horizontal split window
+  (setq split-width-threshold 120)
+  (linum-relative-on)
+
+  ;; enable truncate lines globally
+  (add-hook 'prog-mode-hook 'spacemacs/toggle-truncate-lines-off)
+  (add-hook 'text-mode-hook 'spacemacs/toggle-visual-line-navigation-on)
+
+  ;; ============================== Others =====================================
+  ;; void-function fci-mode issue when installing packages
+  ;; https://github.com/syl20bnr/spacemacs/issues/3400
+  (add-hook 'prog-mode-hook 'fci-mode)
+  (defun fci-mode-override-advice (&rest args))
+  (advice-add 'org-html-fontify-code :around
+              (lambda (fun &rest args)
+                (advice-add 'fci-mode :override #'fci-mode-override-advice)
+                (let ((result  (apply fun args)))
+                  (advice-remove 'fci-mode #'fci-mode-override-advice)
+                  result)))
+
   ;;解决org表格里面中英文对齐的问题
   (when (configuration-layer/layer-usedp 'chinese)
     (when (and (spacemacs/system-is-mac) window-system)
@@ -400,14 +429,6 @@ values."
                         (font-spec :family "Microsoft Yahei" :size 14))))
 
   (fset 'evil-visual-update-x-selection 'ignore)
-
-  ;; force horizontal split window
-  (setq split-width-threshold 120)
-  (linum-relative-on)
-
-  ;; enable truncate lines globally
-  (add-hook 'prog-mode-hook 'spacemacs/toggle-truncate-lines-off)
-  (add-hook 'text-mode-hook 'spacemacs/toggle-visual-line-navigation-on)
 
   (spacemacs|add-company-backends :modes text-mode)
 
@@ -477,25 +498,6 @@ values."
                                 (old-default-directory default-directory))
                             (projectile-switch-project-by-name project)
                             (setq default-directory old-default-directory))))))
-
-  ;; =======================ztlevi's personal settings==========================
-  ;; settings for transparent
-  (spacemacs/toggle-transparency)
-
-  ;; set evil state cursor
-  (setq evil-normal-state-cursor '("#ff007f" box))
-  (setq evil-insert-state-cursor '("#ff007f" (bar . 2)))
-
-  ;; void-function fci-mode issue when installing packages
-  ;; https://github.com/syl20bnr/spacemacs/issues/3400
-  (add-hook 'prog-mode-hook 'fci-mode)
-  (defun fci-mode-override-advice (&rest args))
-  (advice-add 'org-html-fontify-code :around
-              (lambda (fun &rest args)
-                (advice-add 'fci-mode :override #'fci-mode-override-advice)
-                (let ((result  (apply fun args)))
-                  (advice-remove 'fci-mode #'fci-mode-override-advice)
-                  result)))
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))

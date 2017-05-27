@@ -270,7 +270,7 @@ version 2015-08-21"
       (message "load tags for TRI_demo...")
       (setq tags-table-list
             (list (my-create-tags-if-needed "~/Developer/TRI_demo/app"))))
-     ((my-project-name-contains-substring "Leetcode/Code/Java")
-      (message "load tags for Leetcode Java repo...")
-      (setq tags-table-list (list (my-create-tags-if-needed "~/Developer/Leetcode/Code/Java"))))
+     ((my-project-name-contains-substring "leetcode/solutions")
+      (message "load tags for leetcode repo...")
+      (setq tags-table-list (list (my-create-tags-if-needed "~/Dropbox/leetcode/solutions"))))
      )))

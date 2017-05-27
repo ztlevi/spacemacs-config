@@ -740,9 +740,6 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
 
     ;; (define-key evil-visual-state-map (kbd "y") 'my-evil-yank)
 
-    (define-key evil-normal-state-map
-      (kbd "Y") 'ztlevi/yank-to-end-of-line)
-
     ;; rebind g,k to gj and gk
     ;; (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
     ;; (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
