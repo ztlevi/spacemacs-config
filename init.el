@@ -405,6 +405,10 @@ values."
   (setq split-width-threshold 120)
   (linum-relative-on)
 
+  ;; enable truncate lines globally
+  (add-hook 'prog-mode-hook 'spacemacs/toggle-truncate-lines-off)
+  (add-hook 'text-mode-hook 'spacemacs/toggle-visual-line-navigation-on)
+
   (spacemacs|add-company-backends :modes text-mode)
 
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)

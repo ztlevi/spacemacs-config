@@ -1,0 +1,5 @@
+#name : Image HTML
+#contributor: zhouting@umich.edu
+#key : imgHTML->
+# --
+<img src="$1" alt="$0" style="width:200px;margin:auto;display:block;"/>
