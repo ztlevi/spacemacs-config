@@ -920,7 +920,6 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
                   (define-key map "=" 'chinese-wbim-next-page))))
     ))
 
-
 (defun ztlevi-misc/init-find-file-in-project ()
   (use-package find-file-in-project
     :defer t
@@ -952,9 +951,6 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
           ))
       (ad-activate 'find-file-in-project))))
 
-
-
-
 (defun ztlevi-misc/post-init-projectile ()
   (progn
     (with-eval-after-load 'projectile
@@ -975,8 +971,6 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
         (occur my-simple-todo-regex)))
     (spacemacs/set-leader-keys "pf" 'ztlevi/open-file-with-projectile-or-counsel-git)
     (spacemacs/set-leader-keys "pt" 'my-simple-todo)))
-
-
 
 (defun ztlevi-misc/post-init-prodigy ()
   (progn

@@ -57,7 +57,7 @@
    5. The =Swiper= package sometimes frozen the Emacs UI only when you split the window. You could use `pkill -SIGUSR2 -i emacs` command line to rescue.
 
 ** Happing Hacking
-   1. The live server "simple-httpd" port is set to be 48080 in the custom.el. So the testing page for this live server is http://localhost:48080/imp .
+   1. The live server "simple-httpd" port is set to be 48080 in the custom.el. So the testing page for this live server is http://localhost:48080/imp.
 
    2. Ctags setting is under *my-setup-develop-environment()* function. Add scripts like this to automatically generate TAGS for your project. You may need to install ctags if you never used before.
       #+BEGIN_SRC lisp

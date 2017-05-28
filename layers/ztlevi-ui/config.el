@@ -15,13 +15,6 @@
 ;; (setq-default header-line-format
 ;;               '((which-func-mode ("" which-func-format " "))))
 
-;; more useful frame title, that show either a file or a
-;; buffer name (if the buffer isn't visiting a file)
-(setq frame-title-format
-      '("" " ztlevi - "
-        (:eval (if (buffer-file-name)
-                   (abbreviate-file-name (buffer-file-name)) "%b"))))
-
 ;; set scrolling speed
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 1) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)

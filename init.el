@@ -78,7 +78,6 @@ values."
      ;; ruby-on-rails
      lua
      html
-     (java :variables java-backend nil)
      javascript
      (typescript :variables
                  typescript-fmt-on-save nil
@@ -341,12 +340,36 @@ values."
    ;; specified with an installed package.
    ;; Not used for now. (default nil)
    dotspacemacs-default-package-repository nil
+   ;; Format specification for setting the frame title.
+   ;; %a - the `abbreviated-file-name', or `buffer-name'
+   ;; %t - `projectile-project-name'
+   ;; %I - `invocation-name'
+   ;; %S - `system-name'
+   ;; %U - contents of $USER
+   ;; %b - buffer name
+   ;; %f - visited file name
+   ;; %F - frame name
+   ;; %s - process status
+   ;; %p - percent of buffer above top of window, or Top, Bot or All
+   ;; %P - percent of buffer above bottom of window, perhaps plus Top, or Bot or All
+   ;; %m - mode name
+   ;; %n - Narrow if appropriate
+   ;; %z - mnemonics of buffer, terminal, and keyboard coding systems
+   ;; %Z - like %z, but including the end-of-line format
+   dotspacemacs-frame-title-format "%S@%a"
+   ;; Format specification for setting the icon title format
+   ;; (default nil - same as frame-title-format)
+   dotspacemacs-icon-title-format nil
    ;; Delete whitespace while saving buffer. Possible values are `all'
    ;; to aggressively delete empty line and long sequences of whitespace,
-   ;; `trailing' to delete only the whitespace at end of lines, `changed'to
+   ;; `trailing' to delete only the whitespace at end of lines, `changed' to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil)
+   dotspacemacs-whitespace-cleanup nil
+   ;; Either nil or a number of seconds. If non-nil zone out after the specified
+   ;; number of seconds. (default nil)
+   dotspacemacs-zone-out-when-idle nil
+   )
   )
 
 (defun dotspacemacs/user-init ()
@@ -398,7 +421,8 @@ values."
   (linum-relative-on)
 
   ;; enable truncate lines globally
-  (add-hook 'prog-mode-hook 'spacemacs/toggle-truncate-lines-off)
+  (add-hook 'mode-hook 'spacemacs/toggle-truncate-lines-off)
+  ;; (add-hook 'prog-mode-hook 'spacemacs/toggle-truncate-lines-off)
   (add-hook 'text-mode-hook 'spacemacs/toggle-visual-line-navigation-on)
 
   ;; ============================== Others =====================================
@@ -497,8 +521,7 @@ values."
                           (let ((projectile-completion-system 'ivy)
                                 (old-default-directory default-directory))
                             (projectile-switch-project-by-name project)
-                            (setq default-directory old-default-directory))))))
-  )
+                            (setq default-directory old-default-directory)))))))
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
 (load custom-file 'no-error 'no-message)

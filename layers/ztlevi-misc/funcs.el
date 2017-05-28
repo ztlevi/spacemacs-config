@@ -17,6 +17,10 @@
   (while (search-forward "\r" nil t) (replace-match "
 ")))
 
+(defun ztlevi/browse-live-server ()
+  (interactive)
+  (browse-url "http://localhost:48080/imp"))
+
 (defun ztlevi/open-terminal-in-current-dir ()
   (interactive)
   (cond
