@@ -420,23 +420,7 @@ values."
   (setq split-width-threshold 120)
   (linum-relative-on)
 
-  ;; enable truncate lines globally
-  (add-hook 'mode-hook 'spacemacs/toggle-truncate-lines-off)
-  ;; (add-hook 'prog-mode-hook 'spacemacs/toggle-truncate-lines-off)
-  (add-hook 'text-mode-hook 'spacemacs/toggle-visual-line-navigation-on)
-
   ;; ============================== Others =====================================
-  ;; void-function fci-mode issue when installing packages
-  ;; https://github.com/syl20bnr/spacemacs/issues/3400
-  (add-hook 'prog-mode-hook 'fci-mode)
-  (defun fci-mode-override-advice (&rest args))
-  (advice-add 'org-html-fontify-code :around
-              (lambda (fun &rest args)
-                (advice-add 'fci-mode :override #'fci-mode-override-advice)
-                (let ((result  (apply fun args)))
-                  (advice-remove 'fci-mode #'fci-mode-override-advice)
-                  result)))
-
   ;;解决org表格里面中英文对齐的问题
   (when (configuration-layer/layer-usedp 'chinese)
     (when (and (spacemacs/system-is-mac) window-system)
