@@ -19,10 +19,6 @@
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 1) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
 
-;; File colum indicator 80 chars
-(setq-default fci-rule-column 81)
-(setq fci-rule-color "grey80")
-
 ;; all-the-icons add hook
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
@@ -101,6 +97,7 @@
 (setq linum-delay t)
 (defadvice linum-schedule (around my-linum-schedule () activate)
   (run-with-idle-timer 0.1 nil #'linum-update-current))
+
 ;; set initl screen size
 (setq initial-frame-alist
       '(
