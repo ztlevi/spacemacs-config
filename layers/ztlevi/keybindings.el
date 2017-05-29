@@ -37,12 +37,6 @@
 ;; comment
 (global-set-key (kbd "s-/") 'comment-dwim)
 
-;; ranger
-(with-eval-after-load 'ranger
-  (progn
-    (define-key ranger-normal-mode-map (kbd "q") 'ranger-close)
-    (define-key evil-normal-state-local-map (kbd "SPC f j") 'deer)))
-
 ;; yasnippet
 (define-key yas-minor-mode-map (kbd "<C-tab>") 'yas-expand)
 (define-key evil-normal-state-local-map (kbd "SPC y r") 'yas-reload-all)
