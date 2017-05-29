@@ -788,14 +788,17 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
     (evil-define-key 'emacs term-raw-map (kbd "C-w")
       'evil-delete-backward-word)
 
+    (setq evil-normal-state-tag   (propertize "[N]" 'face '((:foreground "DarkGoldenrod2")))
+          evil-emacs-state-tag    (propertize "[E]" 'face '((:foreground "SkyBlue2")))
+          evil-insert-state-tag   (propertize "[I]" 'face '((:foreground "chartreuse3")))
+          evil-motion-state-tag   (propertize "[M]" 'face '((:foreground "plum3")))
+          evil-visual-state-tag   (propertize "[V]" 'face '((:foreground "gray")))
+          evil-operator-state-tag (propertize "[O]" 'face '((:foreground "purple"))))
 
-    (setq evil-normal-state-tag   (propertize "[N]" 'face '((:background "DarkGoldenrod2" :foreground "black")))
-          evil-emacs-state-tag    (propertize "[E]" 'face '((:background "SkyBlue2" :foreground "black")))
-          evil-insert-state-tag   (propertize "[I]" 'face '((:background "chartreuse3") :foreground "white"))
-          evil-motion-state-tag   (propertize "[M]" 'face '((:background "plum3") :foreground "white"))
-          evil-visual-state-tag   (propertize "[V]" 'face '((:background "gray" :foreground "black")))
-          evil-operator-state-tag (propertize "[O]" 'face '((:background "purple"))))
-    (setq evil-insert-state-cursor '("chartreuse3" box))
+    ;; set evil state cursor
+    (setq evil-normal-state-cursor '("#ff007f" box))
+    (setq evil-insert-state-cursor '("#ff007f" (bar . 2)))
+
     (define-key evil-insert-state-map (kbd "C-z") 'evil-emacs-state)
     ;; This will break visual column edit
     ;; enable hybrid editing style
@@ -898,12 +901,12 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
   (setq persp-kill-foreign-buffer-action 'kill)
   (setq persp-lighter nil)
   (when (fboundp 'spacemacs|define-custom-layout)
-    (spacemacs|define-custom-layout "@Cocos2D-X"
-      :binding "c"
+    (spacemacs|define-custom-layout "@Hexo-Blog"
+      :binding "h"
       :body
-      (find-file "~/cocos2d-x/cocos/ui/UIWidget.cpp")
+      (find-file "~/Dropbox/ztlevi.github.io/_config.yml")
       (split-window-right)
-      (find-file "~/cocos2d-x/cocos/cocos2d.cpp"))))
+      (find-file "~/Dropbox/ztlevi.github.io/package.json"))))
 
 (defun ztlevi-misc/post-init-chinese-wbim ()
   (progn

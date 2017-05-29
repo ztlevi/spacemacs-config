@@ -80,13 +80,6 @@
   ;; (setq-default mode-line-misc-info
   ;;               (assq-delete-all 'which-func-mode mode-line-misc-info))
 
-  (setq evil-normal-state-tag   (propertize "|N|" 'face '((:foreground "DarkGoldenrod2")))
-        evil-emacs-state-tag    (propertize "|E|" 'face '((:foreground "SkyBlue2")))
-        evil-insert-state-tag   (propertize "|I|" 'face '((:foreground "chartreuse3")))
-        evil-motion-state-tag   (propertize "|M|" 'face '((:foreground "plum3")))
-        evil-visual-state-tag   (propertize "|V|" 'face '((:foreground "gray")))
-        evil-operator-state-tag (propertize "|O|" 'face '((:foreground "purple"))))
-
   (setq-default mode-line-format
                 (list
                  " %1"

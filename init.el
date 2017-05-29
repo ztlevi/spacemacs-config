@@ -399,8 +399,7 @@ values."
   (cond
    ((string-equal system-type "darwin") ; Mac OS X
     (progn
-      (message "Mac OS X")
-      ))
+      (message "Mac OS X")))
    ((string-equal system-type "gnu/linux") ; linux
     (progn
       (message "Linux")))
@@ -411,10 +410,6 @@ values."
   ;; ============================== U I ========================================
   ;; settings for transparent
   (spacemacs/toggle-transparency)
-
-  ;; set evil state cursor
-  (setq evil-normal-state-cursor '("#ff007f" box))
-  (setq evil-insert-state-cursor '("#ff007f" (bar . 2)))
 
   ;; force horizontal split window
   (setq split-width-threshold 120)
