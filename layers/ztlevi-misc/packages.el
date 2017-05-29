@@ -101,12 +101,12 @@
       (add-to-list 'golden-ratio-exclude-buffer-names n))))
 
 (defun ztlevi-misc/post-init-ranger ()
-  (progn
-    ;; (use-package bookmark
-    ;;   :defer)
-    ;; ranger replace dired-mode
-    (use-package diff-hl-dired)
-    (ranger-override-dired-mode t))
+  ;; (use-package bookmark
+  ;;   :defer)
+  ;; ranger replace dired-mode
+  (add-hook 'ranger-mode-hook 'spacemacs/toggle-line-numbers-off)
+  (use-package diff-hl-dired)
+  (ranger-override-dired-mode t)
 
   ;; https://emacs-china.org/t/ranger-golden-ratio/964/2
   (defun my-ranger ()

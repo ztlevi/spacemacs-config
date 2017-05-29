@@ -314,7 +314,7 @@ values."
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers t
+   dotspacemacs-line-numbers 'relative
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'origami
@@ -418,7 +418,6 @@ values."
 
   ;; force horizontal split window
   (setq split-width-threshold 120)
-  (linum-relative-on)
 
   ;; ============================== Others =====================================
   ;;解决org表格里面中英文对齐的问题
