@@ -53,6 +53,7 @@
 ;;http://stackoverflow.com/questions/21005885/export-org-mode-code-block-and-result-with-different-styles
 (defun ztlevi-org/post-init-org ()
   (add-hook 'org-mode-hook 'spacemacs/toggle-line-numbers-off)
+  (add-hook 'org-mode-hook 'spacemacs/toggle-truncate-lines-off)
   (with-eval-after-load 'org
     (progn
       

@@ -48,6 +48,12 @@
        #+BEGIN_SRC shell
        npm install -g eslint babel-eslint eslint-plugin-react eslint-plugin-html tern
        #+END_SRC
+    5. Emacs2Ram(Optional): Put the .emacs.d in the tempfs. Working on Linux and Mac. Link over [[http://blog.binchen.org/posts/emacs-speed-up-1000.html][here]].
+       - Step 1: insert below line into /etc/fstab and restart computer:
+         #+BEGIN_SRC shell
+         tmpfs       /tmp        tmpfs       nodev,nosuid,size=8G    0   0
+         #+END_SRC
+       - Step 2: run ~./emacs2ram.sh start~
 
 ** What's the highlight of this configuration
    1. It's a highly customize optimized Spacemacs configuration, it's relied on the develop branch of the officially Spacemacs.

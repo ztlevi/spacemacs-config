@@ -81,7 +81,6 @@
     (sit-for 4)
     (browse-url "http://localhost:4000")))
 
-
 ;; Screenshot
 (defun ztlevi//insert-org-or-md-img-link (prefix imagename)
   (if (equal (file-name-extension (buffer-file-name)) "org")
