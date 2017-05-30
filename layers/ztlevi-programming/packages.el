@@ -11,6 +11,7 @@
 
 (defconst ztlevi-programming-packages
   '(
+    stylus-mode
     xref-js2
     css-mode
     java-mode
@@ -45,6 +46,10 @@
     robe
     )
   )
+
+(defun ztlevi-programming/init-stylus-mode ()
+  (use-package stylus-mode
+    :defer t))
 
 (defun ztlevi-programming/post-init-java-mode ()
   ;; ctags add hook
@@ -219,8 +224,8 @@
     (set-face-background 'secondary-selection "gray")
     (setq-default yas-prompt-functions '(yas-ido-prompt yas-dropdown-prompt))
     (mapc #'(lambda (hook) (remove-hook hook 'spacemacs/load-yasnippet)) '(prog-mode-hook
-                                                                      org-mode-hook
-                                                                      markdown-mode-hook))
+                                                                           org-mode-hook
+                                                                           markdown-mode-hook))
 
     (spacemacs/add-to-hooks 'ztlevi/load-yasnippet '(prog-mode-hook
                                                      markdown-mode-hook

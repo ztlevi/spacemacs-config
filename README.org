@@ -54,6 +54,7 @@
          tmpfs       /tmp        tmpfs       nodev,nosuid,size=8G    0   0
          #+END_SRC
        - Step 2: run ~./emacs2ram.sh start~
+       Notes: Reboot needs to do the cron job. Or you can add a startup script to your system.
 
 ** What's the highlight of this configuration
    1. It's a highly customize optimized Spacemacs configuration, it's relied on the develop branch of the officially Spacemacs.
