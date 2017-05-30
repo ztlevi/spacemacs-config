@@ -11,7 +11,7 @@
 
 (defconst ztlevi-programming-packages
   '(
-    stylus-mode
+    (stylus-mode :location (recipe :fetcher github :repo "vladh/stylus-mode"))
     xref-js2
     css-mode
     java-mode
