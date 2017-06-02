@@ -79,3 +79,9 @@
    3. Atomic Chorme is very useful to edit the textarea in Chrome. You will need to install the Chrome extension [[https://chrome.google.com/webstore/detail/atomic-chrome/lhaoghhllmiaaagaffababmkdllgfcmc][here]].
 
    4. Prodigy is great to define your own services and fire up the service easily. Custom setting is under function *ztlevi-misc/post-init-prodigy*
+
+      Note: If you are on a Mac, disable nap mode for Emacs, otherwise requests will be very slow when Emacs enters nap mode:
+      #+BEGIN_SRC shell
+      defaults write org.gnu.Emacs NSAppSleepDisabled -bool YES
+      #+END_SRC
+

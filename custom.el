@@ -5,7 +5,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ahs-case-fold-search nil t)
+ '(ahs-case-fold-search nil)
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
  '(command-log-mode-window-size 50)
  '(company-dabbrev-minimum-length 3)
  '(company-dabbrev-other-buffers nil)
@@ -28,6 +30,9 @@
  '(helm-move-to-line-cycle-in-source t)
  '(httpd-port 48080)
  '(ivy-height 18)
+ '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#51afef"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#98be65"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#3B3F46"))
  '(linum-relative-plusp-offset 1)
  '(lua-documentation-url "http://www.lua.org/manual/5.3/manual.html")
  '(magit-use-overlays nil)
@@ -41,7 +46,11 @@
  '(org-agenda-start-on-weekday nil)
  '(org-agenda-text-search-extra-files (quote (agenda-archives)))
  '(org-deadline-warning-days 14)
+ '(org-ellipsis "  ")
  '(org-fast-tag-selection-single-key (quote expert))
+ '(org-fontify-done-headline t)
+ '(org-fontify-quote-and-verse-blocks t)
+ '(org-fontify-whole-heading-line t)
  '(org-html-html5-fancy t)
  '(org-log-into-drawer t)
  '(org-pomodoro-play-sounds nil)

@@ -101,7 +101,6 @@
       (add-to-list 'golden-ratio-exclude-buffer-names n))))
 
 (defun ztlevi-misc/post-init-ranger ()
-  (add-hook 'ranger-mode-hook 'spacemacs/toggle-line-numbers-off)
   (use-package diff-hl-dired)
   (ranger-override-dired-mode t)
   (define-key evil-normal-state-local-map (kbd "SPC f j") 'deer))

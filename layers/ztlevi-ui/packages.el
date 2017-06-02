@@ -17,6 +17,7 @@
     diminish
     popwin
     (whitespace :location built-in)
+    doom-themes
     ;; hl-anything performance is very slow...
     ;; hl-anything
     ;; if you wnat to use spaceline, please comment out ztlevi-mode-line
@@ -25,6 +26,16 @@
     ;; evil-vimish-fold
     )
   )
+
+(defun ztlevi-ui/init-doom-themes ()
+  (use-package doom-themes
+    :init
+    (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+          doom-themes-enable-italic t  ; if nil, italics is universally disabled
+
+          ;; doom-one specific settings
+          doom-one-brighter-modeline nil
+          doom-one-brighter-comments nil)))
 
 (defun ztlevi-ui/init-all-the-icons-dired ()
   (use-package all-the-icons-dired
@@ -36,7 +47,7 @@
     :init
     (progn
       (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-)))
+      )))
 
 (defun ztlevi-ui/init-ztlevi-mode-line ()
   (defun ztlevi/display-mode-indent-width ()
@@ -281,7 +292,7 @@ This segment overrides the modeline functionality of `org-mode-line-string'."
       :evil-leader "ots")
     (add-hook 'markdown-mode-hook
               #'(lambda ()
-                 (set (make-local-variable 'pangu-spacing-real-insert-separtor) t)))))
+                  (set (make-local-variable 'pangu-spacing-real-insert-separtor) t)))))
 
 (defun ztlevi-ui/post-init-popwin ()
   (progn
