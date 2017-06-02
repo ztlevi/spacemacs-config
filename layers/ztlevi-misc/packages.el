@@ -50,7 +50,7 @@
 (defun ztlevi-misc/init-atomic-chrome ()
   (use-package atomic-chrome
     :ensure t
-    :defer 2
+    :defer 5
     :config
     (setq atomic-chrome-url-major-mode-alist
           '(("github\\.com"        . gfm-mode)

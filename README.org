@@ -42,7 +42,7 @@
        #+BEGIN_SRC shell
        git clone https://github.com/ztlevi/spacemacs-config.git ~/.spacemacs.d
        #+END_SRC
-    2. Install Ubuntu Mono font
+    2. Install all-the-icons fonts by ~M-x all-the-icons-install-fonts~. I'm using Ubuntu Mono font, you could change it under ~dotspacemacs-default-font~
     3. Install ispell, the_silver_searcher
     4. Dependencies needed
        #+BEGIN_SRC shell
