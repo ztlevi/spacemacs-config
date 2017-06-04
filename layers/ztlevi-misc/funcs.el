@@ -278,11 +278,11 @@ e.g. Sunday, September 17, 2000."
 
 (defun ztlevi/open-file-with-projectile-or-counsel-git ()
   (interactive)
-  (if (or (ztlevi/vcs-project-root)
-          (projectile-project-p))
-      (projectile-find-file)
-    (counsel-file-jump)))
-
+  (if (ztlevi/git-project-root)
+      (counsel-git)
+    (if (projectile-project-p)
+        (projectile-find-file)
+      (counsel-file-jump))))
 
 ;; http://blog.lojic.com/2009/08/06/send-growl-notifications-from-carbon-emacs-on-osx/
 (defun ztlevi/growl-notification (title message &optional sticky)
@@ -461,13 +461,10 @@ e.g. Sunday, September 17, 2000."
           (lambda () (backward-char 2))
         (evil-ex command-string)))))
 
-(defun ztlevi/vcs-project-root ()
+(defun ztlevi/git-project-root ()
   "Return the project root for current buffer."
   (let ((directory default-directory))
-    (or (locate-dominating-file directory ".git")
-        (locate-dominating-file directory ".svn")
-        (locate-dominating-file directory ".hg"))))
-
+    (locate-dominating-file directory ".git")))
 
 ;; "http://xuchunyang.me/Opening-iTerm-From-an-Emacs-Buffer/"
 (defun ztlevi/iterm-shell-command (command &optional prefix)
@@ -476,7 +473,7 @@ With PREFIX, cd to project root."
   (interactive (list (read-shell-command
                       "iTerm Shell Command: ")
                      current-prefix-arg))
-  (let* ((dir (if prefix (ztlevi/vcs-project-root)
+  (let* ((dir (if prefix (ztlevi/git-project-root)
                 default-directory))
          ;; if COMMAND is empty, just change directory
          (cmd (format "cd %s ;%s" dir command)))
@@ -558,7 +555,7 @@ With PREFIX, cd to project root."
 (defun my-open-file-in-external-app (file)
   "Open file in external application."
   (interactive)
-  (let ((default-directory (ztlevi/vcs-project-root))
+  (let ((default-directory (ztlevi/git-project-root))
         (file-path file))
     (if file-path
         (cond
