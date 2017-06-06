@@ -4,20 +4,22 @@
 ** Installation
 *** Install Emacs-mac on Mac
 
+    *Method 1*: Use brew cask: ~brew cask install emacs-mac~
+
+    *Method 2*: Just brew, need compiling. (more customization)
     #+BEGIN_SRC shell
     brew tap railwaycat/emacsmacport
     brew install emacs-mac --with-spacemacs-icon --with-gnutls --with-natural-title-bar
     # create alias in /Applications
     rm /Applications/Emacs
-    osascript -e 'tell application "Finder" to make alias file to POSIX file "/usr/local/opt/emacs-mac/Emacs.app" at POSIX file "/Applications"'
+    brew linkapps emacs-mac
     #+END_SRC
-    
-    Notes: natural-title-bar usage [[https://github.com/railwaycat/homebrew-emacsmacport/wiki/Natural-Title-Bar][here]].
 
-    Or just ~brew cask install emacs-mac~
+    Notes: (just for method 2)
+
+    1. natural-title-bar usage [[https://github.com/railwaycat/homebrew-emacsmacport/wiki/Natural-Title-Bar][here]].
 
     2. Solution to incoming network connection:
-
        Codesign your Emacs.app. Instructions over [[http://apple.stackexchange.com/questions/3271/how-to-get-rid-of-firewall-accept-incoming-connections-dialog/170566][here]].
 
        #+BEGIN_SRC shell
@@ -56,14 +58,7 @@
        - Step 2: run ~./emacs2ram.sh start~
        Notes: Reboot needs to do the cron job. Or you can add a startup script to your system.
 
-** What's the highlight of this configuration
-   1. It's a highly customize optimized Spacemacs configuration, it's relied on the develop branch of the officially Spacemacs.
-   2. I prefer to the =Ivy= completion interface, so I removed many helm related packages but keep the =helm-ag= package. The =counsel-ag= counterpart is not powerful as =helm-ag=.
-   3. I also removed some packages I don't have any chance to use. The complete lists are in the exclude section of the =init.el= file.
-   4. I also exclude the =Spaceline= package, cause it's easy to frozen the Emacs with this package enabled. So I create my own mode line configuration based =Spaceline=.
-   5. The =Swiper= package sometimes frozen the Emacs UI only when you split the window. You could use `pkill -SIGUSR2 -i emacs` command line to rescue.
-
-** Happing Hacking
+** Package usage
    1. The live server "simple-httpd" port is set to be 48080 in the custom.el. So the testing page for this live server is http://localhost:48080/imp.
 
    2. Ctags setting is under *my-setup-develop-environment()* function. Add scripts like this to automatically generate TAGS for your project. You may need to install ctags if you never used before.
@@ -76,7 +71,7 @@
         
       Or ~cd /path/to/my/project~, ~ctags -e -R .~ and manually use *select-tag-table* function to select TAGS(set the tags-table-list value).
 
-   3. Atomic Chorme is very useful to edit the textarea in Chrome. You will need to install the Chrome extension [[https://chrome.google.com/webstore/detail/atomic-chrome/lhaoghhllmiaaagaffababmkdllgfcmc][here]].
+   3. Atomic Chrome is very useful to edit the textarea in Chrome. You will need to install the Chrome extension [[https://chrome.google.com/webstore/detail/atomic-chrome/lhaoghhllmiaaagaffababmkdllgfcmc][here]].
 
    4. Prodigy is great to define your own services and fire up the service easily. Custom setting is under function *ztlevi-misc/post-init-prodigy*
 
@@ -85,3 +80,9 @@
       defaults write org.gnu.Emacs NSAppSleepDisabled -bool YES
       #+END_SRC
 
+** What's the highlight of this configuration
+   1. It's a highly customize optimized Spacemacs configuration, it's relied on the *develop* branch of the officially Spacemacs.
+   2. I prefer to the =Ivy= completion interface, so I removed many helm related packages but keep the =helm-ag= package. The =counsel-ag= counterpart is not powerful as =helm-ag=.
+   3. I also removed some packages I don't have any chance to use. The complete lists are in the exclude section of the =init.el= file.
+   4. I also exclude the =Spaceline= package, cause it's easy to frozen the Emacs with this package enabled. So I create my own mode line configuration based =Spaceline=.
+   5. The =Swiper= package sometimes frozen the Emacs UI only when you split the window. You could use `pkill -SIGUSR2 -i emacs` command line to rescue.
