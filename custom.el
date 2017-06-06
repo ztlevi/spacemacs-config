@@ -86,6 +86,7 @@
  '(lazy-highlight ((t (:background "DodgerBlue" :foreground "#fdf6e3"))))
  '(match ((t (:foreground "#b58900" :background "#fdf6e3" :weight bold))))
  '(mc/cursor-bar-face ((t (:background "chartreuse3"))))
+ '(origami-fold-replacement-face ((t (:box (:line-width 1 :color "grey75")))))
  '(show-paren-match ((t (:background "dark gray" :foreground "#d33682"))))
  '(sp-show-pair-match-face ((t (:background "#272822" :foreground "gray" :inverse-video t :weight normal))))
  '(web-mode-current-element-highlight-face ((t (:background "dark gray")))))
