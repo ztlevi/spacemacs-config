@@ -63,7 +63,7 @@ values."
           osx-command-as 'super)
      restclient
      ;; (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
-     (shell :variables shell-default-shell 'eshell)
+     (shell :variables shell-default-shell 'ansi-term)
      ;; docker
      ;; latex
      deft
@@ -116,6 +116,7 @@ values."
                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
                     window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
                     livid-mode smooth-scrolling counsel-dash helm-dash 
+                    exec-path-from-shell
                     )
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))

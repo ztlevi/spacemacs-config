@@ -19,9 +19,6 @@
 (evil-define-key 'visual evil-surround-mode-map "Ds" 'evil-surround-delete)
 ;; ================================Evil Mode END=================================
 
-;; use ansi term
-(spacemacs/set-leader-keys "'" 'spacemacs/shell-pop-ansi-term)
-
 (define-key global-map (kbd "M-/") nil)
 (define-key global-map (kbd "M-/") 'company-complete)
 

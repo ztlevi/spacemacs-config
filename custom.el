@@ -20,8 +20,6 @@
  '(evil-escape-key-sequence "jk")
  '(evil-want-C-i-jump t)
  '(evil-want-Y-yank-to-eol t)
- '(exec-path-from-shell-arguments (quote ("-l")))
- '(exec-path-from-shell-check-startup-files nil)
  '(expand-region-contract-fast-key "V")
  '(expand-region-exclude-text-mode-expansions (quote (html-mode nxml-mode web-mode)))
  '(expand-region-reset-fast-key "r")
