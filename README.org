@@ -52,13 +52,6 @@
        #+BEGIN_SRC shell
        npm install -g eslint babel-eslint eslint-plugin-react eslint-plugin-html tern
        #+END_SRC
-    5. Emacs2Ram(Optional): Put the .emacs.d in the tempfs. Working on Linux and Mac. Link over [[http://blog.binchen.org/posts/emacs-speed-up-1000.html][here]].
-       - Step 1: insert below line into /etc/fstab and restart computer:
-         #+BEGIN_SRC shell
-         tmpfs       /tmp        tmpfs       nodev,nosuid,size=8G    0   0
-         #+END_SRC
-       - Step 2: run ~./emacs2ram.sh start~
-       Notes: Reboot needs to do the cron job. Or you can add a startup script to your system.
 
 ** Usage
    1. The live server "simple-httpd" port is set to be 48080 in the custom.el. So the testing page for this live server is http://localhost:48080/imp.
