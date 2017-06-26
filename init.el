@@ -68,7 +68,7 @@ values."
      ;; latex
      deft
      markdown
-     org
+     (org :variables org-want-todo-bindings t)
      gpu
      yaml
      react
