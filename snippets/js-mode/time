@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+#name : test time
+#key : time->
+# --
+var start = new Date().getTime()
+$0
+var end = new Date().getTime()
+console.log(end-start)

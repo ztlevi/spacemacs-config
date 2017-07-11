@@ -171,6 +171,7 @@
 
 (spacemacs/set-leader-keys "rh" 'helm-resume)
 (spacemacs/set-leader-keys "sj" 'counsel-imenu)
+(spacemacs/set-leader-keys "sp" 'counsel-git-grep)
 
 ;; ivy specific keybindings
 (if (configuration-layer/layer-usedp 'ivy)

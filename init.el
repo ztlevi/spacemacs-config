@@ -87,7 +87,7 @@ This function should only modify configuration layer settings."
             c-c++-default-mode-for-headers 'c++-mode)
      ztlevi
      (chinese :packages youdao-dictionary fcitx
-              :variables chinese-enable-fcitx nil
+              :variables chinese-enable-fcitx t
               chinese-enable-youdao-dict t)
      )
    ;; List of additional packages that will be installed without being
