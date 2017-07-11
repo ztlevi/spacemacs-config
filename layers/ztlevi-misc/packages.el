@@ -11,6 +11,9 @@
 
 (defconst ztlevi-misc-packages
   '(
+    helm-github-stars
+    helm
+    helm-ag
     atomic-chrome
     projectile
     prodigy
@@ -26,8 +29,6 @@
     avy
     4clojure
     persp-mode
-    helm-github-stars
-    helm
     tiny
     ;; smartparens
     flyspell-correct
@@ -39,7 +40,6 @@
     gist
     hydra
     wrap-region
-    helm-ag
     ranger
     golden-ratio
     (highlight-global :location (recipe :fetcher github :repo "glen-dai/highlight-global"))
