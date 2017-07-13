@@ -55,14 +55,6 @@
        #+BEGIN_SRC shell
        npm install -g eslint babel-eslint eslint-plugin-react eslint-plugin-html tern
        #+END_SRC
-    5. Chinese layer requirement
-       #+BEGIN_SRC shell
-       brew install fcitx-remote-for-osx --with-input-method=baidu-pinyin
-       #+END_SRC
-
-       =--with-input-method=baidu-pinyin= means install for Baidu-pinyin Input Method.
-
-       You can use =brew info fcitx-remote-for-osx= to get more options info for input method support.
 
 ** Usage
    1. The live server "simple-httpd" port is set to be 48080 in the custom.el. So the testing page for this live server is http://localhost:48080/imp.
