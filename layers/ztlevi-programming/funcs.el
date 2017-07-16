@@ -262,8 +262,8 @@ version 2015-08-21"
      ((my-project-name-contains-substring "/TRI_demo")
       (message "load tags for TRI_demo...")
       (setq tags-table-list
-            (list (my-create-tags-if-needed "~/Developer/TRI_demo/app"))))
+            (list (my-create-tags-if-needed "~/Developer/Github/TRI_demo/app"))))
      ((my-project-name-contains-substring "leetcode/solutions")
       (message "load tags for leetcode repo...")
-      (setq tags-table-list (list (my-create-tags-if-needed "~/Dropbox/leetcode/solutions"))))
+      (setq tags-table-list (list (my-create-tags-if-needed "~/Developer/Github/leetcode/solutions"))))
      )))

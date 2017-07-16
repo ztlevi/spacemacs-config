@@ -875,9 +875,9 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
     (spacemacs|define-custom-layout "@Hexo-Blog"
       :binding "h"
       :body
-      (find-file "~/Dropbox/ztlevi.github.io/_config.yml")
+      (find-file "~/Developer/Github/ztlevi.github.io/_config.yml")
       (split-window-right)
-      (find-file "~/Dropbox/ztlevi.github.io/package.json"))))
+      (find-file "~/Developer/Github/ztlevi.github.io/package.json"))))
 
 (defun ztlevi-misc/post-init-chinese-wbim ()
   (progn
@@ -957,7 +957,7 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
       :name "Debug TRI Demo"
       :command "npm"
       :args '("start")
-      :cwd "~/Developer/TRI_demo"
+      :cwd "~/Developer/Github/TRI_demo"
       :tags '(work)
       :kill-signal 'sigkill
       :kill-process-buffer-on-stop t)
@@ -966,7 +966,7 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
       :name "Leetcode Solution Website"
       :command "python"
       :args '("-m" "SimpleHTTPServer" "6005")
-      :cwd "~/Dropbox/leetcode"
+      :cwd "~/Developer/Github/leetcode"
       :tags '(leetcode)
       ;; if don't want to browse instantly, delete the following line
       :init (lambda () (browse-url "http://localhost:6005"))
