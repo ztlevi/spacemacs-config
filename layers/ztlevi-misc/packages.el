@@ -875,9 +875,9 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
     (spacemacs|define-custom-layout "@Hexo-Blog"
       :binding "h"
       :body
-      (find-file "~/Developer/Github/ztlevi.github.io/_config.yml")
+      (find-file "~/Developer/Github/hexo_blog/_config.yml")
       (split-window-right)
-      (find-file "~/Developer/Github/ztlevi.github.io/package.json"))))
+      (find-file "~/Developer/Github/hexo_blog/package.json"))))
 
 (defun ztlevi-misc/post-init-chinese-wbim ()
   (progn
@@ -977,7 +977,7 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
       :name "Hexo Blog Server"
       :command "hexo"
       :args '("server" "-p" "4000")
-      :cwd "~/Dropbox/ztlevi.github.io"
+      :cwd "~/Developer/Github/hexo_blog"
       :tags '(hexo server)
       :init (lambda () (browse-url "http://localhost:4000"))
       :kill-signal 'sigkill
@@ -987,7 +987,7 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
       :name "Hexo Blog Deploy"
       :command "hexo"
       :args '("deploy" "--generate")
-      :cwd "~/Dropbox/ztlevi.github.io"
+      :cwd "~/Developer/Github/hexo_blog"
       :tags '(hexo deploy)
       :kill-signal 'sigkill
       :kill-process-buffer-on-stop t)
