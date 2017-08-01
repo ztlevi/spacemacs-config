@@ -201,7 +201,8 @@
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 (spacemacs/set-leader-keys "bM" 'spacemacs/switch-to-messages-buffer)
 
-(bind-key* "s-p" 'find-file-in-project)
+(bind-key* "s-p" 'ztlevi/open-file-with-projectile-or-counsel-git)
+
 (spacemacs/set-leader-keys "os" 'ztlevi/browse-live-server)
 
 (spacemacs/set-leader-keys "pa" 'projectile-find-other-file)
