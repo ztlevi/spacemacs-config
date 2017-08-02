@@ -100,7 +100,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-excluded-packages
    '(magit-gh-pulls magit-gitflow org-projectile evil-mc realgud
                     evil-args evil-ediff evil-exchange evil-unimpaired
-                    evil-indent-plus volatile-highlights smartparens
+                    evil-indent-plus volatile-highlights exec-path-from-shell
                     spaceline holy-mode skewer-mode rainbow-delimiters
                     highlight-indentation vi-tilde-fringe eyebrowse
                     org-bullets org-repo-todo org-download org-timer
@@ -113,8 +113,7 @@ This function should only modify configuration layer settings."
                     helm-themes helm-swoop helm-spacemacs-help smeargle
                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
                     window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
-                    livid-mode smooth-scrolling counsel-dash helm-dash 
-                    exec-path-from-shell
+                    livid-mode smooth-scrolling counsel-dash helm-dash
                     )
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
@@ -327,13 +326,13 @@ It should only modify the values of Spacemacs settings."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers 't
+   dotspacemacs-line-numbers t
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'origami
    ;; If non-nil `smartparens-strict-mode' will be enabled in programming modes.
    ;; (default nil)
-   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smartparens-strict-mode t
    ;; If non-nil pressing the closing parenthesis `)' key in insert mode passes
    ;; over any automatically added closing parenthesis, bracket, quote, etc…
    ;; This can be temporary disabled by pressing `C-q' before `)'. (default nil)
