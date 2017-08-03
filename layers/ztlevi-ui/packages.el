@@ -94,7 +94,7 @@
                  '(:eval (propertize
                           (window-number-mode-line)
                           'face
-                          'font-lock-type-face))
+                          'font-lock-keyword-face))
                  " "
                  '(:eval (ztlevi/update-persp-name))
 
