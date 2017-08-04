@@ -49,7 +49,6 @@
 (defun ztlevi-misc/init-atomic-chrome ()
   (use-package atomic-chrome
     :ensure t
-    :defer 5
     :config
     (setq atomic-chrome-url-major-mode-alist
           '(("github\\.com"        . gfm-mode)
@@ -73,7 +72,13 @@
 
     (add-hook 'atomic-chrome-edit-mode-hook #'ztlevi/atomic-chrome-mode-setup)
 
-    (atomic-chrome-start-server)))
+    (defun atomic-chrome-server-running-p ()
+      (string-equal "Emacs\n"
+                    (shell-command-to-string
+                     "lsof -i :64292 | grep -E '\\(LISTEN\\)$' | cut -d ' ' -f 1")))
+
+    (if (not  (atomic-chrome-server-running-p))
+        (atomic-chrome-start-server))))
 
 (defun ztlevi-misc/init-browse-at-remote ()
   (use-package browse-at-remote
