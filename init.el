@@ -422,29 +422,8 @@ It should only modify the values of Spacemacs settings."
     (progn
       (message "Microsoft Windows"))))
 
-  ;; ============================== U I ========================================
-  ;; settings for transparent
-  (spacemacs/toggle-transparency)
-
-  ;; force horizontal split window
-  (setq split-width-threshold 120)
-
   ;; ============================== Others =====================================
-  ;;解决org表格里面中英文对齐的问题
-  (when (configuration-layer/layer-usedp 'chinese)
-    (when (and (spacemacs/system-is-mac) window-system)
-      (spacemacs//set-monospaced-font "Source Code Pro" "Hiragino Sans GB" 14 16)))
-
-  ;; Setting Chinese Font
-  (when (and (spacemacs/system-is-mswindows) window-system)
-    (setq ispell-program-name "aspell")
-    (setq w32-pass-alt-to-system nil)
-    (setq w32-apps-modifier 'super)
-    (dolist (charset '(kana han symbol cjk-misc bopomofo))
-      (set-fontset-font (frame-parameter nil 'font)
-                        charset
-                        (font-spec :family "Microsoft Yahei" :size 14))))
-
+  ;; disable enter visual mode automatically yank
   (fset 'evil-visual-update-x-selection 'ignore)
 
   (spacemacs|add-company-backends :modes text-mode)
@@ -514,7 +493,30 @@ It should only modify the values of Spacemacs settings."
                           (let ((projectile-completion-system 'ivy)
                                 (old-default-directory default-directory))
                             (projectile-switch-project-by-name project)
-                            (setq default-directory old-default-directory)))))))
+                            (setq default-directory old-default-directory))))))
+
+  ;; ============================== U I ========================================
+  ;; settings for transparent
+  (spacemacs/toggle-transparency)
+
+  ;; force horizontal split window
+  (setq split-width-threshold 120)
+
+  ;;解决org表格里面中英文对齐的问题
+  (when (configuration-layer/layer-usedp 'chinese)
+    (when (and (spacemacs/system-is-mac) window-system)
+      (spacemacs//set-monospaced-font "Ubuntu Mono" "Hiragino Sans GB" 14 16)))
+
+  ;; Setting Chinese Font
+  (when (and (spacemacs/system-is-mswindows) window-system)
+    (setq ispell-program-name "aspell")
+    (setq w32-pass-alt-to-system nil)
+    (setq w32-apps-modifier 'super)
+    (dolist (charset '(kana han symbol cjk-misc bopomofo))
+      (set-fontset-font (frame-parameter nil 'font)
+                        charset
+                        (font-spec :family "Microsoft Yahei" :size 14))))
+  )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
 (load custom-file 'no-error 'no-message)
