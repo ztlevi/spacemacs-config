@@ -47,14 +47,19 @@
        git clone https://github.com/ztlevi/spacemacs-config.git ~/.spacemacs.d
        #+END_SRC
     2. Install all-the-icons fonts by ~M-x all-the-icons-install-fonts~. I'm using /Ubuntu Mono/ font, you could change it under ~dotspacemacs-default-font~
-    3. Install ispell, ripgrep, the_silver_searcher, the_platinum_searcher
-       #+BEGIN_SRC shell
-       brew install ispell ripgrep the_silver_searcher pt
-       #+END_SRC
-    4. Dependencies needed
-       #+BEGIN_SRC shell
-       npm install -g eslint babel-eslint eslint-plugin-react eslint-plugin-html tern
-       #+END_SRC
+    3. Dependencies needed
+       - Install ispell, ripgrep, the_silver_searcher, the_platinum_searcher
+         #+BEGIN_SRC shell
+         brew install ispell ripgrep the_silver_searcher pt
+         #+END_SRC
+       - npm
+         #+BEGIN_SRC shell
+         npm install -g eslint babel-eslint eslint-plugin-react eslint-plugin-html tern
+         #+END_SRC
+       - pip
+         #+BEGIN_SRC shell
+         pip install yapf
+         #+END_SRC
 
 ** Usage
    1. The live server "simple-httpd" port is set to be 48080 in the custom.el. So the testing page for this live server is http://localhost:48080/imp.
