@@ -91,9 +91,10 @@
  '(paradox-github-token t)
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
+ '(ranger-deer-show-details nil)
  '(ring-bell-function (quote ignore))
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
- '(sp-show-pair-from-inside t t)
+ '(sp-show-pair-from-inside t)
  '(swiper-goto-start-of-match t)
  '(tags-revert-without-query t)
  '(term-default-bg-color "#fdf6e3")
@@ -116,22 +117,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ahs-definition-face ((t (:foreground "#d33682" :slant normal :weight bold))))
- '(ahs-face ((t (:foreground "#d33682" :weight bold))))
- '(command-log-command ((t (:foreground "dark magenta"))))
- '(command-log-key ((t (:foreground "dark cyan"))))
- ;; '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- ;; '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
- '(git-gutter-fr:added ((t (:foreground "#859900" :weight bold :width extra-expanded))))
- '(iedit-occurrence ((t (:inherit cursor))))
- ;; '(lazy-highlight ((t (:background "DodgerBlue" :foreground "#fdf6e3"))))
- ;; '(ivy-virtual ((t (:background "DodgerBlue" :foreground "#fdf6e3"))))
- ;; '(js2-external-variable ((t (:foreground "plum3"))))
- ;; '(match ((t (:foreground "#b58900" :background "#fdf6e3" :weight bold))))
- '(mc/cursor-bar-face ((t (:background "chartreuse3"))))
  '(origami-fold-replacement-face ((t (:box (:line-width 1 :color "grey75")))))
- ;; '(show-paren-match ((t (:background "dark gray" :foreground "#d33682"))))
- '(sp-show-pair-match-face ((t (:background "#272822" :foreground "gray" :inverse-video t :weight normal))))
- '(web-mode-current-element-highlight-face ((t (:background "dark gray")))))
+ )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

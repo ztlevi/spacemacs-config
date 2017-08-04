@@ -56,6 +56,9 @@
 ;; debug
 (define-key emacs-lisp-mode-map (kbd "<C-x> <C-e>") 'pp-eval-last-sexp)
 
+;; deer
+(define-key evil-normal-state-local-map (kbd "SPC f j") 'deer)
+
 ;; open in file manager
 (spacemacs/set-leader-keys "bf" 'ztlevi/open-finder-in-current-dir)
 (spacemacs/set-leader-keys "bt" 'ztlevi/open-terminal-in-current-dir)

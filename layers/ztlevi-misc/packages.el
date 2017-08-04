@@ -40,7 +40,6 @@
     gist
     hydra
     wrap-region
-    ranger
     golden-ratio
     (highlight-global :location (recipe :fetcher github :repo "glen-dai/highlight-global"))
     browse-at-remote
@@ -99,11 +98,6 @@
       (add-to-list 'golden-ratio-exclude-modes mode))
     (dolist (n '("COMMIT_EDITMSG"))
       (add-to-list 'golden-ratio-exclude-buffer-names n))))
-
-(defun ztlevi-misc/post-init-ranger ()
-  (use-package diff-hl-dired)
-  (ranger-override-dired-mode t)
-  (define-key evil-normal-state-local-map (kbd "SPC f j") 'deer))
 
 ;; copy from spacemacs helm layer
 (defun ztlevi-misc/init-helm-ag ()
