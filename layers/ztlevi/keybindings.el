@@ -19,6 +19,8 @@
 (evil-define-key 'visual evil-surround-mode-map "Ds" 'evil-surround-delete)
 ;; ================================Evil Mode END=================================
 
+(spacemacs/set-leader-keys "cc" 'atomic-chrome-close-current-buffer)
+
 (define-key global-map (kbd "M-/") nil)
 (define-key global-map (kbd "M-/") 'company-complete)
 

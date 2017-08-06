@@ -48,37 +48,33 @@
 
 (defun ztlevi-misc/init-atomic-chrome ()
   (use-package atomic-chrome
-    :ensure t
+    :ensure t                           ; To install its dependencies
+    :preface
+    (defun ztlevi-atomic-chrome-server-running-p ()
+      (cond ((executable-find "lsof")
+             (zerop (call-process "lsof" nil nil nil "-i" ":64292")))
+            ((executable-find "netstat") ; Windows
+             (zerop (call-process-shell-command "netstat -aon | grep 64292")))))
     :config
+    (setq atomic-chrome-buffer-open-style 'full) ;; or frame, split
     (setq atomic-chrome-url-major-mode-alist
           '(("github\\.com"        . gfm-mode)
             ("emacs-china\\.org"   . gfm-mode)
             ("stackexchange\\.com" . gfm-mode)
             ("stackoverflow\\.com" . gfm-mode)
-            ("leetcode\\.com" . python-mode)
-            ))
+            ("leetcode\\.com"      . python-mode)))
 
-    ;; (setq atomic-chrome-default-major-mode 'markdown-mode)
-    (setq atomic-chrome-buffer-open-style 'full) ;; or frame, split
-    (defun ztlevi/atomic-chrome-mode-setup ()
+    (defun ztlevi-atomic-chrome-mode-setup ()
       (setq header-line-format
             (substitute-command-keys
              "Edit Chrome text area.  Finish \
 `\\[atomic-chrome-close-current-buffer]'.")))
 
-    ;; fix C-c C-c confict with atomic-chrome
-    (with-eval-after-load 'orgtbl-mode
-      (define-key orgtbl-mode-map (kbd "C-c C-c") nil))
+    (add-hook 'atomic-chrome-edit-mode-hook #'ztlevi-atomic-chrome-mode-setup)
 
-    (add-hook 'atomic-chrome-edit-mode-hook #'ztlevi/atomic-chrome-mode-setup)
-
-    (defun atomic-chrome-server-running-p ()
-      (string-equal "Emacs\n"
-                    (shell-command-to-string
-                     "lsof -i :64292 | grep -E '\\(LISTEN\\)$' | cut -d ' ' -f 1")))
-
-    (if (not  (atomic-chrome-server-running-p))
-        (atomic-chrome-start-server))))
+    (if (ztlevi-atomic-chrome-server-running-p)
+        (message "Can't start atomic-chrome server, because port 64292 is already used")
+      (atomic-chrome-start-server))))
 
 (defun ztlevi-misc/init-browse-at-remote ()
   (use-package browse-at-remote
