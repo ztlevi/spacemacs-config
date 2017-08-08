@@ -32,7 +32,7 @@
     :init
     (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
           doom-themes-enable-italic t) ; if nil, italics is universally disabled
-          ))
+    ))
 
 (defun ztlevi-ui/init-all-the-icons-dired ()
   (use-package all-the-icons-dired
