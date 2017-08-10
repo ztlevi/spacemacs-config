@@ -118,6 +118,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(hl-line ((t (:background "#e7e7e7"))))
+ '(mode-line ((t (:background "#f0f0f0"))))
+ '(mode-line-inactive ((t (:background "#f0f0f0"))))
  '(origami-fold-replacement-face ((t (:box (:line-width 1 :color "grey75"))))))
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
