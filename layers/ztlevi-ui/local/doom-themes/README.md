@@ -5,14 +5,6 @@
 
 # doom-themes
 
-> **Announcement:** v2.0 of this package was released with three large changes:
->
->   + `doom-buffer-mode` and `doom-brighten-minibuffer` have been moved to a new
->     plugin: [solaire-mode]
->   + `doom-nlinum` was removed; line highlighting is now supported in nlinum 1.7
->   + A rewrite of doom-themes' backend and themes means problems or breakages
->     may have slipped through. [Let me know][issues] if you find one!
-
 DOOM Themes is an opinionated UI plugin and pack of themes extracted from my
 [emacs.d], inspired by some of my favorite color themes.
 
@@ -25,7 +17,7 @@ DOOM Themes is an opinionated UI plugin and pack of themes extracted from my
   - [X] `doom-vibrant`: a more vibrant version of `doom-one`
   - [X] `doom-molokai`: based on Textmate's monokai
   - [X] `doom-nova`: adapted from [Nova] (thanks to [bigardone])
-  - [ ] `doom-one-light`: light version of doom-one
+  - [X] `doom-one-light`: light version of doom-one (thanks to [ztlevi])
   - [ ] `doom-x`: reads your colors from ~/.Xresources
   - [ ] `doom-tomorrow-night` / `doom-tomorrow-day`: by [Chris Kempson][tomorrow]
   - [ ] `doom-spacegrey`: [I'm sure you've heard of it][spacegrey]
@@ -41,14 +33,26 @@ DOOM Themes is an opinionated UI plugin and pack of themes extracted from my
 
     This requires `all-the-icons`' fonts to be installed: `M-x
     all-the-icons-install-fonts`
+  - `(doom-themes-org-config)`: corrects and improves some of org-mode's native
+    fontification.
+    -  Re-set `org-todo' & `org-headline-done' faces to make them respect
+       underlying faces (i.e. don't override the :height or :background of
+       underlying faces).
+    -  Make statistic cookies respect underlying faces.
+    -  Fontify item bullets (make them stand out)
+    -  Fontify item checkboxes (and when they're marked done), like TODOs that
+       are marked done.
+    -  Fontify dividers/separators (5+ dashes)
+    -  Fontify #hashtags and @at-tags, for personal convenience; see
+       `doom-org-special-tags` to disable this.
 - **Resources that may interest you:**
   - To get dimmed sidebars and brighter source buffers (like in the
     [screenshots]), see [solaire-mode].
-  - To get line number highlighting for `nlinum`, see [nlinum-hl] (or [hlinum] for
-    `linum`).
+  - To get line number highlighting for `nlinum`, set
+    `nlinum-highlight-current-line` to non-nil (or see [hlinum] for `linum`).
   - [AnthonyDiGirolamo] added doom-one ([screenshot][airline-doom-one]) and
-    doom-molokai ([screenshot][airline-doom-molokai]) skins
-    to [airline-themes][airline-themes].
+    doom-molokai ([screenshot][airline-doom-molokai]) skins to
+    [airline-themes][airline-themes].
   - I'm working on making my modeline more accessible. In the meantime, check
     out [my mode-line configuration][mode-line] in my [emacs.d].
 
@@ -74,6 +78,9 @@ A comprehensive configuration example:
 
 ;; Enable custom neotree theme
 (doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
+
+;; Corrects (and improves) org-mode's native fontification.
+(doom-themes-org-config)
 ```
 
 [The wiki contains details for customizing the neotree theme][wiki].
@@ -104,3 +111,4 @@ pointers. Additional theme and plugin support requests are welcome too.
 [spacegrey]: http://kkga.github.io/spacegray/
 [tomorrow]: https://github.com/ChrisKempson/Tomorrow-Theme
 [wiki]: https://github.com/hlissner/emacs-doom-themes/wiki
+[ztlevi]: https://github.com/ztlevi

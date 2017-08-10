@@ -5,8 +5,8 @@
 ;; Author: Henrik Lissner <http://github/hlissner>
 ;; Maintainer: Henrik Lissner <henrik@lissner.net>
 ;; Created: May 22, 2016
-;; Modified: Jul 18, 2017
-;; Version: 2.0.5
+;; Modified: August 09, 2017
+;; Version: 2.0.6
 ;; Keywords: dark blue atom one theme neotree icons faces
 ;; Homepage: https://github.com/hlissner/emacs-doom-theme
 ;; Package-Requires: ((emacs "24.4") (all-the-icons "1.0.0") (cl-lib "0.5"))
@@ -55,6 +55,7 @@
 ;;; Code:
 
 (require 'cl-lib)
+(require 'doom-themes-common)
 
 (defgroup doom-themes nil
   "Options for doom-themes."
@@ -151,10 +152,16 @@ between 0 and 1)."
              prop face (if class (format "'s '%s' class" class) "")))
     (plist-get spec prop)))
 
+;;;###autoload
+(defmacro doom-themes-set-faces (theme &rest faces)
+  "Customize THEME (a symbol) with FACES."
+  `(custom-theme-set-faces
+    ,theme
+    ,@(mapcar #'doom-themes--build-face faces)))
+
 (defmacro def-doom-theme (name docstring defs &optional extra-faces extra-vars)
   "Define a DOOM theme, named NAME (a symbol)."
   (declare (doc-string 2))
-  (require 'doom-themes-common)
   (let ((doom-themes--colors defs))
     `(let* ((bold   doom-themes-enable-bold)
             (italic doom-themes-enable-italic)
@@ -166,6 +173,11 @@ between 0 and 1)."
        (custom-theme-set-faces ',name ,@(doom-themes-common-faces extra-faces))
        (custom-theme-set-variables ',name ,@(doom-themes-common-variables extra-vars))
        (provide-theme ',name))))
+
+;;;###autoload
+(defun doom-themes-org-config ()
+  "Enable custom fontification and improves doom-themes integration with org-mode."
+  (require 'doom-themes-org))
 
 ;;;###autoload
 (defun doom-themes-neotree-config ()

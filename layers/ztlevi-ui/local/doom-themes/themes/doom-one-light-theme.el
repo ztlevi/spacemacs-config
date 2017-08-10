@@ -44,8 +44,8 @@ determine the exact padding."
    (base6      '("#202328" "#2e2e2e" "brightblack"  ))
    (base7      '("#1c1f24" "#1e1e1e" "brightblack"  ))
    (base8      '("#1b2229" "black"   "black"        ))
-   (fg         '("#383a42" "#424242" "black"  ))
-   (fg-alt     '("#c6c7c7" "#c7c7c7" "brightblack"        ))
+   (fg         '("#383a42" "#424242" "black"        ))
+   (fg-alt     '("#c6c7c7" "#c7c7c7" "brightblack"  ))
 
    (grey       base4)
    (red        '("#e45649" "#e45649" "red"          ))
@@ -65,7 +65,7 @@ determine the exact padding."
    (vertical-bar   base2)
    (selection      dark-blue)
    (builtin        magenta)
-   (comments       (if doom-one-light-brighter-comments dark-cyan base5))
+   (comments       (if doom-one-light-brighter-comments dark-cyan base4))
    (doc-comments   (doom-darken (if doom-one-light-brighter-comments dark-cyan base5) 0.25))
    (constants      violet)
    (functions      magenta)
@@ -80,7 +80,7 @@ determine the exact padding."
    (error          red)
    (warning        yellow)
    (success        green)
-   (vc-modified    base5)
+   (vc-modified    base4)
    (vc-added       green)
    (vc-deleted     red)
 
@@ -96,13 +96,13 @@ determine the exact padding."
    (modeline-bg
     (if -modeline-bright
         (doom-darken blue 0.475)
-      `(,(car bg-alt) ,@(cdr base0))))
+      `(,(car bg) ,@(cdr base0))))
    (modeline-bg-l
     (if -modeline-bright
         (doom-darken blue 0.45)
-      `(,(doom-darken (car bg) 0.125) ,@(cdr base0))))
+      `(,(doom-darken (car bg-alt) 0.125) ,@(cdr base0))))
    (modeline-bg-inactive   (doom-darken bg 0.1))
-   (modeline-bg-inactive-l `(,(car bg) ,@(cdr base1))))
+   (modeline-bg-inactive-l `(,(car bg-alt) ,@(cdr base1))))
 
   ;; --- extra faces ------------------------
   ((font-lock-comment-face
@@ -112,9 +112,10 @@ determine the exact padding."
     :inherit 'font-lock-comment-face
     :foreground doc-comments)
 
-   (linum :inherit 'default :foreground base4 :distant-foreground nil :bold nil)
-   (line-number-current-line :inherit 'hl-line :foreground base7 :distant-foreground nil :bold nil)
-
+   (line-number :inherit 'default :foreground (doom-lighten base4 0.15) :distant-foreground nil :bold nil)
+   (line-number-current-line :inherit 'hl-line :foreground base8 :distant-foreground nil :bold nil)
+   (hl-line :background base2)
+   (solaire-hl-line-face :inherit 'hl-line :background base2)
 
    (doom-modeline-bar :background (if -modeline-bright modeline-bg highlight))
 
@@ -159,6 +160,7 @@ determine the exact padding."
    (org-level-3          :bold 'bold :foreground violet :height 1.1)
    (org-ellipsis         :underline nil :background bg :foreground red)
    )
+
   ;; --- extra variables ---------------------
   ;; ()
   )
