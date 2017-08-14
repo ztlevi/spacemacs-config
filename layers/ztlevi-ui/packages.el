@@ -17,7 +17,8 @@
     diminish
     popwin
     (whitespace :location built-in)
-    doom-themes
+    ;; doom-themes
+    (doom-themes :location local)
     ;; hl-anything performance is very slow...
     ;; hl-anything
     ;; if you wnat to use spaceline, please comment out ztlevi-mode-line
