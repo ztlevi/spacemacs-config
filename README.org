@@ -54,7 +54,7 @@
          #+END_SRC
        - npm
          #+BEGIN_SRC shell
-         npm install -g eslint babel-eslint eslint-plugin-react eslint-plugin-html tern
+         npm install -g eslint babel-eslint eslint-plugin-react eslint-plugin-html tern typescript tslint typescript-formatter
          #+END_SRC
        - pip
          #+BEGIN_SRC shell
