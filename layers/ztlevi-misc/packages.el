@@ -1001,7 +1001,6 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
     ;; add watch for prodigy-view-mode buffer change event
     (add-hook 'prodigy-view-mode-hook
               #'(lambda() (set (make-local-variable 'after-change-functions) #'refresh-chrome-current-tab)))
-
     ))
 
 (defun ztlevi-misc/init-moz-controller ()
@@ -1010,7 +1009,6 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
     (progn
       (moz-controller-global-mode t)
       (spacemacs|hide-lighter moz-controller-mode))))
-
 
 (defun ztlevi-misc/init-ag ()
   (use-package ag
@@ -1038,8 +1036,6 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
     :defer t
     :config
     (spacemacs|hide-lighter wrap-region-mode)))
-
-
 
 (defun ztlevi-misc/init-keyfreq ()
   (use-package keyfreq
