@@ -57,10 +57,10 @@ Version 2015-11-30"
   (interactive)
   (cond
    ((string-equal system-type "darwin")
-    (shell-command (concat "open -a Typora " buffer-file-name)))
+    (shell-command (concat "open -a Typora '" buffer-file-name "'")))
    ((string-equal system-type "gnu/linux")
     (let ((process-connection-type nil))
-      (start-process "" nil "typora" buffer-file-name)))
+      (start-process "" nil "typora" (concat  "'" buffer-file-name "'"))))
    ))
 
 ;; @see https://bitbucket.org/lyro/evil/issue/511/let-certain-minor-modes-key-bindings
