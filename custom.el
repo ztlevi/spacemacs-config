@@ -20,7 +20,6 @@
  '(cua-normal-cursor-color "#657b83")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
- '(doom-one-light-with-solaire-mode-enabled nil)
  '(erc-nick "ztlevi")
  '(erc-port 6666)
  '(evil-escape-delay 0.2)
@@ -122,7 +121,7 @@
  ;; '(hl-line ((t (:background "#eaeaea"))))
  ;; '(mode-line ((t (:background "#eaeaea"))))
  ;; '(mode-line-inactive ((t (:background "#eaeaea"))))
- '(show-paren-match ((t (:background "#e45649" :foreground "#fafafa"))))
+ '(show-paren-match ((t (:background "#da8548" :foreground "#fafafa"))))
  '(origami-fold-replacement-face ((t (:box (:line-width 1 :color "grey75"))))))
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

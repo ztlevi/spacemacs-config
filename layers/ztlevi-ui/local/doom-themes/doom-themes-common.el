@@ -591,10 +591,9 @@
     (sp-show-pair-mismatch-face (&inherit show-paren-mismatch))
 
     ;; solaire-mode
-    (solaire-default-face      :inherit 'default :background bg-alt)
-    (solaire-line-number-face  :inherit (list (if (boundp 'display-line-numbers) 'line-number 'linum) 'solaire-default-face))
-    (solaire-hl-line-face      :inherit 'hl-line :background base3)
-    (solaire-org-hide-face     :foreground bg)
+    (solaire-default-face  :inherit 'default :background bg-alt)
+    (solaire-hl-line-face  :inherit 'hl-line :background base3)
+    (solaire-org-hide-face :foreground bg)
 
     ;; spaceline
     (spaceline-highlight-face :foreground blue)
@@ -820,7 +819,6 @@
     (jdee-db-requested-breakpoint-face-colors `(cons ,(doom-color 'base0) ,(doom-color 'green)))
     (jdee-db-active-breakpoint-face-colors `(cons ,(doom-color 'base0) ,(doom-color 'highlight)))
 
-    (org-ellipsis "  ")
     (org-fontify-whole-heading-line t)
     (org-fontify-done-headline t)
     (org-fontify-quote-and-verse-blocks t)
