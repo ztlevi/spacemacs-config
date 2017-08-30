@@ -13,6 +13,8 @@
 ;; window split and focus
 (define-key evil-normal-state-local-map (kbd "SPC w v") 'split-window-right-and-focus)
 (define-key evil-normal-state-local-map (kbd "SPC w s") 'split-window-below-and-focus)
+(define-key evil-normal-state-local-map (kbd "C-w v") 'split-window-right-and-focus)
+(define-key evil-normal-state-local-map (kbd "C-w s") 'split-window-below-and-focus)
 
 ;; set evil surround
 (evil-define-key 'visual evil-surround-mode-map "Cs" 'evil-surround-change)
