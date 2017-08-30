@@ -21,4 +21,4 @@
 (setq-default
  org-agenda-dir "~/Dropbox/Org-Notes"
  deft-dir "~/Dropbox/Org-Notes"
- blog-admin-dir "~/Dropbox/Wordpress")
+ blog-admin-dir "~/Developer/Github/hexo_blog")

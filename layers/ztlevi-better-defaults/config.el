@@ -74,7 +74,7 @@
 (remove-hook 'find-file-hooks 'vc-find-file-hook)
 ;; https://stackoverflow.com/questions/5748814/how-does-one-disable-vc-git-in-emacs
 ;; this setting will cause command `vc-annotate` failed
-(setq vc-handled-backends ())
+;; (setq vc-handled-backends ())
 
 (setq large-file-warning-threshold 100000000)
 ;;http://batsov.com/emacsredux/blog/2015/05/09/emacs-on-os-x/
@@ -85,8 +85,6 @@
 (setq-default abbrev-mode t)
 
 (setq url-show-status nil)
-
-
 
 ;;Don't ask me when close emacs with process is running
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
