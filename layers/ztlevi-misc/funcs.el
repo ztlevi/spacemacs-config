@@ -42,9 +42,7 @@ Version 2015-11-30"
   (cond
    ((string-equal system-type "windows-nt")
     (w32-shell-execute "explore" (replace-regexp-in-string "/" "\\" default-directory t t)))
-   ;; comment out the following line and replace the next line if you use default finder
-   ;; ((string-equal system-type "darwin") (shell-command "open ."))
-   ((string-equal system-type "darwin") (shell-command "open -a ForkLift ."))
+   ((string-equal system-type "darwin") (shell-command "if [ -d '/Applications/ForkLift.app' ]; then open -a ForkLift .;else open .;fi;"))
    ((string-equal system-type "gnu/linux")
     (let (
           (process-connection-type nil)
