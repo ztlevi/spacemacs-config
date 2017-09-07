@@ -500,7 +500,7 @@ It should only modify the values of Spacemacs settings."
 
   ;; ============================== U I ========================================
   ;; settings for transparent
-  (spacemacs/toggle-transparency)
+  ;; (spacemacs/toggle-transparency)
 
   ;; force horizontal split window
   (setq split-width-threshold 120)
