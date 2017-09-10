@@ -23,8 +23,8 @@
 
 (spacemacs/set-leader-keys "cc" 'atomic-chrome-close-current-buffer)
 
-(define-key global-map (kbd "M-/") nil)
-(define-key global-map (kbd "M-/") 'company-complete)
+(define-key global-map (kbd "C-SPC") nil)
+(define-key global-map (kbd "C-SPC") 'company-complete)
 
 ;; helm bookmark keybindings
 (define-key spacemacs-default-map (kbd "h b") 'helm-bookmarks)
