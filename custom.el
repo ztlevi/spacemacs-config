@@ -14,8 +14,8 @@
  '(company-show-numbers t)
  '(company-statistics-auto-restore nil)
  '(compilation-message-face (quote default))
- '(counsel-grep-base-command
-   "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
+ ;; '(counsel-grep-base-command
+ ;;   "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
  '(ctags-update-delay-seconds 1024)
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#657b83")

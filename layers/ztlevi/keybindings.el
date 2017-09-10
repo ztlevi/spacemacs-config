@@ -23,8 +23,12 @@
 
 (spacemacs/set-leader-keys "cc" 'atomic-chrome-close-current-buffer)
 
-(define-key global-map (kbd "C-SPC") nil)
 (define-key global-map (kbd "C-SPC") 'company-complete)
+
+;; Multi cursor
+(define-key mc/keymap (kbd "<return>") nil)
+(global-unset-key (kbd "M-<down-mouse-1>"))
+(global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
 
 ;; helm bookmark keybindings
 (define-key spacemacs-default-map (kbd "h b") 'helm-bookmarks)
