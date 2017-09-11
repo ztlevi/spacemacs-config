@@ -18,7 +18,7 @@
     popwin
     (whitespace :location built-in)
     doom-themes
-    ;; (doom-themes :location local)
+    ;; (doom-themes :location "~/Developer/Github/emacs-doom-theme")
     ;; hl-anything performance is very slow...
     ;; hl-anything
     ;; if you wnat to use spaceline, please comment out ztlevi-mode-line
