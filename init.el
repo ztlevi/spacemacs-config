@@ -425,7 +425,7 @@ It should only modify the values of Spacemacs settings."
   (fset 'evil-visual-update-x-selection 'ignore)
 
   ;; Added by Kite
-  (load-file "~/.spacemacs.d/layers/kite/kite.el")
+  ;; (load-file "~/.spacemacs.d/layers/kite/kite.el")
 
   (spacemacs|add-company-backends :modes text-mode)
 
