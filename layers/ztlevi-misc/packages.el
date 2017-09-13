@@ -11,7 +11,6 @@
 
 (defconst ztlevi-misc-packages
   '(
-    ranger
     helm-github-stars
     helm
     atomic-chrome
@@ -77,10 +76,6 @@
     (if (ztlevi-atomic-chrome-server-running-p)
         (message "Can't start atomic-chrome server, because port 64292 is already used")
       (atomic-chrome-start-server))))
-
-(defun ztlevi-misc/post-init-range ()
-  (progn
-    (define-key ranger-normal-mode-map (kbd "F") 'dired-create-directory)))
 
 (defun ztlevi-misc/init-browse-at-remote ()
   (use-package browse-at-remote
@@ -290,9 +285,6 @@
       (spacemacs/set-leader-keys "o4p" '4clojure-previous-question)
       (spacemacs/set-leader-keys "o4c" '4clojure-check-answers)
       )))
-
-
-
 
 (defun ztlevi-misc/post-init-avy ()
   (progn
@@ -748,8 +740,8 @@
     (evilified-state-evilify ivy-occur-mode ivy-occur-mode-map)
 
     (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-call)
-    (define-key ivy-minibuffer-map (kbd "C-u") 'ivy-scroll-up-command)
-    (define-key ivy-minibuffer-map (kbd "C-d") 'ivy-scroll-down-command)
+    (define-key ivy-minibuffer-map (kbd "C-d") 'ivy-scroll-up-command)
+    (define-key ivy-minibuffer-map (kbd "C-u") 'ivy-scroll-down-command)
     (define-key ivy-minibuffer-map (kbd "C-<return>") 'ivy-immediate-done)
     ))
 

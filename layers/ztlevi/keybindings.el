@@ -9,21 +9,24 @@
 ;;
 ;;; License: GPLv3
 
-;; ================================Evil Mode Start===============================
 ;; window split and focus
-(define-key evil-normal-state-local-map (kbd "SPC w v") 'split-window-right-and-focus)
-(define-key evil-normal-state-local-map (kbd "SPC w s") 'split-window-below-and-focus)
+(spacemacs/set-leader-keys "wv" 'split-window-right-and-focus)
+(spacemacs/set-leader-keys "ws" 'split-window-below-and-focus)
 (define-key evil-normal-state-local-map (kbd "C-w v") 'split-window-right-and-focus)
 (define-key evil-normal-state-local-map (kbd "C-w s") 'split-window-below-and-focus)
 
 ;; set evil surround
 (evil-define-key 'visual evil-surround-mode-map "Cs" 'evil-surround-change)
 (evil-define-key 'visual evil-surround-mode-map "Ds" 'evil-surround-delete)
-;; ================================Evil Mode END=================================
 
+;; atomic chrome
 (spacemacs/set-leader-keys "cc" 'atomic-chrome-close-current-buffer)
 
-(define-key global-map (kbd "C-SPC") 'company-complete)
+;; company complete
+(global-set-key (kbd "C-SPC") 'company-complete)
+
+;; comment
+(global-set-key (kbd "s-/") 'comment-dwim)
 
 ;; Multi cursor
 (define-key mc/keymap (kbd "<return>") nil)
@@ -39,13 +42,10 @@
     (bb/define-key helm-bookmark-map (kbd "C-f") 'helm-bookmark-toggle-filename)
     (bb/define-key helm-bookmark-map (kbd "C-e") 'helm-bookmark-run-edit)))
 
-;; comment
-(global-set-key (kbd "s-/") 'comment-dwim)
-
 ;; yasnippet
 (define-key yas-minor-mode-map (kbd "<C-tab>") 'yas-expand)
-(define-key evil-normal-state-local-map (kbd "SPC y r") 'yas-reload-all)
-(define-key evil-normal-state-local-map (kbd "SPC y d") 'yas-describe-tables)
+(spacemacs/set-leader-keys "yr" 'yas-reload-all)
+(spacemacs/set-leader-keys "yd" 'yas-describe-tables)
 
 ;; fix yasnippet with unbinding emmet keys
 (eval-after-load 'emmet-mode
@@ -60,8 +60,10 @@
 ;; debug
 (define-key emacs-lisp-mode-map (kbd "<C-x> <C-e>") 'pp-eval-last-sexp)
 
-;; deer
-(define-key evil-normal-state-local-map (kbd "SPC f j") 'deer)
+;; ranger and deer
+(spacemacs/set-leader-keys "fj" 'deer)
+(with-eval-after-load 'ranger
+  (define-key ranger-normal-mode-map (kbd "F") 'dired-create-directory))
 
 ;; open in file manager
 (spacemacs/set-leader-keys "bf" 'ztlevi/open-finder-in-current-dir)
@@ -178,7 +180,6 @@
 
 (spacemacs/set-leader-keys "rh" 'helm-resume)
 (spacemacs/set-leader-keys "sj" 'counsel-imenu)
-(spacemacs/set-leader-keys "sp" 'spacemacs/search-project-rg)
 
 ;; ivy specific keybindings
 (if (configuration-layer/layer-usedp 'ivy)
