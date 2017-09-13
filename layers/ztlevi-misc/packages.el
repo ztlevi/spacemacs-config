@@ -734,12 +734,11 @@
 (defun ztlevi-misc/post-init-ivy ()
   (progn
     (setq ivy-use-virtual-buffers t)
-    (setq ivy-use-selectable-prompt t)
     (setq ivy-display-style 'fancy)
 
     (evilified-state-evilify ivy-occur-mode ivy-occur-mode-map)
 
-    (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-call)
+    (define-key ivy-minibuffer-map (kbd "C-f") 'ivy-call)
     (define-key ivy-minibuffer-map (kbd "C-d") 'ivy-scroll-up-command)
     (define-key ivy-minibuffer-map (kbd "C-u") 'ivy-scroll-down-command)
     (define-key ivy-minibuffer-map (kbd "C-<return>") 'ivy-immediate-done)

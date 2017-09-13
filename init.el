@@ -424,9 +424,6 @@ It should only modify the values of Spacemacs settings."
   ;; disable enter visual mode automatically yank
   (fset 'evil-visual-update-x-selection 'ignore)
 
-  ;; Added by Kite
-  ;; (load-file "~/.spacemacs.d/layers/kite/kite.el")
-
   (spacemacs|add-company-backends :modes text-mode)
 
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
