@@ -34,6 +34,7 @@
     flyspell-correct
     peep-dired
     markdown-mode
+    ivy
     swiper
     magit
     git-messenger
@@ -1044,14 +1045,14 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
       (keyfreq-mode t)
       (keyfreq-autosave-mode 1))))
 
-(defun ztlevi-misc/post-init-swiper ()
-  "Initialize my package"
+(defun ztlevi-misc/post-init-ivy ()
   (progn
     (setq ivy-use-virtual-buffers t)
     (setq ivy-display-style 'fancy)
 
     (evilified-state-evilify ivy-occur-mode ivy-occur-mode-map)
 
+    (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-call)
     ;; (use-package ivy
     ;;   :defer t
     ;;   :config
@@ -1086,9 +1087,12 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
     ;;     (define-key ivy-minibuffer-map (kbd "C-s-j") 'ivy-immediate-done)
     ;;     (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-next-line)
     ;;     (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-previous-line)))
+    ))
 
+(defun ztlevi-misc/post-init-swiper ()
+  "Initialize my package"
+  (progn
     (define-key global-map (kbd "C-s") 'my-swiper-search)))
-
 
 (defun ztlevi-misc/post-init-magit ()
   (progn
