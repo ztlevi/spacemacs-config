@@ -33,7 +33,6 @@ This function should only modify configuration layer settings."
      (pandoc :variables org-pandoc-options '((standalone . t)))
      dash
      php
-     ivy
      better-defaults
      ;; github
      ranger
@@ -41,9 +40,12 @@ This function should only modify configuration layer settings."
      prodigy
      search-engine
      graphviz
+     ivy
      (syntax-checking :variables syntax-checking-enable-by-default nil
                       syntax-checking-enable-tooltips nil)
      (spell-checking :variables spell-checking-enable-by-default nil)
+     (auto-completion :variables auto-completion-enable-sort-by-usage t
+                      auto-completion-enable-snippets-in-popup t)
      (vinegar :variables vinegar-reuse-dired-buffer t)
      (spacemacs-layouts :variables layouts-enable-autosave nil
                         layouts-autosave-delay 300)
@@ -55,8 +57,6 @@ This function should only modify configuration layer settings."
           magit-refs-show-commit-count 'all
           magit-revision-show-gravatars nil)
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
-     (auto-completion :variables auto-completion-enable-sort-by-usage t
-                      auto-completion-enable-snippets-in-popup t)
      (osx :variables osx-dictionary-dictionary-choice "Simplified Chinese - English"
           osx-command-as 'super)
      restclient

@@ -11,6 +11,7 @@
 
 (defconst ztlevi-misc-packages
   '(
+    ranger
     helm-github-stars
     helm
     atomic-chrome
@@ -76,6 +77,10 @@
     (if (ztlevi-atomic-chrome-server-running-p)
         (message "Can't start atomic-chrome server, because port 64292 is already used")
       (atomic-chrome-start-server))))
+
+(defun ztlevi-misc/post-init-range ()
+  (progn
+    (define-key ranger-normal-mode-map (kbd "F") 'dired-create-directory)))
 
 (defun ztlevi-misc/init-browse-at-remote ()
   (use-package browse-at-remote
@@ -737,6 +742,7 @@
 (defun ztlevi-misc/post-init-ivy ()
   (progn
     (setq ivy-use-virtual-buffers t)
+    (setq ivy-use-selectable-prompt t)
     (setq ivy-display-style 'fancy)
 
     (evilified-state-evilify ivy-occur-mode ivy-occur-mode-map)
@@ -745,40 +751,6 @@
     (define-key ivy-minibuffer-map (kbd "C-u") 'ivy-scroll-up-command)
     (define-key ivy-minibuffer-map (kbd "C-d") 'ivy-scroll-down-command)
     (define-key ivy-minibuffer-map (kbd "C-<return>") 'ivy-immediate-done)
-    ;; (use-package ivy
-    ;;   :defer t
-    ;;   :config
-    ;;   (progn
-    ;;     (spacemacs|hide-lighter ivy-mode)
-
-    ;;     (ivy-set-actions
-    ;;      t
-    ;;      '(("f" my-find-file-in-git-repo "find files")
-    ;;        ("!" my-open-file-in-external-app "Open file in external app")
-    ;;        ("I" ivy-insert-action "insert")
-    ;;        ("C" ivy-kill-new-action "copy")
-    ;;        ("S" ivy-ff-checksum-action "Checksum")))
-
-    ;;     (spacemacs/set-leader-keys "fad" 'counsel-goto-recent-directory)
-    ;;     (spacemacs/set-leader-keys "faf" 'counsel-find-file-recent-directory)
-
-    ;;     (setq ivy-initial-inputs-alist nil)
-    ;;     (setq ivy-wrap t)
-    ;;     (setq confirm-nonexistent-file-or-buffer t)
-
-    ;;     ;; (when (not (configuration-layer/layer-usedp 'helm))
-    ;;     ;;   (spacemacs/set-leader-keys "sp" 'counsel-git-grep)
-    ;;     ;;   (spacemacs/set-leader-keys "sP" 'spacemacs/counsel-git-grep-region-or-symbol))
-    ;;     (define-key ivy-minibuffer-map (kbd "C-c o") 'ivy-occur)
-    ;;     (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-call)
-    ;;     (define-key ivy-minibuffer-map (kbd "C-s-m") 'ivy-partial-or-done)
-    ;;     (define-key ivy-minibuffer-map (kbd "C-c s") 'ivy-ff-checksum)
-    ;;     (define-key ivy-minibuffer-map (kbd "s-o") 'ivy-dispatching-done-hydra)
-    ;;     (define-key ivy-minibuffer-map (kbd "C-c C-e") 'spacemacs//counsel-edit)
-    ;;     (define-key ivy-minibuffer-map (kbd "<f3>") 'ivy-occur)
-    ;;     (define-key ivy-minibuffer-map (kbd "C-s-j") 'ivy-immediate-done)
-    ;;     (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-next-line)
-    ;;     (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-previous-line)))
     ))
 
 (defun ztlevi-misc/post-init-swiper ()
