@@ -62,6 +62,7 @@
 
 ;; deer
 (define-key evil-normal-state-local-map (kbd "SPC f j") 'deer)
+(define-key ranger-normal-mode-map (kbd "F") 'dired-create-directory)
 
 ;; open in file manager
 (spacemacs/set-leader-keys "bf" 'ztlevi/open-finder-in-current-dir)
