@@ -1053,6 +1053,8 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
     (evilified-state-evilify ivy-occur-mode ivy-occur-mode-map)
 
     (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-call)
+    (define-key ivy-minibuffer-map (kbd "C-u") 'ivy-scroll-up-command)
+    (define-key ivy-minibuffer-map (kbd "C-d") 'ivy-scroll-down-command)
     ;; (use-package ivy
     ;;   :defer t
     ;;   :config
