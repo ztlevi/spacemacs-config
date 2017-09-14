@@ -733,14 +733,13 @@
 
 (defun ztlevi-misc/post-init-ivy ()
   (progn
-    (setq ivy-use-virtual-buffers t)
     (setq ivy-display-style 'fancy)
+    (setq ivy-initial-inputs-alist nil)
+    (setq ivy-wrap t)
+    (setq confirm-nonexistent-file-or-buffer t)
 
-    (evilified-state-evilify ivy-occur-mode ivy-occur-mode-map)
-
-    (define-key ivy-minibuffer-map (kbd "C-f") 'ivy-call)
-    (define-key ivy-minibuffer-map (kbd "C-d") 'ivy-scroll-up-command)
-    (define-key ivy-minibuffer-map (kbd "C-u") 'ivy-scroll-down-command)
+    (define-key ivy-minibuffer-map (kbd "C-l") 'ivy-call)
+    (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial-or-done)
     (define-key ivy-minibuffer-map (kbd "C-<return>") 'ivy-immediate-done)
     ))
 
