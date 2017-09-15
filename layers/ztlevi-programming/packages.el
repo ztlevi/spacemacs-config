@@ -41,7 +41,6 @@
     dumb-jump
     graphviz-dot-mode
     cider
-    ;; editorconfig
     robe
     )
   )
@@ -83,16 +82,6 @@
         "sl" 'ztlevi/ruby-send-current-line
         "sL" 'ztlevi/ruby-send-current-line-and-go
         "sI" 'ztlevi/start-inf-ruby-and-robe))))
-
-(defun ztlevi-programming/init-editorconfig ()
-  (use-package editorconfig
-    :init
-    (progn
-      (defun conditional-enable-editorconfig ()
-        (if (and (ztlevi/git-project-root)
-                 (locate-dominating-file default-directory ".editorconfig"))
-            (editorconfig-apply)))
-      (add-hook 'prog-mode-hook 'conditional-enable-editorconfig))))
 
 (defun ztlevi-programming/post-init-cider ()
   (setq cider-cljs-lein-repl
