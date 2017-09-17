@@ -19,6 +19,14 @@
 (evil-define-key 'visual evil-surround-mode-map "Cs" 'evil-surround-change)
 (evil-define-key 'visual evil-surround-mode-map "Ds" 'evil-surround-delete)
 
+;; evil fold
+(define-key evil-normal-state-map (kbd "zC") 'evil-close-folds)
+(define-key evil-normal-state-map (kbd "zO") 'evil-open-folds)
+(define-key evil-normal-state-map (kbd "zr") 'evil-open-fold-rec)
+(define-key evil-visual-state-map (kbd "zC") 'evil-close-folds)
+(define-key evil-visual-state-map (kbd "zO") 'evil-open-folds)
+(define-key evil-visual-state-map (kbd "zr") 'evil-open-fold-rec)
+
 ;; atomic chrome
 (spacemacs/set-leader-keys "cc" 'atomic-chrome-close-current-buffer)
 
