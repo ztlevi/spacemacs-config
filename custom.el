@@ -5,7 +5,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ahs-case-fold-search nil t)
+ '(ahs-case-fold-search nil)
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(command-log-mode-window-size 50)
@@ -64,6 +64,7 @@
  '(lua-documentation-url "http://www.lua.org/manual/5.3/manual.html")
  '(magit-diff-use-overlays nil)
  '(magit-use-overlays nil)
+ '(markdown-gfm-use-electric-backquote nil)
  '(nrepl-message-colors
    (quote
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
@@ -118,8 +119,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(mmm-default-submode-face ((t (:background "#f0f0f0"))))
  '(markdown-code-face ((t (:background "#f0f0f0"))))
+ '(mmm-default-submode-face ((t (:background "#f0f0f0"))))
  '(show-paren-match ((t (:background "#Ff69b4" :foreground "#fafafa")))))
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
