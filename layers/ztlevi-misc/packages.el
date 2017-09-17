@@ -786,17 +786,25 @@
 
 (defun ztlevi-misc/post-init-markdown-mode ()
   (progn
-    (add-to-list 'auto-mode-alist '("\\.mdown\\'" . markdown-mode))
+    (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 
     (with-eval-after-load 'markdown-mode
       (progn
         ;; (when (configuration-layer/package-usedp 'company)
         ;;   (spacemacs|add-company-hook markdown-mode))
 
-        (spacemacs/set-leader-keys-for-major-mode 'gfm-mode-map
-          "p" 'ztlevi/markdown-to-html)
         (spacemacs/set-leader-keys-for-major-mode 'markdown-mode
           "p" 'ztlevi/markdown-to-html)
+        (spacemacs/set-leader-keys-for-major-mode 'markdown-mode
+          "H" 'markdown-hide-body)
+        (spacemacs/set-leader-keys-for-major-mode 'markdown-mode
+          "S" 'markdown-show-all)
+        (spacemacs/set-leader-keys-for-major-mode 'gfm-mode
+          "p" 'ztlevi/markdown-to-html)
+        (spacemacs/set-leader-keys-for-major-mode 'gfm-mode
+          "H" 'markdown-hide-body)
+        (spacemacs/set-leader-keys-for-major-mode 'gfm-mode
+          "S" 'markdown-show-all)
 
         (evil-define-key 'normal markdown-mode-map (kbd "TAB") 'markdown-cycle)
         ))
