@@ -74,8 +74,8 @@
   (define-key ranger-normal-mode-map (kbd "F") 'dired-create-directory))
 
 ;; open in file manager
-(spacemacs/set-leader-keys "of" 'ztlevi/open-finder-in-current-dir)
-(spacemacs/set-leader-keys "bf" 'ztlevi/buffer-refresh)
+(spacemacs/set-leader-keys "bf" 'ztlevi/open-finder-in-current-dir)
+(spacemacs/set-leader-keys "of" 'ztlevi/buffer-refresh)
 (spacemacs/set-leader-keys "bt" 'ztlevi/open-terminal-in-current-dir)
 (spacemacs/set-leader-keys "bT" 'ztlevi/open-markdown-in-typora)
 
