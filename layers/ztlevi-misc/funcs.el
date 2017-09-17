@@ -9,6 +9,11 @@
 ;;
 ;;; License: GPLv3
 
+(defun ztlevi/buffer-refresh ()
+  (interactive)
+  (ztlevi/toggle-major-mode)
+  (ztlevi/toggle-major-mode))
+
 ;; define replace-dos-eol
 (defun ztlevi/replace-dos-eol ()
   "Replace DOS eolns CR LF with Unix eolns CR"
