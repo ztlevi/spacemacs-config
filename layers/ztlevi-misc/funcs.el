@@ -136,51 +136,6 @@ Version 2015-11-30"
       (kill-new val)
       (message "%s => kill-ring" val))))
 
-;; my fix for tab indent
-(defun ztlevi/indent-region(numSpaces)
-  (progn
-                                        ; default to start and end of current line
-    (setq regionStart (line-beginning-position))
-    (setq regionEnd (line-end-position))
-
-                                        ; if there's a selection, use that instead of the current line
-    (when (use-region-p)
-      (setq regionStart (region-beginning))
-      (setq regionEnd (region-end))
-      )
-
-    (save-excursion                          ; restore the position afterwards
-      (goto-char regionStart)                ; go to the start of region
-      (setq start (line-beginning-position)) ; save the start of the line
-      (goto-char regionEnd)                  ; go to the end of region
-      (setq end (line-end-position))         ; save the end of the line
-
-      (indent-rigidly start end numSpaces) ; indent between start and end
-      (setq deactivate-mark nil)           ; restore the selected region
-      )
-    )
-  )
-
-
-(defun ztlevi/tab-region (N)
-  (interactive "p")
-  (if (use-region-p)
-      (ztlevi/indent-region 4)               ; region was selected, call indent-region
-    (insert "    ")                   ; else insert four spaces as expected
-    ))
-
-(defun ztlevi/untab-region (N)
-  (interactive "p")
-  (ztlevi/indent-region -4))
-
-(defun ztlevi/hack-tab-key ()
-  (interactive)
-  (local-set-key (kbd "<tab>") 'ztlevi/tab-region)
-  (local-set-key (kbd "<S-tab>") 'ztlevi/untab-region)
-  )
-
-;; I'm don't like this settings too much.
-;; (add-hook 'prog-mode-hook 'ztlevi/hack-tab-key)
 (defun endless/fill-or-unfill ()
   "Like `fill-paragraph', but unfill if used twice."
   (interactive)

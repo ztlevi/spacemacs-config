@@ -215,7 +215,7 @@ It should only modify the values of Spacemacs settings."
    ;; and TAB or `C-m' and `RET'.
    ;; In the terminal, these pairs are generally indistinguishable, so this only
    ;; works in the GUI. (default nil)
-   dotspacemacs-distinguish-gui-tab nil
+   dotspacemacs-distinguish-gui-tab t
    ;; If non-nil `Y' is remapped to `y$' in Evil states. (default nil)
    dotspacemacs-remap-Y-to-y$ nil
    ;; If non-nil, the shift mappings `<' and `>' retain visual state if used
@@ -454,19 +454,6 @@ It should only modify the values of Spacemacs settings."
           'noindent
         (indent-line-to (js--proper-indentation parse-status))
         (when (> offset 0) (forward-char offset)))))
-
-  (global-set-key (kbd "<backtab>") 'un-indent-by-removing-4-spaces)
-  (defun un-indent-by-removing-4-spaces ()
-    "remove 4 spaces from beginning of of line"
-    (interactive)
-    (save-excursion
-      (save-match-data
-        (beginning-of-line)
-        ;; get rid of tabs at beginning of line
-        (when (looking-at "^\\s-+")
-          (untabify (match-beginning 0) (match-end 0)))
-        (when (looking-at (concat "^" (make-string tab-width ?\ )))
-          (replace-match "")))))
 
   (defun ztlevi/toggle-major-mode ()
     (interactive)

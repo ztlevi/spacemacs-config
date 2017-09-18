@@ -738,7 +738,7 @@
     (setq ivy-wrap t)
     (setq confirm-nonexistent-file-or-buffer t)
 
-    (define-key ivy-minibuffer-map (kbd "C-;") 'ivy-call)
+    (define-key ivy-minibuffer-map (kbd "<C-i>") 'ivy-call)
     (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial-or-done)
     (define-key ivy-minibuffer-map (kbd "C-<return>") 'ivy-immediate-done)
     ))

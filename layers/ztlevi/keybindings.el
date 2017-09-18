@@ -38,6 +38,14 @@
 ;; comment
 (global-set-key (kbd "s-/") 'comment-dwim)
 
+(defun insert-4-spaces ()
+  (interactive)
+  (insert "    "))
+
+;; redefine C-i and S-tab
+(global-set-key (kbd "<C-i>") 'insert-4-spaces)
+(global-set-key (kbd "<S-tab>") 'evil-shift-left-line)
+
 ;; Multi cursor
 (define-key mc/keymap (kbd "<return>") nil)
 (global-unset-key (kbd "M-<down-mouse-1>"))
