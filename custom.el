@@ -95,7 +95,6 @@
  '(pos-tip-foreground-color "#586e75")
  '(ranger-deer-show-details nil)
  '(ring-bell-function (quote ignore))
- '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(sp-show-pair-from-inside t)
  '(swiper-goto-start-of-match t)
  '(tags-revert-without-query t)
