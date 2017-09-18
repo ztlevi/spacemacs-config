@@ -12,8 +12,10 @@
 ;; window split and focus
 (spacemacs/set-leader-keys "wv" 'split-window-right-and-focus)
 (spacemacs/set-leader-keys "ws" 'split-window-below-and-focus)
-(define-key evil-normal-state-local-map (kbd "C-w v") 'split-window-right-and-focus)
-(define-key evil-normal-state-local-map (kbd "C-w s") 'split-window-below-and-focus)
+(define-key evil-normal-state-map (kbd "C-w v") 'split-window-right-and-focus)
+(define-key evil-normal-state-map (kbd "C-w s") 'split-window-below-and-focus)
+(define-key evil-visual-state-map (kbd "C-w v") 'split-window-right-and-focus)
+(define-key evil-visual-state-map (kbd "C-w s") 'split-window-below-and-focus)
 
 ;; set evil surround
 (evil-define-key 'visual evil-surround-mode-map "Cs" 'evil-surround-change)
