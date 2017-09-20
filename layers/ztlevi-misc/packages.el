@@ -769,7 +769,6 @@
     ;; prefer two way ediff
     (setq magit-ediff-dwim-show-on-hunks t)
 
-    (setq magit-repository-directories '("~/cocos2d-x/"))
     (setq magit-push-always-verify nil)
 
     (eval-after-load 'magit
@@ -794,18 +793,21 @@
         ;; (when (configuration-layer/package-usedp 'company)
         ;;   (spacemacs|add-company-hook markdown-mode))
 
-        (spacemacs/set-leader-keys-for-major-mode 'markdown-mode
-          "p" 'ztlevi/markdown-to-html)
-        (spacemacs/set-leader-keys-for-major-mode 'markdown-mode
-          "H" 'markdown-hide-body)
-        (spacemacs/set-leader-keys-for-major-mode 'markdown-mode
-          "S" 'markdown-show-all)
-        (spacemacs/set-leader-keys-for-major-mode 'gfm-mode
-          "p" 'ztlevi/markdown-to-html)
-        (spacemacs/set-leader-keys-for-major-mode 'gfm-mode
-          "H" 'markdown-hide-body)
-        (spacemacs/set-leader-keys-for-major-mode 'gfm-mode
-          "S" 'markdown-show-all)
+        (dolist (m (list 'markdown-mode 'gfm-mode))
+          (spacemacs/set-leader-keys-for-major-mode m
+            "p" 'ztlevi/markdown-to-html)
+          (spacemacs/set-leader-keys-for-major-mode m
+            "H" 'markdown-hide-body)
+          (spacemacs/set-leader-keys-for-major-mode m
+            "S" 'markdown-show-all)
+          (spacemacs/set-leader-keys-for-major-mode m
+            "dd" 'org-deadline)
+          (spacemacs/set-leader-keys-for-major-mode m
+            "ds" 'org-schedule)
+          (spacemacs/set-leader-keys-for-major-mode m
+            "dt" 'org-time-stamp)
+          (spacemacs/set-leader-keys-for-major-mode m
+            "dT" 'org-time-stamp-inactive))
 
         (evil-define-key 'normal markdown-mode-map (kbd "TAB") 'markdown-cycle)
         ))
