@@ -16,15 +16,6 @@
 (add-hook 'org-mode-hook 'flyspell-mode)
 (add-hook 'markdown-mode-hook 'flyspell-mode)
 
-;; flymd open brower function
-(defun my-flymd-browser-function (url)
-  (let ((process-environment (browse-url-process-environment)))
-    (apply 'start-process
-           (concat "firefox " url)
-           nil
-           "/usr/bin/open"
-           (list "-a" "firefox" url))))
-
 (define-abbrev-table 'global-abbrev-table '(
 
                                             ;; math/unicode symbols

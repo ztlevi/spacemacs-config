@@ -22,6 +22,22 @@
   (while (search-forward "\r" nil t) (replace-match "
 ")))
 
+;; flymd open brower function
+(defun my-flymd-browser-function (url)
+  (let ((process-environment (browse-url-process-environment)))
+    (apply 'start-process
+           (concat "firefox " url)
+           nil
+           "/usr/bin/open"
+           (list "-a" "firefox" url))))
+
+(defun my-flymd-delete-tmp-file ()
+  (interactive)
+  (flymd-unflyit)
+  ;; (flymd-delete-file-maybe (flymd-get-output-directory (current-buffer)))
+  )
+
+;; live server
 (defun ztlevi/browse-live-server ()
   (interactive)
   (browse-url "http://localhost:48080/imp"))
