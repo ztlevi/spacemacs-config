@@ -65,6 +65,7 @@ This function should only modify configuration layer settings."
      ;; docker
      ;; latex
      deft
+     chrome
      markdown
      (org :variables org-want-todo-bindings t)
      gpu
@@ -114,6 +115,7 @@ This function should only modify configuration layer settings."
                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
                     window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
                     livid-mode smooth-scrolling counsel-dash helm-dash smartparens
+                    edit-server gmail-message-mode
                     )
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
@@ -421,6 +423,9 @@ It should only modify the values of Spacemacs settings."
       (message "Microsoft Windows"))))
 
   ;; ============================== Others =====================================
+  ;; flymd open browser
+  (setq flymd-browser-open-function 'my-flymd-browser-function)
+
   ;; disable enter visual mode automatically yank
   (fset 'evil-visual-update-x-selection 'ignore)
 

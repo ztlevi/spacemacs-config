@@ -72,6 +72,7 @@
 `\\[atomic-chrome-close-current-buffer]'.")))
 
     (add-hook 'atomic-chrome-edit-mode-hook #'ztlevi-atomic-chrome-mode-setup)
+    (add-hook 'atomic-chrome-edit-done-hook (lambda () (shell-command "open -a \"Google Chrome\"")))
 
     (if (ztlevi-atomic-chrome-server-running-p)
         (message "Can't start atomic-chrome server, because port 64292 is already used")

@@ -16,6 +16,15 @@
 (add-hook 'org-mode-hook 'flyspell-mode)
 (add-hook 'markdown-mode-hook 'flyspell-mode)
 
+;; flymd open brower function
+(defun my-flymd-browser-function (url)
+  (let ((process-environment (browse-url-process-environment)))
+    (apply 'start-process
+           (concat "firefox " url)
+           nil
+           "/usr/bin/open"
+           (list "-a" "firefox" url))))
+
 ;; my global hungry mode, exceptions for some major mode
 ;; (define-global-minor-mode my-global-hungry-delete-mode hungry-delete-mode
 ;;   (lambda ()
