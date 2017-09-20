@@ -38,6 +38,9 @@
 ;; comment
 (global-set-key (kbd "s-/") 'comment-dwim)
 
+;; hungry delete
+(global-set-key (kbd "C-<backspace>") 'hungry-delete-backward)
+
 (defun insert-4-spaces ()
   (interactive)
   (insert "    "))
@@ -68,12 +71,9 @@
 ;; fix yasnippet with unbinding emmet keys
 (eval-after-load 'emmet-mode
   '(progn
-     (evil-define-key 'insert emmet-mode-keymap (kbd "TAB") nil)
-     (evil-define-key 'insert emmet-mode-keymap (kbd "<tab>") nil)
-     (evil-define-key 'emacs emmet-mode-keymap (kbd "TAB") nil)
-     (evil-define-key 'emacs emmet-mode-keymap (kbd "<tab>") nil)
-     (evil-define-key 'hybrid emmet-mode-keymap (kbd "TAB") nil)
-     (evil-define-key 'hybrid emmet-mode-keymap (kbd "<tab>") nil)))
+     (dolist (map (list 'insert-emmet-mode-keymap 'emacs-emmet-mode-keymap 'hybrid-emmet-mode-keymap))
+       (evil-define-key map (kbd "TAB") nil)
+       (evil-define-key map (kbd "<tab>") nil))))
 
 ;; debug
 (define-key emacs-lisp-mode-map (kbd "<C-x> <C-e>") 'pp-eval-last-sexp)

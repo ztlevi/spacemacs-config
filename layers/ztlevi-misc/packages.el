@@ -793,20 +793,20 @@
         ;; (when (configuration-layer/package-usedp 'company)
         ;;   (spacemacs|add-company-hook markdown-mode))
 
-        (dolist (m (list 'markdown-mode 'gfm-mode))
-          (spacemacs/set-leader-keys-for-major-mode m
+        (dolist (mode (list 'markdown-mode 'gfm-mode))
+          (spacemacs/set-leader-keys-for-major-mode mode
             "p" 'ztlevi/markdown-to-html)
-          (spacemacs/set-leader-keys-for-major-mode m
+          (spacemacs/set-leader-keys-for-major-mode mode
             "H" 'markdown-hide-body)
-          (spacemacs/set-leader-keys-for-major-mode m
+          (spacemacs/set-leader-keys-for-major-mode mode
             "S" 'markdown-show-all)
-          (spacemacs/set-leader-keys-for-major-mode m
+          (spacemacs/set-leader-keys-for-major-mode mode
             "dd" 'org-deadline)
-          (spacemacs/set-leader-keys-for-major-mode m
+          (spacemacs/set-leader-keys-for-major-mode mode
             "ds" 'org-schedule)
-          (spacemacs/set-leader-keys-for-major-mode m
+          (spacemacs/set-leader-keys-for-major-mode mode
             "dt" 'org-time-stamp)
-          (spacemacs/set-leader-keys-for-major-mode m
+          (spacemacs/set-leader-keys-for-major-mode mode
             "dT" 'org-time-stamp-inactive))
 
         (evil-define-key 'normal markdown-mode-map (kbd "TAB") 'markdown-cycle)

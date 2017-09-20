@@ -93,7 +93,6 @@
  '(paradox-github-token t)
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
- '(ranger-deer-show-details nil)
  '(ring-bell-function (quote ignore))
  '(sp-show-pair-from-inside t)
  '(swiper-goto-start-of-match t)
