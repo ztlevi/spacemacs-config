@@ -122,8 +122,10 @@
 
 (defun ztlevi-programming/post-init-python ()
   (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
-  ;; if you use pyton3, then you could comment the following line
-  ;; (setq python-shell-interpreter "python")
+  ;; if you use pyton2, then you could comment the following 3 lines
+  ;; (setq python-shell-interpreter "python2")
+  ;; (setq python-shell-interpreter-args "-i")
+  ;; (setq flycheck-python-pylint-executable "/usr/local/bin/pylint")
   )
 
 (defun ztlevi-programming/post-init-js-doc ()
