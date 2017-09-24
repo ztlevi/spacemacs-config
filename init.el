@@ -88,7 +88,7 @@ This function should only modify configuration layer settings."
             c-c++-default-mode-for-headers 'c++-mode)
      ztlevi
      (chinese :packages youdao-dictionary fcitx
-              :variables chinese-enable-fcitx nil
+              :variables chinese-enable-fcitx t
               chinese-enable-youdao-dict t)
      )
    ;; List of additional packages that will be installed without being
@@ -99,7 +99,7 @@ This function should only modify configuration layer settings."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
-   '(magit-gh-pulls magit-gitflow org-projectile evil-mc realgud
+   '(magit-gh-pulls magit-gitflow org-projectile evil-mc evil-escape realgud
                     evil-args evil-ediff evil-exchange evil-unimpaired
                     evil-indent-plus volatile-highlights exec-path-from-shell
                     spaceline holy-mode skewer-mode rainbow-delimiters

@@ -23,8 +23,6 @@
  '(cua-read-only-cursor-color "#859900")
  '(erc-nick "ztlevi")
  '(erc-port 6666)
- '(evil-escape-delay 0.2)
- '(evil-escape-key-sequence "jk")
  '(evil-want-Y-yank-to-eol nil)
  '(expand-region-contract-fast-key "V")
  '(expand-region-exclude-text-mode-expansions (quote (html-mode nxml-mode web-mode)))
