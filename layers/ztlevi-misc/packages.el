@@ -14,6 +14,7 @@
     helm-github-stars
     helm
     atomic-chrome
+    term
     projectile
     prodigy
     find-file-in-project
@@ -77,6 +78,16 @@
     (if (ztlevi-atomic-chrome-server-running-p)
         (message "Can't start atomic-chrome server, because port 64292 is already used")
       (atomic-chrome-start-server))))
+
+(defun ztlevi-misc/post-init-term ()
+  ;; unbind C-j, bind C-k with kill line
+  (when (eq dotspacemacs-editing-style 'vim)
+    (evil-define-key 'insert term-raw-map
+      (kbd "C-k") 'kill-line
+      (kbd "C-j") nil))
+  (evil-define-key 'normal term-raw-map
+    (kbd "C-k") 'kill-line
+    (kbd "C-j") nil))
 
 (defun ztlevi-misc/init-browse-at-remote ()
   (use-package browse-at-remote
