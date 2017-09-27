@@ -427,7 +427,13 @@ holding contextual information."
     :defer t))
 
 (defun ztlevi-org/post-init-ox-reveal ()
-  (setq org-reveal-root "file:///Users/ztlevi/.emacs.d/reveal-js"))
+  (progn
+    ;; (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")
+    (setq org-reveal-root (concat dotspacemacs-directory "layers/ztlevi-org/reveal.js-3.5.0/"))
+    (setq org-reveal-mathjax t)
+
+    (use-package htmlize
+      :ensure t)))
 
 (defun ztlevi-org/init-org-tree-slide ()
   (use-package org-tree-slide
