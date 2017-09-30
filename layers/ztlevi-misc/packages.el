@@ -799,6 +799,7 @@
 
 (defun ztlevi-misc/post-init-markdown-mode ()
   (progn
+    (add-hook 'markdown-mode-hook 'org-mode)
     (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 
     (with-eval-after-load 'markdown-mode
