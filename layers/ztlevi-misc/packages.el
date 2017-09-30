@@ -825,5 +825,8 @@
             "dT" 'org-time-stamp-inactive))
 
         (evil-define-key 'normal markdown-mode-map (kbd "TAB") 'markdown-cycle)
+        (evil-define-key 'normal gfm-mode-map (kbd "TAB") 'markdown-cycle)
+        (evil-define-key 'normal markdown-mode-map (kbd "o") 'evil-org-open-below)
+        (evil-define-key 'normal gfm-mode-map (kbd "o") 'evil-org-open-below)
         ))
     ))

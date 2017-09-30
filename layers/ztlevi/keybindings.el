@@ -46,7 +46,7 @@
   (insert "    "))
 
 ;; redefine C-i and S-tab
-(global-set-key (kbd "<C-i>") 'insert-4-spaces)
+(global-set-key (kbd "<C-i>") 'evil-shift-right-line)
 (global-set-key (kbd "<S-tab>") 'evil-shift-left-line)
 
 ;; Multi cursor
@@ -71,9 +71,12 @@
 ;; fix yasnippet with unbinding emmet keys
 (eval-after-load 'emmet-mode
   '(progn
-     (dolist (map (list 'insert-emmet-mode-keymap 'emacs-emmet-mode-keymap 'hybrid-emmet-mode-keymap))
-       (evil-define-key map (kbd "TAB") nil)
-       (evil-define-key map (kbd "<tab>") nil))))
+     (evil-define-key 'insert emmet-mode-keymap (kbd "TAB") nil)
+     (evil-define-key 'insert emmet-mode-keymap (kbd "<tab>") nil)
+     (evil-define-key 'emacs emmet-mode-keymap (kbd "TAB") nil)
+     (evil-define-key 'emacs emmet-mode-keymap (kbd "<tab>") nil)
+     (evil-define-key 'hybrid emmet-mode-keymap (kbd "TAB") nil)
+     (evil-define-key 'hybrid emmet-mode-keymap (kbd "<tab>") nil)))
 
 ;; debug
 (define-key emacs-lisp-mode-map (kbd "<C-x> <C-e>") 'pp-eval-last-sexp)
