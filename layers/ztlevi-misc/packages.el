@@ -799,7 +799,6 @@
 
 (defun ztlevi-misc/post-init-markdown-mode ()
   (progn
-    (add-hook 'markdown-mode-hook 'org-mode)
     (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 
     (with-eval-after-load 'markdown-mode
@@ -827,7 +826,11 @@
 
         (evil-define-key 'normal markdown-mode-map (kbd "TAB") 'markdown-cycle)
         (evil-define-key 'normal gfm-mode-map (kbd "TAB") 'markdown-cycle)
+
+        (spacemacs//evil-org-mode)
         (evil-define-key 'normal markdown-mode-map (kbd "o") 'evil-org-open-below)
         (evil-define-key 'normal gfm-mode-map (kbd "o") 'evil-org-open-below)
+        (evil-define-key 'normal markdown-mode-map (kbd "O") 'evil-org-open-above)
+        (evil-define-key 'normal gfm-mode-map (kbd "O") 'evil-org-open-above)
         ))
     ))
