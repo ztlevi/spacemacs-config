@@ -92,6 +92,10 @@
 (spacemacs/set-leader-keys "bt" 'ztlevi/open-terminal-in-current-dir)
 (spacemacs/set-leader-keys "bT" 'ztlevi/open-markdown-in-typora)
 
+;; remap C-h with delte, M-h with help-command
+(global-set-key (kbd "C-h") 'delete-backward-char)
+(define-key global-map (kbd "M-h") 'help-command)
+
 ;; A complementary binding to the apropos-command (C-h a)
 (define-key 'help-command "A" 'apropos)
 (define-key 'help-command (kbd "C-f") 'find-function)
