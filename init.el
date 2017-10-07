@@ -99,24 +99,24 @@ This function should only modify configuration layer settings."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
-   '(magit-gh-pulls magit-gitflow org-projectile evil-mc evil-escape realgud
-                    evil-args evil-ediff evil-exchange evil-unimpaired
-                    evil-indent-plus volatile-highlights exec-path-from-shell
-                    spaceline holy-mode skewer-mode rainbow-delimiters
-                    highlight-indentation vi-tilde-fringe eyebrowse
-                    org-bullets org-repo-todo org-download org-timer
-                    leuven-theme gh-md evil-lisp-state spray lorem-ipsum symon
-                    ac-ispell ace-jump-mode auto-complete auto-dictionary
-                    clang-format define-word google-translate disaster epic
-                    fancy-battery org-present orgit orglue spacemacs-theme
-                    helm-flyspell flyspell-correct-helm clean-aindent-mode
-                    helm-c-yasnippet ace-jump-helm-line helm-make magithub
-                    helm-themes helm-swoop helm-spacemacs-help smeargle
-                    ido-vertical-mode flx-ido company-quickhelp counsel-projectile
-                    window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
-                    livid-mode smooth-scrolling counsel-dash helm-dash smartparens
-                    edit-server gmail-message-mode
-                    )
+   '(evil-args magit-gitflow org-projectile evil-mc evil-escape realgud
+               evil-ediff evil-exchange evil-unimpaired magit-gh-pulls
+               evil-indent-plus volatile-highlights exec-path-from-shell
+               spaceline holy-mode skewer-mode rainbow-delimiters
+               highlight-indentation vi-tilde-fringe eyebrowse
+               org-bullets org-repo-todo org-download org-timer
+               leuven-theme gh-md evil-lisp-state spray lorem-ipsum symon
+               ac-ispell ace-jump-mode auto-complete auto-dictionary
+               clang-format define-word google-translate disaster epic
+               fancy-battery org-present orgit orglue spacemacs-theme
+               helm-flyspell flyspell-correct-helm clean-aindent-mode
+               helm-c-yasnippet ace-jump-helm-line helm-make magithub
+               helm-themes helm-swoop helm-spacemacs-help smeargle
+               ido-vertical-mode flx-ido company-quickhelp counsel-projectile
+               window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
+               livid-mode smooth-scrolling counsel-dash helm-dash smartparens
+               edit-server gmail-message-mode
+               )
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
 
