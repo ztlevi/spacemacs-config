@@ -94,7 +94,7 @@
 
 ;; remap C-h with delte, M-h with help-command
 (global-set-key (kbd "C-h") 'delete-backward-char)
-(define-key global-map (kbd "M-h") 'help-command)
+(global-set-key (kbd "C-M-h") 'help-command)
 
 ;; A complementary binding to the apropos-command (C-h a)
 (define-key 'help-command "A" 'apropos)
@@ -118,13 +118,7 @@
 
 ;; (global-set-key (kbd "C-.") 'company-capf)
 
-;; some easy functions for navigate functions
-;;C-M-a beginning-of-defun
-;;C-M-e end-of-defun
-;;C-M-h mark-defun
-(global-set-key (kbd "C-s-h") 'mark-defun)
-
-(global-set-key (kbd "s-l") 'goto-line)
+(global-set-key (kbd "s-g") 'goto-line)
 ;; (global-set-key (kbd "s-s") 'save-buffer)
 (global-set-key (kbd "C-`") 'toggle-input-method)
 (global-set-key (kbd "s-d") 'ztlevi/my-mc-mark-next-like-this)
