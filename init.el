@@ -423,6 +423,9 @@ It should only modify the values of Spacemacs settings."
       (message "Microsoft Windows"))))
 
   ;; ============================== Others =====================================
+  ;; enable flyspell in text-mode
+  (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
+
   ;; flymd open browser
   (setq flymd-browser-open-function 'my-flymd-browser-function)
 
@@ -464,8 +467,6 @@ It should only modify the values of Spacemacs settings."
         (set-auto-mode)
       (fundamental-mode)))
   (spacemacs/set-leader-keys "otm" 'ztlevi/toggle-major-mode)
-
-  ;; (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
 
   ;; https://github.com/syl20bnr/spacemacs/issues/7749
   (defun spacemacs/ivy-persp-switch-project (arg)
