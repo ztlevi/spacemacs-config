@@ -41,11 +41,7 @@
 
 (defun ztlevi-ui/init-all-the-icons ()
   (use-package all-the-icons
-    :defer t
-    :init
-    (progn
-      (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-      )))
+    :defer t))
 
 (defun ztlevi-ui/init-ztlevi-mode-line ()
   (defun ztlevi/display-mode-indent-width ()

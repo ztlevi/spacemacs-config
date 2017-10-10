@@ -66,6 +66,8 @@ This function should only modify configuration layer settings."
      ;; latex
      deft
      chrome
+     (treemacs :variables treemacs-use-filewatch-mode t
+               :variables treemacs-use-follow-mode t)
      markdown
      (org :variables org-want-todo-bindings t)
      gpu
