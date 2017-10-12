@@ -10,10 +10,10 @@
 ;;; License: GPLv3
 
 ;; http://emacsredux.com/blog/2014/04/05/which-function-mode/
-;; (which-function-mode)
+(which-function-mode)
 ;; when editing js file, this feature is very useful
-;; (setq-default header-line-format
-;;               '((which-func-mode ("" which-func-format " "))))
+(setq-default header-line-format
+              '((which-func-mode ("" which-func-format " "))))
 
 ;; set scrolling speed
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 1) ((control) . nil)))
