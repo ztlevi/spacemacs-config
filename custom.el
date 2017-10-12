@@ -117,6 +117,7 @@
  '(header-line ((t (:inherit font-lock-preprocessor-face))))
  '(markdown-code-face ((t (:background "#f0f0f0"))))
  '(mmm-default-submode-face ((t (:background "#f0f0f0"))))
+ '(org-block ((t (:background "#f0f0f0"))))
  '(show-paren-match ((t (:background "#Ff69b4" :foreground "#fafafa")))))
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
