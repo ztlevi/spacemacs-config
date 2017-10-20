@@ -101,6 +101,7 @@
  '(use-package-verbose t)
  '(vc-annotate-background-mode nil)
  '(vc-follow-symlinks t)
+ '(visual-line-fringe-indicators (quote (left-curly-arrow right-curly-arrow)))
  '(web-mode-markup-indent-offset 2)
  '(weechat-color-list
    (quote
