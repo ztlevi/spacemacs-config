@@ -110,7 +110,7 @@ This function should only modify configuration layer settings."
                evil-ediff evil-exchange evil-unimpaired magit-gh-pulls
                evil-indent-plus volatile-highlights exec-path-from-shell
                spaceline holy-mode skewer-mode rainbow-delimiters
-               highlight-indentation vi-tilde-fringe eyebrowse
+               highlight-indentation vi-tilde-fringe eyebrowse evil-escape
                org-bullets org-repo-todo org-download org-timer
                leuven-theme gh-md evil-lisp-state spray lorem-ipsum symon
                ac-ispell ace-jump-mode auto-complete auto-dictionary
