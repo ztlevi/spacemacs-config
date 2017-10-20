@@ -32,7 +32,6 @@ This function should only modify configuration layer settings."
    '(
      (pandoc :variables org-pandoc-options '((standalone . t)))
      dash
-     php
      better-defaults
      ;; github
      ranger
@@ -63,11 +62,19 @@ This function should only modify configuration layer settings."
      ;; (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      (shell :variables shell-default-shell 'ansi-term)
      ;; docker
-     ;; latex
      deft
      chrome
      (treemacs :variables treemacs-use-filewatch-mode t
                :variables treemacs-use-follow-mode t)
+
+     ;; ======================== Languages======================
+     ;; php
+     ;; (clojure :variables clojure-enable-fancify-symbols t)
+     ;; (ruby :variables ruby-version-manager 'chruby)
+     ;; ruby-on-rails
+     ;; racket
+     ;; lua
+     ;; latex
      markdown
      (org :variables org-want-todo-bindings t)
      gpu
@@ -75,17 +82,12 @@ This function should only modify configuration layer settings."
      react
      (python :variables
              python-test-runner '(nose pytest))
-     ;; (ruby :variables ruby-version-manager 'chruby)
-     ;; ruby-on-rails
-     lua
      html
      javascript
      (typescript :variables
                  typescript-fmt-on-save nil
                  typescript-fmt-tool 'typescript-formatter)
      emacs-lisp
-     (clojure :variables clojure-enable-fancify-symbols t)
-     racket
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode)
      ztlevi
