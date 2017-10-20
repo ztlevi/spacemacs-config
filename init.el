@@ -115,9 +115,9 @@ This function should only modify configuration layer settings."
                helm-c-yasnippet ace-jump-helm-line helm-make magithub
                helm-themes helm-swoop helm-spacemacs-help smeargle
                ido-vertical-mode flx-ido company-quickhelp counsel-projectile
-               ivy-purpose helm-purpose spacemacs-purpose-popwin
-               livid-mode smooth-scrolling counsel-dash helm-dash smartparens
-               edit-server gmail-message-mode
+               window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
+               popwin livid-mode smooth-scrolling counsel-dash helm-dash
+               smartparens edit-server gmail-message-mode
                )
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
