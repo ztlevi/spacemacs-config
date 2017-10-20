@@ -67,11 +67,13 @@ This function should only modify configuration layer settings."
      (treemacs :variables treemacs-use-filewatch-mode t
                :variables treemacs-use-follow-mode t)
 
-     ;; ======================== Languages======================
-     ;; php
+     ;; ======================== Frameworks ======================
+     react
+     ;; ruby-on-rails
+
+     ;; ======================== Languages =======================
      ;; (clojure :variables clojure-enable-fancify-symbols t)
      ;; (ruby :variables ruby-version-manager 'chruby)
-     ;; ruby-on-rails
      ;; racket
      ;; lua
      ;; latex
@@ -79,7 +81,7 @@ This function should only modify configuration layer settings."
      (org :variables org-want-todo-bindings t)
      gpu
      yaml
-     react
+     php
      (python :variables
              python-test-runner '(nose pytest))
      html
@@ -90,6 +92,7 @@ This function should only modify configuration layer settings."
      emacs-lisp
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode)
+
      ztlevi
      (chinese :packages youdao-dictionary fcitx
               :variables chinese-enable-fcitx t
