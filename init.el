@@ -9,7 +9,7 @@ This function should only modify configuration layer settings."
    ;; Base distribution to use. This is a layer contained in the directory
    ;; `+distribution'. For now available distributions are `spacemacs-base'
    ;; or `spacemacs'. (default 'spacemacs)
-   dotspacemacs-distribution 'spacemacs
+   dotspacemacs-distribution 'spacemacs-base
    ;; Lazy installation of layers (i.e. layers are installed only when a file
    ;; with a supported type is opened). Possible values are `all', `unused'
    ;; and `nil'. `unused' will lazy install only unused layers (i.e. layers
@@ -30,6 +30,21 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     ;; =================== Spacemacs Layers ====================
+     helm
+     spacemacs-completion
+     spacemacs-layouts
+     spacemacs-editing
+     spacemacs-editing-visual
+     spacemacs-evil
+     spacemacs-language
+     spacemacs-misc
+     spacemacs-modeline
+     spacemacs-navigation
+     spacemacs-org
+     spacemacs-visual
+
+     ;; ======================== Misc =========================
      (pandoc :variables org-pandoc-options '((standalone . t)))
      dash
      better-defaults
@@ -93,6 +108,7 @@ This function should only modify configuration layer settings."
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode)
 
+     ;; ======================== Others =======================
      ztlevi
      (chinese :packages youdao-dictionary fcitx
               :variables chinese-enable-fcitx t
@@ -120,8 +136,7 @@ This function should only modify configuration layer settings."
                helm-c-yasnippet ace-jump-helm-line helm-make magithub
                helm-themes helm-swoop helm-spacemacs-help smeargle
                ido-vertical-mode flx-ido company-quickhelp counsel-projectile
-               window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
-               popwin livid-mode smooth-scrolling counsel-dash helm-dash
+               livid-mode smooth-scrolling counsel-dash helm-dash
                smartparens edit-server gmail-message-mode
                )
    dotspacemacs-install-packages 'used-only
