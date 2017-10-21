@@ -12,8 +12,11 @@
 ;; http://emacsredux.com/blog/2014/04/05/which-function-mode/
 (which-function-mode)
 ;; when editing js file, this feature is very useful
-(setq-default header-line-format
-              '((which-func-mode ("" which-func-format " "))))
+(defun set-header-line ()
+  (setq header-line-format
+        '((which-func-mode ("" which-func-format " ")))))
+(add-hook 'prog-mode-hook 'set-header-line)
+(add-hook 'text-mode-hook 'set-header-line)
 
 ;; set scrolling speed
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 1) ((control) . nil)))
