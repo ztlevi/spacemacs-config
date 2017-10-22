@@ -116,10 +116,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(header-line ((t (:inherit font-lock-preprocessor-face))))
+ '(helm-candidate-number ((t (:background "dodger blue" :foreground "#fafafa"))))
  '(markdown-code-face ((t (:background "#f0f0f0"))))
  '(mmm-default-submode-face ((t (:background "#f0f0f0"))))
  '(org-block ((t (:background "#f0f0f0"))))
- '(show-paren-match ((t (:background "#Ff69b4" :foreground "#fafafa"))))
+ '(show-paren-match ((t (:background "#ff69b4" :foreground "#fafafa"))))
  '(web-mode-current-element-highlight-face ((t (:background "dodger blue" :foreground "#ffffff")))))
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
