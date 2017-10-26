@@ -12,8 +12,16 @@
 ;; http://emacsredux.com/blog/2014/04/05/which-function-mode/
 (which-function-mode)
 ;; when editing js file, this feature is very useful
-(setq-default header-line-format
-      '((which-func-mode ("" which-func-format " "))))
+;; (setq-default header-line-format
+;;               '((which-func-mode ("" which-func-format " "))))
+
+(defun set-header-line ()
+  (setq header-line-format
+        '((which-func-mode ("" which-func-format " ")))))
+(add-hook 'prog-mode-hook 'set-header-line)
+(add-hook 'text-mode-hook 'set-header-line)
+(add-hook 'js2-mode-hook 'set-header-line)
+(add-hook 'web-mode-hook 'set-header-line)
 
 ;; set scrolling speed
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 1) ((control) . nil)))
@@ -83,9 +91,9 @@
                                       gnus-article-mode
                                       calendar-mode))
 (defadvice linum-on (around linum-on-inhibit-for-modes)
-           "Stop the load of linum-mode for some major modes."
-           (unless (member major-mode linum-mode-inhibit-modes-list)
-             ad-do-it))
+  "Stop the load of linum-mode for some major modes."
+  (unless (member major-mode linum-mode-inhibit-modes-list)
+    ad-do-it))
 (ad-activate 'linum-on)
 
 ;; (eval-after-load "linum"

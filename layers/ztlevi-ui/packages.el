@@ -88,8 +88,8 @@
             ((\` interrupted) " -")
             ((\` suspicious) '(propertize " ?" 'face 'warning)))))
 
-  ;; (setq-default mode-line-misc-info
-  ;;               (assq-delete-all 'which-func-mode mode-line-misc-info))
+  (setq-default mode-line-misc-info
+                (assq-delete-all 'which-func-mode mode-line-misc-info))
 
   (defface mode-line-linum-number-face
     '((t (:inherit font-lock-keyword-face :box (:line-width 5 :color "#e7e7e7"))))
@@ -163,8 +163,8 @@
                  " "
 
                  ;; global-mode-string goes in mode-line-misc-info
-                 ;; '(:eval (when (> (window-width) 120)
-                 ;;           mode-line-misc-info))
+                 '(:eval (when (> (window-width) 120)
+                           mode-line-misc-info))
 
                  (mode-line-fill 'mode-line 20)
 

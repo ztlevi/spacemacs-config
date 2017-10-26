@@ -33,15 +33,6 @@ comment box."
         (overlay-put overlay 'before-string (propertize "A"
                                                         'display '(left-fringe right-triangle)))))))
 
-
-;;js2-mode enhancement
-(defun ztlevi/js2-which-function ()
-  ;; clean the imenu cache
-  ;; @see http://stackoverflow.com/questions/13426564/how-to-force-a-rescan-in-imenu-by-a-function
-  (setq imenu--index-alist nil)
-  (which-function-mode t)
-  (which-function))
-
 (defun ztlevi/run-current-file ()
   "Execute the current file.
 For example, if the current buffer is the file x.py, then it'll call 「python x.py」 in a shell.
@@ -87,8 +78,6 @@ version 2015-08-21"
             (message "Running…")
             (async-shell-command ξcmd-str "*ztlevi/run-current-file output*"))
         (message "No recognized program file suffix for this file.")))))
-
-
 
 (defun my-web-mode-indent-setup ()
   (setq web-mode-markup-indent-offset 2)
@@ -146,7 +135,6 @@ version 2015-08-21"
     (define-key js2-mode-map "\C-ci" 'js-doc-insert-function-doc-snippet)
     (define-key js2-mode-map "@" 'js-doc-insert-tag)
     (modify-syntax-entry ?_ "w")
-    (which-function-mode t)
     (setq imenu-create-index-function 'js2-imenu-make-index)
 
     (setq mode-name "JS2")
@@ -154,12 +142,6 @@ version 2015-08-21"
     (spacemacs/toggle-syntax-checking-on)
     (setq forward-sexp-function nil)
     (set (make-local-variable 'semantic-mode) nil)))
-
-(defun my-which-function ()
-  ;; clean the imenu cache
-  ;; @see http://stackoverflow.com/questions/13426564/how-to-force-a-rescan-in-imenu-by-a-function
-  (setq imenu--index-alist nil)
-  (which-function))
 
 (defun js2-imenu-make-index ()
   (interactive)
