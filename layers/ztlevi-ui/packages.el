@@ -11,6 +11,7 @@
 
 (defconst ztlevi-ui-packages
   '(
+    unicode-fonts
     all-the-icons-dired
     all-the-icons
     (ztlevi-mode-line :location built-in)
@@ -27,6 +28,11 @@
     ;; evil-vimish-fold
     )
   )
+
+(defun ztlevi-ui/init-unicode-fonts ()
+  (use-package unicode-fonts
+    :ensure t
+    :config (unicode-fonts-setup)))
 
 (defun ztlevi-ui/init-doom-themes ()
   (use-package doom-themes
@@ -85,13 +91,17 @@
   ;; (setq-default mode-line-misc-info
   ;;               (assq-delete-all 'which-func-mode mode-line-misc-info))
 
+  (defface mode-line-linum-number-face
+    '((t (:inherit font-lock-keyword-face :box (:line-width 5 :color "#e7e7e7"))))
+    "mode-line linum number face")
+
   (setq-default mode-line-format
                 (list
                  " %1"
                  '(:eval (propertize
                           (window-number-mode-line)
                           'face
-                          'font-lock-keyword-face))
+                          'mode-line-linum-number-face))
                  " "
                  '(:eval (ztlevi/update-persp-name))
 
@@ -153,8 +163,8 @@
                  " "
 
                  ;; global-mode-string goes in mode-line-misc-info
-                 '(:eval (when (> (window-width) 120)
-                           mode-line-misc-info))
+                 ;; '(:eval (when (> (window-width) 120)
+                 ;;           mode-line-misc-info))
 
                  (mode-line-fill 'mode-line 20)
 
