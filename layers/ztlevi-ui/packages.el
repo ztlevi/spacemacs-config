@@ -187,6 +187,8 @@
 
 (defun ztlevi-ui/post-init-diminish ()
   (progn
+    (with-eval-after-load 'all-the-icons-dired
+      (diminish 'all-the-icons-dired-mode))
     (with-eval-after-load 'whitespace
       (diminish 'whitespace-mode))
     (with-eval-after-load 'smartparens
