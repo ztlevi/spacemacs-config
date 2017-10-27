@@ -47,7 +47,7 @@
        git clone https://github.com/ztlevi/spacemacs-config.git ~/.spacemacs.d
        #+END_SRC
     2. Install all-the-icons fonts by ~M-x all-the-icons-install-fonts~. I'm using /Ubuntu Mono/ font, you could change it under ~dotspacemacs-default-font~.
-    3. Install Dejavu fonts for Unicode. The fonts can be found under ~./styles/dejavu-fonts/~.
+    3. Install Dejavu fonts for Unicode. The fonts can be found under at [[http://sourceforge.net/projects/dejavu/files/dejavu/2.35/dejavu-fonts-ttf-2.35.tar.bz2][here]].
     4. Dependencies needed
        - Install ispell, ripgrep, the_silver_searcher, the_platinum_searcher
          #+BEGIN_SRC shell
