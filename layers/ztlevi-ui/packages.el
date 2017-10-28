@@ -11,7 +11,7 @@
 
 (defconst ztlevi-ui-packages
   '(
-    unicode-fonts
+    ;; unicode-fonts
     all-the-icons-dired
     all-the-icons
     (ztlevi-mode-line :location built-in)
@@ -91,17 +91,13 @@
   (setq-default mode-line-misc-info
                 (assq-delete-all 'which-func-mode mode-line-misc-info))
 
-  (defface mode-line-linum-number-face
-    '((t (:inherit font-lock-keyword-face :box (:line-width 5 :color "#e7e7e7"))))
-    "mode-line linum number face")
-
   (setq-default mode-line-format
                 (list
                  " %1"
                  '(:eval (propertize
                           (window-number-mode-line)
                           'face
-                          'mode-line-linum-number-face))
+                          'font-lock-keyword-face))
                  " "
                  '(:eval (ztlevi/update-persp-name))
 
