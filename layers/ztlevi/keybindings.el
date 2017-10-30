@@ -29,6 +29,23 @@
 (define-key evil-visual-state-map (kbd "zO") 'evil-open-folds)
 (define-key evil-visual-state-map (kbd "zr") 'evil-open-fold-rec)
 
+;; Utility functions
+(defun bb/define-key (keymap &rest bindings)
+  (declare (indent 1))
+  (while bindings
+    (define-key keymap (pop bindings) (pop bindings))))
+
+;; evil inc-num, dec-num, find-char-reverse, insert space before and after
+(define-key evil-normal-state-map (kbd "-") nil)
+(bb/define-key evil-normal-state-map
+  "+" 'evil-numbers/inc-at-pt
+  "-" 'evil-numbers/dec-at-pt
+  "\\" 'evil-repeat-find-char-reverse
+  (kbd "DEL") 'evil-repeat-find-char-reverse
+  "[s" (lambda (n) (interactive "p") (dotimes (c n nil) (insert " ")))
+  "]s" (lambda (n) (interactive "p")
+         (forward-char) (dotimes (c n nil) (insert " ")) (backward-char (1+ n))))
+
 ;; atomic chrome
 (spacemacs/set-leader-keys "cc" 'atomic-chrome-close-current-buffer)
 
@@ -48,11 +65,6 @@
 ;; redefine C-i and S-tab
 (global-set-key (kbd "<C-i>") 'evil-shift-right-line)
 (global-set-key (kbd "<S-tab>") 'evil-shift-left-line)
-
-;; Multi cursor
-(define-key mc/keymap (kbd "<return>") nil)
-(global-unset-key (kbd "M-<down-mouse-1>"))
-(global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
 
 ;; helm bookmark keybindings
 (define-key spacemacs-default-map (kbd "h b") 'helm-bookmarks)
@@ -154,23 +166,6 @@
 (bind-key* "C-c k" 'which-key-show-top-level)
 (bind-key* "s-y" 'aya-expand)
 ;; (bind-key* "C-l" 'recenter)
-
-;; Utility functions
-(defun bb/define-key (keymap &rest bindings)
-  (declare (indent 1))
-  (while bindings
-    (define-key keymap (pop bindings) (pop bindings))))
-
-(define-key evil-normal-state-map (kbd "-") nil)
-
-(bb/define-key evil-normal-state-map
-  "+" 'evil-numbers/inc-at-pt
-  "-" 'evil-numbers/dec-at-pt
-  "\\" 'evil-repeat-find-char-reverse
-  (kbd "DEL") 'evil-repeat-find-char-reverse
-  "[s" (lambda (n) (interactive "p") (dotimes (c n nil) (insert " ")))
-  "]s" (lambda (n) (interactive "p")
-         (forward-char) (dotimes (c n nil) (insert " ")) (backward-char (1+ n))))
 
 (spacemacs/declare-prefix "ot" "Toggle")
 

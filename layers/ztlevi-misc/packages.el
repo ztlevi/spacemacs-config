@@ -253,9 +253,7 @@
       (setq helm-ff-skip-boring-files t)
       ;; replace locate with spotlight on Mac
       (setq helm-locate-command "mdfind -name %s %s")
-      (push "\\.emlx$" helm-boring-file-regexp-list)
-      )
-    ))
+      (push "\\.emlx$" helm-boring-file-regexp-list))))
 
 (defun ztlevi-misc/init-helm-github-stars ()
   (use-package helm-github-stars
@@ -495,7 +493,6 @@
   (use-package multiple-cursors
     :init
     (progn
-
       (bind-key* "C-s-l" 'mc/edit-lines)
       (bind-key* "C-s-f" 'mc/mark-all-dwim)
       (bind-key* "C-s-." 'mc/mark-next-like-this)
@@ -523,6 +520,9 @@
       (define-key endless/mc-map "\C-e" #'mc/edit-ends-of-lines)
       )
     :config
+    (define-key mc/keymap (kbd "<return>") nil)
+    (global-unset-key (kbd "M-<down-mouse-1>"))
+    (global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
     (setq mc/cmds-to-run-once
           '(
             counsel-M-x
