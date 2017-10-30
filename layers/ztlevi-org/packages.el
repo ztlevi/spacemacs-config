@@ -3,7 +3,7 @@
 ;; Copyright (c) 2016-2017 ztlevi
 ;;
 ;; Author: ztlevi <zhouting@umich.edu>
-;; URL: https://github.com/ztlevi/Spacemacs-config
+;; URL: https://github.com/ztlevi/spacemacs-config
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -12,7 +12,7 @@
 (defconst ztlevi-org-packages
   '(
     (org :location built-in)
-    org-mac-link
+    ;; org-mac-link
     org-pomodoro
     deft
     (blog-admin :location (recipe

@@ -3,7 +3,7 @@
 ;; Copyright (c) 2016-2017 ztlevi
 ;;
 ;; Author: ztlevi <zhouting@umich.edu>
-;; URL: https://github.com/ztlevi/Spacemacs-config
+;; URL: https://github.com/ztlevi/spacemacs-config
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -29,12 +29,6 @@
 (define-key evil-visual-state-map (kbd "zO") 'evil-open-folds)
 (define-key evil-visual-state-map (kbd "zr") 'evil-open-fold-rec)
 
-;; Utility functions
-(defun bb/define-key (keymap &rest bindings)
-  (declare (indent 1))
-  (while bindings
-    (define-key keymap (pop bindings) (pop bindings))))
-
 ;; evil inc-num, dec-num, find-char-reverse, insert space before and after
 (define-key evil-normal-state-map (kbd "-") nil)
 (bb/define-key evil-normal-state-map
@@ -57,10 +51,6 @@
 
 ;; hungry delete
 (global-set-key (kbd "C-<backspace>") 'hungry-delete-backward)
-
-(defun insert-4-spaces ()
-  (interactive)
-  (insert "    "))
 
 ;; redefine C-i and S-tab
 (global-set-key (kbd "<C-i>") 'evil-shift-right-line)
