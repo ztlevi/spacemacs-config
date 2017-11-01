@@ -108,5 +108,5 @@
 (setq initial-frame-alist
       '(
         (width . 86) ; character
-        (height . 40) ; lines
+        (height . 45) ; lines
         ))
