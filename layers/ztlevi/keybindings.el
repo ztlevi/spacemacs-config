@@ -83,11 +83,6 @@
 ;; debug
 (define-key emacs-lisp-mode-map (kbd "<C-x> <C-e>") 'pp-eval-last-sexp)
 
-;; ranger and deer
-(spacemacs/set-leader-keys "fj" 'deer)
-(with-eval-after-load 'ranger
-  (define-key ranger-normal-mode-map (kbd "F") 'dired-create-directory))
-
 ;; open in file manager
 (spacemacs/set-leader-keys "bf" 'ztlevi/open-finder-in-current-dir)
 (spacemacs/set-leader-keys "of" 'ztlevi/buffer-refresh)

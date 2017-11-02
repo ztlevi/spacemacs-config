@@ -49,7 +49,6 @@ This function should only modify configuration layer settings."
      dash
      better-defaults
      ;; github
-     ranger
      colors
      prodigy
      search-engine

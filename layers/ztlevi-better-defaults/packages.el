@@ -98,8 +98,9 @@
       (evilified-state-evilify-map dired-mode-map
         :mode dired-mode
         :bindings
-        (kbd "C-k") 'ztlevi/dired-up-directory
+        "h" 'ztlevi/dired-up-directory
         "<RET>" 'dired-find-alternate-file
+        "l" 'dired-find-alternate-file
         "E" 'dired-toggle-read-only
         "C" 'dired-do-copy
         "<mouse-2>" 'my-dired-find-file
