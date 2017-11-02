@@ -47,7 +47,8 @@
     (progn
       (require 'dired-x)
       (require 'dired-aux)
-      (setq dired-listing-switches "-alh")
+      (setq insert-directory-program "gls" dired-use-ls-dired t)
+      (setq dired-listing-switches "-aBhl  --group-directories-first")
       (setq dired-guess-shell-alist-user
             '(("\\.pdf\\'" "open")
               ("\\.docx\\'" "open")

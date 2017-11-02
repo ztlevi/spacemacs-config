@@ -51,7 +51,7 @@
     4. Dependencies needed
        - Install ispell, ripgrep, the_silver_searcher, the_platinum_searcher
          #+BEGIN_SRC shell
-         brew install ispell ripgrep the_silver_searcher pt
+         brew install coreutils ispell ripgrep the_silver_searcher pt
          #+END_SRC
        - npm
          #+BEGIN_SRC shell
