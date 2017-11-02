@@ -15,13 +15,13 @@
 ;; (setq-default header-line-format
 ;;               '((which-func-mode ("" which-func-format " "))))
 
-(defun set-header-line ()
+(defun zt/set-header-line ()
+  (interactive)
+  (which-function-mode t)
   (setq header-line-format
         '((which-func-mode ("" which-func-format " ")))))
-(add-hook 'prog-mode-hook 'set-header-line)
-(add-hook 'text-mode-hook 'set-header-line)
-(add-hook 'js2-mode-hook 'set-header-line)
-(add-hook 'web-mode-hook 'set-header-line)
+(add-hook 'prog-mode-hook 'zt/set-header-line)
+(add-hook 'text-mode-hook 'zt/set-header-line)
 
 ;; set scrolling speed
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 1) ((control) . nil)))
