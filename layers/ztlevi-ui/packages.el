@@ -11,7 +11,6 @@
 
 (defconst ztlevi-ui-packages
   '(
-    ;; unicode-fonts
     all-the-icons-dired
     all-the-icons
     (ztlevi-mode-line :location built-in)
@@ -28,11 +27,6 @@
     ;; evil-vimish-fold
     )
   )
-
-(defun ztlevi-ui/init-unicode-fonts ()
-  (use-package unicode-fonts
-    :ensure t
-    :config (unicode-fonts-setup)))
 
 (defun ztlevi-ui/init-doom-themes ()
   (use-package doom-themes
