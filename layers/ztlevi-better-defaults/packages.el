@@ -14,8 +14,7 @@
     (dired-mode :location built-in)
     (profiler :location built-in)
     (recentf :location built-in)
-    )
-)
+    ))
 
 (defun ztlevi-better-defaults/post-init-recentf ()
   (progn
@@ -99,20 +98,31 @@
       (evilified-state-evilify-map dired-mode-map
         :mode dired-mode
         :bindings
-        "h" 'ztlevi/dired-up-directory
-        "<RET>" 'dired-find-alternate-file
-        "l" 'dired-find-alternate-file
-        "E" 'dired-toggle-read-only
-        "C" 'dired-do-copy
+        "j"         'vinegar/move-down
+        "k"         'vinegar/move-up
+        "h"         'vinegar/up-directory
+        "l"         'dired-find-alternate-file
+        (kbd "RET") (if vinegar-reuse-dired-buffer
+                        'dired-find-alternate-file
+                      'dired-find-file)
+        "f"         (if (configuration-layer/layer-used-p 'ivy)
+                        'counsel-find-file
+                      'helm-find-files)
+        "J"         'ztlevi/open-file-with-projectile-or-counsel-git
+        "I"         'vinegar/dotfiles-toggle
+        (kbd "~")   '(lambda ()(interactive) (find-alternate-file "~/"))
+        "E"         'dired-toggle-read-only
+        (kbd "C-r") 'dired-do-redisplay
+        "C"         'dired-do-copy
+        "c"         'dired-copy-file-here
         "<mouse-2>" 'my-dired-find-file
-        "`" 'dired-open-term
-        "p" 'peep-dired-prev-file
-        "n" 'peep-dired-next-file
-        "z" 'dired-get-size
-        "c" 'dired-copy-file-here
-        "J" 'counsel-find-file
-        "f" 'ztlevi/open-file-with-projectile-or-counsel-git
-        ")" 'dired-omit-mode)
+        "`"         'dired-open-term
+        "p"         'peep-dired-prev-file
+        "n"         'peep-dired-next-file
+        "z"         'dired-get-size
+        "gg"        'vinegar/back-to-top
+        "G"         'vinegar/jump-to-bottom
+        ")"         'dired-omit-mode)
       )))
 
 

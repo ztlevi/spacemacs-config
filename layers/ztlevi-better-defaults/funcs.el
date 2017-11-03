@@ -140,8 +140,3 @@ open and unsaved."
             (find-file filename)
             (call-interactively command))
           (dired-get-marked-files))))
-
-(defun ztlevi/dired-up-directory()
-  "goto up directory and resue buffer"
-  (interactive)
-  (find-alternate-file ".."))
