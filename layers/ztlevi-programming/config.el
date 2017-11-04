@@ -15,6 +15,24 @@
 (add-hook 'web-mode-hook 'flycheck-mode)
 (add-hook 'python-mode-hook 'flycheck-mode)
 
+;; ============= Use textlint ============
+;; npm i -g textlint textlint-rule-spellchecker textlint-rule-common-misspellings
+;; (flycheck-define-checker textlint
+;;   "A linter for prose."
+;;   :command ("textlint" "--format" "unix" "--rule" "textlint-rule-spellchecker" "--rule" "common-misspellings" source-inplace)
+;;   :error-patterns
+;;   ((warning line-start (file-name) ":" line ":" column ": "
+;;             (id (one-or-more (not (any " "))))
+;;             (message (one-or-more not-newline)
+;;                      (zero-or-more "\n" (any " ") (one-or-more not-newline)))
+;;             line-end))
+;;   :modes (text-mode markdown-mode gfm-mode))
+
+;; (add-to-list 'flycheck-checkers 'textlint)
+
+;; (add-hook 'markdown-mode-hook 'flycheck-mode)
+;; (add-hook 'gfm-mode-hook 'flycheck-mode)
+
 (spacemacs|add-toggle iimage
   :status iimage-mode
   :on (iimage-mode)
