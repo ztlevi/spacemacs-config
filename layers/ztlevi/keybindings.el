@@ -40,6 +40,9 @@
   "]s" (lambda (n) (interactive "p")
          (forward-char) (dotimes (c n nil) (insert " ")) (backward-char (1+ n))))
 
+;; imenu list
+(spacemacs/set-leader-keys "bi" #'imenu-list-smart-toggle)
+
 ;; atomic chrome
 (spacemacs/set-leader-keys "cc" 'atomic-chrome-close-current-buffer)
 
