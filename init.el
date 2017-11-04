@@ -78,6 +78,7 @@ This function should only modify configuration layer settings."
      ;; docker
      deft
      chrome
+     imenu-list
      (treemacs :variables treemacs-use-filewatch-mode t
                :variables treemacs-use-follow-mode t)
 

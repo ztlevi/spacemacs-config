@@ -9,9 +9,6 @@
 ;;
 ;;; License: GPLv3
 
-;; Only show outline when open markdown file
-(add-hook 'markdown-mode-hook 'markdown-hide-body)
-
 ;; flyspell
 (add-hook 'org-mode-hook 'flyspell-mode)
 (add-hook 'markdown-mode-hook 'flyspell-mode)
