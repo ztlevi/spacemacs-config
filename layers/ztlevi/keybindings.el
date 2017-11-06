@@ -175,7 +175,7 @@
 
 (spacemacs/set-leader-keys "od" 'occur-dwim)
 (spacemacs/set-leader-keys "on" 'occur-non-ascii)
-(spacemacs/set-leader-keys "ox" 'org-open-at-point)
+(spacemacs/set-leader-keys "ox" 'org-open-at-point-global)
 (spacemacs/set-leader-keys "or" 'ztlevi/browser-refresh--chrome-applescript)
 (spacemacs/set-leader-keys "om" 'org-pandoc-export-to-markdown_github-and-open)
 
