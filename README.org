@@ -4,7 +4,11 @@
 ** Installation
 *** Install Emacs-mac on Mac
 
-    *Method 1*: Use brew cask: ~brew cask install emacs-mac~
+    *Method 1*: Use brew cask: 
+    #+BEGIN_SRC shell
+    brew tap railwaycat/emacsmacport
+    brew cask install emacs-mac-spacemacs-icon
+    #+END_SRC
 
     *Method 2*: Just brew, need compiling. (more customization)
     #+BEGIN_SRC shell
