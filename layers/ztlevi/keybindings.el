@@ -86,7 +86,7 @@
 ;; debug
 (define-key emacs-lisp-mode-map (kbd "<C-x> <C-e>") 'pp-eval-last-sexp)
 
-;; open in file manager
+;; buffer key
 (spacemacs/set-leader-keys "bf" 'ztlevi/open-finder-in-current-dir)
 (spacemacs/set-leader-keys "of" 'ztlevi/buffer-refresh)
 (spacemacs/set-leader-keys "bt" 'ztlevi/open-terminal-in-current-dir)
