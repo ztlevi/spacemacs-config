@@ -14,8 +14,6 @@
     helm-github-stars
     helm
     atomic-chrome
-    term
-    shell-pop
     projectile
     prodigy
     find-file-in-project
@@ -79,25 +77,6 @@
     (if (ztlevi-atomic-chrome-server-running-p)
         (message "Can't start atomic-chrome server, because port 64292 is already used")
       (atomic-chrome-start-server))))
-
-(defun ztlevi-misc/post-init-shell-pop ()
-  (when (eq dotspacemacs-editing-style 'vim)
-    (evil-define-key 'insert term-mode-map
-      (kbd "C-k") 'kill-line
-      (kbd "C-j") nil))
-  (evil-define-key 'normal term-mode-map
-    (kbd "C-k") 'kill-line
-    (kbd "C-j") nil))
-
-(defun ztlevi-misc/post-init-term ()
-  ;; unbind C-j, bind C-k with kill line
-  (when (eq dotspacemacs-editing-style 'vim)
-    (evil-define-key 'insert term-raw-map
-      (kbd "C-k") 'kill-line
-      (kbd "C-j") nil))
-  (evil-define-key 'normal term-raw-map
-    (kbd "C-k") 'kill-line
-    (kbd "C-j") nil))
 
 (defun ztlevi-misc/init-browse-at-remote ()
   (use-package browse-at-remote
@@ -255,9 +234,6 @@
     (spacemacs/set-leader-keys "oe" 'tiny-expand)))
 
 (defun ztlevi-misc/post-init-helm ()
-  (when (eq dotspacemacs-editing-style 'vim)
-    (define-key helm-map (kbd "C-k") 'kill-line)
-    (define-key helm-map (kbd "C-j") nil))
   (with-eval-after-load 'helm
     (progn
       ;; limit max number of matches displayed for speed
@@ -378,21 +354,12 @@
 
 (defun ztlevi-misc/post-init-evil ()
   (progn
-    (setcdr evil-insert-state-map nil)
-    (define-key evil-insert-state-map [escape] 'evil-normal-state)
-
     (push "TAGS" spacemacs-useless-buffers-regexp)
 
     (adjust-major-mode-keymap-with-evil "git-timemachine")
     (adjust-major-mode-keymap-with-evil "tabulated-list")
 
     (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
-    (define-key evil-insert-state-map (kbd "C-r") 'evil-paste-from-register)
-
-    ;; ;; change evil initial mode state
-    (loop for (mode . state) in
-          '((shell-mode . normal))
-          do (evil-set-initial-state mode state))
 
     ;;mimic "nzz" behaviou in vim
     (defadvice evil-search-next (after advice-for-evil-search-next activate)
@@ -406,8 +373,6 @@
     ;; indent buffer
     (define-key evil-normal-state-map (kbd ",=") 'spacemacs/indent-region-or-buffer)
     (define-key evil-visual-state-map (kbd ",=") 'spacemacs/indent-region-or-buffer)
-
-    (define-key evil-motion-state-map "\C-e" 'mwim-end-of-code-or-line)
 
     ;; (defun my-evil-yank ()
     ;;   (interactive)
@@ -475,9 +440,8 @@
 
     ;; set evil state cursor
     (setq evil-normal-state-cursor '("#ff007f" box))
-    (setq evil-insert-state-cursor '("#ff007f" (bar . 2)))
+    (setq evil-hybrid-state-cursor '("#ff007f" (bar . 2)))
 
-    (define-key evil-insert-state-map (kbd "C-z") 'evil-emacs-state)
     ;; This will break visual column edit
     ;; enable hybrid editing style
     ;; (defadvice evil-insert-state (around ztlevi/holy-mode activate)
@@ -764,10 +728,6 @@
     (setq ivy-initial-inputs-alist nil)
     (setq ivy-wrap t)
     (setq confirm-nonexistent-file-or-buffer t)
-
-    (when (eq dotspacemacs-editing-style 'vim)
-      (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-kill-line)
-      (define-key ivy-minibuffer-map (kbd "C-j") nil))
 
     (define-key ivy-minibuffer-map (kbd "<C-i>") 'ivy-call)
     (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial-or-done)

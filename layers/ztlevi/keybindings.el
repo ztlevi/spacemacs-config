@@ -29,8 +29,12 @@
 (define-key evil-visual-state-map (kbd "zO") 'evil-open-folds)
 (define-key evil-visual-state-map (kbd "zr") 'evil-open-fold-rec)
 
+;; evil hybrid
+(define-key evil-hybrid-state-map (kbd "C-r") 'evil-paste-from-register)
+(define-key evil-hybrid-state-map (kbd "C-z") 'evil-emacs-state)
+
 ;; remap C-h with delte, C-M-h with help-command
-(define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
+(define-key evil-hybrid-state-map (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-M-h") 'help-command)
 
 ;; evil inc-num, dec-num, find-char-reverse, insert space before and after
