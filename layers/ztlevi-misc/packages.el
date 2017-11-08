@@ -391,8 +391,8 @@
     (define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
 
     ;; indent buffer
-    (define-key evil-normal-state-map (kbd ",=") 'indent-region-or-buffer)
-    (define-key evil-visual-state-map (kbd ",=") 'indent-region-or-buffer)
+    (define-key evil-normal-state-map (kbd ",=") 'spacemacs/indent-region-or-buffer)
+    (define-key evil-visual-state-map (kbd ",=") 'spacemacs/indent-region-or-buffer)
 
     (define-key evil-motion-state-map "\C-e" 'mwim-end-of-code-or-line)
 
