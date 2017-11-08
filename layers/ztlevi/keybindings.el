@@ -29,6 +29,10 @@
 (define-key evil-visual-state-map (kbd "zO") 'evil-open-folds)
 (define-key evil-visual-state-map (kbd "zr") 'evil-open-fold-rec)
 
+;; remap C-h with delte, C-M-h with help-command
+(define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
+(global-set-key (kbd "C-M-h") 'help-command)
+
 ;; evil inc-num, dec-num, find-char-reverse, insert space before and after
 (define-key evil-normal-state-map (kbd "-") nil)
 (bb/define-key evil-normal-state-map
@@ -91,10 +95,6 @@
 (spacemacs/set-leader-keys "of" 'ztlevi/buffer-refresh)
 (spacemacs/set-leader-keys "bt" 'ztlevi/open-terminal-in-current-dir)
 (spacemacs/set-leader-keys "bT" 'ztlevi/open-markdown-in-typora)
-
-;; remap C-h with delte, M-h with help-command
-(global-set-key (kbd "C-h") 'delete-backward-char)
-(global-set-key (kbd "C-M-h") 'help-command)
 
 ;; A complementary binding to the apropos-command (C-h a)
 (define-key 'help-command "A" 'apropos)
