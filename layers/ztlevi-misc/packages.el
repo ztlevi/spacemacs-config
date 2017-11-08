@@ -15,6 +15,7 @@
     helm
     atomic-chrome
     term
+    shell-pop
     projectile
     prodigy
     find-file-in-project
@@ -78,6 +79,15 @@
     (if (ztlevi-atomic-chrome-server-running-p)
         (message "Can't start atomic-chrome server, because port 64292 is already used")
       (atomic-chrome-start-server))))
+
+(defun ztlevi-misc/post-init-shell-pop ()
+  (when (eq dotspacemacs-editing-style 'vim)
+    (evil-define-key 'insert term-mode-map
+      (kbd "C-k") 'kill-line
+      (kbd "C-j") nil))
+  (evil-define-key 'normal term-mode-map
+    (kbd "C-k") 'kill-line
+    (kbd "C-j") nil))
 
 (defun ztlevi-misc/post-init-term ()
   ;; unbind C-j, bind C-k with kill line
@@ -245,6 +255,9 @@
     (spacemacs/set-leader-keys "oe" 'tiny-expand)))
 
 (defun ztlevi-misc/post-init-helm ()
+  (when (eq dotspacemacs-editing-style 'vim)
+    (define-key helm-map (kbd "C-k") 'kill-line)
+    (define-key helm-map (kbd "C-j") nil))
   (with-eval-after-load 'helm
     (progn
       ;; limit max number of matches displayed for speed
@@ -751,6 +764,10 @@
     (setq ivy-initial-inputs-alist nil)
     (setq ivy-wrap t)
     (setq confirm-nonexistent-file-or-buffer t)
+
+    (when (eq dotspacemacs-editing-style 'vim)
+      (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-kill-line)
+      (define-key ivy-minibuffer-map (kbd "C-j") nil))
 
     (define-key ivy-minibuffer-map (kbd "<C-i>") 'ivy-call)
     (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial-or-done)
