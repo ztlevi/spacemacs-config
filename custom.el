@@ -56,6 +56,7 @@
    (quote
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
  '(httpd-port 48080)
+ '(hybrid-mode-use-evil-search-module t)
  '(ibuffer-filter-group-name-face (quote link))
  '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#51afef"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#98be65"))
@@ -123,7 +124,6 @@
  '(org-block ((t (:background "#f0f0f0"))))
  '(show-paren-match ((t (:background "#ff69b4" :foreground "#fafafa"))))
  '(web-mode-current-element-highlight-face ((t (:background "dodger blue" :foreground "#ffffff"))))
- '(wgrep-face ((t (:background "#f0f0f0"))))
- )
+ '(wgrep-face ((t (:background "#f0f0f0")))))
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

@@ -397,6 +397,8 @@
     ;; (define-key evil-insert-state-map "\C-n" 'next-line)
     ;; (define-key evil-insert-state-map "\C-k" 'kill-line)
 
+    (define-key evil-motion-state-map "\C-e" 'mwim-end-of-code-or-line)
+
     (spacemacs/set-leader-keys "bi" 'ibuffer)
     (define-key evil-ex-completion-map "\C-a" 'move-beginning-of-line)
     (define-key evil-ex-completion-map "\C-b" 'backward-char)
