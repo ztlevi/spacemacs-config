@@ -442,6 +442,7 @@
 
     ;; set evil state cursor
     (setq evil-normal-state-cursor '("#ff007f" box))
+    (setq evil-insert-state-cursor '("#ff007f" (bar . 2)))
     (setq evil-hybrid-state-cursor '("#ff007f" (bar . 2)))
 
     ;; This will break visual column edit
