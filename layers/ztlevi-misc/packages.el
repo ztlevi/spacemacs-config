@@ -374,39 +374,22 @@
     (define-key evil-normal-state-map (kbd ",=") 'spacemacs/indent-region-or-buffer)
     (define-key evil-visual-state-map (kbd ",=") 'spacemacs/indent-region-or-buffer)
 
-    ;; (defun my-evil-yank ()
-    ;;   (interactive)
-    ;;   (save-excursion
-    ;;     (call-interactively 'evil-yank))
-    ;;   (backward-char))
-
-    ;; (define-key evil-visual-state-map (kbd "y") 'my-evil-yank)
-
-    ;; rebind g,k to gj and gk
-    ;; (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
-    ;; (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
-
+    ;; bind [, ] functions
     (define-key evil-normal-state-map (kbd "[ SPC") (lambda () (interactive) (evil-insert-newline-above) (forward-line)))
     (define-key evil-normal-state-map (kbd "] SPC") (lambda () (interactive) (evil-insert-newline-below) (forward-line -1)))
-
     (define-key evil-normal-state-map (kbd "[ b") 'previous-buffer)
     (define-key evil-normal-state-map (kbd "] b") 'next-buffer)
-    (define-key evil-normal-state-map (kbd "M-y") 'counsel-yank-pop)
 
-    ;; (define-key evil-insert-state-map "\C-e" 'end-of-line)
-    ;; (define-key evil-insert-state-map "\C-n" 'next-line)
-    ;; (define-key evil-insert-state-map "\C-k" 'kill-line)
+    (define-key evil-normal-state-map (kbd "M-y") 'counsel-yank-pop)
 
     (define-key evil-motion-state-map "\C-e" 'mwim-end-of-code-or-line)
 
-    (spacemacs/set-leader-keys "bi" 'ibuffer)
     (define-key evil-ex-completion-map "\C-a" 'move-beginning-of-line)
     (define-key evil-ex-completion-map "\C-b" 'backward-char)
     (define-key evil-ex-completion-map "\C-k" 'kill-line)
     (define-key minibuffer-local-map (kbd "C-w") 'evil-delete-backward-word)
 
-    ;; (define-key evil-visual-state-map (kbd "x") 'er/expand-region)
-    ;; (define-key evil-visual-state-map (kbd "X") 'er/contract-region)
+    ;; visual-state-map
     (define-key evil-visual-state-map (kbd "C-r") 'ztlevi/evil-quick-replace)
     (define-key evil-visual-state-map (kbd "ml") 'mc/edit-lines)
     (define-key evil-visual-state-map (kbd "mn") 'mc/mark-next-like-this)
@@ -421,18 +404,11 @@
     ;; Don't move back the cursor one position when exiting insert mode
     (setq evil-move-cursor-back nil)
 
-    ;; (define-key evil-emacs-state-map (kbd "C-w h") 'evil-window-left)
+    ;; set C-w as delete word backward
     (define-key evil-emacs-state-map (kbd "C-w") 'evil-delete-backward-word)
-    ;; (define-key evil-emacs-state-map (kbd "C-w j") 'evil-window-down)
-    ;; (define-key evil-emacs-state-map (kbd "C-w k") 'evil-window-up)
-    ;; (define-key evil-emacs-state-map (kbd "C-w l") 'evil-window-right)
+    (evil-define-key 'emacs term-raw-map (kbd "C-w") 'evil-delete-backward-word)
 
-    ;; for emacs shell mode
-    ;; (define-key evil-emacs-state-map (kbd "s-b") 'ido-switch-buffer)
-    ;; (define-key evil-emacs-state-map (kbd "s-f") 'ido-find-file)
-    (evil-define-key 'emacs term-raw-map (kbd "C-w")
-      'evil-delete-backward-word)
-
+    ;; set state tag
     (setq evil-normal-state-tag   (propertize "[N]" 'face '((:foreground "DarkGoldenrod2")))
           evil-emacs-state-tag    (propertize "[E]" 'face '((:foreground "SkyBlue2")))
           evil-insert-state-tag   (propertize "[I]" 'face '((:foreground "chartreuse3")))
@@ -444,17 +420,6 @@
     (setq evil-normal-state-cursor '("#ff007f" box))
     (setq evil-insert-state-cursor '("#ff007f" (bar . 2)))
     (setq evil-hybrid-state-cursor '("#ff007f" (bar . 2)))
-
-    ;; This will break visual column edit
-    ;; enable hybrid editing style
-    ;; (defadvice evil-insert-state (around ztlevi/holy-mode activate)
-    ;;   "Preparing the holy water flasks."
-    ;;   (evil-emacs-state))
-    ;; disable c-[ temporally
-    ;; (define-key input-decode-map [?\C-\[] (kbd "<C-[>"))
-    ;; (bind-keys ("<C-[>" . evil-normal-state))
-    ;; (setq evil-emacs-state-cursor '("chartreuse3" (bar . 2)))
-    ;; (define-key evil-emacs-state-map [escape] 'evil-normal-state)
     ))
 
 (defun ztlevi-misc/init-visual-regexp ()
