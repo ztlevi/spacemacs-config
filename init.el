@@ -478,40 +478,6 @@ It should only modify the values of Spacemacs settings."
   (add-to-list 'auto-mode-alist
                '("Capstanfile\\'" . yaml-mode))
 
-  (defun js-indent-line ()
-    "Indent the current line as JavaScript."
-    (interactive)
-    (let* ((parse-status
-            (save-excursion (syntax-ppss (point-at-bol))))
-           (offset (- (point) (save-excursion (back-to-indentation) (point)))))
-      (if (nth 3 parse-status)
-          'noindent
-        (indent-line-to (js--proper-indentation parse-status))
-        (when (> offset 0) (forward-char offset)))))
-
-  (defun ztlevi/toggle-major-mode ()
-    (interactive)
-    (if (eq major-mode 'fundamental-mode)
-        (set-auto-mode)
-      (fundamental-mode)))
-  (spacemacs/set-leader-keys "otm" 'ztlevi/toggle-major-mode)
-
-  ;; https://github.com/syl20bnr/spacemacs/issues/7749
-  (defun spacemacs/ivy-persp-switch-project (arg)
-    (interactive "P")
-    (ivy-read "Switch to Project Perspective: "
-              (if (projectile-project-p)
-                  (cons (abbreviate-file-name (projectile-project-root))
-                        (projectile-relevant-known-projects))
-                projectile-known-projects)
-              :action (lambda (project)
-                        (let ((persp-reset-windows-on-nil-window-conf t))
-                          (persp-switch project)
-                          (let ((projectile-completion-system 'ivy)
-                                (old-default-directory default-directory))
-                            (projectile-switch-project-by-name project)
-                            (setq default-directory old-default-directory))))))
-
   ;; ============================== U I ========================================
   ;; settings for transparent
   ;; (spacemacs/toggle-transparency)
