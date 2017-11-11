@@ -738,9 +738,7 @@
     ))
 
 (defun ztlevi-misc/post-init-swiper ()
-  "Initialize my package"
-  (progn
-    (define-key global-map (kbd "C-s") 'my-swiper-search)))
+  (define-key global-map (kbd "C-s") 'my-swiper-search))
 
 (defun ztlevi-misc/post-init-magit ()
   (progn
