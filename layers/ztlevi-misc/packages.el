@@ -411,6 +411,7 @@
     ;; set state tag
     (setq evil-normal-state-tag   (propertize "[N]" 'face '((:foreground "DarkGoldenrod2")))
           evil-emacs-state-tag    (propertize "[E]" 'face '((:foreground "SkyBlue2")))
+          evil-hybrid-state-tag   (propertize "[H]" 'face '((:foreground "chartreuse3")))
           evil-insert-state-tag   (propertize "[I]" 'face '((:foreground "chartreuse3")))
           evil-motion-state-tag   (propertize "[M]" 'face '((:foreground "plum3")))
           evil-visual-state-tag   (propertize "[V]" 'face '((:foreground "gray")))
