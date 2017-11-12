@@ -11,6 +11,8 @@
 
 (defconst ztlevi-misc-packages
   '(
+    sx
+    sos
     helm-github-stars
     helm
     atomic-chrome
@@ -45,6 +47,21 @@
     browse-at-remote
     )
   )
+
+(defun ztlevi-misc/init-sx ()
+  (use-package sx
+    :defer t
+    :config
+    (with-eval-after-load 'sx-question-list
+      (progn
+        (define-key sx-question-list-mode-map "j" 'sx-question-list-next)
+        (define-key sx-question-list-mode-map "k" 'sx-question-list-previous)
+        (define-key sx-question-list-mode-map "n" 'sx-question-list-view-next)
+        (define-key sx-question-list-mode-map "p" 'sx-question-list-view-previous)))))
+
+(defun ztlevi-misc/init-sos ()
+  (use-package sos
+    :defer t))
 
 (defun ztlevi-misc/init-atomic-chrome ()
   (use-package atomic-chrome

@@ -48,6 +48,19 @@
   "]s" (lambda (n) (interactive "p")
          (forward-char) (dotimes (c n nil) (insert " ")) (backward-char (1+ n))))
 
+;; stack overflow
+(spacemacs/set-leader-keys "os" 'sos)
+
+;; stack exchange
+(define-prefix-command 'launcher-map)
+(global-set-key (kbd "s-l") 'launcher-map)
+(define-key launcher-map "q" #'sx-tab-all-questions)
+(define-key launcher-map "i" #'sx-inbox)
+(define-key launcher-map "o" #'sx-open-link)
+(define-key launcher-map "u" #'sx-tab-unanswered-my-tags)
+(define-key launcher-map "a" #'sx-ask)
+(define-key launcher-map "s" #'sx-search)
+
 ;; imenu list
 (spacemacs/set-leader-keys "bi" #'imenu-list-smart-toggle)
 
@@ -216,7 +229,7 @@
 
 (bind-key* "s-p" 'ztlevi/open-file-with-projectile-or-counsel-git)
 
-(spacemacs/set-leader-keys "os" 'ztlevi/browse-live-server)
+(spacemacs/set-leader-keys "oL" 'ztlevi/browse-live-server)
 
 (spacemacs/set-leader-keys "pa" 'projectile-find-other-file)
 (spacemacs/set-leader-keys "pA" 'projectile-find-other-file-other-window)
