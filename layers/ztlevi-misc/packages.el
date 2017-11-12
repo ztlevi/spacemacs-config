@@ -13,8 +13,8 @@
   '(
     sx
     sos
-    helm-github-stars
-    helm
+    ;; helm-github-stars
+    ;; helm
     atomic-chrome
     projectile
     prodigy
@@ -24,11 +24,10 @@
     visual-regexp-steroids
     command-log
     evil
-    fcitx
     discover-my-major
     ace-window
     avy
-    4clojure
+    ;; 4clojure
     persp-mode
     tiny
     ;; smartparens
@@ -266,9 +265,6 @@
     :commands (helm-github-stars)
     :init
     (setq helm-github-stars-username "ztlevi")))
-
-(defun ztlevi-misc/post-init-fcitx ()
-  (fcitx-aggressive-setup))
 
 (defun ztlevi-misc/post-init-command-log ()
   (with-eval-after-load 'global-command-log-mode

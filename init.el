@@ -110,9 +110,8 @@ This function should only modify configuration layer settings."
 
      ;; ======================== Others =======================
      ztlevi
-     (chinese :packages youdao-dictionary fcitx
-              :variables chinese-enable-fcitx t
-              chinese-enable-youdao-dict t)
+     (chinese :packages youdao-dictionary
+              :variables chinese-enable-youdao-dict t)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
