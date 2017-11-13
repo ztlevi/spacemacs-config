@@ -31,39 +31,41 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layers
    '(
      ;; =================== Spacemacs Layers ====================
-     helm
-     spacemacs-completion
+     ;; look at ido
+     (spacemacs-completion :packages (not default-helm-config ido-vertical-mode))
      spacemacs-layouts
-     spacemacs-editing
-     spacemacs-editing-visual
-     spacemacs-evil
-     spacemacs-language
+     (spacemacs-editing :packages (not lorem-ipsum clean-aindent-mode smartparens))
+     (spacemacs-editing-visual :packages (not volatile-highlights rainbow-delimiters highlight-indentation lorem-ipsum))
+     (spacemacs-evil :packages (not evil-args evil-mc evil-ediff evil-exchange evil-unimpaired evil-indent-plus vi-tilde-fringe evil-lisp-state))
+     ;; spacemacs-language
      spacemacs-misc
-     spacemacs-modeline
-     spacemacs-navigation
+     ;; spacemacs-modeline
+     (spacemacs-navigation :packages (not flx-ido smooth-scrolling))
      spacemacs-org
      spacemacs-visual
 
      ;; ======================== Misc =========================
      (pandoc :variables org-pandoc-options '((standalone . t)))
-     dash
+     (dash :packages (not counsel-dash helm-dash))
      better-defaults
-     ;; github
+     ;; (github :packages (not magit-gh-pulls))
      colors
      prodigy
      search-engine
      graphviz
-     ivy
+     (ivy :packages (not helm-make counsel-projectile))
      (syntax-checking :variables syntax-checking-enable-by-default nil
                       syntax-checking-enable-tooltips nil)
-     (spell-checking :variables spell-checking-enable-by-default nil)
-     (auto-completion :variables auto-completion-enable-sort-by-usage t
+     (spell-checking :packages (not auto-dictionary flyspell-correct-helm)
+                     :variables spell-checking-enable-by-default nil)
+     (auto-completion :packages (not ac-ispell auto-complete helm-c-yasnippet company-quickhelp)
+                      :variables auto-completion-enable-sort-by-usage t
                       auto-completion-enable-snippets-in-popup t)
      (vinegar :variables vinegar-reuse-dired-buffer t)
      (spacemacs-layouts :variables layouts-enable-autosave nil
                         layouts-autosave-delay 300)
-     (git :variables
-          git-magit-status-fullscreen t
+     (git :packages (not magit-gitflow orgit smeargle)
+          :variables git-magit-status-fullscreen t
           magit-push-always-verify nil
           magit-save-repository-buffers 'dontask
           magit-revert-buffers 'silent
@@ -77,7 +79,7 @@ This function should only modify configuration layer settings."
      (shell :variables shell-default-shell 'ansi-term)
      ;; docker
      deft
-     chrome
+     (chrome :packages (not edit-server gmail-message-mode))
      imenu-list
      (treemacs :variables treemacs-use-filewatch-mode t
                :variables treemacs-use-follow-mode t)
@@ -92,21 +94,22 @@ This function should only modify configuration layer settings."
      ;; racket
      ;; lua
      ;; latex
-     markdown
-     (org :variables org-want-todo-bindings t)
+     (markdown :packages (not gh-md))
+     (org :packages (not org-projectile org-download org-present)
+          :variables org-want-todo-bindings t)
      gpu
      yaml
      php
      (python :variables
              python-test-runner '(nose pytest))
      html
-     javascript
+     (javascript :packages (not skewer-mode livid-mode))
      (typescript :variables
                  typescript-fmt-on-save nil
                  typescript-fmt-tool 'typescript-formatter)
      emacs-lisp
-     (c-c++ :variables
-            c-c++-default-mode-for-headers 'c++-mode)
+     (c-c++ :packages (not realgud clang-format disaster)
+            :variables c-c++-default-mode-for-headers 'c++-mode)
 
      ;; ======================== Others =======================
      ztlevi
@@ -121,24 +124,8 @@ This function should only modify configuration layer settings."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
-   '(evil-args
-     magit-gitflow org-projectile evil-mc evil-escape realgud
-     evil-ediff evil-exchange evil-unimpaired magit-gh-pulls
-     evil-indent-plus volatile-highlights exec-path-from-shell
-     spaceline holy-mode skewer-mode rainbow-delimiters
-     highlight-indentation vi-tilde-fringe eyebrowse evil-escape
-     org-bullets org-repo-todo org-download org-timer
-     leuven-theme gh-md evil-lisp-state spray lorem-ipsum symon
-     ac-ispell ace-jump-mode auto-complete auto-dictionary
-     clang-format define-word google-translate disaster epic
-     fancy-battery org-present orgit orglue spacemacs-theme
-     helm-flyspell flyspell-correct-helm clean-aindent-mode
-     helm-c-yasnippet ace-jump-helm-line helm-make magithub
-     helm-themes helm-swoop helm-spacemacs-help smeargle
-     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
-     livid-mode smooth-scrolling counsel-dash helm-dash
-     smartparens edit-server gmail-message-mode
-     )
+   '(evil-escape exec-path-from-shell holy-mode spacemacs-theme
+                 eyebrowse org-bullets)
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
 
