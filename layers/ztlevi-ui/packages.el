@@ -23,7 +23,8 @@
     popwin
     (whitespace :location built-in)
     doom-themes
-    ;; (doom-themes :location "~/Developer/Github/emacs-doom-theme")
+    ;; To use local repo, update the packages to clean up the cache
+    ;; (doom-themes :location "~/Developer/Github/emacs-doom-themes")
     ;; hl-anything performance is very slow...
     ;; hl-anything
     ;; beacon
