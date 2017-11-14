@@ -39,7 +39,7 @@
           doom-themes-enable-italic t) ; if nil, italics is universally disabled
     :config
     ;; Enable flashing mode-line on errors
-    (doom-themes-visual-bell-config)
+    ;; (doom-themes-visual-bell-config)
 
     ;; Enable custom neotree theme
     (doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
