@@ -12,8 +12,13 @@
 (defconst ztlevi-ui-packages
   '(
     all-the-icons-dired
+    ;; doom modeline needs all-the-icons, shrink-path enabled
+    (doom-modeline :location local)
+    shrink-path
     all-the-icons
-    (ztlevi-mode-line :location built-in)
+    ;; if you wnat to use spaceline, please comment out ztlevi-mode-line
+    ;; (ztlevi-mode-line :location built-in)
+    ;; spaceline
     diminish
     popwin
     (whitespace :location built-in)
@@ -21,8 +26,6 @@
     ;; (doom-themes :location "~/Developer/Github/emacs-doom-theme")
     ;; hl-anything performance is very slow...
     ;; hl-anything
-    ;; if you wnat to use spaceline, please comment out ztlevi-mode-line
-    ;; spaceline
     ;; beacon
     ;; evil-vimish-fold
     )
@@ -43,6 +46,23 @@
     ;; Corrects (and improves) org-mode's native fontification.
     (doom-themes-org-config)
     ))
+
+(defun ztlevi-ui/init-doom-modeline ()
+  (use-package doom-modeline
+    :init
+    (defun t/project-root ()
+      "Get project root without throwing"
+      (let (projectile-require-project-root strict-p)
+        (projectile-project-root)))
+
+    (defun t/init-modeline () (+doom-modeline|init))
+    (add-hook 'after-init-hook #'t/init-modeline)
+    (use-package all-the-icons)
+    ))
+
+(defun ztlevi-ui/init-shrink-path ()
+  (use-package shrink-path
+    :commands (shrink-path-prompt shrink-path-file-mixed)))
 
 (defun ztlevi-ui/init-all-the-icons-dired ()
   (use-package all-the-icons-dired
