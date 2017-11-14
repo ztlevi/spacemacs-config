@@ -73,7 +73,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(doom-modeline-error ((t (:background "dodger blue" :foreground "#f0f0f0"))))
+ '(doom-modeline-error ((t (:background "#e45649" :foreground "#f0f0f0"))))
  '(header-line ((t (:inherit font-lock-preprocessor-face))))
  '(helm-candidate-number ((t (:background "dodger blue" :foreground "#fafafa"))))
  '(markdown-code-face ((t (:background "#f0f0f0"))))
