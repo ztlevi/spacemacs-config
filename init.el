@@ -81,8 +81,9 @@ This function should only modify configuration layer settings."
      deft
      (chrome :packages (not edit-server gmail-message-mode))
      imenu-list
-     (treemacs :variables treemacs-use-filewatch-mode t
-               :variables treemacs-use-follow-mode t)
+     neotree
+     ;; (treemacs :variables treemacs-use-filewatch-mode t
+     ;;           :variables treemacs-use-follow-mode t)
 
      ;; ======================== Frameworks ======================
      react
