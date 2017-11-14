@@ -5,7 +5,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ahs-case-fold-search nil t)
+ '(+doom-modeline-height 28)
+ '(ahs-case-fold-search nil)
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(command-log-mode-window-size 50)
@@ -74,6 +75,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(doom-modeline-error ((t (:background "#e45649" :foreground "#f0f0f0"))))
+ '(doom-modeline-urgent ((t (:inherit error :weight bold :height 0.85))))
+ '(doom-modeline-warning ((t (:inherit warning :weight bold :height 0.85))))
  '(header-line ((t (:inherit font-lock-preprocessor-face))))
  '(helm-candidate-number ((t (:background "dodger blue" :foreground "#fafafa"))))
  '(markdown-code-face ((t (:background "#f0f0f0"))))

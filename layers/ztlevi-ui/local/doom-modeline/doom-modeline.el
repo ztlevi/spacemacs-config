@@ -2,7 +2,9 @@
 
 
 ;; TODO torgeir added this
-(setq +doom-modeline-height 30)
+(defcustom +doom-modeline-height 18
+  "This is the default height for doom-modeline"
+  :group '+doom-modeline)
 (defun doom-project-root () (t/project-root))
 
 (defun doom--resolve-hooks (hooks)
