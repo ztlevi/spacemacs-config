@@ -528,19 +528,6 @@
       (spacemacs/set-leader-keys-for-major-mode 'js2-mode
         "gd" 'etags-select-find-tag-at-point))))
 
-(defun ztlevi-programming/init-gulpjs ()
-  (use-package gulpjs
-    :init
-    (progn
-      (defun ztlevi/build-engine ()
-        (interactive)
-        (gulpjs-start-task-with-file-name "~/Github/fireball/app.js"))
-
-      (spacemacs/set-leader-keys "ags" 'gulpjs-start-task)
-      (spacemacs/set-leader-keys "agS" 'ztlevi/build-engine)
-      (spacemacs/set-leader-keys "agr" 'gulpjs-restart-task))))
-
-
 (defun ztlevi-programming/init-paredit ()
   (use-package paredit
     :commands (paredit-wrap-round
