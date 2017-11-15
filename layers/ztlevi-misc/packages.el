@@ -13,8 +13,7 @@
   '(
     sx
     sos
-    ;; helm-github-stars
-    ;; helm
+    helm-github-stars
     atomic-chrome
     projectile
     prodigy
@@ -248,17 +247,6 @@
     :defer t
     :init
     (spacemacs/set-leader-keys "oe" 'tiny-expand)))
-
-(defun ztlevi-misc/post-init-helm ()
-  (with-eval-after-load 'helm
-    (progn
-      ;; limit max number of matches displayed for speed
-      (setq helm-candidate-number-limit 100)
-      ;; ignore boring files like .o and .a
-      (setq helm-ff-skip-boring-files t)
-      ;; replace locate with spotlight on Mac
-      (setq helm-locate-command "mdfind -name %s %s")
-      (push "\\.emlx$" helm-boring-file-regexp-list))))
 
 (defun ztlevi-misc/init-helm-github-stars ()
   (use-package helm-github-stars

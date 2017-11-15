@@ -466,10 +466,6 @@ With PREFIX, cd to project root."
   end tell
   " cmd))))
 
-
-(defadvice persp-switch (after my-quit-helm-perspectives activate)
-  (setq hydra-deactivate t))
-
 (defun ztlevi/my-mc-mark-next-like-this ()
   (interactive)
   (if (region-active-p)
@@ -613,16 +609,6 @@ With PREFIX, cd to project root."
     (github-browse--save-and-view url)
     (git-messenger:popup-close)))
 
-(defun ztlevi/search-in-fireball ()
-  (interactive)
-  (helm-do-ag (expand-file-name "~/Github/fireball/")))
-
-
 (defun ztlevi/show-current-buffer-major-mode ()
   (interactive)
   (describe-variable 'major-mode))
-
-(defun ztlevi/counsel-imenu ()
-  (interactive)
-  (counsel-imenu)
-  (evil-set-jump))

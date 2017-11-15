@@ -53,7 +53,7 @@ This function should only modify configuration layer settings."
      prodigy
      search-engine
      graphviz
-     (ivy :packages (not helm-make counsel-projectile))
+     (ivy :packages (not counsel-projectile))
      (syntax-checking :variables syntax-checking-enable-by-default nil
                       syntax-checking-enable-tooltips nil)
      (spell-checking :packages (not auto-dictionary flyspell-correct-helm)
@@ -450,9 +450,6 @@ It should only modify the values of Spacemacs settings."
   (spacemacs|add-company-backends :modes text-mode)
 
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
-
-  ;; temp fix for ivy-switch-buffer
-  ;; (spacemacs/set-leader-keys "bb" 'helm-mini)
 
   (spacemacs|diminish helm-gtags-mode)
   (spacemacs|diminish ggtags-mode)

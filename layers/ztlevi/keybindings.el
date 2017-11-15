@@ -81,7 +81,7 @@
 (global-set-key (kbd "<S-tab>") 'evil-shift-left-line)
 
 ;; helm bookmark keybindings
-(define-key spacemacs-default-map (kbd "h b") 'helm-bookmarks)
+(spacemacs/set-leader-keys (kbd "hb") 'helm-bookmarks)
 (with-eval-after-load 'helm-bookmark
   (progn
     (bb/define-key helm-bookmark-map (kbd "C-o") 'helm-bookmark-run-jump-other-window)
@@ -182,13 +182,13 @@
 (spacemacs/set-leader-keys "fR" 'ztlevi/rename-file-and-buffer)
 
 ;;Must set key to nil to prevent error: Key sequence b m s starts with non-prefix key b m
-(spacemacs/set-leader-keys "bm" nil)
 (spacemacs/set-leader-keys "bD" 'spacemacs/kill-other-buffers)
-(spacemacs/declare-prefix "bm" "Bookmark")
-(spacemacs/set-leader-keys "bms" 'bookmark-set)
-(spacemacs/set-leader-keys "bmr" 'bookmark-rename)
-(spacemacs/set-leader-keys "bmd" 'bookmark-delete)
-(spacemacs/set-leader-keys "bmj" 'counsel-bookmark)
+(spacemacs/declare-prefix "B" "bookmark")
+(spacemacs/set-leader-keys "Bs" 'bookmark-set)
+(spacemacs/set-leader-keys "Br" 'bookmark-rename)
+(spacemacs/set-leader-keys "Bd" 'bookmark-delete)
+(spacemacs/set-leader-keys "Bj" 'counsel-bookmark)
+(spacemacs/set-leader-keys "Bb" 'bookmark-bmenu-list)
 
 (spacemacs/set-leader-keys "od" 'occur-dwim)
 (spacemacs/set-leader-keys "on" 'occur-non-ascii)
@@ -196,8 +196,10 @@
 (spacemacs/set-leader-keys "or" 'ztlevi/browser-refresh--chrome-applescript)
 (spacemacs/set-leader-keys "om" 'org-pandoc-export-to-markdown_github-and-open)
 
+;; resume
 (spacemacs/set-leader-keys "rh" 'helm-resume)
-(spacemacs/set-leader-keys "sj" 'counsel-imenu)
+(spacemacs/set-leader-keys "ri" 'ivy-resume)
+(spacemacs/set-leader-keys "rb" 'popwin:display-last-buffer)
 
 ;; ivy specific keybindings
 (if (configuration-layer/layer-usedp 'ivy)
@@ -214,16 +216,13 @@
 (spacemacs/set-leader-keys "gL" 'magit-log-buffer-file)
 (spacemacs/set-leader-keys "og" 'my-git-timemachine)
 
-(spacemacs/set-leader-keys "sj" 'ztlevi/counsel-imenu)
 ;; deal with BOM
 (spacemacs/set-leader-keys "fl" 'find-file-literally-at-point)
-(spacemacs/set-leader-keys "ri" 'ivy-resume)
 (spacemacs/set-leader-keys "fh" 'ffap-hexl-mode)
 (spacemacs/set-leader-keys "fd" 'projectile-find-file-dwim-other-window)
 (spacemacs/set-leader-keys "nh" 'spacemacs/evil-search-clear-highlight)
 (spacemacs/set-leader-keys "oll" 'ztlevi/load-my-layout)
 (spacemacs/set-leader-keys "ols" 'ztlevi/save-my-layout)
-(spacemacs/set-leader-keys "ob" 'popwin:display-last-buffer)
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 (spacemacs/set-leader-keys "bM" 'spacemacs/switch-to-messages-buffer)
 

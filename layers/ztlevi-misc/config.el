@@ -13,6 +13,17 @@
 (add-hook 'org-mode-hook 'flyspell-mode)
 (add-hook 'markdown-mode-hook 'flyspell-mode)
 
+;; customize helm
+(with-eval-after-load 'helm-make
+  (progn
+    ;; limit max number of matches displayed for speed
+    (setq helm-candidate-number-limit 100)
+    ;; ignore boring files like .o and .a
+    (setq helm-ff-skip-boring-files t)
+    ;; replace locate with spotlight on Mac
+    (setq helm-locate-command "mdfind -name %s %s")
+    (push "\\.emlx$" helm-boring-file-regexp-list)))
+
 (define-abbrev-table 'global-abbrev-table '(
 
                                             ;; math/unicode symbols
