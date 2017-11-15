@@ -493,12 +493,11 @@ With PREFIX, cd to project root."
      t
      )))
 
-(defun my-swiper-search (p)
-  (interactive "P")
-  (let ((current-prefix-arg nil))
-    (call-interactively
-     (if p #'spacemacs/swiper-region-or-symbol
-       #'counsel-grep-or-swiper))))
+(defun my-swiper-search ()
+  (interactive)
+  (call-interactively
+   (if (region-active-p) #'spacemacs/swiper-region-or-symbol
+     #'counsel-grep-or-swiper)))
 
 (defun ivy-ff-checksum ()
   (interactive)
