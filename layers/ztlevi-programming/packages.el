@@ -566,15 +566,12 @@
     ;; define company-mode keybindings
     (with-eval-after-load 'company
       (progn
+        (define-key company-active-map (kbd "C-f") nil)
         (bb/define-key company-active-map
           (kbd "C-w") 'evil-delete-backward-word)
 
         (bb/define-key company-active-map
-          (kbd "s-w") 'company-show-location)
-        (define-key company-active-map (kbd "M-n") nil)
-        (define-key company-active-map (kbd "M-p") nil)
-        (define-key company-active-map (kbd "C-n") #'company-select-next)
-        (define-key company-active-map (kbd "C-p") #'company-select-previous)))
+          (kbd "<C-i>") 'company-show-location)))
     ))
 
 (defun ztlevi-programming/post-init-company-c-headers ()
