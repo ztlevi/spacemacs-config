@@ -466,48 +466,12 @@
       (define-key endless/mc-map "\C-e" #'mc/edit-ends-of-lines)
       )
     :config
+    (setq mc/always-repeat-command t)
+    (setq mc/always-run-for-all t)
+
     (define-key mc/keymap (kbd "<return>") nil)
     (global-unset-key (kbd "M-<down-mouse-1>"))
     (global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
-    (setq mc/cmds-to-run-once
-          '(
-            counsel-M-x
-            ztlevi/my-mc-mark-next-like-this))
-    (setq mc/cmds-to-run-for-all
-          '(
-            electric-newline-and-maybe-indent
-            hungry-delete-backward
-            spacemacs/backward-kill-word-or-region
-            spacemacs/smart-move-beginning-of-line
-            evil-substitute
-            lispy-move-beginning-of-line
-            lispy-move-end-of-line
-            lispy-space
-            lispy-delete-backward
-            evil-exit-visual-state
-            evil-backward-char
-            evil-delete-char
-            evil-escape-emacs-state
-            evil-escape-insert-state
-            mwim-beginning-of-code-or-line
-            mwim-end-of-line-or-code
-            evil-exit-emacs-state
-            evil-previous-visual-line
-            evil-next-visual-line
-            evil-forward-char
-            evil-insert
-            evil-next-line
-            evil-normal-state
-            evil-previous-line
-            evil-append
-            evil-append-line
-            forward-sentence
-            kill-sentence
-            org-self-insert-command
-            sp-backward-delete-char
-            sp-delete-char
-            sp-remove-active-pair-overlay
-            orgtbl-hijacker-command-109))
     ))
 
 (defun ztlevi-misc/post-init-persp-mode ()
