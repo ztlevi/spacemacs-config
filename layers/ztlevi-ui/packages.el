@@ -347,17 +347,16 @@ This segment overrides the modeline functionality of `org-mode-line-string'."
     ;; (setq inhibit-eol-conversion t)
     ;; (add-hook 'prog-mode-hook 'whitespace-mode)
 
-    ;; (global-whitespace-mode +1)
+    (global-whitespace-mode +1)
+    (add-hook 'before-save-hook 'whitespace-cleanup)
 
     (with-eval-after-load 'whitespace
       (progn
-        (set-face-attribute 'whitespace-tab nil
-                            :background "#Adff2f"
-                            :foreground "#00a8a8"
-                            :weight 'bold)
         (set-face-attribute 'whitespace-trailing nil
-                            :background "#e4eeff"
-                            :foreground "#183bc8"
-                            :weight 'normal)))
-
+                            :inherit font-lock-keyword-face
+                            :underline t)
+        (set-face-attribute 'whitespace-tab nil
+                            :inherit font-lock-string-face
+                            :underline t
+                            :weight 'bold)))
     (diminish 'whitespace-mode)))
