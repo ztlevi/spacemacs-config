@@ -340,7 +340,6 @@ This segment overrides the modeline functionality of `org-mode-line-string'."
     ;; (add-hook 'prog-mode-hook 'whitespace-mode)
 
     ;; (global-whitespace-mode +1)
-    (add-hook 'before-save-hook 'whitespace-cleanup)
 
     (with-eval-after-load 'whitespace
       (progn

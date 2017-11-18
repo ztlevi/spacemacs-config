@@ -107,6 +107,9 @@
 ;; change evil initial mode state
 (menu-bar-mode t)
 
+;; cleanup whitespace when save
+(add-hook 'before-save-hook 'whitespace-cleanup)
+
 (add-hook 'before-save-hook
           (lambda ()
             (when buffer-file-name
