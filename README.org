@@ -4,7 +4,7 @@
 ** Installation
 *** Install Emacs-mac on Mac
 
-    *Method 1*: Use brew cask: 
+    *Method 1*: Use brew cask:
     #+BEGIN_SRC shell
     brew tap railwaycat/emacsmacport
     brew cask install emacs-mac-spacemacs-icon
@@ -63,7 +63,7 @@
          #+END_SRC
        - pip
          #+BEGIN_SRC shell
-         pip install yapf
+         pip3 install yapf
          #+END_SRC
 
 ** Usage
@@ -83,7 +83,7 @@
         (setq tags-table-list
         (list (my-create-tags-if-needed "/Users/ztlevi/Sites/TRIdemo/app"))))
       #+END_SRC
-        
+
       Or ~cd /path/to/my/project~, ~ctags -e -R .~ and manually use *select-tag-table* function to select TAGS(set the tags-table-list value).
 
    4. Atomic Chrome is very useful to edit the textarea in Chrome. You will need to install the Chrome extension [[https://chrome.google.com/webstore/detail/atomic-chrome/lhaoghhllmiaaagaffababmkdllgfcmc][here]].
