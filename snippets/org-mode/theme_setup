@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: theme setup
+# key: theme->
+# --
+
+#+SETUPFILE: theme-readtheorg.setup

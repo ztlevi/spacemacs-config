@@ -56,7 +56,7 @@
   (add-hook 'org-mode-hook 'spacemacs/toggle-truncate-lines-off)
   (with-eval-after-load 'org
     (progn
-      
+
       ;; (spacemacs|disable-company org-mode)
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "," 'org-priority)
@@ -297,9 +297,9 @@ unwanted space when exporting org-mode to html."
       (setq org-publish-project-alist
             `(
               ("blog-notes"
-               :base-directory "~/org-notes"
+               :base-directory "~/Dropbox/Org-Notes"
                :base-extension "org"
-               :publishing-directory "~/org-notes/public_html/"
+               :publishing-directory "~/Dropbox/Org-Notes/public_html/"
 
                :recursive t
                :html-head , ztlevi-website-html-blog-head
@@ -319,9 +319,9 @@ unwanted space when exporting org-mode to html."
                :sitemap-file-entry-format "%t" ; %d to output date, we don't need date here
                )
               ("blog-static"
-               :base-directory "~/org-notes"
+               :base-directory "~/Dropbox/Org-Notes"
                :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-               :publishing-directory "~/org-notes/public_html/"
+               :publishing-directory "~/Dropbox/Org-Notes/public_html/"
                :recursive t
                :publishing-function org-publish-attachment
                )
@@ -450,7 +450,7 @@ holding contextual information."
 (defun ztlevi-org/init-plain-org-wiki ()
   (use-package plain-org-wiki
     :init
-    (setq pow-directory "~/org-notes")))
+    (setq pow-directory "~/Dropbox/Org-Notes")))
 
 (defun ztlevi-org/init-worf ()
   (use-package worf
