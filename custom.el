@@ -6,7 +6,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(+doom-modeline-height 30)
- '(ahs-case-fold-search nil t)
+ '(ahs-case-fold-search nil)
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(command-log-mode-window-size 50)
@@ -26,6 +26,7 @@
  '(expand-region-exclude-text-mode-expansions (quote (html-mode nxml-mode web-mode)))
  '(expand-region-reset-fast-key "r")
  '(flymd-close-buffer-delete-temp-files t)
+ '(gc-cons-threshold 20000000)
  '(global-command-log-mode nil)
  '(helm-buffer-max-length 56)
  '(helm-move-to-line-cycle-in-source t)
