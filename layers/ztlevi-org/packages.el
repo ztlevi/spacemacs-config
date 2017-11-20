@@ -287,13 +287,12 @@ unwanted space when exporting org-mode to html."
       (defvar ztlevi-website-html-preamble
         "<div class='nav'>
 <ul>
-<li><a href='http://ztlevi.com'>博客</a></li>
-<li><a href='/index.html'>Wiki目录</a></li>
+<li><a href='https://ztlevi.github.io'>Blog</a></li>
+<li><a href='/index.html'>Wiki Content</a></li>
 </ul>
 </div>")
       (defvar ztlevi-website-html-blog-head
-        " <link rel='stylesheet' href='css/site.css' type='text/css'/> \n
-    <link rel=\"stylesheet\" type=\"text/css\" href=\"/css/worg.css\"/>")
+        "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://www.pirilampo.org/styles/readtheorg/css/htmlize.css\"/>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"http://www.pirilampo.org/styles/readtheorg/css/readtheorg.css\"/>\n<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js\"></script>\n<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js\"></script>\n<script type=\"text/javascript\" src=\"http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.js\"></script>\n<script type=\"text/javascript\" src=\"http://www.pirilampo.org/styles/readtheorg/js/readtheorg.js\"></script>")
       (setq org-publish-project-alist
             `(
               ("blog-notes"
@@ -318,6 +317,7 @@ unwanted space when exporting org-mode to html."
                :sitemap-sort-files anti-chronologically
                :sitemap-file-entry-format "%t" ; %d to output date, we don't need date here
                )
+
               ("blog-static"
                :base-directory "~/Dropbox/Org-Notes"
                :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
