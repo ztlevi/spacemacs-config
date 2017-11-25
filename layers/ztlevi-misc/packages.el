@@ -709,12 +709,23 @@
   (progn
     (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 
+    (defun ztlevi/tidy-markdown ()
+      (interactive)
+      (cond
+       ((string-equal system-type "darwin")
+        (shell-command (concat "tidy-markdown < '" buffer-file-name "' | sponge '" buffer-file-name "'")))
+       ((string-equal system-type "gnu/linux")
+        (let ((process-connection-type nil))
+          (start-process "" nil "tidy-markdown" (concat " < '" buffer-file-name "' | sponge '" buffer-file-name )))
+        )))
+
     (with-eval-after-load 'markdown-mode
       (progn
         ;; (when (configuration-layer/package-usedp 'company)
         ;;   (spacemacs|add-company-hook markdown-mode))
-
-        (dolist (mode (list 'markdown-mode 'gfm-mode))
+        (dolist (mode markdown--key-bindings-modes)
+          (spacemacs/set-leader-keys-for-major-mode mode
+            "=" 'ztlevi/tidy-markdown)
           (spacemacs/set-leader-keys-for-major-mode mode
             "o" 'markdown-follow-link-at-point)
           (spacemacs/set-leader-keys-for-major-mode mode

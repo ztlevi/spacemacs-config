@@ -15,7 +15,7 @@
  '(company-show-numbers t)
  '(company-statistics-auto-restore nil)
  '(compilation-message-face (quote default))
- '(counsel-fzf-cmd "fzf -f %s")
+ '(counsel-fzf-cmd "fzf -f %s" t)
  '(counsel-grep-base-command
    "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
  '(ctags-update-delay-seconds 1024)
@@ -53,6 +53,7 @@
  '(org-fontify-done-headline t)
  '(org-fontify-quote-and-verse-blocks t)
  '(org-fontify-whole-heading-line t)
+ '(org-hide-leading-stars nil)
  '(org-html-html5-fancy t)
  '(org-log-into-drawer t)
  '(org-pomodoro-play-sounds nil)
