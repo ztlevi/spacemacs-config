@@ -709,14 +709,14 @@
   (progn
     (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 
-    (defun ztlevi/tidy-markdown ()
+    (defun remark/format-markdown ()
       (interactive)
       (cond
        ((string-equal system-type "darwin")
-        (shell-command (concat "tidy-markdown < '" buffer-file-name "' | sponge '" buffer-file-name "'")))
+        (shell-command (concat "remark --silent --no-color --setting '\"listItemIndent\":\"1\"' '" buffer-file-name "' -o '" buffer-file-name "'")))
        ((string-equal system-type "gnu/linux")
         (let ((process-connection-type nil))
-          (start-process "" nil "tidy-markdown" (concat " < '" buffer-file-name "' | sponge '" buffer-file-name )))
+          (start-process "" nil "remark" (concat " --silent --no-color --setting '\"listItemIndent\":\"1\"' '" buffer-file-name "' -o '" buffer-file-name)))
         )))
 
     (with-eval-after-load 'markdown-mode
@@ -725,7 +725,7 @@
         ;;   (spacemacs|add-company-hook markdown-mode))
         (dolist (mode markdown--key-bindings-modes)
           (spacemacs/set-leader-keys-for-major-mode mode
-            "=" 'ztlevi/tidy-markdown)
+            "=" 'remark/format-markdown)
           (spacemacs/set-leader-keys-for-major-mode mode
             "o" 'markdown-follow-link-at-point)
           (spacemacs/set-leader-keys-for-major-mode mode

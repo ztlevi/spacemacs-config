@@ -55,11 +55,11 @@
     4. Dependencies needed
        - Install ispell, ripgrep, the_silver_searcher, the_platinum_searcher
          #+BEGIN_SRC shell
-         brew install coreutils moreutils ispell ripgrep the_silver_searcher pt
+         brew install coreutils ispell ripgrep the_silver_searcher pt
          #+END_SRC
        - npm
          #+BEGIN_SRC shell
-         npm install -g tidy-markdown eslint babel-eslint eslint-plugin-react eslint-plugin-html tern typescript tslint typescript-formatter
+         npm install -g remark-cli eslint babel-eslint eslint-plugin-react eslint-plugin-html tern typescript tslint typescript-formatter
          #+END_SRC
        - pip
          #+BEGIN_SRC shell
