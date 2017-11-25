@@ -53,7 +53,6 @@
  '(org-fontify-done-headline t)
  '(org-fontify-quote-and-verse-blocks t)
  '(org-fontify-whole-heading-line t)
- '(org-hide-leading-stars nil)
  '(org-html-html5-fancy t)
  '(org-log-into-drawer t)
  '(org-pomodoro-play-sounds nil)
