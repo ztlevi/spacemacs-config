@@ -15,6 +15,7 @@
  '(company-show-numbers t)
  '(company-statistics-auto-restore nil)
  '(compilation-message-face (quote default))
+ '(counsel-fzf-cmd "fzf -f %s")
  '(counsel-grep-base-command
    "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
  '(ctags-update-delay-seconds 1024)

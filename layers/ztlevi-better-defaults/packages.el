@@ -89,7 +89,7 @@
                             (set-window-configuration wnd))))
             (error "no more than 2 files should be marked"))))
 
-      (define-key dired-mode-map "e" 'ora-ediff-files)
+      (define-key dired-mode-map "E" 'ora-ediff-files)
 
       (defvar dired-filelist-cmd
         '(("vlc" "-L")))
@@ -115,7 +115,7 @@
         "J"         'ztlevi/open-file-with-projectile-or-counsel-git
         "I"         'vinegar/dotfiles-toggle
         (kbd "~")   '(lambda ()(interactive) (find-alternate-file "~/"))
-        "E"         'dired-toggle-read-only
+        "e"         'dired-toggle-read-only
         (kbd "C-r") 'dired-do-redisplay
         "C"         'dired-do-copy
         "c"         'dired-copy-file-here
@@ -129,7 +129,6 @@
         "G"         'vinegar/jump-to-bottom
         ")"         'dired-omit-mode)
       )))
-
 
 (defun ztlevi-better-defaults/init-profiler ()
   (use-package profiler
