@@ -34,7 +34,6 @@
  '(httpd-port 48080)
  '(hybrid-mode-use-evil-search-module t)
  '(ibuffer-filter-group-name-face (quote link))
- '(linum-relative-plusp-offset 1)
  '(lua-documentation-url "http://www.lua.org/manual/5.3/manual.html")
  '(magit-diff-use-overlays nil)
  '(magit-use-overlays nil)
