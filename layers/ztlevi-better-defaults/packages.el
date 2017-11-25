@@ -123,6 +123,7 @@
         "`"         'dired-open-term
         "p"         'peep-dired-prev-file
         "n"         'peep-dired-next-file
+        "v"         'dired-view-file
         "z"         'dired-get-size
         "gg"        'vinegar/back-to-top
         "G"         'vinegar/jump-to-bottom
