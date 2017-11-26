@@ -709,16 +709,20 @@
   (progn
     (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 
+    ;; use remark to format markdown
     (defun remark/format-markdown ()
       (interactive)
+      (save-buffer)
       (cond
        ((string-equal system-type "darwin")
-        (shell-command (concat "remark --silent --no-color --setting '\"listItemIndent\":\"1\"' '" buffer-file-name "' -o '" buffer-file-name "'")))
+        (shell-command (concat "remark --silent --no-color --setting listItemIndent:1 '" buffer-file-name "' -o '" buffer-file-name "'")))
        ((string-equal system-type "gnu/linux")
         (let ((process-connection-type nil))
-          (start-process "" nil "remark" (concat " --silent --no-color --setting '\"listItemIndent\":\"1\"' '" buffer-file-name "' -o '" buffer-file-name)))
-        )))
+          (start-process "" nil "remark" (concat " --silent --no-color --setting listItemIndent:1 '" buffer-file-name "' -o '" buffer-file-name)))))
+      (deactivate-mark)
+      (revert-buffer :ignore-auto :noconfirm))
 
+    ;; define markdown keys
     (with-eval-after-load 'markdown-mode
       (progn
         ;; (when (configuration-layer/package-usedp 'company)
