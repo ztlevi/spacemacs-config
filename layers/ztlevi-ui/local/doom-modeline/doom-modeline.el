@@ -452,9 +452,9 @@ Example:
         "%b"
       (pcase-let ((`(,root-path-parent ,project ,relative-path ,filename) file-name-split))
         (let ((sp-faces `(:inherit ,(or modified-faces (if active 'font-lock-comment-face))
-                          ,@(if active '(:weight bold))))
+                                   ,@(if active '(:weight bold))))
               (project-faces `(:inherit ,(or modified-faces (if active 'font-lock-string-face))
-                               ,@(if active '(:weight bold))))
+                                        ,@(if active '(:weight bold))))
               (relative-faces `(:inherit ,(or modified-faces (if active 'doom-modeline-buffer-path))))
               (file-faces `(:inherit ,(or modified-faces (if active 'doom-modeline-buffer-file)))))
           (concat (propertize (if truncate-project-root-parent
@@ -521,14 +521,14 @@ directory, the file name, and its state (modified, read-only or non-existent)."
             (if buffer-file-name
                 (+doom-modeline-buffer-file-name)
               "%b"))))
-            ;; (when-let (dir-path (+doom-modeline--buffer-path))
-            ;;   (if-let (faces (or faces (if active 'doom-modeline-buffer-path)))
-            ;;       (propertize dir-path 'face `(:inherit ,faces))
-            ;;     dir-path))
-            ;; (when-let (file-path (+doom-modeline--buffer-file))
-            ;;   (if-let (faces (or faces (if active 'doom-modeline-buffer-file)))
-            ;;       (propertize file-path 'face `(:inherit ,faces))
-            ;;     file-path)))))
+;; (when-let (dir-path (+doom-modeline--buffer-path))
+;;   (if-let (faces (or faces (if active 'doom-modeline-buffer-path)))
+;;       (propertize dir-path 'face `(:inherit ,faces))
+;;     dir-path))
+;; (when-let (file-path (+doom-modeline--buffer-file))
+;;   (if-let (faces (or faces (if active 'doom-modeline-buffer-file)))
+;;       (propertize file-path 'face `(:inherit ,faces))
+;;     file-path)))))
 
 
 ;;
@@ -580,18 +580,18 @@ directory, the file name, and its state (modified, read-only or non-existent)."
 
 ;;
 (def-modeline-segment! workspace-number
-                          "The current workspace name or number. Requires `eyebrowse-mode' to be
+  "The current workspace name or number. Requires `eyebrowse-mode' to be
 enabled."
-                          (when (and (bound-and-true-p eyebrowse-mode)
-                                     (< 1 (length (eyebrowse--get 'window-configs))))
-                            (let* ((num (eyebrowse--get 'current-slot))
-                                   (tag (when num (nth 2 (assoc num (eyebrowse--get 'window-configs)))))
-                                   (str (if (and tag (< 0 (length tag)))
-                                            tag
-                                          (when num (int-to-string num)))))
-                              ;; (or (when spaceline-workspace-numbers-unicode
-                              (propertize (get-unicode-number str) 'face (if (active) 'doom-modeline-workspace-number))
-                                  )))
+  (when (and (bound-and-true-p eyebrowse-mode)
+             (< 1 (length (eyebrowse--get 'window-configs))))
+    (let* ((num (eyebrowse--get 'current-slot))
+           (tag (when num (nth 2 (assoc num (eyebrowse--get 'window-configs)))))
+           (str (if (and tag (< 0 (length tag)))
+                    tag
+                  (when num (int-to-string num)))))
+      ;; (or (when spaceline-workspace-numbers-unicode
+      (propertize (get-unicode-number str) 'face (if (active) 'doom-modeline-workspace-number))
+      )))
 
 
 (defvar spaceline-org-clock-format-function
@@ -600,23 +600,23 @@ enabled."
 
 ;;
 (def-modeline-segment! org-clock
-                          "Show information about the current org clock task.  Configure
+  "Show information about the current org clock task.  Configure
 `spaceline-org-clock-format-function' to configure. Requires a currently running
 org clock.
 This segment overrides the modeline functionality of `org-mode-line-string'."
-                          (when (and (fboundp 'org-clocking-p)
-                                     (org-clocking-p))
-                            (substring-no-properties (funcall spaceline-org-clock-format-function)))
-                          :global-override org-mode-line-string)
+  (when (and (fboundp 'org-clocking-p)
+             (org-clocking-p))
+    (substring-no-properties (funcall spaceline-org-clock-format-function)))
+  :global-override org-mode-line-string)
 
 ;;
 (def-modeline-segment! org-pomodoro
-                          "Shows the current pomodoro.  Requires `org-pomodoro' to be active.
+  "Shows the current pomodoro.  Requires `org-pomodoro' to be active.
 This segment overrides the modeline functionality of `org-pomodoro' itself."
-                          (when (and (fboundp 'org-pomodoro-active-p)
-                                     (org-pomodoro-active-p))
-                            (nth 1 org-pomodoro-mode-line))
-                          :global-override org-pomodoro-mode-line)
+  (when (and (fboundp 'org-pomodoro-active-p)
+             (org-pomodoro-active-p))
+    (nth 1 org-pomodoro-mode-line))
+  :global-override org-pomodoro-mode-line)
 
 ;;
 (def-modeline-segment! vcs
@@ -823,7 +823,7 @@ with `evil-ex-substitute', and/or 4. The number of active `iedit' regions."
                       (+doom-modeline--evil-substitute)
                       (+doom-modeline--iedit))))
     (or (and (not (equal meta "")) meta)
-        (if buffer-file-name " %I "))))
+        (if buffer-file-name " %p/%I "))))
 
 ;; TODO Include other information
 (def-modeline-segment! media-info
@@ -835,14 +835,17 @@ with `evil-ex-substitute', and/or 4. The number of active `iedit' regions."
 
 ;; The bar regulates the height of the mode-line in GUI Emacs.
 (def-modeline-segment! bar
-  (when (display-graphic-p)
-    (+doom-modeline--make-xpm
-     (face-background (if (active)
-                          'doom-modeline-bar
-                        'doom-modeline-inactive-bar)
-                      nil t)
-     +doom-modeline-height
-     +doom-modeline-bar-width)))
+  evil-mode-line-tag
+  ;; (concat (when (display-graphic-p)
+  ;;           (+doom-modeline--make-xpm
+  ;;            (face-background (if (active)
+  ;;                                 'doom-modeline-bar
+  ;;                               'doom-modeline-inactive-bar)
+  ;;                             nil t)
+  ;;            +doom-modeline-height
+  ;;            +doom-modeline-bar-width))
+  ;;         evil-mode-line-tag)
+  )
 
 
 ;;
