@@ -13,11 +13,11 @@
   '(
     all-the-icons-dired
     ;; doom modeline needs all-the-icons, shrink-path enabled
-    (doom-modeline :location local)
-    shrink-path
+    ;; (doom-modeline :location local)
+    ;; shrink-path
     all-the-icons
     ;; if you wnat to use spaceline, please comment out ztlevi-mode-line
-    ;; (ztlevi-mode-line :location built-in)
+    (ztlevi-mode-line :location built-in)
     ;; spaceline
     diminish
     popwin
@@ -117,50 +117,64 @@
 
   (setq-default mode-line-format
                 (list
-                 " %1"
+                 ;; evil state
+                 '(:eval evil-mode-line-tag)
+
+                 ;; set the modeline height
                  '(:eval (propertize
-                          (window-number-mode-line)
-                          'face
-                          'font-lock-keyword-face))
-                 " "
+                          " %1"
+                          'face '(:height 1.35)))
+
+                 ;; linum
+                 ;; '(:eval (propertize
+                 ;;          (window-number-mode-line)
+                 ;;          'face
+                 ;;          'font-lock-keyword-face))
+                 ;; " "
                  '(:eval (ztlevi/update-persp-name))
 
                  "%1 "
                  ;; the buffer name; the file name as a tool tip
-                 '(:eval (propertize "%b " 'face 'font-lock-keyword-face
+                 '(:eval (propertize "%b   " 'face 'font-lock-keyword-face
                                      'help-echo (buffer-file-name)))
 
-
-                 " [" ;; insert vs overwrite mode, input-method in a tooltip
-                 '(:eval (propertize (if overwrite-mode "Ovr" "Ins")
-                                     'face 'font-lock-preprocessor-face
-                                     'help-echo (concat "Buffer is in "
-                                                        (if overwrite-mode
-                                                            "overwrite"
-                                                          "insert") " mode")))
+                 '(:eval (propertize
+                          (if overwrite-mode "OVR" "INS")
+                          'face '(:inherit font-lock-preprocessor-face
+                                           :underline t :overline t)
+                          'help-echo (concat "Buffer is in "
+                                             (if overwrite-mode
+                                                 "overwrite"
+                                               "insert") " mode")))
 
                  ;; was this buffer modified since the last save?
                  '(:eval (when (buffer-modified-p)
-                           (concat "," (propertize "Mod"
-                                                   'face 'font-lock-warning-face
-                                                   'help-echo "Buffer has been modified"))))
+                           (concat " "
+                                   (propertize
+                                    "MOD"
+                                    'face '(:inherit font-lock-string-face
+                                                     :underline t :overline t)
+                                    'help-echo "Buffer has been modified"))))
 
                  ;; is this buffer read-only?
                  '(:eval (when buffer-read-only
-                           (concat "," (propertize "RO"
-                                                   'face 'font-lock-type-face
-                                                   'help-echo "Buffer is read-only"))))
-                 "] "
+                           (concat " "
+                                   (propertize
+                                    "RO"
+                                    'face '(:inherit font-lock-type-face
+                                                     :underline t :overline t)
+                                    'help-echo "Buffer is read-only"))))
 
+                 " "
                  ;; anzu
                  anzu--mode-line-format
 
                  ;; relative position, size of file
-                 "["
+                 " "
                  (propertize "%p" 'face 'font-lock-constant-face) ;; % above top
                  "/"
                  (propertize "%I" 'face 'font-lock-constant-face) ;; size
-                 "] "
+                 "  "
 
                  ;; the current major mode for the buffer.
                  '(:eval (propertize "%m" 'face 'font-lock-string-face
@@ -169,8 +183,6 @@
                  "%1 "
                  my-flycheck-mode-line
                  "%1 "
-                 ;; evil state
-                 '(:eval evil-mode-line-tag)
 
                  ;; minor modes
                  '(:eval (when (> (window-width) 90)
@@ -188,12 +200,16 @@
 
                  (mode-line-fill 'mode-line 20)
 
-                 '(:eval (ztlevi/display-mode-indent-width))
+                 '(:eval (propertize (ztlevi/display-mode-indent-width)))
+
                  ;; line and column
-                 " (" ;; '%02' to set to 2 chars at least; prevents flickering
-                 (propertize "%02l" 'face 'font-lock-type-face) ","
-                 (propertize "%02c" 'face 'font-lock-type-face)
-                 ") "
+                 '(:eval (propertize
+                          (concat
+                           " (" ;; '%02' to set to 2 chars at least; prevents flickering
+                           (propertize "%l") ","
+                           (propertize "%c") ") ")
+                          'face
+                          'font-lock-type-face))
 
                  '(:eval (when (> (window-width) 80)
                            (buffer-encoding-abbrev)))

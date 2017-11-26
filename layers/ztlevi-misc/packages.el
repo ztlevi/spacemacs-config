@@ -408,14 +408,14 @@
     (evil-define-key 'emacs term-raw-map (kbd "C-w") 'evil-delete-backward-word)
 
     ;; set state tag
-    (setq evil-normal-state-tag    (propertize "[N]" 'face '((:inherit spacemacs-normal-face)))
-          evil-emacs-state-tag     (propertize "[E]" 'face '((:inherit spacemacs-emacs-face)))
-          evil-hybrid-state-tag    (propertize "[H]" 'face '((:inherit spacemacs-hybrid-face)))
-          evil-insert-state-tag    (propertize "[I]" 'face '((:inherit spacemacs-insert-face)))
-          evil-motion-state-tag    (propertize "[M]" 'face '((:inherit spacemacs-motion-face)))
-          evil-visual-state-tag    (propertize "[V]" 'face '((:inherit spacemacs-visual-face)))
-          evil-evilified-state-tag (propertize "[F]" 'face '((:inherit spacemacs-evilified-face)))
-          evil-operator-state-tag  (propertize "[O]" 'face '((:background "purple" :foreground "white"))))
+    (setq evil-normal-state-tag    (propertize " N " 'face '((:inherit spacemacs-normal-face)))
+          evil-emacs-state-tag     (propertize " E " 'face '((:inherit spacemacs-emacs-face)))
+          evil-hybrid-state-tag    (propertize " H " 'face '((:inherit spacemacs-hybrid-face)))
+          evil-insert-state-tag    (propertize " I " 'face '((:inherit spacemacs-insert-face)))
+          evil-motion-state-tag    (propertize " M " 'face '((:inherit spacemacs-motion-face)))
+          evil-visual-state-tag    (propertize " V " 'face '((:inherit spacemacs-visual-face)))
+          evil-evilified-state-tag (propertize " F " 'face '((:inherit spacemacs-evilified-face)))
+          evil-operator-state-tag  (propertize " O " 'face '((:background "purple" :foreground "white"))))
 
     ;; set evil state cursor
     (setq evil-normal-state-cursor '("#ff007f" box))
