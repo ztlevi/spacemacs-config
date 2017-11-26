@@ -115,6 +115,7 @@
   (setq-default mode-line-misc-info
                 (assq-delete-all 'which-func-mode mode-line-misc-info))
 
+  (setq modeline-height 1.35)
   (setq-default mode-line-format
                 (list
                  ;; evil state
@@ -123,7 +124,7 @@
                  ;; set the modeline height
                  '(:eval (propertize
                           " %1"
-                          'face '(:height 1.35)))
+                          'face '(:height `modeline-height)))
 
                  ;; linum
                  ;; '(:eval (propertize
@@ -135,46 +136,41 @@
 
                  "%1 "
                  ;; the buffer name; the file name as a tool tip
-                 '(:eval (propertize "%b   " 'face 'font-lock-keyword-face
+                 '(:eval (propertize "%b " 'face 'font-lock-keyword-face
                                      'help-echo (buffer-file-name)))
 
-                 '(:eval (propertize
-                          (if overwrite-mode "OVR" "INS")
-                          'face '(:inherit font-lock-preprocessor-face
-                                           :underline t :overline t)
-                          'help-echo (concat "Buffer is in "
-                                             (if overwrite-mode
-                                                 "overwrite"
-                                               "insert") " mode")))
+                 ;; '(:eval (propertize
+                 ;;          (if overwrite-mode "OVR" "INS")
+                 ;;          'face '(:inherit font-lock-preprocessor-face
+                 ;;                           :underline t :overline t)
+                 ;;          'help-echo (concat "Buffer is in "
+                 ;;                             (if overwrite-mode
+                 ;;                                 "overwrite"
+                 ;;                               "insert") " mode")))
 
                  ;; was this buffer modified since the last save?
-                 '(:eval (when (buffer-modified-p)
-                           (concat " "
-                                   (propertize
-                                    "MOD"
-                                    'face '(:inherit font-lock-string-face
-                                                     :underline t :overline t)
-                                    'help-echo "Buffer has been modified"))))
+                 '(:eval (if (buffer-modified-p)
+                             (propertize
+                              "M"
+                              'face '(:inherit font-lock-string-face
+                                               :weight bold :underline t :overline t)
+                              'help-echo "Buffer has been modified")
+                           " "))
+
+                 " "
 
                  ;; is this buffer read-only?
-                 '(:eval (when buffer-read-only
-                           (concat " "
-                                   (propertize
-                                    "RO"
-                                    'face '(:inherit font-lock-type-face
-                                                     :underline t :overline t)
-                                    'help-echo "Buffer is read-only"))))
+                 '(:eval (if buffer-read-only
+                             (propertize
+                              "R"
+                              'face '(:inherit font-lock-type-face
+                                               :weight bold :underline t :overline t)
+                              'help-echo "Buffer is read-only")
+                           " "))
 
                  " "
                  ;; anzu
                  anzu--mode-line-format
-
-                 ;; relative position, size of file
-                 " "
-                 (propertize "%p" 'face 'font-lock-constant-face) ;; % above top
-                 "/"
-                 (propertize "%I" 'face 'font-lock-constant-face) ;; size
-                 "  "
 
                  ;; the current major mode for the buffer.
                  '(:eval (propertize "%m" 'face 'font-lock-string-face
@@ -182,7 +178,7 @@
 
                  "%1 "
                  my-flycheck-mode-line
-                 "%1 "
+                 "%1"
 
                  ;; minor modes
                  '(:eval (when (> (window-width) 90)
@@ -198,18 +194,23 @@
                  '(:eval (when (> (window-width) 120)
                            mode-line-misc-info))
 
-                 (mode-line-fill 'mode-line 20)
+                 (mode-line-fill 'mode-line 22)
 
                  '(:eval (propertize (ztlevi/display-mode-indent-width)))
 
-                 ;; line and column
-                 '(:eval (propertize
-                          (concat
-                           " (" ;; '%02' to set to 2 chars at least; prevents flickering
-                           (propertize "%l") ","
-                           (propertize "%c") ") ")
-                          'face
-                          'font-lock-type-face))
+                 ;; relative position, size of file
+                 (propertize " [%p" 'face 'font-lock-constant-face) ;; % above top
+                 "/"
+                 (propertize "%I] " 'face 'font-lock-constant-face) ;; size
+
+                 ;; ;; line and column
+                 ;; '(:eval (propertize
+                 ;;          (concat
+                 ;;           " (" ;; '%02' to set to 2 chars at least; prevents flickering
+                 ;;           (propertize "%l") ","
+                 ;;           (propertize "%c") ") ")
+                 ;;          'face
+                 ;;          'font-lock-type-face))
 
                  '(:eval (when (> (window-width) 80)
                            (buffer-encoding-abbrev)))

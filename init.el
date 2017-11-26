@@ -450,6 +450,8 @@ It should only modify the values of Spacemacs settings."
 
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
+  (spacemacs|diminish mmm-mode)
+  (spacemacs|diminish dired-omit-mode)
   (spacemacs|diminish helm-gtags-mode)
   (spacemacs|diminish ggtags-mode)
   (spacemacs|diminish which-key-mode)
