@@ -6,17 +6,17 @@
 
     *Method 1*: Use brew cask:
     #+BEGIN_SRC shell
-    brew tap railwaycat/emacsmacport
-    brew cask install emacs-mac-spacemacs-icon
+      brew tap railwaycat/emacsmacport
+      brew cask install emacs-mac-spacemacs-icon
     #+END_SRC
 
     *Method 2*: Just brew, need compiling. (more customization)
     #+BEGIN_SRC shell
-    brew tap railwaycat/emacsmacport
-    brew install emacs-mac --with-spacemacs-icon --with-gnutls --with-natural-title-bar
-    # create alias in /Applications
-    rm /Applications/Emacs
-    brew linkapps emacs-mac
+      brew tap railwaycat/emacsmacport
+      brew install emacs-mac --with-spacemacs-icon --with-gnutls --with-natural-title-bar
+      # create alias in /Applications
+      rm /Applications/Emacs
+      brew linkapps emacs-mac
     #+END_SRC
 
     Notes: (just for method 2)
@@ -27,20 +27,20 @@
        Codesign your Emacs.app. Instructions over [[http://apple.stackexchange.com/questions/3271/how-to-get-rid-of-firewall-accept-incoming-connections-dialog/170566][here]].
 
        #+BEGIN_SRC shell
-       codesign --deep --force --verbose --sign ztlevi /usr/local/opt/emacs-mac/Emacs.app
+         codesign --deep --force --verbose --sign ztlevi /usr/local/opt/emacs-mac/Emacs.app
        #+END_SRC
 *** Install Emacs on Linux
     #+BEGIN_SRC shell
-    # Ubuntu
-    sudo apt-get insatll emacs
-    # Arch
-    sudo pacman -S emacs
+      # Ubuntu
+      sudo apt-get insatll emacs
+      # Arch
+      sudo pacman -S emacs
     #+END_SRC
 
 *** Install Spacemacs
     #+BEGIN_SRC shell
-    rm -r ~/.emacs.d
-    git clone https://github.com/syl20bnr/spacemacs -b develop ~/.emacs.d
+      rm -r ~/.emacs.d
+      git clone https://github.com/syl20bnr/spacemacs -b develop ~/.emacs.d
     #+END_SRC
 
 *** Configuration and Dependencies
@@ -48,22 +48,22 @@
 
     1. Clone my configuration:
        #+BEGIN_SRC shell
-       git clone https://github.com/ztlevi/spacemacs-config.git ~/.spacemacs.d
+         git clone https://github.com/ztlevi/spacemacs-config.git ~/.spacemacs.d
        #+END_SRC
     2. Install all-the-icons fonts by ~M-x all-the-icons-install-fonts~. I'm using /Ubuntu Mono/ font, you could change it under ~dotspacemacs-default-font~.
     3. Download and install DejaVu Sans Mono from [[https://sourceforge.net/projects/dejavu/files/dejavu/2.35/dejavu-fonts-ttf-2.35.tar.bz2/download][here]]. It's the best programming font supports unicode.
     4. Dependencies needed
        - Install ispell, ripgrep, the_silver_searcher, the_platinum_searcher
          #+BEGIN_SRC shell
-         brew install coreutils ispell ripgrep the_silver_searcher pt
+           brew install coreutils ispell ripgrep the_silver_searcher pt
          #+END_SRC
        - npm
          #+BEGIN_SRC shell
-         npm install -g remark-cli eslint babel-eslint eslint-plugin-react eslint-plugin-html tern typescript tslint typescript-formatter
+           npm install -g remark-cli eslint babel-eslint eslint-plugin-react eslint-plugin-html tern typescript tslint typescript-formatter
          #+END_SRC
        - pip
          #+BEGIN_SRC shell
-         pip3 install yapf
+           pip3 install yapf
          #+END_SRC
 
 ** Usage
@@ -78,10 +78,10 @@
 
    3. Ctags setting is under *my-setup-develop-environment()* function. Add scripts like this to automatically generate TAGS for your project. You may need to install ctags if you never used before.
       #+BEGIN_SRC lisp
-      ((my-project-name-contains-substring "Sites/TRIdemo")
-        (message "load tags for TRIdemo...")
-        (setq tags-table-list
-        (list (my-create-tags-if-needed "/Users/ztlevi/Sites/TRIdemo/app"))))
+        ((my-project-name-contains-substring "Sites/TRIdemo")
+         (message "load tags for TRIdemo...")
+         (setq tags-table-list
+               (list (my-create-tags-if-needed "/Users/ztlevi/Sites/TRIdemo/app"))))
       #+END_SRC
 
       Or ~cd /path/to/my/project~, ~ctags -e -R .~ and manually use *select-tag-table* function to select TAGS(set the tags-table-list value).
@@ -92,7 +92,7 @@
 
       Note: If you are on a Mac, disable nap mode for Emacs, otherwise requests will be very slow when Emacs enters nap mode:
       #+BEGIN_SRC shell
-      defaults write org.gnu.Emacs NSAppSleepDisabled -bool YES
+        defaults write org.gnu.Emacs NSAppSleepDisabled -bool YES
       #+END_SRC
 
    6. To change the home page banner, configure the setting in ~dotspacemacs-startup-banner '"~/.spacemacs.d/icons/banner.png"~.
