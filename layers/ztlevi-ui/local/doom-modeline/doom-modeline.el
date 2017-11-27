@@ -1,30 +1,25 @@
-;; -*- lexical-binding: t; -*-
+;;; ui/doom-modeline/config.el -*- lexical-binding: t; -*-
 
-
-;; TODO torgeir added this
-(defcustom +doom-modeline-height 18
-  "This is the default height for doom-modeline"
-  :group '+doom-modeline)
-(defun doom-project-root () (t/project-root))
-
-(defun doom--resolve-hooks (hooks)
-  (cl-loop with quoted-p = (eq (car-safe hooks) 'quote)
-           for hook in (doom-enlist (doom-unquote hooks))
-           if (eq (car-safe hook) 'quote)
-           collect (cadr hook)
-           else if quoted-p
-           collect hook
-           else collect (intern (format "%s-hook" (symbol-name hook)))))
-
-(defun doom-unquote (exp)
-  "Return EXP unquoted."
-  (while (memq (car-safe exp) '(quote function))
-    (setq exp (cadr exp)))
-  exp)
-
-(defun doom-enlist (exp)
-  "Return EXP wrapped in a list, or as-is if already a list."
-  (if (listp exp) exp (list exp)))
+(defvar doom--transient-counter 0)
+(defmacro add-transient-hook! (hook &rest forms)
+  "Attaches transient forms to a HOOK.
+HOOK can be a quoted hook or a sharp-quoted function (which will be advised).
+These forms will be evaluated once when that function/hook is first invoked,
+then it detaches itself."
+  (declare (indent 1))
+  (let ((append (eq (car forms) :after))
+        (fn (intern (format "doom-transient-hook-%s" (cl-incf doom--transient-counter)))))
+    `(when ,hook
+       (fset ',fn
+             (lambda (&rest _)
+               ,@forms
+               (cond ((functionp ,hook) (advice-remove ,hook #',fn))
+                     ((symbolp ,hook)   (remove-hook ,hook #',fn)))
+               (unintern ',fn nil)))
+       (cond ((functionp ,hook)
+              (advice-add ,hook ,(if append :after :before) #',fn))
+             ((symbolp ,hook)
+              (add-hook ,hook #',fn ,append))))))
 
 (defmacro add-hook! (&rest args)
   "A convenience macro for `add-hook'. Takes, in order:
@@ -53,7 +48,7 @@ Body forms can access the hook's arguments through the let-bound variable
         (:append (setq append-p t))
         (:local  (setq local-p t))
         (:remove (setq hook-fn 'remove-hook))))
-    (let ((hooks (doom--resolve-hooks (pop args)))
+    (let ((hooks (doom--resolve-hook-forms (pop args)))
           (funcs
            (let ((val (car args)))
              (if (memq (car-safe val) '(quote function))
@@ -74,32 +69,6 @@ Body forms can access the hook's arguments through the let-bound variable
                 forms)))
       `(progn ,@(nreverse forms)))))
 
-(defvar doom-memoized-table (make-hash-table :test 'equal :size 10)
-  "A lookup table containing memoized functions. The keys are argument lists,
-and the value is the function's return value.")
-
-(defun doom-memoize (name)
-  "Memoizes an existing function. NAME is a symbol."
-  (let ((func (symbol-function name)))
-    (put name 'function-documentation
-         (concat (documentation func) " (memoized)"))
-    (fset name
-          `(lambda (&rest args)
-             (let ((key (cons ',name args)))
-               (or (gethash key doom-memoized-table)
-                   (puthash key (apply ',func args)
-                            doom-memoized-table)))))))
-
-(defmacro def-memoized! (name arglist &rest body)
-  "Create a memoize'd function. NAME, ARGLIST, DOCSTRING and BODY
-have the same meaning as in `defun'."
-  (declare (indent defun) (doc-string 3))
-  `(,(if (bound-and-true-p byte-compile-current-file)
-         'with-no-warnings
-       'progn)
-    (defun ,name ,arglist ,@body)
-    (doom-memoize ',name)))
-
 (defmacro def-modeline-segment! (name &rest forms)
   "Defines a modeline segment and byte compiles it."
   (declare (indent defun) (doc-string 2))
@@ -109,13 +78,6 @@ have the same meaning as in `defun'."
        ,(unless (bound-and-true-p byte-compile-current-file)
           `(let (byte-compile-warnings)
              (byte-compile #',sym))))))
-
-(defsubst doom--prepare-modeline-segments (segments)
-  (cl-loop for seg in segments
-           if (stringp seg)
-           collect seg
-           else
-           collect (list (intern (format "doom-modeline-segment--%s" (symbol-name seg))))))
 
 (defmacro def-modeline! (name lhs &optional rhs)
   "Defines a modeline format and byte-compiles it. NAME is a symbol to identify
@@ -144,6 +106,13 @@ Example:
           `(let (byte-compile-warnings)
              (byte-compile #',sym))))))
 
+(defsubst doom--prepare-modeline-segments (segments)
+  (cl-loop for seg in segments
+           if (stringp seg)
+           collect seg
+           else
+           collect (list (intern (format "doom-modeline-segment--%s" (symbol-name seg))))))
+
 (defun doom-modeline (key)
   "Returns a mode-line configuration associated with KEY (a symbol). Throws an
 error if it doesn't exist."
@@ -154,14 +123,61 @@ error if it doesn't exist."
 (defun doom-set-modeline (key &optional default)
   "Set the modeline format. Does nothing if the modeline KEY doesn't exist. If
 DEFAULT is non-nil, set the default mode-line for all buffers."
-  (let ((modeline (doom-modeline key)))
-    (when modeline
-      (setf (if default
-                (default-value 'mode-line-format)
-              (buffer-local-value 'mode-line-format (current-buffer)))
-            modeline))))
+  (when-let (modeline (doom-modeline key))
+    (setf (if default
+              (default-value 'mode-line-format)
+            (buffer-local-value 'mode-line-format (current-buffer)))
+          modeline)))
 
-;; TODO /torgeir added this
+
+(use-package eldoc-eval
+  :demand t
+  :config
+  (defun +doom-modeline-eldoc (text)
+    (concat (when (display-graphic-p)
+              (+doom-modeline--make-xpm
+               (face-background 'doom-modeline-eldoc-bar nil t)
+               +doom-modeline-height
+               +doom-modeline-bar-width))
+            text))
+
+  ;; Show eldoc in the mode-line with `eval-expression'
+  (defun +doom-modeline--show-eldoc (input)
+    "Display string STR in the mode-line next to minibuffer."
+    (with-current-buffer (eldoc-current-buffer)
+      (let* ((str              (and (stringp input) input))
+             (mode-line-format (or (and str (or (+doom-modeline-eldoc str) str))
+                                   mode-line-format))
+             mode-line-in-non-selected-windows)
+        (force-mode-line-update)
+        (sit-for eldoc-show-in-mode-line-delay))))
+
+  (setq eldoc-in-minibuffer-show-fn #'+doom-modeline--show-eldoc)
+  (eldoc-in-minibuffer-mode +1))
+
+;; anzu and evil-anzu expose current/total state that can be displayed in the
+;; mode-line.
+(use-package evil-anzu
+  :when (featurep 'evil)
+  :init
+  (add-transient-hook! #'evil-ex-start-search (require 'evil-anzu))
+  (add-transient-hook! #'evil-ex-start-word-search (require 'evil-anzu))
+  :config
+  (setq anzu-cons-mode-line-p nil
+        anzu-minimum-input-length 1
+        anzu-search-threshold 250)
+
+  ;; Avoid anzu conflicts across buffers
+  (mapc #'make-variable-buffer-local
+        '(anzu--total-matched anzu--current-position anzu--state
+          anzu--cached-count anzu--cached-positions anzu--last-command
+          anzu--last-isearch-string anzu--overflow-p))
+
+  ;; Ensure anzu state is cleared when searches & iedit are done
+  (add-hook 'isearch-mode-end-hook #'anzu--reset-status t)
+  (add-hook '+evil-esc-hook #'anzu--reset-status t)
+  (add-hook 'iedit-mode-end-hook #'anzu--reset-status))
+
 
 ;; Keep `+doom-modeline-current-window' up-to-date
 (defvar +doom-modeline-current-window (frame-selected-window))
@@ -176,13 +192,16 @@ DEFAULT is non-nil, set the default mode-line for all buffers."
 (advice-add #'handle-switch-frame :after #'+doom-modeline|set-selected-window)
 (advice-add #'select-window :after #'+doom-modeline|set-selected-window)
 
+;; fish-style modeline
+(use-package shrink-path
+  :commands (shrink-path-prompt shrink-path-file-mixed))
 
 
 ;;
 ;; Variables
 ;;
 
-(defvar +doom-modeline-height 28
+(defvar +doom-modeline-height 29
   "How tall the mode-line should be (only respected in GUI emacs).")
 
 (defvar +doom-modeline-bar-width 3
@@ -192,6 +211,17 @@ DEFAULT is non-nil, set the default mode-line for all buffers."
   (propertize " " 'face 'variable-pitch)
   "TODO")
 
+(defvar +doom-modeline-buffer-file-name-style 'truncate-upto-project
+  "Determines the style used by `+doom-modeline-buffer-file-name'.
+
+Given ~/Projects/FOSS/emacs/lisp/comint.el
+truncate-upto-project => ~/P/F/emacs/lisp/comint.el
+truncate-upto-root => ~/P/F/e/lisp/comint.el
+truncate-all => ~/P/F/e/l/comint.el
+relative-from-project => emacs/lisp/comint.el
+relative-to-project => lisp/comint.el
+file-name => comint.el")
+
 ;; externs
 (defvar anzu--state nil)
 (defvar evil-mode nil)
@@ -200,17 +230,6 @@ DEFAULT is non-nil, set the default mode-line for all buffers."
 (defvar iedit-mode nil)
 (defvar all-the-icons-scale-factor)
 (defvar all-the-icons-default-adjust)
-
-(defvar +doom-modeline-buffer-file-name-style 'truncate-all
-  "Determines the style used by `+doom-modeline-buffer-file-name'.
-
- Given ~/Projects/FOSS/emacs/lisp/comint.el
- truncate-upto-project => ~/P/F/emacs/lisp/comint.el
- truncate-upto-root => ~/P/F/e/lisp/comint.el
- truncate-all => ~/P/F/e/l/comint.el
- relative-to-project => lisp/comint.el
- file-name => comint.el")
-
 
 
 ;;
@@ -222,39 +241,22 @@ DEFAULT is non-nil, set the default mode-line for all buffers."
   :group 'doom)
 
 (defface doom-modeline-buffer-path
-  '((t (:inherit mode-line-emphasis :bold t)))
+  '((t (:inherit (mode-line-emphasis bold))))
   "Face used for the dirname part of the buffer path."
   :group '+doom-modeline)
 
 (defface doom-modeline-buffer-file
-  '((t (:inherit mode-line-buffer-id)))
+  '((t (:inherit (mode-line-buffer-id bold))))
   "Face used for the filename part of the mode-line buffer path."
-  :group '+doom-modeline)
-
-(defface doom-modeline-project-root-dir
-  '((t (:inherit mode-line-buffer-id)))
-  "Face used for the filename part of the mode-line buffer path."
-  :group '+doom-modeline)
-
-(defface doom-modeline-workspace-number
-  '((t (:inherit default :weight normal)))
-  "Face used for persp name."
-  :group '+doom-modeline)
-
-
-
-(defface doom-modeline-perspname
-  '((t (:inherit bold)))
-  "Face used for persp name."
   :group '+doom-modeline)
 
 (defface doom-modeline-buffer-modified
-  '((t (:inherit error :background nil :bold t)))
+  '((t (:inherit (error bold) :background nil)))
   "Face used for the 'unsaved' symbol in the mode-line."
   :group '+doom-modeline)
 
 (defface doom-modeline-buffer-major-mode
-  '((t (:inherit mode-line-emphasis :bold t)))
+  '((t (:inherit (mode-line-emphasis bold))))
   "Face used for the major-mode segment in the mode-line."
   :group '+doom-modeline)
 
@@ -270,54 +272,33 @@ DEFAULT is non-nil, set the default mode-line for all buffers."
   :group '+doom-modeline)
 
 (defface doom-modeline-info
-  `((t (:inherit success :bold t)))
+  `((t (:inherit (success bold))))
   "Face for info-level messages in the modeline. Used by `*vc'."
   :group '+doom-modeline)
 
 (defface doom-modeline-warning
-  `((t (:inherit warning :bold t)))
+  `((t (:inherit (warning bold))))
   "Face for warnings in the modeline. Used by `*flycheck'"
   :group '+doom-modeline)
 
 (defface doom-modeline-urgent
-  `((t (:inherit error :bold t)))
+  `((t (:inherit (error bold))))
   "Face for errors in the modeline. Used by `*flycheck'"
   :group '+doom-modeline)
 
 ;; Bar
-(defface doom-modeline-bar '((t ()))
+(defface doom-modeline-bar '((t (:inherit highlight)))
   "The face used for the left-most bar on the mode-line of an active window."
   :group '+doom-modeline)
 
-(defface doom-modeline-eldoc-bar '((t ()))
+(defface doom-modeline-eldoc-bar '((t (:inherit shadow)))
   "The face used for the left-most bar on the mode-line when eldoc-eval is
 active."
   :group '+doom-modeline)
 
-(defface doom-modeline-inactive-bar '((t ()))
+(defface doom-modeline-inactive-bar '((t (:inherit warning :inverse-video t)))
   "The face used for the left-most bar on the mode-line of an inactive window."
   :group '+doom-modeline)
-
-
-;;
-;; Bootstrap
-;;
-
-;; Show version string for multi-version managers like rvm, rbenv, pyenv, etc.
-(defvar-local +doom-modeline-env-version nil)
-(defvar-local +doom-modeline-env-command nil)
-(add-hook! '(focus-in-hook find-file-hook) #'+doom-modeline|update-env)
-(defun +doom-modeline|update-env ()
-  (when +doom-modeline-env-command
-    (let* ((default-directory (doom-project-root))
-           (s (shell-command-to-string +doom-modeline-env-command)))
-      (setq +doom-modeline-env-version (if (string-match "[ \t\n\r]+\\'" s)
-                                           (replace-match "" t t s)
-                                         s)))))
-
-;; Only support python and ruby for now
-(add-hook! 'python-mode-hook (setq +doom-modeline-env-command "python --version 2>&1 | cut -d' ' -f2"))
-(add-hook! 'ruby-mode-hook   (setq +doom-modeline-env-command "ruby   --version 2>&1 | cut -d' ' -f2"))
 
 
 ;;
@@ -328,7 +309,7 @@ active."
   (eq (selected-window) +doom-modeline-current-window))
 
 ;; Inspired from `powerline's `pl/make-xpm'.
-(def-memoized! +doom-modeline--make-xpm (color height width)
+(defun +doom-modeline--make-xpm (color height width)
   "Create an XPM bitmap."
   (propertize
    " " 'display
@@ -354,37 +335,6 @@ active."
                                (if (eq idx len) "\"};" "\",\n")))))
       'xpm t :ascent 'center))))
 
-;; (defsubst +doom-modeline--buffer-file ()
-;;   "Display the base of the current buffer's filename."
-;;   (if buffer-file-name
-;;       (file-name-nondirectory (or buffer-file-truename (file-truename buffer-file-name)))
-;;     "%b"))
-
-;; (defsubst +doom-modeline--buffer-path ()
-;;   "Displays the buffer's full path relative to the project root (includes the
-;; project root). Excludes the file basename. See `doom-buffer-name' for that."
-;;   (when buffer-file-name
-;;     (let ((buffer-path
-;;            (file-relative-name (file-name-directory
-;;                                 (or buffer-file-truename (file-truename buffer-file-name)))
-;;                                (doom-project-root))))
-;;       (unless (equal buffer-path "./")
-;;         (let ((max-length (truncate (* (window-body-width) 0.4))))
-;;           (if (> (length buffer-path) max-length)
-;;               (let ((path (nreverse (split-string buffer-path "/" t)))
-;;                     (output ""))
-;;                 (when (and path (equal "" (car path)))
-;;                   (setq path (cdr path)))
-;;                 (while (and path (<= (length output) (- max-length 4)))
-;;                   (setq output (concat (car path) "/" output)
-;;                         path (cdr path)))
-;;                 (when path
-;;                   (setq output (concat "../" output)))
-;;                 (unless (string-suffix-p "/" output)
-;;                   (setq output (concat output "/")))
-;;                 output)
-;;             buffer-path))))))
-
 (defun +doom-modeline-buffer-file-name ()
   "Propertized `buffer-file-name' based on `+doom-modeline-buffer-file-name-style'."
   (propertize
@@ -393,45 +343,50 @@ active."
      ('truncate-upto-root (+doom-modeline--buffer-file-name-truncate))
      ('truncate-all (+doom-modeline--buffer-file-name-truncate t))
      ('relative-to-project (+doom-modeline--buffer-file-name-relative))
+     ('relative-from-project (+doom-modeline--buffer-file-name-relative 'include-project))
      ('file-name (propertize (file-name-nondirectory buffer-file-name)
-                             'face `(:inherit ,(or (and (buffer-modified-p)
-                                                        'doom-modeline-buffer-modified)
-                                                   (and (active)
-                                                        'doom-modeline-buffer-file))))))
-   'help-echo (+doom-modeline--buffer-file-name nil)))
+                             'face
+                             (let ((face (or (and (buffer-modified-p)
+                                                  'doom-modeline-buffer-modified)
+                                             (and (active)
+                                                  'doom-modeline-buffer-file))))
+                               (when face `(:inherit ,face))))))
+   'help-echo buffer-file-truename))
 
 (defun +doom-modeline--buffer-file-name-truncate (&optional truncate-tail)
   "Propertized `buffer-file-name' that truncates every dir along path.
 If TRUNCATE-TAIL is t also truncate the parent directory of the file."
-  (let* ((modified-faces (if (buffer-modified-p) 'doom-modeline-buffer-modified))
-         (active (active))
-         (dirs (shrink-path-prompt (file-name-directory
-                                    (or buffer-file-truename
-                                        (file-truename buffer-file-name))))))
+  (let ((dirs (shrink-path-prompt (file-name-directory buffer-file-truename)))
+        (active (active)))
     (if (null dirs)
-        "%b"
-      (let ((dirname (car dirs))
-            (basename (cdr dirs))
-            (dir-faces `(:inherit ,(or modified-faces (if active 'doom-modeline-project-root-dir))))
-            (file-faces `(:inherit ,(or modified-faces (if active 'doom-modeline-buffer-file)))))
-        (concat (propertize dirname 'face dir-faces)
-                (propertize (concat (if truncate-tail (substring basename 0 1) basename) "/")
-                            'face dir-faces)
-                (propertize (file-name-nondirectory buffer-file-name) 'face file-faces))))))
+        (propertize "%b" 'face (if active 'doom-modeline-buffer-file))
+      (let ((modified-faces (if (buffer-modified-p) 'doom-modeline-buffer-modified)))
+        (let ((dirname (car dirs))
+              (basename (cdr dirs))
+              (dir-faces (or modified-faces (if active 'doom-modeline-project-root-dir)))
+              (file-faces (or modified-faces (if active 'doom-modeline-buffer-file))))
+          (concat (propertize (concat dirname
+                                      (if truncate-tail (substring basename 0 1) basename)
+                                      "/")
+                              'face (if dir-faces `(:inherit ,dir-faces)))
+                  (propertize (file-name-nondirectory buffer-file-name)
+                              'face (if file-faces `(:inherit ,file-faces)))))))))
 
-(defun +doom-modeline--buffer-file-name-relative ()
+(defun +doom-modeline--buffer-file-name-relative (&optional include-project)
   "Propertized `buffer-file-name' showing directories relative to project's root only."
-  (let* ((modified-faces (if (buffer-modified-p) 'doom-modeline-buffer-modified))
-         (active (active))
-         (root (doom-project-root)))
+  (let ((root (t/project-root))
+        (active (active)))
     (if (null root)
-        "%b"
-      (let ((relative-dirs (file-relative-name (file-name-directory buffer-file-name) root))
-            (relative-faces `(:inherit ,(or modified-faces (if active 'doom-modeline-buffer-path))))
-            (file-faces `(:inherit ,(or modified-faces (if active 'doom-modeline-buffer-file)))))
+        (propertize "%b" 'face (if active 'doom-modeline-buffer-file))
+      (let* ((modified-faces (if (buffer-modified-p) 'doom-modeline-buffer-modified))
+             (relative-dirs (file-relative-name (file-name-directory buffer-file-truename)
+                                                (if include-project (concat root "../") root)))
+             (relative-faces (or modified-faces (if active 'doom-modeline-buffer-path)))
+             (file-faces (or modified-faces (if active 'doom-modeline-buffer-file))))
         (if (equal "./" relative-dirs) (setq relative-dirs ""))
-        (concat (propertize relative-dirs 'face relative-faces)
-                (propertize (file-name-nondirectory buffer-file-name) 'face file-faces))))))
+        (concat (propertize relative-dirs 'face (if relative-faces `(:inherit ,relative-faces)))
+                (propertize (file-name-nondirectory buffer-file-truename)
+                            'face (if file-faces `(:inherit ,file-faces))))))))
 
 (defun +doom-modeline--buffer-file-name (truncate-project-root-parent)
   "Propertized `buffer-file-name'.
@@ -440,39 +395,38 @@ fish-shell style.
 
 Example:
 ~/Projects/FOSS/emacs/lisp/comint.el => ~/P/F/emacs/lisp/comint.el"
-  (let* ((modified-faces (if (buffer-modified-p) 'doom-modeline-buffer-modified))
-         (active (active))
-         (project-root (doom-project-root))
+  (let* ((project-root (t/project-root))
          (file-name-split (shrink-path-file-mixed project-root
-                                                  (file-name-directory
-                                                   (or buffer-file-truename
-                                                       (file-truename buffer-file-name)))
-                                                  (file-truename buffer-file-name))))
+                                                  (file-name-directory buffer-file-truename)
+                                                  buffer-file-truename))
+         (active (active)))
     (if (null file-name-split)
-        "%b"
+        (propertize "%b" 'face (if active 'doom-modeline-buffer-file))
       (pcase-let ((`(,root-path-parent ,project ,relative-path ,filename) file-name-split))
-        (let ((sp-faces `(:inherit ,(or modified-faces (if active 'font-lock-comment-face))
-                                   ,@(if active '(:weight bold))))
-              (project-faces `(:inherit ,(or modified-faces (if active 'font-lock-string-face))
-                                        ,@(if active '(:weight bold))))
-              (relative-faces `(:inherit ,(or modified-faces (if active 'doom-modeline-buffer-path))))
-              (file-faces `(:inherit ,(or modified-faces (if active 'doom-modeline-buffer-file)))))
-          (concat (propertize (if truncate-project-root-parent
-                                  root-path-parent
-                                (abbreviate-file-name project-root))
-                              'face sp-faces)
-                  (propertize (concat project "/") 'face project-faces)
-                  (when relative-path (propertize relative-path 'face relative-faces))
-                  (propertize filename 'face file-faces)))))))
-
+        (let ((modified-faces (if (buffer-modified-p) 'doom-modeline-buffer-modified)))
+          (let ((sp-faces       (or modified-faces (if active 'font-lock-comment-face)))
+                (project-faces  (or modified-faces (if active 'font-lock-string-face)))
+                (relative-faces (or modified-faces (if active 'doom-modeline-buffer-path)))
+                (file-faces     (or modified-faces (if active 'doom-modeline-buffer-file))))
+            (let ((sp-props       `(,@(if sp-faces       `(:inherit ,sp-faces))      ,@(if active '(:weight bold))))
+                  (project-props  `(,@(if project-faces  `(:inherit ,project-faces)) ,@(if active '(:weight bold))))
+                  (relative-props `(,@(if relative-faces `(:inherit ,relative-faces))))
+                  (file-props     `(,@(if file-faces     `(:inherit ,file-faces)))))
+              (concat (propertize (if truncate-project-root-parent
+                                      root-path-parent
+                                    (abbreviate-file-name project-root))
+                                  'face sp-props)
+                      (propertize (concat project "/") 'face project-props)
+                      (if relative-path (propertize relative-path 'face relative-props))
+                      (propertize filename 'face file-props)))))))))
 
 
 ;;
 ;; Segments
 ;;
 
-(def-modeline-segment! buffer-project
-  "Displays `doom-project-root'. This is for special buffers like the scratch
+(def-modeline-segment! buffer-default-directory
+  "Displays `default-directory'. This is for special buffers like the scratch
 buffer where knowing the current project directory is important."
   (let ((face (if (active) 'doom-modeline-buffer-path)))
     (concat (if (display-graphic-p) " ")
@@ -481,25 +435,21 @@ buffer where knowing the current project directory is important."
              :face face
              :v-adjust -0.05
              :height 1.25)
-            (propertize (concat " " (abbreviate-file-name (doom-project-root)))
+            (propertize (concat " " (abbreviate-file-name default-directory))
                         'face face))))
 
 ;;
 (def-modeline-segment! buffer-info
   "Combined information about the current buffer, including the current working
 directory, the file name, and its state (modified, read-only or non-existent)."
-  (let* ((all-the-icons-scale-factor 0.8)
-         (modified-p (buffer-modified-p))
-         ;; (active (active))
-         ;; (faces (if modified-p 'doom-modeline-buffer-modified))
-         )
+  (let ((all-the-icons-scale-factor 1.2))
     (concat (cond (buffer-read-only
                    (concat (all-the-icons-octicon
                             "lock"
                             :face 'doom-modeline-warning
                             :v-adjust -0.05)
                            " "))
-                  (modified-p
+                  ((buffer-modified-p)
                    (concat (all-the-icons-faicon
                             "floppy-o"
                             :face 'doom-modeline-buffer-modified
@@ -521,20 +471,15 @@ directory, the file name, and its state (modified, read-only or non-existent)."
             (if buffer-file-name
                 (+doom-modeline-buffer-file-name)
               "%b"))))
-;; (when-let (dir-path (+doom-modeline--buffer-path))
-;;   (if-let (faces (or faces (if active 'doom-modeline-buffer-path)))
-;;       (propertize dir-path 'face `(:inherit ,faces))
-;;     dir-path))
-;; (when-let (file-path (+doom-modeline--buffer-file))
-;;   (if-let (faces (or faces (if active 'doom-modeline-buffer-file)))
-;;       (propertize file-path 'face `(:inherit ,faces))
-;;     file-path)))))
-
 
 ;;
 (def-modeline-segment! buffer-info-simple
-  "Return the current buffer name only, but with fontification."
-  (propertize "%b" 'face (if (active) 'doom-modeline-buffer-file)))
+  "Display only the current buffer's name, but with fontification."
+  (propertize
+   "%b"
+   'face (cond ((and buffer-file-name (buffer-modified-p))
+                'doom-modeline-buffer-modified)
+               ((active) 'doom-modeline-buffer-file))))
 
 ;;
 (def-modeline-segment! buffer-encoding
@@ -556,67 +501,10 @@ directory, the file name, and its state (modified, read-only or non-existent)."
    (concat (format-mode-line mode-name)
            (when (stringp mode-line-process)
              mode-line-process)
-           (when +doom-modeline-env-version
-             (concat " " +doom-modeline-env-version))
            (and (featurep 'face-remap)
                 (/= text-scale-mode-amount 0)
                 (format " (%+d)" text-scale-mode-amount)))
    'face (if (active) 'doom-modeline-buffer-major-mode)))
-
-(defun get-unicode-number (str)
-  "Return a nice unicode representation of a single-digit number STR."
-  (cond
-   ((string= "1" str) "➊")
-   ((string= "2" str) "➋")
-   ((string= "3" str) "➌")
-   ((string= "4" str) "➍")
-   ((string= "5" str) "➎")
-   ((string= "6" str) "➏")
-   ((string= "7" str) "➐")
-   ((string= "8" str) "➑")
-   ((string= "9" str) "➒")
-   ((string= "10" str) "➓")
-   (t str)))
-
-;;
-(def-modeline-segment! workspace-number
-  "The current workspace name or number. Requires `eyebrowse-mode' to be
-enabled."
-  (when (and (bound-and-true-p eyebrowse-mode)
-             (< 1 (length (eyebrowse--get 'window-configs))))
-    (let* ((num (eyebrowse--get 'current-slot))
-           (tag (when num (nth 2 (assoc num (eyebrowse--get 'window-configs)))))
-           (str (if (and tag (< 0 (length tag)))
-                    tag
-                  (when num (int-to-string num)))))
-      ;; (or (when spaceline-workspace-numbers-unicode
-      (propertize (get-unicode-number str) 'face (if (active) 'doom-modeline-workspace-number))
-      )))
-
-
-(defvar spaceline-org-clock-format-function
-  'org-clock-get-clock-string
-  "The function called by the `org-clock' segment to determine what to show.")
-
-;;
-(def-modeline-segment! org-clock
-  "Show information about the current org clock task.  Configure
-`spaceline-org-clock-format-function' to configure. Requires a currently running
-org clock.
-This segment overrides the modeline functionality of `org-mode-line-string'."
-  (when (and (fboundp 'org-clocking-p)
-             (org-clocking-p))
-    (substring-no-properties (funcall spaceline-org-clock-format-function)))
-  :global-override org-mode-line-string)
-
-;;
-(def-modeline-segment! org-pomodoro
-  "Shows the current pomodoro.  Requires `org-pomodoro' to be active.
-This segment overrides the modeline functionality of `org-pomodoro' itself."
-  (when (and (fboundp 'org-pomodoro-active-p)
-             (org-pomodoro-active-p))
-    (nth 1 org-pomodoro-mode-line))
-  :global-override org-pomodoro-mode-line)
 
 ;;
 (def-modeline-segment! vcs
@@ -626,17 +514,16 @@ This segment overrides the modeline functionality of `org-pomodoro' itself."
            (state   (vc-state buffer-file-name backend)))
       (let ((face    'mode-line-inactive)
             (active  (active))
-            (all-the-icons-scale-factor 0.8)
-            (all-the-icons-default-adjust -0.0))
+            (all-the-icons-scale-factor 1.0)
+            (all-the-icons-default-adjust -0.1))
         (concat "  "
                 (cond ((memq state '(edited added))
                        (if active (setq face 'doom-modeline-info))
                        (all-the-icons-octicon
                         "git-compare"
                         :face face
-                        ;; :height 1.0
-                        ;; :v-adjust -0.05
-                        ))
+                        :height 1.2
+                        :v-adjust -0.05))
                       ((eq state 'needs-merge)
                        (if active (setq face 'doom-modeline-info))
                        (all-the-icons-octicon "git-merge" :face face))
@@ -651,9 +538,8 @@ This segment overrides the modeline functionality of `org-pomodoro' itself."
                        (all-the-icons-octicon
                         "git-compare"
                         :face face
-                        ;; :height 1.2
-                        ;; :v-adjust -0.05
-                        )))
+                        :height 1.2
+                        :v-adjust -0.05)))
                 " "
                 (propertize (substring vc-mode (+ (if (eq backend 'Hg) 2 3) 2))
                             'face (if active face))
@@ -689,7 +575,7 @@ icons."
       ('no-checker  (+doom-ml-icon "sim_card_alert" "-" 'font-lock-doc-face))
       ('errored     (+doom-ml-icon "sim_card_alert" "Error" 'doom-modeline-urgent))
       ('interrupted (+doom-ml-icon "pause" "Interrupted" 'font-lock-doc-face)))))
-;; ('interrupted (+doom-ml-icon "x" "Interrupted" 'font-lock-doc-face)))))
+      ;; ('interrupted (+doom-ml-icon "x" "Interrupted" 'font-lock-doc-face)))))
 
 ;;
 (defsubst doom-column (pos)
@@ -789,31 +675,6 @@ lines are selected, or the NxM dimensions of a block selection."
                length))
      'face (if (active) 'doom-modeline-panel))))
 
-(def-modeline-segment! perspname
-  "The current perspective name."
-  (when (and (bound-and-true-p persp-mode)
-             ;; There are multiple implementations of
-             ;; persp-mode with different APIs
-             (fboundp 'safe-persp-name)
-             (fboundp 'get-frame-persp)
-             ;; Display the nil persp only if specified
-             (or (not (string= "" (safe-persp-name (get-frame-persp))))
-                 nil))
-    (let ((name (safe-persp-name (get-frame-persp))))
-      (propertize
-       (if (file-directory-p name)
-           (file-name-nondirectory (directory-file-name name))
-         name)
-       'face (if (active) 'doom-modeline-perspname)))))
-
-;; (def-modeline-segment! buffer-purpose
-;;                           "The current window purpose. Requires `purpose-mode' to be
-;; enabled."
-;;                           (when (bound-and-true-p purpose-mode)
-;;                             (propertize (substring (purpose--modeline-string) 2 -1)
-;;                                         'face 'mode-line-inactive
-;;                                         'help-echo "Window purpose")))
-
 (def-modeline-segment! matches
   "Displays: 1. the currently recording macro, 2. A current/total for the
 current search term (with anzu), 3. The number of substitutions being conducted
@@ -822,8 +683,8 @@ with `evil-ex-substitute', and/or 4. The number of active `iedit' regions."
                       (+doom-modeline--anzu)
                       (+doom-modeline--evil-substitute)
                       (+doom-modeline--iedit))))
-    (or (and (not (equal meta "")) meta)
-        (if buffer-file-name " %p/%I "))))
+     (or (and (not (equal meta "")) meta)
+         (if buffer-file-name " %I "))))
 
 ;; TODO Include other information
 (def-modeline-segment! media-info
@@ -833,19 +694,18 @@ with `evil-ex-substitute', and/or 4. The number of active `iedit' regions."
              (image-size (image-get-display-property) :pixels)
            (format "  %dx%d  " width height)))))
 
-;; The bar regulates the height of the mode-line in GUI Emacs.
 (def-modeline-segment! bar
-  evil-mode-line-tag
-  ;; (concat (when (display-graphic-p)
-  ;;           (+doom-modeline--make-xpm
-  ;;            (face-background (if (active)
-  ;;                                 'doom-modeline-bar
-  ;;                               'doom-modeline-inactive-bar)
-  ;;                             nil t)
-  ;;            +doom-modeline-height
-  ;;            +doom-modeline-bar-width))
-  ;;         evil-mode-line-tag)
-  )
+  "The bar regulates the height of the mode-line in GUI Emacs.
+Returns \"\" to not break --no-window-system."
+  (if (display-graphic-p)
+      (+doom-modeline--make-xpm
+       (face-background (if (active)
+                            'doom-modeline-bar
+                          'doom-modeline-inactive-bar)
+                        nil t)
+       +doom-modeline-height
+       +doom-modeline-bar-width)
+    ""))
 
 
 ;;
@@ -853,19 +713,8 @@ with `evil-ex-substitute', and/or 4. The number of active `iedit' regions."
 ;;
 
 (def-modeline! main
-  (bar matches " " buffer-info "  ")
-  ;; (bar matches "  " buffer-info " " buffer-purpose "  ")
-  (major-mode vcs flycheck " " perspname " " workspace-number " "))
-
-(def-modeline! clock
-  (bar matches " " buffer-info "  ")
-  ;; (bar matches "  " buffer-info " " buffer-purpose "  ")
-  (org-clock " " major-mode vcs flycheck " " perspname " " workspace-number " "))
-
-(def-modeline! pomodoro
-  (bar matches " " buffer-info "  ")
-  ;; (bar matches "  " buffer-info " " buffer-purpose "  ")
-  (org-clock org-pomodoro " " major-mode vcs flycheck " " perspname " " workspace-number " "))
+  (bar matches " " buffer-info "  %l:%c %p  " selection-info)
+  (buffer-encoding major-mode vcs flycheck))
 
 (def-modeline! minimal
   (bar matches " " buffer-info)
@@ -876,7 +725,7 @@ with `evil-ex-substitute', and/or 4. The number of active `iedit' regions."
   (buffer-encoding major-mode flycheck))
 
 (def-modeline! project
-  (bar buffer-project)
+  (bar buffer-default-directory)
   (major-mode))
 
 (def-modeline! media
@@ -900,31 +749,23 @@ with `evil-ex-substitute', and/or 4. The number of active `iedit' regions."
 (defun +doom-modeline|set-special-modeline ()
   (doom-set-modeline 'special))
 
-(defun +doom-modeline|set-clock-modeline ()
-  (doom-set-modeline 'clock))
-
-(defun +doom-modeline|set-pomodoro-modeline ()
-  (doom-set-modeline 'pomodoro))
-
 (defun +doom-modeline|set-media-modeline ()
   (doom-set-modeline 'media))
+
+(defun +doom-modeline|set-project-modeline ()
+  (doom-set-modeline 'project))
 
 
 ;;
 ;; Bootstrap
 ;;
 
-(add-hook 'doom-init-ui-hook          #'+doom-modeline|init)
+(add-hook 'doom-init-ui-hook #'+doom-modeline|init)
+(add-hook 'doom-scratch-buffer-hook #'+doom-modeline|set-special-modeline)
+(add-hook '+doom-dashboard-mode-hook #'+doom-modeline|set-project-modeline)
 
-(add-hook 'org-src-mode-hook          #'+doom-modeline|set-special-modeline)
-(add-hook 'org-clock-in-hook          #'+doom-modeline|set-clock-modeline)
-;; (add-hook 'org-clock-out-hook         #'+doom-modeline|set-main-modeline)
-(add-hook 'org-pomodoro-started-hook  #'+doom-modeline|set-pomodoro-modeline)
-;; (add-hook 'org-pomodoro-finished-hook #'+doom-modeline|set-main-modeline)
-(add-hook 'image-mode-hook            #'+doom-modeline|set-media-modeline)
-(add-hook 'circe-mode-hook            #'+doom-modeline|set-special-modeline)
-
-;; torgeir added this
-(add-hook! 'js2-mode-hook (setq +doom-modeline-env-command "node -v 2>&1"))
+(add-hook 'org-src-mode-hook #'+doom-modeline|set-special-modeline)
+(add-hook 'image-mode-hook   #'+doom-modeline|set-media-modeline)
+(add-hook 'circe-mode-hook   #'+doom-modeline|set-special-modeline)
 
 (provide 'doom-modeline)
