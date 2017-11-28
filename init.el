@@ -192,8 +192,8 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Ubuntu Mono"
-                               :size 20
+   dotspacemacs-default-font '("Operator Mono Lig"
+                               :size 18
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -434,6 +434,10 @@ It should only modify the values of Spacemacs settings."
       (message "Microsoft Windows"))))
 
   ;; ============================== Others =====================================
+  ;; enable ligatures support (emacs mac port only)
+  ;; others here: https://github.com/tonsky/FiraCode/wiki/Setting-up-Emacs
+  (mac-auto-operator-composition-mode)
+
   ;; enable flyspell in text-mode
   (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
 
@@ -470,7 +474,7 @@ It should only modify the values of Spacemacs settings."
   ;;解决org表格里面中英文对齐的问题
   (when (configuration-layer/layer-usedp 'chinese)
     (when (and (spacemacs/system-is-mac) window-system)
-      (spacemacs//set-monospaced-font "Ubuntu Mono" "Hiragino Sans GB" 14 16)))
+      (spacemacs//set-monospaced-font "Operator Mono Lig" "Hiragino Sans GB" 18 20)))
 
   ;; Setting Chinese Font
   (when (and (spacemacs/system-is-mswindows) window-system)
@@ -480,7 +484,7 @@ It should only modify the values of Spacemacs settings."
     (dolist (charset '(kana han symbol cjk-misc bopomofo))
       (set-fontset-font (frame-parameter nil 'font)
                         charset
-                        (font-spec :family "Microsoft Yahei" :size 14))))
+                        (font-spec :family "Microsoft Yahei" :size 20))))
 
   ;; force horizontal split window
   (setq split-width-threshold 120)
