@@ -80,9 +80,12 @@ version 2015-08-21"
         (message "No recognized program file suffix for this file.")))))
 
 (defun my-web-mode-indent-setup ()
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2))
+  (setq web-mode-attr-indent-offset 2) ; web-mode
+  (setq web-mode-code-indent-offset 2) ; web-mode, js code in html file
+  (setq web-mode-css-indent-offset 2) ; web-mode, css in html file
+  (setq web-mode-markup-indent-offset 2) ; web-mode, html tag in html file
+  (setq web-mode-sql-indent-offset 2) ; web-mode
+  (setq web-mode-attr-value-indent-offset 2))
 
 (defun my-toggle-web-indent ()
   (interactive)

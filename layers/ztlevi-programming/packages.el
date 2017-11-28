@@ -23,6 +23,7 @@
     nodejs-repl
     (nodejs-repl-eval :location local)
     js2-mode
+    react-mode
     js2-refactor
     json-mode
     racket-mode
@@ -307,6 +308,9 @@
       "r>" 'js2r-forward-slurp
       "r<" 'js2r-forward-barf)))
 
+(defun ztlevi-programming/post-init-react-mode ()
+  (setq react-indent-level 2))
+
 (defun ztlevi-programming/post-init-js2-mode ()
   (progn
     ;; Better imenu
@@ -364,7 +368,6 @@
         (setq-default js2-strict-trailing-comma-warning nil)
 
         (add-hook 'web-mode-hook 'my-web-mode-indent-setup)
-
         (spacemacs/set-leader-keys-for-major-mode 'js2-mode
           "ti" 'my-toggle-web-indent)
         (spacemacs/set-leader-keys-for-major-mode 'js-mode
@@ -549,7 +552,7 @@
 
     (when (configuration-layer/package-usedp 'company)
       (spacemacs|add-company-backends :modes shell-script-mode makefile-bsdmake-mode sh-mode lua-mode nxml-mode conf-unix-mode json-mode graphviz-dot-mode))
-    
+
     ;; define company-mode keybindings
     (with-eval-after-load 'company
       (progn
