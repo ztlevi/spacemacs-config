@@ -12,6 +12,7 @@
 (defconst ztlevi-programming-packages
   '(
     (stylus-mode :location (recipe :fetcher github :repo "vladh/stylus-mode"))
+    rjsx-mode
     xref-js2
     css-mode
     java-mode
@@ -49,6 +50,22 @@
 (defun ztlevi-programming/init-stylus-mode ()
   (use-package stylus-mode
     :defer t))
+
+(defun ztlevi-programming/init-rjsx-mode ()
+  (use-package rjsx-mode
+    :defer t
+    :config
+    (setq-local js2-basic-offset 2)
+    (setq-local css-indent-offset 2)
+    (setq-local web-mode-markup-indent-offset 2)
+    (setq-local web-mode-css-indent-offset 2)
+    (setq-local web-mode-code-indent-offset 2)
+    (setq-local web-mode-attr-indent-offset 2)
+
+    (with-eval-after-load 'rjsx-mode
+      (define-key rjsx-mode-map (kbd "C-d") nil))
+    ))
+(add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
 
 (defun ztlevi-programming/post-init-java-mode ()
   ;; ctags add hook
@@ -264,16 +281,10 @@
 
 (defun ztlevi-programming/post-init-flycheck ()
   (progn
-    ;; use web-mode for .jsx files
-    (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
-
     ;; disable jshint since we prefer eslint checking
     (setq-default flycheck-disabled-checkers
                   (append flycheck-disabled-checkers
                           '(javascript-jshint)))
-
-    ;; use eslint with web-mode for jsx files
-    (flycheck-add-mode 'javascript-eslint 'web-mode)
 
     ;; customize flycheck temp file prefix
     (setq-default flycheck-temp-prefix ".flycheck")
@@ -284,20 +295,12 @@
                           '(json-jsonlist)))
 
     ;; add c++ flycheck standard
-    (add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++11")))
+    (add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++11"))))
 
-    ;; for better jsx syntax-highlighting in web-mode
-    (defadvice web-mode-highlight-part (around tweak-jsx activate)
-      (if (equal web-mode-content-type "jsx")
-          (let ((web-mode-enable-part-face nil))
-            ad-do-it)
-        ad-do-it))
-    )
   (with-eval-after-load 'flycheck
     (progn
       (setq flycheck-display-errors-delay 0.9)
-      (setq flycheck-idle-change-delay 2.0)
-      )))
+      (setq flycheck-idle-change-delay 2.0))))
 
 (defun ztlevi-programming/post-init-eldoc ()
   (setq eldoc-idle-delay 0.4))
@@ -307,24 +310,6 @@
     (spacemacs/set-leader-keys-for-major-mode 'js2-mode
       "r>" 'js2r-forward-slurp
       "r<" 'js2r-forward-barf)))
-
-(defun ztlevi-programming/post-init-react-mode ()
-  (with-eval-after-load 'web-mode
-    (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
-    (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
-    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
-
-  (setq-local
-   ;; js2-mode
-   js2-basic-offset 2
-   ;; web-mode
-   css-indent-offset 2
-   web-mode-markup-indent-offset 2
-   web-mode-css-indent-offset 2
-   web-mode-code-indent-offset 2
-   web-mode-attr-indent-offset 2)
-
-  (setq react-indent-level 2))
 
 (defun ztlevi-programming/post-init-js2-mode ()
   (progn

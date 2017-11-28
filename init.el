@@ -86,7 +86,6 @@ This function should only modify configuration layer settings."
      ;;           :variables treemacs-use-follow-mode t)
 
      ;; ======================== Frameworks ======================
-     react
      ;; ruby-on-rails
 
      ;; ======================== Languages =======================

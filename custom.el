@@ -5,7 +5,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(+doom-modeline-height 30)
+ '(+doom-modeline-height 30 t)
  '(ahs-case-fold-search nil)
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
