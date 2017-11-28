@@ -130,53 +130,44 @@ DEFAULT is non-nil, set the default mode-line for all buffers."
           modeline)))
 
 
-(use-package eldoc-eval
-  :demand t
-  :config
-  (defun +doom-modeline-eldoc (text)
-    (concat (when (display-graphic-p)
-              (+doom-modeline--make-xpm
-               (face-background 'doom-modeline-eldoc-bar nil t)
-               +doom-modeline-height
-               +doom-modeline-bar-width))
-            text))
+(defun +doom-modeline-eldoc (text)
+  (concat (when (display-graphic-p)
+            (+doom-modeline--make-xpm
+             (face-background 'doom-modeline-eldoc-bar nil t)
+             +doom-modeline-height
+             +doom-modeline-bar-width))
+          text))
 
-  ;; Show eldoc in the mode-line with `eval-expression'
-  (defun +doom-modeline--show-eldoc (input)
-    "Display string STR in the mode-line next to minibuffer."
-    (with-current-buffer (eldoc-current-buffer)
-      (let* ((str              (and (stringp input) input))
-             (mode-line-format (or (and str (or (+doom-modeline-eldoc str) str))
-                                   mode-line-format))
-             mode-line-in-non-selected-windows)
-        (force-mode-line-update)
-        (sit-for eldoc-show-in-mode-line-delay))))
+;; Show eldoc in the mode-line with `eval-expression'
+(defun +doom-modeline--show-eldoc (input)
+  "Display string STR in the mode-line next to minibuffer."
+  (with-current-buffer (eldoc-current-buffer)
+    (let* ((str              (and (stringp input) input))
+           (mode-line-format (or (and str (or (+doom-modeline-eldoc str) str))
+                                 mode-line-format))
+           mode-line-in-non-selected-windows)
+      (force-mode-line-update)
+      (sit-for eldoc-show-in-mode-line-delay)))
 
   (setq eldoc-in-minibuffer-show-fn #'+doom-modeline--show-eldoc)
   (eldoc-in-minibuffer-mode +1))
 
 ;; anzu and evil-anzu expose current/total state that can be displayed in the
 ;; mode-line.
-(use-package evil-anzu
-  :when (featurep 'evil)
-  :init
-  (add-transient-hook! #'evil-ex-start-search (require 'evil-anzu))
-  (add-transient-hook! #'evil-ex-start-word-search (require 'evil-anzu))
-  :config
-  (setq anzu-cons-mode-line-p nil
-        anzu-minimum-input-length 1
-        anzu-search-threshold 250)
+(setq anzu-cons-mode-line-p nil
+      anzu-minimum-input-length 1
+      anzu-search-threshold 250)
 
-  ;; Avoid anzu conflicts across buffers
-  (mapc #'make-variable-buffer-local
-        '(anzu--total-matched anzu--current-position anzu--state
-          anzu--cached-count anzu--cached-positions anzu--last-command
-          anzu--last-isearch-string anzu--overflow-p))
+;; Avoid anzu conflicts across buffers
+(mapc #'make-variable-buffer-local
+      '(anzu--total-matched anzu--current-position anzu--state
+                            anzu--cached-count anzu--cached-positions anzu--last-command
+                            anzu--last-isearch-string anzu--overflow-p))
 
-  ;; Ensure anzu state is cleared when searches & iedit are done
-  (add-hook 'isearch-mode-end-hook #'anzu--reset-status t)
-  (add-hook '+evil-esc-hook #'anzu--reset-status t)
-  (add-hook 'iedit-mode-end-hook #'anzu--reset-status))
+;; Ensure anzu state is cleared when searches & iedit are done
+(add-hook 'isearch-mode-end-hook #'anzu--reset-status t)
+(add-hook '+evil-esc-hook #'anzu--reset-status t)
+(add-hook 'iedit-mode-end-hook #'anzu--reset-status)
 
 
 ;; Keep `+doom-modeline-current-window' up-to-date
@@ -575,7 +566,7 @@ icons."
       ('no-checker  (+doom-ml-icon "sim_card_alert" "-" 'font-lock-doc-face))
       ('errored     (+doom-ml-icon "sim_card_alert" "Error" 'doom-modeline-urgent))
       ('interrupted (+doom-ml-icon "pause" "Interrupted" 'font-lock-doc-face)))))
-      ;; ('interrupted (+doom-ml-icon "x" "Interrupted" 'font-lock-doc-face)))))
+;; ('interrupted (+doom-ml-icon "x" "Interrupted" 'font-lock-doc-face)))))
 
 ;;
 (defsubst doom-column (pos)
@@ -683,8 +674,8 @@ with `evil-ex-substitute', and/or 4. The number of active `iedit' regions."
                       (+doom-modeline--anzu)
                       (+doom-modeline--evil-substitute)
                       (+doom-modeline--iedit))))
-     (or (and (not (equal meta "")) meta)
-         (if buffer-file-name " %I "))))
+    (or (and (not (equal meta "")) meta)
+        (if buffer-file-name " %I "))))
 
 ;; TODO Include other information
 (def-modeline-segment! media-info
