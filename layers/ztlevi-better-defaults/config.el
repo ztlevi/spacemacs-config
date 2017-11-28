@@ -30,7 +30,6 @@
 (when (spacemacs/window-system-is-mac)
   (setq ns-pop-up-frames nil))
 
-(global-prettify-symbols-mode 1)
 (setq-default fill-column 80)
 
 (setq recenter-positions '(top middle bottom))

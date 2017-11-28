@@ -24,7 +24,6 @@
     nodejs-repl
     (nodejs-repl-eval :location local)
     js2-mode
-    react-mode
     js2-refactor
     json-mode
     racket-mode
