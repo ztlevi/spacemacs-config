@@ -54,12 +54,12 @@
   (use-package rjsx-mode
     :defer t
     :config
-    (setq-local js2-basic-offset 2)
-    (setq-local css-indent-offset 2)
-    (setq-local web-mode-markup-indent-offset 2)
-    (setq-local web-mode-css-indent-offset 2)
-    (setq-local web-mode-code-indent-offset 2)
-    (setq-local web-mode-attr-indent-offset 2)
+    (setq js2-basic-offset 2)
+    (setq css-indent-offset 2)
+    (setq web-mode-markup-indent-offset 2)
+    (setq web-mode-css-indent-offset 2)
+    (setq web-mode-code-indent-offset 2)
+    (setq web-mode-attr-indent-offset 2)
 
     (with-eval-after-load 'rjsx-mode
       (define-key rjsx-mode-map (kbd "C-d") nil))
@@ -343,28 +343,28 @@
       (progn
         ;; these mode related variables must be in eval-after-load
         ;; https://github.com/magnars/.emacs.d/blob/master/settings/setup-js2-mode.el
-        (setq-default js2-allow-rhino-new-expr-initializer nil)
-        (setq-default js2-auto-indent-p nil)
-        (setq-default js2-enter-indents-newline nil)
-        (setq-default js2-global-externs '("module" "ccui" "require" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location" "__dirname" "console" "JSON"))
-        (setq-default js2-idle-timer-delay 0.2)
-        (setq-default js2-mirror-mode nil)
-        (setq-default js2-strict-inconsistent-return-warning nil)
-        (setq-default js2-include-rhino-externs nil)
-        (setq-default js2-include-gears-externs nil)
-        (setq-default js2-concat-multiline-strings 'eol)
-        (setq-default js2-rebind-eol-bol-keys nil)
-        (setq-default js2-auto-indent-p t)
+        (setq js2-allow-rhino-new-expr-initializer nil)
+        (setq js2-auto-indent-p nil)
+        (setq js2-enter-indents-newline nil)
+        (setq js2-global-externs '("module" "ccui" "require" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location" "__dirname" "console" "JSON"))
+        (setq js2-idle-timer-delay 0.2)
+        (setq js2-mirror-mode nil)
+        (setq js2-strict-inconsistent-return-warning nil)
+        (setq js2-include-rhino-externs nil)
+        (setq js2-include-gears-externs nil)
+        (setq js2-concat-multiline-strings 'eol)
+        (setq js2-rebind-eol-bol-keys nil)
+        (setq js2-auto-indent-p t)
 
-        (setq-default js2-bounce-indent nil)
-        (setq-default js-indent-level 4)
-        (setq-default js2-basic-offset 4)
-        (setq-default js-switch-indent-offset 4)
+        (setq js2-bounce-indent nil)
+        (setq js-indent-level 4)
+        (setq js2-basic-offset 4)
+        (setq js-switch-indent-offset 4)
         ;; Let flycheck handle parse errors
-        (setq-default js2-mode-show-parse-errors nil)
-        (setq-default js2-mode-show-strict-warnings nil)
-        (setq-default js2-highlight-external-variables t)
-        (setq-default js2-strict-trailing-comma-warning nil)
+        (setq js2-mode-show-parse-errors nil)
+        (setq js2-mode-show-strict-warnings nil)
+        (setq js2-highlight-external-variables t)
+        (setq js2-strict-trailing-comma-warning nil)
 
         (add-hook 'web-mode-hook 'my-web-mode-indent-setup)
         (spacemacs/set-leader-keys-for-major-mode 'js2-mode
