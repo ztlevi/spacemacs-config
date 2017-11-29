@@ -4,31 +4,31 @@
 ** Installation
 *** Install Emacs-mac on Mac
 
-    *Method 1*: Use brew cask:
-    #+BEGIN_SRC shell
-      brew tap railwaycat/emacsmacport
-      brew cask install emacs-mac-spacemacs-icon
-    #+END_SRC
+    - *Method 1*: Use brew cask(Recommended)
+      #+BEGIN_SRC shell
+        brew tap railwaycat/emacsmacport
+        brew cask install emacs-mac-spacemacs-icon
+      #+END_SRC
 
-    *Method 2*: Just brew, need compiling. (more customization)
-    #+BEGIN_SRC shell
-      brew tap railwaycat/emacsmacport
-      brew install emacs-mac --with-spacemacs-icon --with-gnutls --with-natural-title-bar
-      # create alias in /Applications
-      rm /Applications/Emacs
-      brew linkapps emacs-mac
-    #+END_SRC
+    - *Method 2*: Just brew, need compiling. (more customization)
+      #+BEGIN_SRC shell
+        brew tap railwaycat/emacsmacport
+        brew install emacs-mac --with-spacemacs-icon --with-gnutls --with-natural-title-bar
+        # create alias in /Applications
+        rm /Applications/Emacs
+        brew linkapps emacs-mac
+      #+END_SRC
 
-    Notes: (just for method 2)
+      Notes: (just for method 2)
 
-    1. natural-title-bar usage [[https://github.com/railwaycat/homebrew-emacsmacport/wiki/Natural-Title-Bar][here]].
+      1. natural-title-bar usage [[https://github.com/railwaycat/homebrew-emacsmacport/wiki/Natural-Title-Bar][here]].
 
-    2. Solution to incoming network connection:
-       Codesign your Emacs.app. Instructions over [[http://apple.stackexchange.com/questions/3271/how-to-get-rid-of-firewall-accept-incoming-connections-dialog/170566][here]].
+      2. Solution to incoming network connection:
+         Codesign your Emacs.app. Instructions over [[http://apple.stackexchange.com/questions/3271/how-to-get-rid-of-firewall-accept-incoming-connections-dialog/170566][here]].
 
-       #+BEGIN_SRC shell
-         codesign --deep --force --verbose --sign ztlevi /usr/local/opt/emacs-mac/Emacs.app
-       #+END_SRC
+         #+BEGIN_SRC shell
+           codesign --deep --force --verbose --sign ztlevi /usr/local/opt/emacs-mac/Emacs.app
+         #+END_SRC
 *** Install Emacs on Linux
     #+BEGIN_SRC shell
       # Ubuntu
@@ -50,7 +50,7 @@
        #+BEGIN_SRC shell
          git clone https://github.com/ztlevi/spacemacs-config.git ~/.spacemacs.d
        #+END_SRC
-    2. Install all-the-icons fonts by ~M-x all-the-icons-install-fonts~. I'm using /Ubuntu Mono/ font, you could change it under ~dotspacemacs-default-font~.
+    2. Install all-the-icons fonts by ~M-x all-the-icons-install-fonts~. I'm using /Operator Mono Lig/ font(supports ligatures), you could change it under ~dotspacemacs-default-font~.
     3. Download and install DejaVu Sans Mono from [[https://sourceforge.net/projects/dejavu/files/dejavu/2.35/dejavu-fonts-ttf-2.35.tar.bz2/download][here]]. It's the best programming font supports unicode.
     4. Dependencies needed
        - Install ispell, ripgrep, the_silver_searcher, the_platinum_searcher
