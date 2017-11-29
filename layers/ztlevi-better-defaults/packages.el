@@ -95,6 +95,7 @@
         '(("vlc" "-L")))
 
       ;; FIXME: evilify dired mode will lead to startup warnings
+      (define-key dired-mode-map "G" nil)
       (evilified-state-evilify-map dired-mode-map
         :mode dired-mode
         :bindings
