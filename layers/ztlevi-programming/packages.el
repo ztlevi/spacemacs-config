@@ -29,6 +29,7 @@
     racket-mode
     yasnippet
     web-mode
+    web-beautify
     js-doc
     lua-mode
     (cc-mode :location built-in)
@@ -214,11 +215,20 @@
     ))
 
 (defun ztlevi-programming/post-init-json-mode ()
+  ;; set indent for json mode
+  (setq js-indent-level 2)
+  ;; set indent for json-reformat-region
+  (setq json-reformat:indent-width 2)
   (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.fire\\'" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.fire.meta\\'" . json-mode))
+
   (spacemacs/set-leader-keys-for-major-mode 'json-mode
     "ti" 'my-toggle-web-indent))
+
+(defun ztlevi-programming/post-init-web-beautify ()
+  (spacemacs/set-leader-keys-for-major-mode 'json-mode
+    "=" 'json-reformat-region-or-buffer))
 
 
 (defun ztlevi-programming/init-nodejs-repl ()

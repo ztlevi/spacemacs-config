@@ -42,13 +42,19 @@
 
 (add-hook 'term-mode-hook 'ztlevi/ash-term-hooks)
 
-;; reformat your json file, it requires python
-(defun beautify-json ()
+;; reformat json
+(defun json-reformat-region-or-buffer ()
   (interactive)
-  (let ((b (if mark-active (min (point) (mark)) (point-min)))
-        (e (if mark-active (max (point) (mark)) (point-max))))
-    (shell-command-on-region b e
-                             "python -mjson.tool" (current-buffer) t)))
+  (save-excursion
+    (if (region-active-p)
+        (progn
+          (json-reformat-region (region-beginning) (region-end))
+          (message "Reformated selected region."))
+      (progn
+        (json-reformat-region (point-min) (point-max))
+        (message "Reformated json file.")))
+    (whitespace-cleanup)))
+
 
 (add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt
                                                    '("xml"
