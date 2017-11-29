@@ -79,6 +79,7 @@
  '(doom-modeline-info ((t (:inherit success :weight bold :height 0.85))))
  '(doom-modeline-urgent ((t (:inherit error :weight bold :height 0.85))))
  '(doom-modeline-warning ((t (:inherit warning :weight bold :height 0.85))))
+ '(org-quote ((t (:background "#f0f0f0"))))
  '(ediff-current-diff-A ((t (:foreground "#f2241f" :background "#eed9d2"))))
  '(ediff-current-diff-B ((t (:foreground "#67b11d" :background "#dae6d0"))))
  '(ediff-current-diff-C ((t (:foreground "#3a81c3" :background "#edf1ed"))))

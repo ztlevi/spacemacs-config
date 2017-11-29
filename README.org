@@ -19,16 +19,13 @@
         brew linkapps emacs-mac
       #+END_SRC
 
+      #+BEGIN_QUOTE
       Notes: (just for method 2)
-
       1. natural-title-bar usage [[https://github.com/railwaycat/homebrew-emacsmacport/wiki/Natural-Title-Bar][here]].
-
       2. Solution to incoming network connection:
          Codesign your Emacs.app. Instructions over [[http://apple.stackexchange.com/questions/3271/how-to-get-rid-of-firewall-accept-incoming-connections-dialog/170566][here]].
-
-         #+BEGIN_SRC shell
-           codesign --deep --force --verbose --sign ztlevi /usr/local/opt/emacs-mac/Emacs.app
-         #+END_SRC
+          ~codesign --deep --force --verbose --sign ztlevi /usr/local/opt/emacs-mac/Emacs.app~
+      #+END_QUOTE
 *** Install Emacs on Linux
     #+BEGIN_SRC shell
       # Ubuntu
