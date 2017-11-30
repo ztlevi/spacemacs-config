@@ -23,6 +23,7 @@
     visual-regexp-steroids
     command-log
     evil
+    evil-surround
     discover-my-major
     ace-window
     avy
@@ -423,6 +424,12 @@
     (setq evil-insert-state-cursor '("#ff007f" (bar . 2)))
     (setq evil-hybrid-state-cursor '("#ff007f" (bar . 2)))
     ))
+
+(defun ztlevi-misc/post-init-evil-surround ()
+  (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
+  (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
+  (evil-define-key 'visual evil-surround-mode-map "Cs" 'evil-surround-change)
+  (evil-define-key 'visual evil-surround-mode-map "Ds" 'evil-surround-delete))
 
 (defun ztlevi-misc/init-visual-regexp ()
   (use-package visual-regexp
