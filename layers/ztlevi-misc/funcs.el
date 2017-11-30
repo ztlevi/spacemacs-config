@@ -9,10 +9,11 @@
 ;;
 ;;; License: GPLv3
 
-(defun ztlevi/buffer-refresh ()
+;; refresh buffer
+(defun revert-buffer-no-confirm ()
+  "Revert buffer without confirmation."
   (interactive)
-  (ztlevi/toggle-major-mode)
-  (ztlevi/toggle-major-mode))
+  (revert-buffer :ignore-auto :noconfirm))
 
 ;; define replace-dos-eol
 (defun ztlevi/replace-dos-eol ()
