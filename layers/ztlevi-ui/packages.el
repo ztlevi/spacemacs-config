@@ -93,6 +93,17 @@
              (throw 'break (default-value 'evil-shift-width)))))
       (concat "TS:" (int-to-string (or mode-indent-level 0)))))
 
+  ;; set state tag
+  (setq evil-normal-state-tag    (propertize " 𝗡 " 'face '((:inherit spacemacs-normal-face)))
+        evil-emacs-state-tag     (propertize " 𝗘 " 'face '((:inherit spacemacs-emacs-face)))
+        evil-hybrid-state-tag    (propertize " 𝗛 " 'face '((:inherit spacemacs-hybrid-face)))
+        evil-insert-state-tag    (propertize " 𝗜 " 'face '((:inherit spacemacs-insert-face)))
+        evil-motion-state-tag    (propertize " 𝗠 " 'face '((:inherit spacemacs-motion-face)))
+        evil-visual-state-tag    (propertize " 𝗩 " 'face '((:inherit spacemacs-visual-face)))
+        evil-evilified-state-tag (propertize " 𝗙 " 'face '((:inherit spacemacs-evilified-face)))
+        evil-replace-state-tag   (propertize " 𝗥 " 'face '((:inherit spacemacs-replace-face)))
+        evil-operator-state-tag  (propertize " 𝗢 " 'face '((:background "purple" :foreground "white"))))
+
   (setq my-flycheck-mode-line
         '(:eval
           (pcase flycheck-last-status-change
