@@ -34,6 +34,7 @@
     flyspell-correct
     peep-dired
     markdown-mode
+    edit-indirect
     ivy
     swiper
     magit
@@ -702,10 +703,13 @@
     (progn
       (define-key git-messenger-map (kbd "f") 'ztlevi/github-browse-commit))))
 
+(defun ztlevi-misc/init-edit-indirect ()
+  (use-package edit-indirect
+    :defer t))
+
 (defun ztlevi-misc/post-init-markdown-mode ()
   (progn
     (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
-
     ;; use remark to format markdown
     (defun remark/format-markdown ()
       (interactive)
@@ -754,5 +758,8 @@
         (evil-define-key 'normal gfm-mode-map (kbd "o") 'evil-org-open-below)
         (evil-define-key 'normal markdown-mode-map (kbd "O") 'evil-org-open-above)
         (evil-define-key 'normal gfm-mode-map (kbd "O") 'evil-org-open-above)
+
+        ;; bind key for edit code block
+        (define-key markdown-mode-map (kbd "C-c '") 'markdown-edit-code-block)
         ))
     ))
