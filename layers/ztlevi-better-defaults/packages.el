@@ -102,7 +102,9 @@
         "j"         'vinegar/move-down
         "k"         'vinegar/move-up
         "h"         'dired-up-directory
-        "l"         'dired-find-file
+        "l"         (if vinegar-reuse-dired-buffer
+                        'dired-find-alternate-file
+                      'dired-find-file)
         (kbd "C-w j") 'evil-window-down
         (kbd "C-w k") 'evil-window-up
         (kbd "C-w h") 'evil-window-left
