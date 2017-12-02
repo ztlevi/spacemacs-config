@@ -85,6 +85,6 @@
  '(ediff-current-diff-C ((t (:foreground "#3a81c3" :background "#edf1ed"))))
  '(ediff-current-diff-Ancestor ((t (:foreground "#2d9574" :background "#edf2e9"))))
  '(header-line ((t (:inherit font-lock-preprocessor-face))))
- '(show-paren-match ((t (:background "#ff69b4" :foreground "#fafafa")))))
+ '(show-paren-match ((t (:background "dodger blue" :foreground "#fafafa")))))
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
