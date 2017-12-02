@@ -12,7 +12,7 @@
 (defconst ztlevi-programming-packages
   '(
     (stylus-mode :location (recipe :fetcher github :repo "vladh/stylus-mode"))
-    rjsx-mode
+    ;; rjsx-mode
     xref-js2
     css-mode
     java-mode
@@ -51,6 +51,20 @@
   (use-package stylus-mode
     :defer t))
 
+(defun ztlevi-programming/post-init-react-mode ()
+  (with-eval-after-load 'web-mode
+    (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
+
+  (setq js2-basic-offset 2)
+  (setq css-indent-offset 2)
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-attr-indent-offset 2)
+  (setq react-indent-level 2))
+
 (defun ztlevi-programming/init-rjsx-mode ()
   (use-package rjsx-mode
     :defer t
@@ -65,7 +79,7 @@
     (with-eval-after-load 'rjsx-mode
       (define-key rjsx-mode-map (kbd "C-d") nil))
     ))
-(add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
+;; (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
 
 (defun ztlevi-programming/post-init-java-mode ()
   ;; ctags add hook

@@ -192,6 +192,7 @@
 (spacemacs/set-leader-keys "or" 'ztlevi/browser-refresh--chrome-applescript)
 (spacemacs/set-leader-keys "om" 'org-pandoc-export-to-markdown_github-and-open)
 
+(spacemacs/set-leader-keys "rr" 'react-mode)
 ;; resume
 (spacemacs/set-leader-keys "rh" 'helm-resume)
 (spacemacs/set-leader-keys "ri" 'ivy-resume)

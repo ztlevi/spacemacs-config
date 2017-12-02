@@ -87,6 +87,7 @@ This function should only modify configuration layer settings."
 
      ;; ======================== Frameworks ======================
      ;; ruby-on-rails
+     react
 
      ;; ======================== Languages =======================
      ;; (clojure :variables clojure-enable-fancify-symbols t)
