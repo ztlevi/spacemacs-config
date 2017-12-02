@@ -66,7 +66,7 @@
 (global-set-key (kbd "s-/") 'comment-dwim)
 
 ;; hungry delete
-(global-set-key (kbd "C-<backspace>") 'hungry-delete-backward)
+(global-set-key (kbd "s-<backspace>") 'hungry-delete-backward)
 
 ;; redefine C-i and S-tab
 (global-set-key (kbd "<C-i>") 'evil-shift-right-line)
@@ -162,7 +162,6 @@
 ;; (bind-key* "C-s-," 'ztlevi/delete-comma-at-the-end-of-this-line)
 (bind-key* "C-c l" 'ztlevi/insert-chrome-current-tab-url)
 ;; (bind-key* "M-s o" 'occur-dwim)
-(bind-key* "C-=" 'er/expand-region)
 (bind-key* "M--" 'ztlevi/goto-match-paren)
 (bind-key* "C-c k" 'which-key-show-top-level)
 (bind-key* "s-y" 'aya-expand)
