@@ -68,6 +68,10 @@
 ;; hungry delete
 (global-set-key (kbd "s-<backspace>") 'hungry-delete-backward)
 
+;; expand region
+(global-set-key (kbd "C-s-.") 'er/expand-region)
+(global-set-key (kbd "C-s-,") 'er/contract-region)
+
 ;; redefine C-i and S-tab
 (global-set-key (kbd "<C-i>") 'evil-shift-right-line)
 (global-set-key (kbd "<S-tab>") 'evil-shift-left-line)
