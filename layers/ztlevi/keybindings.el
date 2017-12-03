@@ -134,7 +134,6 @@
 (global-set-key (kbd "s-g") 'goto-line)
 ;; (global-set-key (kbd "s-s") 'save-buffer)
 (global-set-key (kbd "C-`") 'toggle-input-method)
-(global-set-key (kbd "s-d") 'ztlevi/my-mc-mark-next-like-this)
 (bind-key* "s-r" 'mc/reverse-regions)
 (global-set-key (kbd "<f5>") 'ztlevi/run-current-file)
 

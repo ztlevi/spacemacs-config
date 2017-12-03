@@ -396,9 +396,9 @@
     (define-key evil-visual-state-map (kbd "C-r") 'ztlevi/evil-quick-replace)
     (define-key evil-visual-state-map (kbd "ml") 'mc/edit-lines)
     (define-key evil-visual-state-map (kbd "mn") 'mc/mark-next-like-this)
-    (define-key evil-visual-state-map (kbd "m M-n") 'mc/unmark-next-like-this)
+    (define-key evil-visual-state-map (kbd "mN") 'mc/unmark-next-like-this)
     (define-key evil-visual-state-map (kbd "mp") 'mc/mark-previous-like-this)
-    (define-key evil-visual-state-map (kbd "m M-p") 'mc/unmark-previous-like-this)
+    (define-key evil-visual-state-map (kbd "mP") 'mc/unmark-previous-like-this)
     (define-key evil-visual-state-map (kbd "ma") 'mc/mark-all-like-this)
     (define-key evil-visual-state-map (kbd "mf") 'mc/mark-all-like-this-in-defun)
 
@@ -438,12 +438,11 @@
     :init
     (progn
       (bind-key* "C-s-l" 'mc/edit-lines)
-      (bind-key* "C-s-f" 'mc/mark-all-dwim)
-      (bind-key* "C-s-." 'mc/mark-next-like-this)
+      (bind-key* "C-s-g" 'mc/mark-all-like-this)
+      (bind-key* "C-s-." 'ztlevi/my-mc-mark-next-like-this)
       (bind-key* "C-s-," 'mc/mark-previous-like-this)
       (bind-key* "s->" 'mc/unmark-next-like-this)
       (bind-key* "s-<" 'mc/unmark-previous-like-this)
-      (bind-key* "C-c C-s-." 'mc/mark-all-like-this)
 
       ;; http://endlessparentheses.com/multiple-cursors-keybinds.html?source=rss
       (define-prefix-command 'endless/mc-map)
