@@ -6,7 +6,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(+doom-modeline-height 30 t)
- '(ahs-case-fold-search nil t)
+ '(ahs-case-fold-search nil)
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(command-log-mode-window-size 50)
@@ -36,6 +36,7 @@
  '(magit-diff-use-overlays nil)
  '(magit-use-overlays nil)
  '(markdown-gfm-use-electric-backquote nil)
+ '(max-mini-window-height 1)
  '(only-global-abbrevs t)
  '(org-agenda-custom-commands nil)
  '(org-agenda-ndays 1)
