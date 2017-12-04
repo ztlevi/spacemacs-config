@@ -735,8 +735,6 @@
           (spacemacs/set-leader-keys-for-major-mode mode
             "D" 'my-flymd-delete-tmp-file)
           (spacemacs/set-leader-keys-for-major-mode mode
-            "p" 'ztlevi/markdown-to-html)
-          (spacemacs/set-leader-keys-for-major-mode mode
             "H" 'markdown-hide-body)
           (spacemacs/set-leader-keys-for-major-mode mode
             "S" 'markdown-show-all)

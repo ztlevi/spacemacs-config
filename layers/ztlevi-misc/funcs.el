@@ -590,11 +590,6 @@ With PREFIX, cd to project root."
                            "url"))
                remote-branch))))))
 
-(defun ztlevi/markdown-to-html ()
-  (interactive)
-  (start-process "grip" "*gfm-to-html*" "grip" (buffer-file-name) "5000")
-  (browse-url (format "http://localhost:5000/%s.%s" (file-name-base) (file-name-extension (buffer-file-name)))))
-
 (defun ztlevi/github-browse-commit ()
   "Show the GitHub page for the current commit."
   (interactive)
