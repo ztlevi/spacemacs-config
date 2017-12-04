@@ -11,6 +11,7 @@
 
 (defconst ztlevi-better-defaults-packages
   '(
+    dired+
     (dired-mode :location built-in)
     (profiler :location built-in)
     (recentf :location built-in)
@@ -38,6 +39,11 @@
             "\\.ass$"
             ".*png$"))
     (setq recentf-max-saved-items 2048)))
+
+(defun ztlevi-better-defaults/init-dired+ ()
+  (use-package dired+
+    :defer t
+    :config (diredp-toggle-find-file-reuse-dir 1)))
 
 (defun ztlevi-better-defaults/init-dired-mode ()
   (use-package dired-mode
