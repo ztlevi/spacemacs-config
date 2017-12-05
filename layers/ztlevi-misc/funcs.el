@@ -202,10 +202,10 @@ org-files and bookmarks"
   "Construct the helm sources for my hotspots"
   `((name . "Mail and News")
     (candidates . (("Github Stars" . (lambda() (helm-github-stars)))
+                   ("Blog" . blog-admin-start)
                    ("Agenda" . (lambda () (org-agenda "" "a")))
                    ("Calculator" . (lambda () (helm-calcul-expression)))
                    ("Calendar" . (lambda ()  (browse-url "https://www.google.com/calendar/render")))
-                   ("Blog" . blog-admin-start)
                    ("RSS" . elfeed)
                    ("Run current flie" . (lambda () (ztlevi/run-current-file)))
                    ("sicp" . (lambda() (browse-url "http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-4.html#%_toc_start")))))
