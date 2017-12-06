@@ -214,10 +214,14 @@
 (spacemacs/set-leader-keys "gL" 'magit-log-buffer-file)
 (spacemacs/set-leader-keys "og" 'my-git-timemachine)
 
+;; dash find
+(spacemacs/set-leader-keys "fd" 'dash-at-point)
+(spacemacs/set-leader-keys "fD" 'dash-at-point-with-docset)
+
 ;; deal with BOM
 (spacemacs/set-leader-keys "fl" 'find-file-literally-at-point)
 (spacemacs/set-leader-keys "fh" 'ffap-hexl-mode)
-(spacemacs/set-leader-keys "fd" 'projectile-find-file-dwim-other-window)
+(spacemacs/set-leader-keys "fp" 'projectile-find-file-dwim-other-window)
 (spacemacs/set-leader-keys "nh" 'spacemacs/evil-search-clear-highlight)
 (spacemacs/set-leader-keys "oll" 'ztlevi/load-my-layout)
 (spacemacs/set-leader-keys "ols" 'ztlevi/save-my-layout)
