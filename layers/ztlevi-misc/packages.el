@@ -44,7 +44,6 @@
     wrap-region
     golden-ratio
     (highlight-global :location (recipe :fetcher github :repo "glen-dai/highlight-global"))
-    browse-at-remote
     )
   )
 
@@ -94,11 +93,6 @@
     (if (ztlevi-atomic-chrome-server-running-p)
         (message "Can't start atomic-chrome server, because port 64292 is already used")
       (atomic-chrome-start-server))))
-
-(defun ztlevi-misc/init-browse-at-remote ()
-  (use-package browse-at-remote
-    :defer t
-    :init (spacemacs/set-leader-keys "gho" 'browse-at-remote)))
 
 (defun ztlevi-misc/init-highlight-global ()
   (use-package highlight-global

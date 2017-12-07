@@ -29,7 +29,7 @@
     (define-key ranger-normal-mode-map (kbd "+") 'dired-create-directory))
   (setq ranger-omit-regexp "^\.DS_Store$")
   (setq ranger-excluded-extensions '("mkv" "iso" "mp4"))
-  (setq ranger-deer-show-details t)
+  (setq ranger-deer-show-details nil)
   (setq ranger-max-preview-size 10)
 )
 

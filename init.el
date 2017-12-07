@@ -72,6 +72,10 @@ This function should only modify configuration layer settings."
           magit-revert-buffers 'silent
           magit-refs-show-commit-count 'all
           magit-revision-show-gravatars nil)
+     (version-control :packages (not smerge-mode git-gutter git-gutter+
+                                     git-gutter-fringe git-gutter-fringe+)
+                      :variables version-control-diff-tool 'diff-hl
+                      version-control-diff-side 'left)
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
      (osx :variables osx-dictionary-dictionary-choice "Simplified Chinese - English"
           osx-command-as 'super)
