@@ -20,8 +20,8 @@
   (which-function-mode t)
   (setq header-line-format
         '((which-func-mode ("" which-func-format " ")))))
-(add-hook 'prog-mode-hook 'zt/set-header-line)
-(add-hook 'text-mode-hook 'zt/set-header-line)
+;; (add-hook 'prog-mode-hook 'zt/set-header-line)
+;; (add-hook 'text-mode-hook 'zt/set-header-line)
 
 ;; set scrolling speed
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 1) ((control) . nil)))
