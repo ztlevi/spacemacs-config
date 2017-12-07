@@ -12,10 +12,17 @@
 (defconst ztlevi-better-defaults-packages
   '(
     dired+
+    (auto-save :location local)
     (dired-mode :location built-in)
     (profiler :location built-in)
     (recentf :location built-in)
     ))
+
+(defun ztlevi-better-defaults/init-auto-save ()
+  (use-package auto-save
+    :config
+    (auto-save-enable)
+    (setq auto-save-slient t)))
 
 (defun ztlevi-better-defaults/post-init-recentf ()
   (progn
