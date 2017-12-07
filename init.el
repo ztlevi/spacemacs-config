@@ -45,7 +45,7 @@ This function should only modify configuration layer settings."
      spacemacs-visual
 
      ;; ======================== Misc =========================
-     ranger
+     (ranger :variables ranger-show-preview t)
      (pandoc :variables org-pandoc-options '((standalone . t)))
      (dash :packages (not counsel-dash helm-dash))
      better-defaults
@@ -408,6 +408,8 @@ It should only modify the values of Spacemacs settings."
 
   ;; https://github.com/syl20bnr/spacemacs/issues/2705
   ;; (setq tramp-mode nil)
+  (setq ranger-override-dired t)
+
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 

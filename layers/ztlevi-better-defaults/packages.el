@@ -13,10 +13,25 @@
   '(
     ;; dired+
     (auto-save :location local)
+    ranger
     ;; (dired-mode :location built-in)
     (profiler :location built-in)
     (recentf :location built-in)
     ))
+
+(defun ztlevi-better-defaults/post-init-ranger ()
+  ;; ranger and deer
+  (spacemacs/set-leader-keys "fj" 'deer)
+  (with-eval-after-load 'ranger
+    (define-key ranger-normal-mode-map (kbd "U") 'dired-unmark-all-files)
+    (define-key ranger-normal-mode-map (kbd "u") 'dired-unmark)
+    (define-key ranger-normal-mode-map (kbd "(") 'dired-hide-details-mode)
+    (define-key ranger-normal-mode-map (kbd "+") 'dired-create-directory))
+  (setq ranger-omit-regexp "^\.DS_Store$")
+  (setq ranger-excluded-extensions '("mkv" "iso" "mp4"))
+  (setq ranger-deer-show-details t)
+  (setq ranger-max-preview-size 10)
+)
 
 (defun ztlevi-better-defaults/init-auto-save ()
   (use-package auto-save

@@ -68,11 +68,6 @@
 ;; hungry delete
 (global-set-key (kbd "s-<backspace>") 'hungry-delete-backward)
 
-;; ranger and deer
-(spacemacs/set-leader-keys "fj" 'deer)
-(with-eval-after-load 'ranger
-  (define-key ranger-normal-mode-map (kbd "F") 'dired-create-directory))
-
 ;; expand region
 (global-set-key (kbd "C-s-.") 'er/expand-region)
 (global-set-key (kbd "C-s-,") 'er/contract-region)
