@@ -36,7 +36,7 @@
  '(magit-diff-use-overlays nil)
  '(magit-use-overlays nil)
  '(markdown-gfm-use-electric-backquote nil)
- '(max-mini-window-height 1)
+ '(max-mini-window-height 2)
  '(only-global-abbrevs t)
  '(org-agenda-custom-commands nil)
  '(org-agenda-ndays 1)
