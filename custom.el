@@ -78,6 +78,10 @@
  '(doom-modeline-info ((t (:inherit success :weight bold :height 0.85))))
  '(doom-modeline-urgent ((t (:inherit error :weight bold :height 0.85))))
  '(doom-modeline-warning ((t (:inherit warning :weight bold :height 0.85))))
+ '(imenu-list-entry-face-0 ((t (:inherit font-lock-keyword-face))))
+ '(imenu-list-entry-face-1 ((t (:inherit font-lock-string-face))))
+ '(imenu-list-entry-face-2 ((t (:inherit font-lock-preprocessor-face))))
+ '(imenu-list-entry-face-3 ((t (:inherit font-lock-function-name-face))))
  '(header-line ((t (:inherit font-lock-preprocessor-face))))
  '(show-paren-match ((t (:background "#cccccc")))))
 ;; Do not write anything past this comment. This is where Emacs will
