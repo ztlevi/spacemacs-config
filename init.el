@@ -45,6 +45,7 @@ This function should only modify configuration layer settings."
      spacemacs-visual
 
      ;; ======================== Misc =========================
+     ranger
      (pandoc :variables org-pandoc-options '((standalone . t)))
      (dash :packages (not counsel-dash helm-dash))
      better-defaults

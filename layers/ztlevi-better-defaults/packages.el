@@ -11,9 +11,9 @@
 
 (defconst ztlevi-better-defaults-packages
   '(
-    dired+
+    ;; dired+
     (auto-save :location local)
-    (dired-mode :location built-in)
+    ;; (dired-mode :location built-in)
     (profiler :location built-in)
     (recentf :location built-in)
     ))
@@ -57,6 +57,7 @@
     :defer t
     :init
     (progn
+      ;; (require 'dired+)
       (require 'dired-x)
       (require 'dired-aux)
       (setq insert-directory-program "gls" dired-use-ls-dired t)
@@ -114,7 +115,7 @@
         :bindings
         "j"         'vinegar/move-down
         "k"         'vinegar/move-up
-        "h"         'dired-up-directory
+        "h"         'ztlevi/dired-up-directory
         "l"         (if vinegar-reuse-dired-buffer
                         'dired-find-alternate-file
                       'dired-find-file)
