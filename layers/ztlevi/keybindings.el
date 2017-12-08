@@ -16,6 +16,8 @@
 (define-key evil-normal-state-map (kbd "C-w s") 'split-window-below-and-focus)
 (define-key evil-visual-state-map (kbd "C-w v") 'split-window-right-and-focus)
 (define-key evil-visual-state-map (kbd "C-w s") 'split-window-below-and-focus)
+(define-key evil-normal-state-map (kbd "<RET>") 'ivy-switch-buffer)
+(define-key evil-visual-state-map (kbd "<RET>") 'ivy-switch-buffer)
 
 ;; evil fold
 (define-key evil-normal-state-map (kbd "zC") 'evil-close-folds)
