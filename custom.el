@@ -6,7 +6,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(+doom-modeline-height 30 t)
- '(ahs-case-fold-search nil t)
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(command-log-mode-window-size 50)
@@ -19,6 +18,7 @@
  '(counsel-grep-base-command
    "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
  '(ctags-update-delay-seconds 1024)
+ '(display-buffer-reuse-frames t)
  '(erc-nick "ztlevi")
  '(erc-port 6666)
  '(evil-cross-lines t)
@@ -78,11 +78,11 @@
  '(doom-modeline-info ((t (:inherit success :weight bold :height 0.85))))
  '(doom-modeline-urgent ((t (:inherit error :weight bold :height 0.85))))
  '(doom-modeline-warning ((t (:inherit warning :weight bold :height 0.85))))
+ '(header-line ((t (:inherit font-lock-preprocessor-face))))
  '(imenu-list-entry-face-0 ((t (:inherit font-lock-keyword-face))))
  '(imenu-list-entry-face-1 ((t (:inherit font-lock-string-face))))
  '(imenu-list-entry-face-2 ((t (:inherit font-lock-preprocessor-face))))
  '(imenu-list-entry-face-3 ((t (:inherit font-lock-function-name-face))))
- '(header-line ((t (:inherit font-lock-preprocessor-face))))
  '(show-paren-match ((t (:background "#cccccc")))))
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
