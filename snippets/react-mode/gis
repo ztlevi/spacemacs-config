@@ -1,7 +1,8 @@
 # -*- mode: snippet -*-
 # name: React#getInitialState
 # key: gis->
+# group: react
 # --
-getInitialState: function() {
+getInitialState() {
   $0
 }

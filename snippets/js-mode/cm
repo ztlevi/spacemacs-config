@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Comment block
+# key: cm->
+# --
+/**
+ * ${1}
+ */
+$0

@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: Component Class
+# key: ccs->
+# group: react
+# --
+class $1 extends Component {
+  state = { $2 }
+  render() {
+    return (
+      $0
+    )
+  }
+}
+
+export default $1

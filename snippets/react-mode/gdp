@@ -1,7 +1,8 @@
 # -*- mode: snippet -*-
 # name: React#getDefaultProps
 # key: gdp->
+# group: react
 # --
-getDefaultProps: function() {
+getDefaultProps() {
   $0
 }

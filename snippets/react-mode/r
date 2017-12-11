@@ -1,7 +1,8 @@
 # -*- mode: snippet -*-
-# name: React#render
+# name: render
 # key: r->
+# group: react
 # --
-render: function() {
+render() {
   $0
 }

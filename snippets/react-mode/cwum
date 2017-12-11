@@ -2,6 +2,6 @@
 # name: React#componentWillUnmount
 # key: cwum->
 # --
-componentWillUnmount: function() {
+componentWillUnmount() {
   $0
 }
