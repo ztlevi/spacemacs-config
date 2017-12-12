@@ -264,4 +264,7 @@ version 2015-08-21"
      ((my-project-name-contains-substring "leetcode/solutions")
       (message "load tags for leetcode repo...")
       (setq tags-table-list (list (my-create-tags-if-needed "~/Developer/Github/leetcode/solutions"))))
+     ((my-project-name-contains-substring "Developer/react_github")
+      (message "load tags for react_github repo...")
+      (setq tags-table-list (list (my-create-tags-if-needed "~/Developer/react_github"))))
      )))
