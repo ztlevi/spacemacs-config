@@ -574,7 +574,7 @@
       :name "Hexo Blog Server"
       :command "hexo"
       :args '("server" "-p" "4000")
-      :cwd "~/Developer/Github/hexo_blog"
+      :cwd blog-admin-dir
       :tags '(hexo server)
       :init (lambda () (browse-url "http://localhost:4000"))
       :kill-signal 'sigkill
@@ -584,7 +584,7 @@
       :name "Hexo Blog Deploy"
       :command "hexo"
       :args '("deploy" "--generate")
-      :cwd "~/Developer/Github/hexo_blog"
+      :cwd blog-admin-dir
       :tags '(hexo deploy)
       :kill-signal 'sigkill
       :kill-process-buffer-on-stop t)
