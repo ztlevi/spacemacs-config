@@ -587,7 +587,7 @@
         (bb/define-key company-active-map (kbd "C-f") nil)
         (bb/define-key company-active-map (kbd "<tab>") 'company-complete-selection)
         (bb/define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
-        (bb/define-key company-active-map (kbd "<C-i>") 'company-show-location)))
+        (bb/define-key company-active-map (kbd "C-j") 'company-show-location)))
     ))
 
 (defun ztlevi-programming/post-init-company-c-headers ()
