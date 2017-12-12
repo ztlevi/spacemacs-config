@@ -191,7 +191,12 @@
 ;;       (setq inferior-js-program-command "node"))))
 
 (defun ztlevi-programming/post-init-web-mode ()
-  (with-eval-after-load "web-mode"
+  (with-eval-after-load 'web-mode
+    ;; for react mode html indentation
+    (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil))
+
     (web-mode-toggle-current-element-highlight)
     (web-mode-dom-errors-show))
   (setq company-backends-web-mode '((company-dabbrev-code
