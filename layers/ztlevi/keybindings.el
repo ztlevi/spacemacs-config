@@ -79,7 +79,7 @@
 (global-set-key (kbd "<S-tab>") 'evil-shift-left-line)
 
 ;; helm bookmark keybindings
-(spacemacs/set-leader-keys (kbd "hb") 'helm-bookmarks)
+(spacemacs/set-leader-keys (kbd "fb") 'helm-filtered-bookmarks)
 (with-eval-after-load 'helm-bookmark
   (progn
     (bb/define-key helm-bookmark-map (kbd "C-o") 'helm-bookmark-run-jump-other-window)
