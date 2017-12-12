@@ -15,6 +15,32 @@
 (add-hook 'web-mode-hook 'flycheck-mode)
 (add-hook 'python-mode-hook 'flycheck-mode)
 
+;; add to mode alist
+(add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
+(add-to-list 'auto-mode-alist '("\\.c\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\\.xtpl\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.blade.php\\'" . web-mode))
+
+(add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt
+                                                   '("xml"
+                                                     "xsd"
+                                                     "rng"
+                                                     "xslt"
+                                                     "xsl")
+                                                   t) "\\'") 'nxml-mode))
+(setq nxml-slash-auto-complete-flag t)
+
+(spacemacs|add-toggle iimage
+  :status iimage-mode
+  :on (iimage-mode)
+  :off (iimage-mode -1)
+  :documentation "Enable iimage mode"
+  :evil-leader "oti")
+
+(add-hook 'term-mode-hook 'ztlevi/ash-term-hooks)
+
 ;; ============= Use textlint ============
 ;; npm i -g textlint textlint-rule-spellchecker textlint-rule-common-misspellings
 ;; (flycheck-define-checker textlint
@@ -32,41 +58,6 @@
 
 ;; (add-hook 'markdown-mode-hook 'flycheck-mode)
 ;; (add-hook 'gfm-mode-hook 'flycheck-mode)
-
-(spacemacs|add-toggle iimage
-  :status iimage-mode
-  :on (iimage-mode)
-  :off (iimage-mode -1)
-  :documentation "Enable iimage mode"
-  :evil-leader "oti")
-
-(add-hook 'term-mode-hook 'ztlevi/ash-term-hooks)
-
-;; reformat json
-(defun json-reformat-region-or-buffer ()
-  (interactive)
-  (save-excursion
-    (if (region-active-p)
-        (progn
-          (json-reformat-region (region-beginning) (region-end))
-          (message "Reformated selected region."))
-      (progn
-        (json-reformat-region (point-min) (point-max))
-        (message "Reformated json file.")))
-    (whitespace-cleanup)))
-
-
-(add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt
-                                                   '("xml"
-                                                     "xsd"
-                                                     "rng"
-                                                     "xslt"
-                                                     "xsl")
-                                                   t) "\\'") 'nxml-mode))
-(setq nxml-slash-auto-complete-flag t)
-
-(add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
-(add-to-list 'auto-mode-alist '("\\.c\\'" . c++-mode))
 
 ;; return nil to write content to file
 (defun ztlevi/untabify-buffer ()

@@ -133,6 +133,19 @@ version 2015-08-21"
     (setq new-buffer-name (concat "cmake-" parent-dir))
     (rename-buffer new-buffer-name t)))
 
+;; reformat json
+(defun json-reformat-region-or-buffer ()
+  (interactive)
+  (save-excursion
+    (if (region-active-p)
+        (progn
+          (json-reformat-region (region-beginning) (region-end))
+          (message "Reformated selected region."))
+      (progn
+        (json-reformat-region (point-min) (point-max))
+        (message "Reformated json file.")))
+    (whitespace-cleanup)))
+
 (defun my-js2-mode-hook ()
   (progn
     (define-key js2-mode-map "\C-ci" 'js-doc-insert-function-doc-snippet)
