@@ -703,6 +703,10 @@
 (defun ztlevi-misc/post-init-markdown-mode ()
   (progn
     (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
+
+    ;; set markdown inline iamge max size
+    (setq markdown-max-image-size '(800 . 800))
+
     ;; use remark to format markdown
     (defun remark/format-markdown ()
       (interactive)
