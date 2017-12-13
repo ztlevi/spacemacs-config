@@ -159,6 +159,18 @@ version 2015-08-21"
     (setq forward-sexp-function nil)
     (set (make-local-variable 'semantic-mode) nil)))
 
+;; this imenu generic expression aims to exclude for, while, if when aims to match functions in
+;; es6 js, e.g. ComponentDidMount(), render() function in React
+;; https://emacs-china.org/t/topic/4538/7
+(defun js-exception-imenu-generic-expression-regexp ()
+  ;; xxx (e) { }
+  (if (re-search-backward "^[ \t]*\\([A-Za-z_$][A-Za-z0-9_$]+\\)[ \t]*([a-zA-Z0-9, ]*) *\{ *$" nil t)
+      (progn
+        (if (member (match-string 1) '("for" "if" "while"))
+            (js-exception-imenu-generic-expression-regexp)
+          t))
+    nil))
+
 (defun js2-imenu-make-index ()
   (interactive)
   (save-excursion
@@ -180,25 +192,32 @@ version 2015-08-21"
                                ("Event" "[. \t]\$on([ \t]*['\"]\\([^'\"]+\\)" 1)
                                ("Config" "[. \t]config([ \t]*function *( *\\([^\)]+\\)" 1)
                                ("Config" "[. \t]config([ \t]*\\[ *['\"]\\([^'\"]+\\)" 1)
-                               ("OnChange" "[ \t]*\$(['\"]\\([^'\"]*\\)['\"]).*\.change *( *function" 1)
-                               ("OnClick" "[ \t]*\$([ \t]*['\"]\\([^'\"]*\\)['\"]).*\.click *( *function" 1)
+                               ("OnChange" "[ \t]*\$(['\"]\\([^'\"]*\\)['\"]).*\.change *( *" 1)
+                               ("OnClick" "[ \t]*\$([ \t]*['\"]\\([^'\"]*\\)['\"]).*\.click *( *" 1)
                                ("Watch" "[. \t]\$watch( *['\"]\\([^'\"]+\\)" 1)
+
+                               ("Class" "^[ \t]*[0-9a-zA-Z_$ ]*[ \t]*class[ \t]*\\([a-zA-Z_$.]*\\)" 1)
+                               ("Class" "^[ \t]*var[ \t]*\\([0-9a-zA-Z_$.]+\\)[ \t]*=[ \t]*[a-zA-Z_$.]*.extend" 1)
+                               ("Class" "^[ \t]*let[ \t]*\\([0-9a-zA-Z_$.]+\\)[ \t]*=[ \t]*[a-zA-Z_$.]*.extend" 1)
+                               ("Class" "^[ \t]*const[ \t]*\\([0-9a-zA-Z_$.]+\\)[ \t]*=[ \t]*[a-zA-Z_$.]*.extend" 1)
+                               ("Class" "^[ \t]*cc\.\\(.+\\)[ \t]*=[ \t]*cc\..+\.extend" 1)
 
                                ("Function" "function[ \t]+\\([a-zA-Z0-9_$.]+\\)[ \t]*(" 1) ;; function xxx (
                                ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*:[ \t]*function[ \t]*(" 1) ;; xxx : function (
                                ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1) ;; xxx = function (
                                ("Function" "^[ \t]*var[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1) ;; var xxx = function (
                                ("Function" "^[ \t]*let[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1) ;; let xxx = function (
+                               ("Function" "^[ \t]*const[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1) ;; const xxx = function (
+
                                ;; {{ es6 beginning
-                               ("Function" "^[ \t]*\\([A-Za-z_$][A-Za-z0-9_$]+\\)[ \t]*([a-zA-Z0-9, ]*) *\{ *$" 1) ;; xxx (e) { }
-                               ("Function" "^[ \t]*\\([A-Za-z_$][A-Za-z0-9_$]+\\)[ \t]*:[ \t]*(?[a-zA-Z0-9_, ]*)?[ \t]*=>" 1) ;; xxx : (e) =>
-                               ("Function" "^[ \t]*\\([A-Za-z_$][A-Za-z0-9_$]+\\)[ \t]*=[ \t]*(?[a-zA-Z0-9_, ]*)?[ \t]*=>" 1) ;; xxx = (e) =>
-                               ("Function" "^[ \t]*let[ \t]*\\([A-Za-z_$][A-Za-z0-9_$]+\\)[ \t]*=[ \t]*(?[a-zA-Z0-9_, ]*)?[ \t]*=>" 1) ;; let xxx = (e) =>
-                               ("Function" "^[ \t]*var[ \t]*\\([A-Za-z_$][A-Za-z0-9_$]+\\)[ \t]*=[ \t]*(?[a-zA-Z0-9_, ]*)?[ \t]*=>" 1) ;; var xxx = (e) =>
+                               ("Function" js-exception-imenu-generic-expression-regexp 1) ;; xxx (e) { }
+                               ("Function" "^[ \t]*\\([A-Za-z_$][A-Za-z0-9_$.]*\\)[ \t]*:[ \t]*(.*)[ \t]*=>" 1) ;; xxx : (e) =>
+                               ("Function" "^[ \t]*\\([A-Za-z_$][A-Za-z0-9_$.]*\\)[ \t]*=[ \t]*(.*)[ \t]*=>" 1) ;; xxx = (e) =>
+                               ("Function" "^[ \t]*let[ \t]*\\([A-Za-z_$][A-Za-z0-9_$.]*\\)[ \t]*=[ \t]*(.*)[ \t]*=>" 1) ;; let xxx = (e) =>
+                               ("Function" "^[ \t]*var[ \t]*\\([A-Za-z_$][A-Za-z0-9_$.]*\\)[ \t]*=[ \t]*(.*)[ \t]*=>" 1) ;; var xxx = (e) =>
+                               ("Function" "^[ \t]*const[ \t]*\\([A-Za-z_$][A-Za-z0-9_$.]*\\)[ \t]*=[ \t]*(.*)[ \t]*=>" 1) ;; const xxx = (e) =>
                                ;; }}
 
-                               ("Class" "^[ \t]*var[ \t]*\\([0-9a-zA-Z]+\\)[ \t]*=[ \t]*\\([a-zA-Z]*\\).extend" 1)
-                               ("Class" "^[ \t]*cc\.\\(.+\\)[ \t]*=[ \t]*cc\.\\(.+\\)\.extend" 1)
                                ("Task" "[. \t]task([ \t]*['\"]\\([^'\"]+\\)" 1)))))
 
 (defun my-doxymacs-font-lock-hook ()
@@ -239,20 +258,20 @@ version 2015-08-21"
 
 
 (defun my-auto-update-tags-when-save (prefix)
-      (interactive "P")
-      (cond
-       ((not my-tags-updated-time)
-        (setq my-tags-updated-time (current-time)))
+  (interactive "P")
+  (cond
+   ((not my-tags-updated-time)
+    (setq my-tags-updated-time (current-time)))
 
-       ((and (not prefix)
-             (< (- (float-time (current-time)) (float-time my-tags-updated-time)) 300))
-        ;; < 300 seconds
-        (message "no need to update the tags")
-        )
-       (t
-        (setq my-tags-updated-time (current-time))
-        (my-update-tags)
-        (message "updated tags after %d seconds." (- (float-time (current-time)) (float-time my-tags-updated-time))))))
+   ((and (not prefix)
+         (< (- (float-time (current-time)) (float-time my-tags-updated-time)) 300))
+    ;; < 300 seconds
+    (message "no need to update the tags")
+    )
+   (t
+    (setq my-tags-updated-time (current-time))
+    (my-update-tags)
+    (message "updated tags after %d seconds." (- (float-time (current-time)) (float-time my-tags-updated-time))))))
 
 (defun ztlevi-programming/post-init-js-doc ()
   (setq js-doc-mail-address "ztlevi1993@gmail.com"
