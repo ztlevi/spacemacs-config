@@ -132,7 +132,8 @@ Version 2015-11-30"
 
 (defun ztlevi/save-my-layout ()
   (interactive)
-  (persp-save-state-to-file (concat persp-save-dir "ztlevi")))
+  (if (yes-or-no-p "Do you want to save layout?")
+      (persp-save-state-to-file (concat persp-save-dir "ztlevi"))))
 
 ;; http://blog.binchen.org/posts/use-ivy-mode-to-search-bash-history.html
 ;; ;FIXME: make it work with zsh
