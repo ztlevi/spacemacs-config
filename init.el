@@ -471,9 +471,6 @@ It should only modify the values of Spacemacs settings."
 
   (evilified-state-evilify-map special-mode-map :mode special-mode)
 
-  (add-to-list 'auto-mode-alist
-               '("Capstanfile\\'" . yaml-mode))
-
   ;; ============================== U I ========================================
   ;; settings for transparent
   ;; (spacemacs/toggle-transparency)

@@ -16,6 +16,7 @@
 (add-hook 'python-mode-hook 'flycheck-mode)
 
 ;; add to mode alist
+(add-to-list 'auto-mode-alist '("Capstanfile\\'" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
 (add-to-list 'auto-mode-alist '("\\.c\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
@@ -23,13 +24,7 @@
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.blade.php\\'" . web-mode))
 
-(add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt
-                                                   '("xml"
-                                                     "xsd"
-                                                     "rng"
-                                                     "xslt"
-                                                     "xsl")
-                                                   t) "\\'") 'nxml-mode))
+(add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt '("xml" "xsd" "rng" "xslt" "xsl") t) "\\'") 'nxml-mode))
 (setq nxml-slash-auto-complete-flag t)
 
 (spacemacs|add-toggle iimage
@@ -67,8 +62,8 @@
 
 (add-hook 'c++-mode-hook
           #'(lambda ()
-             (add-hook 'write-contents-hooks
-                       'ztlevi/untabify-buffer nil t)))
+              (add-hook 'write-contents-hooks
+                        'ztlevi/untabify-buffer nil t)))
 
 (setq auto-mode-alist
       (append
