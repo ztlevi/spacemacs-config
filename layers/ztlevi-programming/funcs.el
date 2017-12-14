@@ -295,3 +295,10 @@ version 2015-08-21"
       (message "load tags for react_github repo...")
       (setq tags-table-list (list (my-create-tags-if-needed "~/Developer/react_github"))))
      )))
+
+(defun ztlevi/company-init ()
+  "set my own company-idle-delay and company-minimum-prefix-length"
+  (interactive)
+  (setq-local company-idle-delay ztlevi/company-idle-delay)
+  (set (make-local-variable 'company-minimum-prefix-length)
+       ztlevi/company-minimum-prefix-length))

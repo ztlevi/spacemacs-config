@@ -575,8 +575,12 @@
 
 (defun ztlevi-programming/post-init-company ()
   (progn
-    (setq company-minimum-prefix-length 1
-          company-idle-delay 0.08)
+    ;; set the company minimum prefix length and idle delay
+    (defvar ztlevi/company-minimum-prefix-length 1
+      "my own variable for company-minimum-prefix-length")
+    (defvar ztlevi/company-idle-delay 0
+      "my own variable for company-idle-delay")
+    (add-hook 'company-mode-hook #'ztlevi/company-init)
 
     (when (configuration-layer/package-usedp 'company)
       (spacemacs|add-company-backends :modes shell-script-mode makefile-bsdmake-mode sh-mode lua-mode nxml-mode conf-unix-mode json-mode graphviz-dot-mode))
