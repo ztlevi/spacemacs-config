@@ -22,6 +22,7 @@
     visual-regexp
     visual-regexp-steroids
     command-log
+    origami
     evil
     evil-surround
     discover-my-major
@@ -171,6 +172,13 @@
     (spacemacs/set-leader-keys "oh" 'hydra-apropos/body)
 
     ))
+
+(defun ztlevi-misc/post-init-origami ()
+  (add-to-list 'origami-parser-alist `(js2-mode . ,(origami-markers-parser "//region" "//endregion")))
+  (add-to-list 'origami-parser-alist `(java-mode . ,(origami-markers-parser "//region" "//endregion")))
+  (add-to-list 'origami-parser-alist `(python-mode . ,(origami-markers-parser "# region" "# endregion")))
+  (add-to-list 'origami-parser-alist `(ruby-mode . ,(origami-markers-parser "#region" "#endregion")))
+  )
 
 (defun ztlevi-misc/post-init-gist ()
   (use-package gist

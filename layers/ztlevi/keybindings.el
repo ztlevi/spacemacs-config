@@ -19,14 +19,6 @@
 (define-key evil-normal-state-map (kbd "<RET>") 'ivy-switch-buffer)
 (define-key evil-visual-state-map (kbd "<RET>") 'ivy-switch-buffer)
 
-;; evil fold
-(define-key evil-normal-state-map (kbd "zC") 'evil-close-folds)
-(define-key evil-normal-state-map (kbd "zO") 'evil-open-folds)
-(define-key evil-normal-state-map (kbd "zr") 'evil-open-fold-rec)
-(define-key evil-visual-state-map (kbd "zC") 'evil-close-folds)
-(define-key evil-visual-state-map (kbd "zO") 'evil-open-folds)
-(define-key evil-visual-state-map (kbd "zr") 'evil-open-fold-rec)
-
 ;; evil hybrid
 (define-key evil-hybrid-state-map (kbd "C-r") 'evil-paste-from-register)
 (define-key evil-hybrid-state-map (kbd "C-z") 'evil-emacs-state)
