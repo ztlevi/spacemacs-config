@@ -10,10 +10,7 @@
 ;;; License: GPLv3
 
 ;; Flyckeck add hook to other modes
-(add-hook 'c++-mode-hook 'flycheck-mode)
-(add-hook 'json-mode-hook 'flycheck-mode)
-(add-hook 'web-mode-hook 'flycheck-mode)
-(add-hook 'python-mode-hook 'flycheck-mode)
+(add-hook 'prog-mode-hook 'flycheck-mode)
 
 ;; add to mode alist
 (add-to-list 'auto-mode-alist '("Capstanfile\\'" . yaml-mode))
