@@ -84,6 +84,7 @@
  '(imenu-list-entry-face-1 ((t (:inherit font-lock-string-face))))
  '(imenu-list-entry-face-2 ((t (:inherit font-lock-preprocessor-face))))
  '(imenu-list-entry-face-3 ((t (:inherit font-lock-function-name-face))))
+ '(org-level-2 ((t (:background "#fafafa" :foreground "#b751b6" :weight bold))))
  '(origami-fold-replacement-face ((t (:inherit (quote font-lock-keyword-face)))))
  '(show-paren-match ((t (:background "#cccccc")))))
 ;; Do not write anything past this comment. This is where Emacs will
