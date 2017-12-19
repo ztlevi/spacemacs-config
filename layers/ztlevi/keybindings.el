@@ -165,6 +165,7 @@
 
 (global-set-key (kbd "<f1>") 'ztlevi/helm-hotspots)
 (spacemacs/set-leader-keys "oo" 'ztlevi/helm-hotspots)
+(spacemacs/set-leader-keys "ou" 'my-update-tags)
 
 ;; (spacemacs/set-leader-keys "op" 'ztlevi/org-save-and-export)
 (spacemacs/set-leader-keys "fR" 'ztlevi/rename-file-and-buffer)

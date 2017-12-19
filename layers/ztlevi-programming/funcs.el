@@ -256,7 +256,6 @@ version 2015-08-21"
   (dolist (tag tags-table-list)
     (my-create-tags-if-needed (file-name-directory tag) t)))
 
-
 (defun my-auto-update-tags-when-save (prefix)
   (interactive "P")
   (cond
@@ -266,8 +265,7 @@ version 2015-08-21"
    ((and (not prefix)
          (< (- (float-time (current-time)) (float-time my-tags-updated-time)) 300))
     ;; < 300 seconds
-    (message "no need to update the tags")
-    )
+    (message "no need to update the tags"))
    (t
     (setq my-tags-updated-time (current-time))
     (my-update-tags)

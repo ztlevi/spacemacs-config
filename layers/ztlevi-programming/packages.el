@@ -485,9 +485,6 @@
   (progn
     (setq company-backends-c-mode-common '((company-dabbrev-code :with company-keywords company-gtags company-etags)
                                            company-files company-dabbrev))
-    (spacemacs/set-leader-keys-for-major-mode 'c++-mode
-      "gd" 'etags-select-find-tag-at-point)
-
 
     (add-hook 'c++-mode-hook 'my-setup-develop-environment)
     (add-hook 'c-mode-hook 'my-setup-develop-environment)
@@ -555,9 +552,7 @@
       (define-key evil-normal-state-map (kbd "gn")
         (lambda () (interactive) (find-tag last-tag t)))
 
-      (evilified-state-evilify etags-select-mode etags-select-mode-map)
-      (spacemacs/set-leader-keys-for-major-mode 'js2-mode
-        "gd" 'etags-select-find-tag-at-point))))
+      (evilified-state-evilify etags-select-mode etags-select-mode-map))))
 
 (defun ztlevi-programming/init-paredit ()
   (use-package paredit
@@ -605,5 +600,4 @@
 
 (defun ztlevi-programming/init-xref-js2 ()
   (use-package xref-js2
-    :defer t
-    ))
+    :defer t))
