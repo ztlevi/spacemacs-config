@@ -9,8 +9,9 @@
 ;;
 ;;; License: GPLv3
 
-;; Flyckeck add hook to other modes
+;; Flyckeck disable and enable
 (add-hook 'prog-mode-hook 'flycheck-mode)
+(add-hook 'emacs-lisp-mode-hook (lambda () (flycheck-mode -1)))
 
 ;; add to mode alist
 (add-to-list 'auto-mode-alist '("Capstanfile\\'" . yaml-mode))
