@@ -94,9 +94,6 @@
      (evil-define-key 'hybrid emmet-mode-keymap (kbd "TAB") nil)
      (evil-define-key 'hybrid emmet-mode-keymap (kbd "<tab>") nil)))
 
-;; debug
-(define-key emacs-lisp-mode-map (kbd "<C-x> <C-e>") 'pp-eval-last-sexp)
-
 ;; buffer key
 (spacemacs/set-leader-keys "bf" 'ztlevi/open-finder-in-current-dir)
 (spacemacs/set-leader-keys "of" 'revert-buffer-no-confirm)

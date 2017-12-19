@@ -113,7 +113,7 @@ This function should only modify configuration layer settings."
      (typescript :variables
                  typescript-fmt-on-save nil
                  typescript-fmt-tool 'typescript-formatter)
-     emacs-lisp
+     (emacs-lisp :packages (not nameless overseer))
      (c-c++ :packages (not realgud clang-format disaster)
             :variables c-c++-default-mode-for-headers 'c++-mode)
 
