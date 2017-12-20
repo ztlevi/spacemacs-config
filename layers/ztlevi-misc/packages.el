@@ -40,7 +40,6 @@
     swiper
     magit
     git-messenger
-    gist
     hydra
     wrap-region
     golden-ratio
@@ -179,41 +178,6 @@
   (add-to-list 'origami-parser-alist `(python-mode . ,(origami-markers-parser "# region" "# endregion")))
   (add-to-list 'origami-parser-alist `(ruby-mode . ,(origami-markers-parser "#region" "#endregion")))
   )
-
-(defun ztlevi-misc/post-init-gist ()
-  (use-package gist
-    :defer t
-    :init
-    (setq gist-list-format
-          '((files "File" 30 nil "%s")
-            (id "Id" 10 nil identity)
-            (created "Created" 20 nil "%D %R")
-            (visibility "Visibility" 10 nil
-                        (lambda
-                          (public)
-                          (or
-                           (and public "public")
-                           "private")))
-            (description "Description" 0 nil identity)))
-    :config
-    (progn
-      (spacemacs|define-transient-state gist-list-mode
-        :title "Gist-mode Transient State"
-        :bindings
-        ("k" gist-kill-current "delete gist")
-        ("e" gist-edit-current-description "edit gist title")
-        ("+" gist-add-buffer "add a file")
-        ("-" gist-remove-file "delete a file")
-        ("y" gist-print-current-url "print url")
-        ("b" gist-browse-current-url "browse gist in browser")
-        ("*" gist-star "star gist")
-        ("^" gist-unstar "unstar gist")
-        ("f" gist-fork "fork gist")
-        ("q" nil "quit" :exit t)
-        ("<escape>" nil nil :exit t))
-      (spacemacs/set-leader-keys-for-major-mode 'gist-list-mode
-        "." 'spacemacs/gist-list-mode-transient-state/body))
-    ))
 
 (defun ztlevi-misc/init-peep-dired ()
   ;;preview files in dired
