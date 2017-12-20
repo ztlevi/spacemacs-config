@@ -574,23 +574,6 @@ With PREFIX, cd to project root."
               :action 'my-find-file-in-git-repo
               :caller 'counsel-find-file-recent-directory)))
 
-(defun ztlevi/magit-visit-pull-request ()
-  "Visit the current branch's PR on GitHub."
-  (interactive)
-  (let ((remote-branch (magit-get-current-branch)))
-    (cond
-     ((null remote-branch)
-      (message "No remote branch"))
-     (t
-      (browse-url
-       (format "https://github.com/%s/pull/new/%s"
-               (replace-regexp-in-string
-                "\\`.+github\\.com:\\(.+\\)\\.git\\'" "\\1"
-                (magit-get "remote"
-                           (magit-get-remote)
-                           "url"))
-               remote-branch))))))
-
 (defun ztlevi/github-browse-commit ()
   "Show the GitHub page for the current commit."
   (interactive)

@@ -637,27 +637,16 @@
   (progn
     (with-eval-after-load 'magit
       (progn
-
         (add-to-list 'magit-no-confirm 'stage-all-changes)
-        (define-key magit-log-mode-map (kbd "W") 'magit-copy-section-value)
-        (define-key magit-status-mode-map (kbd "s-1") 'magit-jump-to-unstaged)
-        (define-key magit-status-mode-map (kbd "s-2") 'magit-jump-to-untracked)
-        (define-key magit-status-mode-map (kbd "s-3") 'magit-jump-to-staged)
-        (define-key magit-status-mode-map (kbd "s-4") 'magit-jump-to-stashes)
         (setq magit-completing-read-function 'magit-builtin-completing-read)
 
         (magit-define-popup-switch 'magit-push-popup ?u
-          "Set upstream" "--set-upstream")
-        ))
+          "Set upstream" "--set-upstream")))
 
     ;; prefer two way ediff
     (setq magit-ediff-dwim-show-on-hunks t)
 
     (setq magit-push-always-verify nil)
-
-    (eval-after-load 'magit
-      '(define-key magit-mode-map (kbd "C-c g")
-         #'ztlevi/magit-visit-pull-request))
 
     (setq magit-process-popup-time 10)))
 
