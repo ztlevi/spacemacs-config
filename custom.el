@@ -5,7 +5,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(+doom-modeline-height 30 t)
+ '(+doom-modeline-height 34 t)
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(command-log-mode-window-size 50)
@@ -76,9 +76,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(doom-modeline-error ((t (:background "#e45649" :foreground "#f0f0f0"))))
- '(doom-modeline-info ((t (:inherit success :weight bold :height 0.85))))
- '(doom-modeline-urgent ((t (:inherit error :weight bold :height 0.85))))
- '(doom-modeline-warning ((t (:inherit warning :weight bold :height 0.85))))
  '(header-line ((t (:inherit font-lock-preprocessor-face))))
  '(imenu-list-entry-face-0 ((t (:inherit font-lock-keyword-face))))
  '(imenu-list-entry-face-1 ((t (:inherit font-lock-string-face))))
