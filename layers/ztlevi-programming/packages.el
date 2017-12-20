@@ -544,13 +544,17 @@
   (use-package etags-select
     :init
     (progn
-      (define-key evil-normal-state-map (kbd "gf")
-        (lambda () (interactive) (find-tag (find-tag-default-as-regexp))))
+      (defun my-find-tag ()
+        (interactive)
+        (find-tag (find-tag-default-as-regexp)))
+      (defun my-find-next-tag ()
+        (interactive)
+        (find-tag last-tag t))
 
+      (define-key evil-normal-state-map (kbd "gf") 'my-find-tag)
       (define-key evil-normal-state-map (kbd "gb") 'pop-tag-mark)
-
-      (define-key evil-normal-state-map (kbd "gn")
-        (lambda () (interactive) (find-tag last-tag t)))
+      (define-key evil-normal-state-map (kbd "gn") 'my-find-next-tag)
+      (define-key evil-normal-state-map (kbd "gt") 'etags-select-find-tag-at-point)
 
       (evilified-state-evilify etags-select-mode etags-select-mode-map))))
 
