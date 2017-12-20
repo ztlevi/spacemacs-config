@@ -66,6 +66,12 @@
 (global-set-key (kbd "C-s-.") 'er/expand-region)
 (global-set-key (kbd "C-s-,") 'er/contract-region)
 
+;; counsel etags
+(define-key evil-normal-state-map (kbd "gf") 'counsel-etags-find-tag-at-point)
+(define-key evil-normal-state-map (kbd "gb") 'pop-tag-mark)
+(define-key evil-normal-state-map (kbd "gr") 'counsel-etags-recent-tag)
+(spacemacs/set-leader-keys "ou" 'counsel-etags-update-tags-force)
+
 ;; redefine C-i and S-tab
 (global-set-key (kbd "<C-i>") 'evil-shift-right-line)
 (global-set-key (kbd "<S-tab>") 'evil-shift-left-line)
@@ -165,7 +171,6 @@
 
 (global-set-key (kbd "<f1>") 'ztlevi/helm-hotspots)
 (spacemacs/set-leader-keys "oo" 'ztlevi/helm-hotspots)
-(spacemacs/set-leader-keys "ou" 'my-update-tags)
 
 ;; (spacemacs/set-leader-keys "op" 'ztlevi/org-save-and-export)
 (spacemacs/set-leader-keys "fR" 'ztlevi/rename-file-and-buffer)

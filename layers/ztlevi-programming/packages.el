@@ -15,7 +15,6 @@
     ;; rjsx-mode
     xref-js2
     css-mode
-    java-mode
     paredit
     lispy
     cmake-font-lock
@@ -34,7 +33,7 @@
     lua-mode
     (cc-mode :location built-in)
     ;; flycheck-clojure
-    etags-select
+    counsel-etags
     (python :location built-in)
     (emacs-lisp :location built-in)
     ;; clojure-mode
@@ -80,10 +79,6 @@
       (define-key rjsx-mode-map (kbd "C-d") nil))
     ))
 ;; (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
-
-(defun ztlevi-programming/post-init-java-mode ()
-  ;; ctags add hook
-  (add-hook 'java-mode-hook 'my-setup-develop-environment))
 
 (defun ztlevi-programming/post-init-robe ()
   (progn
@@ -346,8 +341,6 @@
     (add-hook 'js2-mode-hook
               (lambda ()
                 (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
-    (add-hook 'js2-mode-hook 'my-setup-develop-environment)
-    (add-hook 'web-mode-hook 'my-setup-develop-environment)
 
     (spacemacs|define-jump-handlers js2-mode)
     (add-hook 'spacemacs-jump-handlers-js2-mode 'etags-select-find-tag-at-point)
@@ -486,10 +479,6 @@
     (setq company-backends-c-mode-common '((company-dabbrev-code :with company-keywords company-gtags company-etags)
                                            company-files company-dabbrev))
 
-    (add-hook 'c++-mode-hook 'my-setup-develop-environment)
-    (add-hook 'c-mode-hook 'my-setup-develop-environment)
-
-
     ;; http://stackoverflow.com/questions/23553881/emacs-indenting-of-c11-lambda-functions-cc-mode
     (defadvice c-lineup-arglist (around my activate)
       "Improve indentation of continued C++11 lambda function opened as argument."
@@ -539,24 +528,45 @@
     (spacemacs/set-leader-keys-for-major-mode 'c++-mode
       "tb" 'ztlevi/company-toggle-company-ycmd)))
 
-;; when many project has the need to use tags, I will give etags-table and etags-update a try
-(defun ztlevi-programming/init-etags-select ()
-  (use-package etags-select
-    :init
-    (progn
-      (defun my-find-tag ()
-        (interactive)
-        (find-tag (find-tag-default-as-regexp)))
-      (defun my-find-next-tag ()
-        (interactive)
-        (find-tag last-tag t))
+(defun ztlevi-programming/init-counsel-etags ()
+  (use-package counsel-etags
+    :config
+    (eval-after-load 'grep
+      '(progn
+         (dolist (v '("auto"
+                      "target"
+                      "node_modules"
+                      "bower_components"
+                      "*dist"
+                      ".sass_cache"
+                      ".cache"
+                      ".npm"
+                      "elpa"))
+           (add-to-list 'grep-find-ignored-directories v))
 
-      (define-key evil-normal-state-map (kbd "gf") 'my-find-tag)
-      (define-key evil-normal-state-map (kbd "gb") 'pop-tag-mark)
-      (define-key evil-normal-state-map (kbd "gn") 'my-find-next-tag)
-      (define-key evil-normal-state-map (kbd "gt") 'etags-select-find-tag-at-point)
+         (dolist (v '("*.min.js"
+                      "*.map"
+                      "*.bundle.js"
+                      "*.min.css"
+                      "tags"
+                      "TAGS"
+                      "GTAGS"
+                      "GRTAGS"
+                      "GPATH"
+                      "cscope.files"
+                      "*.json"
+                      "*.log"))
+           (add-to-list 'grep-find-ignored-files v))))
 
-      (evilified-state-evilify etags-select-mode etags-select-mode-map))))
+    ;; Don't ask before rereading the TAGS files if they have changed
+    (setq tags-revert-without-query t)
+    ;; Don't warn when TAGS files are large
+    (setq large-file-warning-threshold nil)
+    ;; Setup auto update now
+    (add-hook 'prog-mode-hook
+              (lambda ()
+                (add-hook 'after-save-hook
+                          'counsel-etags-virtual-update-tags 'append 'local)))))
 
 (defun ztlevi-programming/init-paredit ()
   (use-package paredit

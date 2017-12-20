@@ -230,70 +230,11 @@ version 2015-08-21"
                "")))
     (string-match-p REGEX dir)))
 
-
-(defvar my-tags-updated-time nil)
-
-(defun my-create-tags-if-needed (SRC-DIR &optional FORCE)
-  "return the full path of tags file"
-  (let ((dir (file-name-as-directory (file-truename SRC-DIR)))
-        file)
-    (setq file (concat dir "TAGS"))
-    (when (spacemacs/system-is-mswindows)
-      (setq dir (substring dir 0 -1)))
-    (when (or FORCE (not (file-exists-p file)))
-      (message "Creating TAGS in %s ..." dir)
-      (shell-command
-       (format "ctags -f %s -e -R %s" file dir)))
-    file))
-
-(defun my-create-ctags-in-current-dir ()
-  (interactive)
-  (shell-command "ctags -e -R ."))
-
-(defun my-update-tags ()
-  (interactive)
-  "check the tags in tags-table-list and re-create it"
-  (dolist (tag tags-table-list)
-    (my-create-tags-if-needed (file-name-directory tag) t)))
-
-(defun my-auto-update-tags-when-save ()
-  (interactive)
-  (cond
-   ((not my-tags-updated-time)
-    (setq my-tags-updated-time (current-time)))
-   ((< (- (float-time (current-time)) (float-time my-tags-updated-time)) 3)
-    ;; < 300 seconds
-    ;; do nothing
-    )
-   (t
-    (setq my-tags-updated-time (current-time))
-    (my-update-tags)
-    (message "updated tags after %d seconds." (- (float-time (current-time))  (float-time my-tags-updated-time))))))
-
-(add-hook 'after-save-hook 'my-auto-update-tags-when-save)
-
 (defun ztlevi-programming/post-init-js-doc ()
   (setq js-doc-mail-address "ztlevi1993@gmail.com"
         js-doc-author (format "Ting Zhou <%s>" js-doc-mail-address)
         js-doc-url "http://ztlevi.wordpress.com"
         js-doc-license "MIT"))
-
-;; Environment setting - Ctags here
-(defun my-setup-develop-environment ()
-  (interactive)
-  (when (my-project-name-contains-substring "ztlevi")
-    (cond
-     ((my-project-name-contains-substring "/TRI_demo")
-      (message "load tags for TRI_demo...")
-      (setq tags-table-list
-            (list (my-create-tags-if-needed "~/Developer/Github/TRI_demo/app"))))
-     ((my-project-name-contains-substring "leetcode/solutions")
-      (message "load tags for leetcode repo...")
-      (setq tags-table-list (list (my-create-tags-if-needed "~/Developer/Github/leetcode/solutions"))))
-     ((my-project-name-contains-substring "Developer/react_github")
-      (message "load tags for react_github repo...")
-      (setq tags-table-list (list (my-create-tags-if-needed "~/Developer/react_github"))))
-     )))
 
 (defun ztlevi/company-init ()
   "set my own company-idle-delay and company-minimum-prefix-length"
