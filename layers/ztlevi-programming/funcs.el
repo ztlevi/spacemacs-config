@@ -256,20 +256,21 @@ version 2015-08-21"
   (dolist (tag tags-table-list)
     (my-create-tags-if-needed (file-name-directory tag) t)))
 
-(defun my-auto-update-tags-when-save (prefix)
-  (interactive "P")
+(defun my-auto-update-tags-when-save ()
+  (interactive)
   (cond
    ((not my-tags-updated-time)
     (setq my-tags-updated-time (current-time)))
-
-   ((and (not prefix)
-         (< (- (float-time (current-time)) (float-time my-tags-updated-time)) 300))
+   ((< (- (float-time (current-time)) (float-time my-tags-updated-time)) 3)
     ;; < 300 seconds
-    (message "no need to update the tags"))
+    ;; do nothing
+    )
    (t
     (setq my-tags-updated-time (current-time))
     (my-update-tags)
-    (message "updated tags after %d seconds." (- (float-time (current-time)) (float-time my-tags-updated-time))))))
+    (message "updated tags after %d seconds." (- (float-time (current-time))  (float-time my-tags-updated-time))))))
+
+(add-hook 'after-save-hook 'my-auto-update-tags-when-save)
 
 (defun ztlevi-programming/post-init-js-doc ()
   (setq js-doc-mail-address "ztlevi1993@gmail.com"
