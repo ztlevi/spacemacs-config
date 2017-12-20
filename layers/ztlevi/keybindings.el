@@ -109,6 +109,7 @@
 ;; remap C-h with delte, C-M-h with help-command
 ;; (define-key evil-hybrid-state-map (kbd "C-h") 'delete-backward-char)
 ;; (global-set-key (kbd "C-M-h") 'help-command)
+(global-set-key (kbd "C-h h") nil)
 
 ;; A complementary binding to the apropos-command (C-h a)
 (define-key 'help-command "A" 'apropos)
