@@ -239,6 +239,7 @@
 (spacemacs/set-leader-keys ":" 'counsel-M-x)
 
 (global-set-key (kbd "s-s") 'save-buffer)
+(spacemacs/set-leader-keys "ok" 'helm-show-kill-ring)
 ;; keybindings for linux and windows
 (when (or (spacemacs/system-is-linux) (spacemacs/system-is-mswindows))
   (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
