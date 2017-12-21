@@ -39,6 +39,8 @@
     ivy
     swiper
     magit
+    magithub
+    github-browse-file
     git-messenger
     hydra
     wrap-region
@@ -650,12 +652,22 @@
 
     (setq magit-process-popup-time 10)))
 
+(defun ztlevi-misc/init-magithub ()
+  (use-package magithub
+    :after magit
+    :config (magithub-feature-autoinject t)))
+
 (defun ztlevi-misc/post-init-git-messenger ()
   (use-package git-messenger
     :defer t
     :config
-    (progn
-      (define-key git-messenger-map (kbd "f") 'ztlevi/github-browse-commit))))
+    (define-key git-messenger-map (kbd "o") 'ztlevi/github-browse-commit)
+    (setq git-messenger:func-prompt (cons '(ztlevi/github-browse-commit . "Browse online") git-messenger:func-prompt ))))
+
+(defun ztlevi-misc/init-github-browse-file ()
+  (use-package github-browse-file
+    :defer t
+    :commands (github-browse-file--relative-url)))
 
 (defun ztlevi-misc/init-edit-indirect ()
   (use-package edit-indirect

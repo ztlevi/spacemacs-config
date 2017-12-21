@@ -574,12 +574,13 @@ With PREFIX, cd to project root."
               :action 'my-find-file-in-git-repo
               :caller 'counsel-find-file-recent-directory)))
 
+(defun ztlevi/show-current-buffer-major-mode ()
+  (interactive)
+  (describe-variable 'major-mode))
+
 (defun ztlevi/github-browse-commit ()
   "Show the GitHub page for the current commit."
   (interactive)
-  (use-package github-browse-file
-    :commands (github-browse-file--relative-url))
-
   (let* ((commit git-messenger:last-commit-id)
          (url (concat "https://github.com/"
                       (github-browse-file--relative-url)
@@ -587,7 +588,3 @@ With PREFIX, cd to project root."
                       commit)))
     (github-browse--save-and-view url)
     (git-messenger:popup-close)))
-
-(defun ztlevi/show-current-buffer-major-mode ()
-  (interactive)
-  (describe-variable 'major-mode))
