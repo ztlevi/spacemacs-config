@@ -23,6 +23,10 @@
 (define-key evil-hybrid-state-map (kbd "C-r") 'evil-paste-from-register)
 (define-key evil-hybrid-state-map (kbd "C-z") 'evil-emacs-state)
 
+;; use black hole register
+(define-key evil-visual-state-map (kbd "<del>") (kbd "\"_d"))
+(define-key evil-visual-state-map (kbd "<backspace>") (kbd "\"_d"))
+
 ;; evil inc-num, dec-num, find-char-reverse, insert space before and after
 (define-key evil-normal-state-map (kbd "-") nil)
 (bb/define-key evil-normal-state-map
