@@ -109,7 +109,7 @@ This function should only modify configuration layer settings."
      (python :variables
              python-test-runner '(nose pytest))
      html
-     (javascript :packages (not skewer-mode livid-mode))
+     (javascript :packages (not web-beautify skewer-mode livid-mode))
      (typescript :variables
                  typescript-fmt-on-save nil
                  typescript-fmt-tool 'typescript-formatter)

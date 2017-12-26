@@ -24,7 +24,7 @@
       1. natural-title-bar usage [[https://github.com/railwaycat/homebrew-emacsmacport/wiki/Natural-Title-Bar][here]].
       2. Solution to incoming network connection:
          Codesign your Emacs.app. Instructions over [[http://apple.stackexchange.com/questions/3271/how-to-get-rid-of-firewall-accept-incoming-connections-dialog/170566][here]].
-          ~codesign --deep --force --verbose --sign ztlevi /usr/local/opt/emacs-mac/Emacs.app~
+         ~codesign --deep --force --verbose --sign ztlevi /usr/local/opt/emacs-mac/Emacs.app~
       #+END_QUOTE
 *** Install Emacs on Linux
     #+BEGIN_SRC shell
@@ -56,7 +56,7 @@
          #+END_SRC
        - npm
          #+BEGIN_SRC shell
-           npm install -g remark-cli eslint babel-eslint eslint-plugin-react eslint-plugin-html tern typescript tslint typescript-formatter
+           npm install -g prettier remark-cli eslint babel-eslint eslint-plugin-react eslint-plugin-html tern typescript tslint typescript-formatter
          #+END_SRC
        - pip
          #+BEGIN_SRC shell

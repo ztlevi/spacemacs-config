@@ -12,7 +12,7 @@
 (defconst ztlevi-better-defaults-packages
   '(
     ;; dired+
-    (auto-save :location local)
+    ;; (auto-save :location local)
     ranger
     ;; (dired-mode :location built-in)
     (profiler :location built-in)

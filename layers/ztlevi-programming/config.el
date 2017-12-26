@@ -25,6 +25,15 @@
 (add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt '("xml" "xsd" "rng" "xslt" "xsl") t) "\\'") 'nxml-mode))
 (setq nxml-slash-auto-complete-flag t)
 
+;; prettier js
+(add-hook 'js2-mode-hook 'prettier-js-mode)
+(add-hook 'typescript-mode-hook 'prettier-js-mode)
+(add-hook 'react-mode-hook 'prettier-js-mode)
+(add-hook 'json-mode-hook 'prettier-js-mode)
+(add-hook 'css-mode-hook 'prettier-js-mode)
+(add-hook 'markdown-mode-hook 'prettier-js-mode)
+(add-hook 'gfm-mode-hook 'prettier-js-mode)
+
 (spacemacs|add-toggle iimage
   :status iimage-mode
   :on (iimage-mode)

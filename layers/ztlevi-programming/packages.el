@@ -11,6 +11,7 @@
 
 (defconst ztlevi-programming-packages
   '(
+    prettier-js
     (stylus-mode :location (recipe :fetcher github :repo "vladh/stylus-mode"))
     ;; rjsx-mode
     xref-js2
@@ -28,7 +29,7 @@
     racket-mode
     yasnippet
     web-mode
-    web-beautify
+    ;; web-beautify
     js-doc
     lua-mode
     (cc-mode :location built-in)
@@ -45,6 +46,28 @@
     robe
     )
   )
+
+(defun ztlevi-programming/init-prettier-js ()
+  (use-package prettier-js
+    :defer t
+    :config
+    (spacemacs/set-leader-keys-for-major-mode 'js2-mode
+      "=" 'prettier-js)
+    (spacemacs/set-leader-keys-for-major-mode 'typescript-mode
+      "=" 'prettier-js)
+    (spacemacs/set-leader-keys-for-major-mode 'react-mode
+      "=" 'prettier-js)
+    (spacemacs/set-leader-keys-for-major-mode 'json-mode
+      "=" 'prettier-js)
+    (spacemacs/set-leader-keys-for-major-mode 'web-mode
+      "=" 'prettier-js)
+    (spacemacs/set-leader-keys-for-major-mode 'css-mode
+      "=" 'prettier-js)
+    ;; configuration scheme
+    ;; https://prettier.io/docs/en/configuration.html#configuration-schema
+    (setq prettier-js-args '(
+                             "--no-semi"
+                             ))))
 
 (defun ztlevi-programming/init-stylus-mode ()
   (use-package stylus-mode
@@ -240,9 +263,9 @@
   (spacemacs/set-leader-keys-for-major-mode 'json-mode
     "ti" 'my-toggle-web-indent))
 
-(defun ztlevi-programming/post-init-web-beautify ()
-  (spacemacs/set-leader-keys-for-major-mode 'json-mode
-    "=" 'json-reformat-region-or-buffer))
+;; (defun ztlevi-programming/post-init-web-beautify ()
+;;   (spacemacs/set-leader-keys-for-major-mode 'json-mode
+;;     "=" 'json-reformat-region-or-buffer))
 
 
 (defun ztlevi-programming/init-nodejs-repl ()
