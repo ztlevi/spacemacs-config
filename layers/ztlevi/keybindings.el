@@ -98,8 +98,6 @@
   "=" 'prettier-js)
 (spacemacs/set-leader-keys-for-major-mode 'json-mode
   "=" 'prettier-js)
-(spacemacs/set-leader-keys-for-major-mode 'web-mode
-  "=" 'prettier-js)
 (spacemacs/set-leader-keys-for-major-mode 'css-mode
   "=" 'prettier-js)
 (spacemacs/set-leader-keys-for-major-mode 'markdown-mode
