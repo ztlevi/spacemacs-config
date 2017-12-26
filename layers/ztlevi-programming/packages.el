@@ -63,6 +63,10 @@
       "=" 'prettier-js)
     (spacemacs/set-leader-keys-for-major-mode 'css-mode
       "=" 'prettier-js)
+    (spacemacs/set-leader-keys-for-major-mode 'markdown-mode
+      "=" 'prettier-js)
+    (spacemacs/set-leader-keys-for-major-mode 'gfm-mode
+      "=" 'prettier-js)
     ;; configuration scheme
     ;; https://prettier.io/docs/en/configuration.html#configuration-schema
     (setq prettier-js-args '(
