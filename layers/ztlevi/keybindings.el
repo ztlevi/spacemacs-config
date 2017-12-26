@@ -89,6 +89,24 @@
     (bb/define-key helm-bookmark-map (kbd "C-f") 'helm-bookmark-toggle-filename)
     (bb/define-key helm-bookmark-map (kbd "C-e") 'helm-bookmark-run-edit)))
 
+;; prettier js
+(spacemacs/set-leader-keys-for-major-mode 'js2-mode
+  "=" 'prettier-js)
+(spacemacs/set-leader-keys-for-major-mode 'typescript-mode
+  "=" 'prettier-js)
+(spacemacs/set-leader-keys-for-major-mode 'react-mode
+  "=" 'prettier-js)
+(spacemacs/set-leader-keys-for-major-mode 'json-mode
+  "=" 'prettier-js)
+(spacemacs/set-leader-keys-for-major-mode 'web-mode
+  "=" 'prettier-js)
+(spacemacs/set-leader-keys-for-major-mode 'css-mode
+  "=" 'prettier-js)
+(spacemacs/set-leader-keys-for-major-mode 'markdown-mode
+  "=" 'prettier-js)
+(spacemacs/set-leader-keys-for-major-mode 'gfm-mode
+  "=" 'prettier-js)
+
 ;; yasnippet
 (define-key yas-minor-mode-map (kbd "<C-tab>") 'yas-expand)
 (spacemacs/set-leader-keys "yr" 'yas-reload-all)

@@ -51,26 +51,9 @@
   (use-package prettier-js
     :defer t
     :config
-    (spacemacs/set-leader-keys-for-major-mode 'js2-mode
-      "=" 'prettier-js)
-    (spacemacs/set-leader-keys-for-major-mode 'typescript-mode
-      "=" 'prettier-js)
-    (spacemacs/set-leader-keys-for-major-mode 'react-mode
-      "=" 'prettier-js)
-    (spacemacs/set-leader-keys-for-major-mode 'json-mode
-      "=" 'prettier-js)
-    (spacemacs/set-leader-keys-for-major-mode 'web-mode
-      "=" 'prettier-js)
-    (spacemacs/set-leader-keys-for-major-mode 'css-mode
-      "=" 'prettier-js)
-    (spacemacs/set-leader-keys-for-major-mode 'markdown-mode
-      "=" 'prettier-js)
-    (spacemacs/set-leader-keys-for-major-mode 'gfm-mode
-      "=" 'prettier-js)
     ;; configuration scheme
     ;; https://prettier.io/docs/en/configuration.html#configuration-schema
-    (setq prettier-js-args '(
-                             "--no-semi"
+    (setq prettier-js-args '("--no-semi"
                              ))))
 
 (defun ztlevi-programming/init-stylus-mode ()

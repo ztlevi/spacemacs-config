@@ -680,27 +680,12 @@
     ;; set markdown inline iamge max size
     (setq markdown-max-image-size '(800 . 800))
 
-    ;; use remark to format markdown
-    (defun remark/format-markdown ()
-      (interactive)
-      (save-buffer)
-      (cond
-       ((string-equal system-type "darwin")
-        (shell-command (concat "remark --silent --no-color --setting listItemIndent:1 '" buffer-file-name "' -o '" buffer-file-name "'")))
-       ((string-equal system-type "gnu/linux")
-        (let ((process-connection-type nil))
-          (start-process "" nil "remark" (concat " --silent --no-color --setting listItemIndent:1 '" buffer-file-name "' -o '" buffer-file-name)))))
-      (deactivate-mark)
-      (revert-buffer :ignore-auto :noconfirm))
-
     ;; define markdown keys
     (with-eval-after-load 'markdown-mode
       (progn
         ;; (when (configuration-layer/package-usedp 'company)
         ;;   (spacemacs|add-company-hook markdown-mode))
         (dolist (mode markdown--key-bindings-modes)
-          (spacemacs/set-leader-keys-for-major-mode mode
-            "=" 'remark/format-markdown)
           (spacemacs/set-leader-keys-for-major-mode mode
             "o" 'markdown-follow-link-at-point)
           (spacemacs/set-leader-keys-for-major-mode mode
