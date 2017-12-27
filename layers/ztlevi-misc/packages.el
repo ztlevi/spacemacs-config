@@ -630,6 +630,7 @@
     (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-call)
     (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial-or-done)
     (define-key ivy-minibuffer-map (kbd "C-<return>") 'ivy-immediate-done)
+    (define-key ivy-minibuffer-map (kbd "C-c C-e") 'spacemacs//counsel-edit)
     ))
 
 (defun ztlevi-misc/post-init-swiper ()
