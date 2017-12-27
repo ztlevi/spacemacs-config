@@ -47,15 +47,11 @@
     )
   )
 
+;; configuration scheme
+;; https://prettier.io/docs/en/configuration.html#configuration-schema
 (defun ztlevi-programming/init-prettier-js ()
   (use-package prettier-js
-    :defer t
-    :config
-    ;; configuration scheme
-    ;; https://prettier.io/docs/en/configuration.html#configuration-schema
-    (setq prettier-js-args '("--no-semi"
-                             "--single-quote"
-                             ))))
+    :defer t))
 
 (defun ztlevi-programming/init-stylus-mode ()
   (use-package stylus-mode
