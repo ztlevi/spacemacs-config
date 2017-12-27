@@ -677,6 +677,8 @@
   (progn
     (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 
+    (setq markdown-italic-underscore t)
+
     ;; set markdown inline iamge max size
     (setq markdown-max-image-size '(800 . 800))
 

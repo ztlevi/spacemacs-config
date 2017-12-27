@@ -54,6 +54,7 @@
     ;; configuration scheme
     ;; https://prettier.io/docs/en/configuration.html#configuration-schema
     (setq prettier-js-args '("--no-semi"
+                             "--single-quote"
                              ))))
 
 (defun ztlevi-programming/init-stylus-mode ()

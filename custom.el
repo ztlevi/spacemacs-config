@@ -36,7 +36,6 @@
  '(magit-diff-use-overlays nil)
  '(magit-log-arguments (quote ("-n256" "--graph" "--decorate" "--color")))
  '(magit-use-overlays nil)
- '(markdown-gfm-use-electric-backquote nil)
  '(max-mini-window-height 2)
  '(only-global-abbrevs t)
  '(org-agenda-custom-commands nil)
