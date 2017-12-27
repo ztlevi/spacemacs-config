@@ -343,12 +343,6 @@
 
 (defun ztlevi-programming/post-init-js2-mode ()
   (progn
-    ;; Better imenu
-    (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
-    (add-hook 'js2-mode-hook
-              (lambda ()
-                (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
-
     (spacemacs|define-jump-handlers js2-mode)
     (add-hook 'spacemacs-jump-handlers-js2-mode 'etags-select-find-tag-at-point)
 
@@ -359,8 +353,6 @@
 
     (spacemacs/set-leader-keys-for-major-mode 'js2-mode
       "tb" 'ztlevi/company-toggle-company-tern)
-
-    (add-hook 'js2-mode-hook 'my-js2-mode-hook)
 
     ;; add your own keywords highlight here
     (font-lock-add-keywords 'js2-mode
