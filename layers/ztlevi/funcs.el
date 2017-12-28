@@ -41,3 +41,10 @@
 ;;   "When running `quit-window', always kill the buffer."
 ;;   (ad-set-arg 0 t))
 ;; (ad-activate 'quit-window)
+
+;; Delete frame if solo window
+(defun delete-window-or-frame (&optional window frame force)
+  (interactive)
+  (if (= 1 (length (window-list frame)))
+      (delete-frame frame force)
+    (delete-window window)))
