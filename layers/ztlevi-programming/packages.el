@@ -51,7 +51,9 @@
 ;; https://prettier.io/docs/en/configuration.html#configuration-schema
 (defun ztlevi-programming/init-prettier-js ()
   (use-package prettier-js
-    :defer t))
+    :defer t
+    :config
+    (setq prettier-js-show-errors (quote echo))))
 
 (defun ztlevi-programming/init-stylus-mode ()
   (use-package stylus-mode
