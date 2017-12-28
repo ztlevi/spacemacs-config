@@ -61,7 +61,7 @@
 (global-set-key (kbd "C-SPC") 'company-complete)
 
 ;; comment
-(global-set-key (kbd "s-/") 'comment-dwim)
+(global-set-key (kbd "s-/") 'spacemacs/comment-or-uncomment-lines)
 
 ;; hungry delete
 (global-set-key (kbd "s-<backspace>") 'hungry-delete-backward)
