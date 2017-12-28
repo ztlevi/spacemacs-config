@@ -53,6 +53,14 @@
 
 (add-hook 'term-mode-hook 'ztlevi/ash-term-hooks)
 
+;; turn on react mode recursively in some directories
+;; this hook needs to be added before others to take effect
+(defun turn-on-react-mode-for-js2 ()
+  (interactive)
+  (cond ((string-match "/Developer/react_github/" buffer-file-name)
+         (react-mode))))
+(add-hook 'js2-mode-hook 'turn-on-react-mode-for-js2)
+
 ;; js2 mode hooks
 ;; Better imenu
 (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
