@@ -378,9 +378,9 @@
     (evil-define-key 'emacs term-raw-map (kbd "C-w") 'evil-delete-backward-word)
 
     ;; set evil state cursor
-    (setq evil-normal-state-cursor '("#4078f2" box))
-    (setq evil-insert-state-cursor '("#4078f2" (bar . 2)))
-    (setq evil-hybrid-state-cursor '("#4078f2" (bar . 2)))
+    (setq evil-normal-state-cursor '("#ff007f" box))
+    (setq evil-insert-state-cursor '("#ff007f" (bar . 2)))
+    (setq evil-hybrid-state-cursor '("#ff007f" (bar . 2)))
     ))
 
 (defun ztlevi-misc/post-init-evil-surround ()
