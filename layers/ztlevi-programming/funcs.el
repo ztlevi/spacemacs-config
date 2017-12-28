@@ -153,7 +153,6 @@ version 2015-08-21"
     (modify-syntax-entry ?_ "w")
     (setq imenu-create-index-function 'js2-imenu-make-index)
 
-    (setq mode-name "JS2")
     (define-key js2-mode-map   (kbd "s-.") 'company-tern)
     (spacemacs/toggle-syntax-checking-on)
     (setq forward-sexp-function nil)
