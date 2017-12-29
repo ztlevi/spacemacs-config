@@ -640,6 +640,9 @@
   (progn
     (with-eval-after-load 'magit
       (progn
+        ;; magithub bind key
+        (define-key magit-status-mode-map (kbd "H") 'magithub-dispatch-popup)
+
         (add-to-list 'magit-no-confirm 'stage-all-changes)
         (setq magit-completing-read-function 'magit-builtin-completing-read)
 
@@ -655,7 +658,7 @@
 
 (defun ztlevi-misc/init-magithub ()
   (use-package magithub
-    :after magit
+    :defer t
     :config (magithub-feature-autoinject t)))
 
 (defun ztlevi-misc/post-init-git-messenger ()

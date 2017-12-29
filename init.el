@@ -87,8 +87,7 @@ This function should only modify configuration layer settings."
      (chrome :packages (not edit-server gmail-message-mode))
      imenu-list
      neotree
-     ;; (treemacs :variables treemacs-use-filewatch-mode t
-     ;;           :variables treemacs-use-follow-mode t)
+     ;; treemacs
 
      ;; ======================== Frameworks ======================
      ;; ruby-on-rails
