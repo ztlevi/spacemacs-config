@@ -126,6 +126,11 @@
 (spacemacs/set-leader-keys "bt" 'ztlevi/open-terminal-in-current-dir)
 (spacemacs/set-leader-keys "bT" 'ztlevi/open-markdown-in-typora)
 
+;; neotree
+(with-eval-after-load 'neotree
+  (define-key neotree-mode-map (kbd "f") 'counsel-find-file)
+  (define-key neotree-mode-map (kbd "+") 'make-directory))
+
 ;; remap C-h with delte, C-M-h with help-command
 ;; (define-key evil-hybrid-state-map (kbd "C-h") 'delete-backward-char)
 ;; (global-set-key (kbd "C-M-h") 'help-command)
