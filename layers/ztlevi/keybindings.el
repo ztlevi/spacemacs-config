@@ -205,6 +205,7 @@
 (spacemacs/set-leader-keys "Bj" 'counsel-bookmark)
 (spacemacs/set-leader-keys "Bb" 'bookmark-bmenu-list)
 
+(spacemacs/set-leader-keys "oc" 'eacl-complete-tag)
 (spacemacs/set-leader-keys "od" 'occur-dwim)
 (spacemacs/set-leader-keys "on" 'occur-non-ascii)
 (spacemacs/set-leader-keys "ox" 'org-open-at-point-global)
