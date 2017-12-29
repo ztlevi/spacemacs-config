@@ -86,8 +86,8 @@ This function should only modify configuration layer settings."
      deft
      (chrome :packages (not edit-server gmail-message-mode))
      imenu-list
-     neotree
-     ;; treemacs
+     ;; neotree
+     treemacs
 
      ;; ======================== Frameworks ======================
      ;; ruby-on-rails

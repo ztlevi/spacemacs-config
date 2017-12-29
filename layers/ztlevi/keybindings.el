@@ -130,6 +130,12 @@
 (with-eval-after-load 'neotree
   (define-key neotree-mode-map (kbd "f") 'counsel-find-file)
   (define-key neotree-mode-map (kbd "+") 'make-directory))
+;; treemacs
+(with-eval-after-load 'treemacs
+  (define-key treemacs-mode-map (kbd "ov") 'treemacs-visit-node-horizontal-split)
+  (define-key treemacs-mode-map (kbd "os") 'treemacs-visit-node-vertical-split)
+  (define-key evil-treemacs-state-map (kbd "f") 'counsel-find-file)
+  (define-key evil-treemacs-state-map (kbd "+") 'make-directory))
 
 ;; remap C-h with delte, C-M-h with help-command
 ;; (define-key evil-hybrid-state-map (kbd "C-h") 'delete-backward-char)
