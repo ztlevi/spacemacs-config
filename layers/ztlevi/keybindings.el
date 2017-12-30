@@ -268,8 +268,9 @@
 
 (spacemacs/set-leader-keys "ok" 'helm-show-kill-ring)
 
-(global-set-key (kbd "s-s") 'save-buffer)
+(global-set-key (kbd "s-s") 'evil-write-all)
 (global-set-key (kbd "s-w") 'delete-window-or-frame)
+(global-set-key (kbd "C-s-o") 'other-frame)
 ;; keybindings for linux and windows
 (when (or (spacemacs/system-is-linux) (spacemacs/system-is-mswindows))
   (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
