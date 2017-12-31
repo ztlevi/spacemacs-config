@@ -23,8 +23,8 @@
     flycheck
     nodejs-repl
     (nodejs-repl-eval :location local)
-    lsp-mode
-    lsp-javascript-typescript
+    ;; lsp-mode
+    ;; lsp-javascript-typescript
     js2-mode
     eacl
     js2-refactor
@@ -364,9 +364,9 @@
     :commands (lsp-javascript-typescript-enable)
     :defer t))
 
-(add-hook 'js2-mode-hook #'lsp-javascript-typescript-enable)
-(add-hook 'react-mode-hook #'lsp-javascript-typescript-enable)
-(add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable)
+;; (add-hook 'js2-mode-hook #'lsp-javascript-typescript-enable)
+;; (add-hook 'react-mode-hook #'lsp-javascript-typescript-enable)
+;; (add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable)
 
 (defun ztlevi-programming/post-init-js2-mode ()
   (progn
