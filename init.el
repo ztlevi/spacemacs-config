@@ -100,8 +100,12 @@ This function should only modify configuration layer settings."
      ;; lua
      ;; latex
      (markdown :packages (not gh-md))
-     (org :packages (not org-projectile org-download org-present)
-          :variables org-want-todo-bindings t)
+     (org :packages (not org-projectile org-download org-present org-brain)
+          :variables
+          org-want-todo-bindings t
+          org-enable-bootstrap-support t
+          org-enable-github-support t
+          org-enable-reveal-js-support t)
      gpu
      yaml
      php

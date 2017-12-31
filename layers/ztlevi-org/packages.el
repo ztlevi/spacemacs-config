@@ -18,8 +18,8 @@
     (blog-admin :location (recipe
                            :fetcher github
                            :repo "codefalling/blog-admin"))
+    ox-reveal
     ;; org-tree-slide
-    ;; ox-reveal
     ;; worf
     ;; org-download
     ;; plain-org-wiki
@@ -429,11 +429,8 @@ holding contextual information."
 (defun ztlevi-org/post-init-ox-reveal ()
   (progn
     ;; (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")
-    (setq org-reveal-root (concat dotspacemacs-directory "layers/ztlevi-org/reveal.js-3.5.0/"))
-    (setq org-reveal-mathjax t)
-
-    (use-package htmlize
-      :ensure t)))
+    (setq org-reveal-root (concat dotspacemacs-directory "layers/ztlevi-org/reveal.js-3.6.0/"))
+    (setq org-reveal-mathjax t)))
 
 (defun ztlevi-org/init-org-tree-slide ()
   (use-package org-tree-slide
