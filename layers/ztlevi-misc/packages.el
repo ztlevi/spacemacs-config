@@ -39,7 +39,6 @@
     ivy
     swiper
     magit
-    magithub
     github-browse-file
     git-messenger
     hydra
@@ -640,9 +639,6 @@
   (progn
     (with-eval-after-load 'magit
       (progn
-        ;; magithub bind key
-        (define-key magit-status-mode-map (kbd "H") 'magithub-dispatch-popup)
-
         (add-to-list 'magit-no-confirm 'stage-all-changes)
         (setq magit-completing-read-function 'magit-builtin-completing-read)
 
@@ -655,11 +651,6 @@
     (setq magit-push-always-verify nil)
 
     (setq magit-process-popup-time 10)))
-
-(defun ztlevi-misc/init-magithub ()
-  (use-package magithub
-    :defer t
-    :config (magithub-feature-autoinject t)))
 
 (defun ztlevi-misc/post-init-git-messenger ()
   (use-package git-messenger
