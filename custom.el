@@ -47,6 +47,7 @@
  '(org-agenda-start-on-weekday nil)
  '(org-agenda-text-search-extra-files (quote (agenda-archives)))
  '(org-deadline-warning-days 14)
+ '(org-descriptive-links nil)
  '(org-ellipsis "  ")
  '(org-fast-tag-selection-single-key (quote expert))
  '(org-fontify-done-headline t)
