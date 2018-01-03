@@ -2,5 +2,5 @@
 # name: img
 # key: img->
 # --
-#+HTML: <img src="$1" alt="${2:img}" title="image title"/>
+#+HTML: <img src="$1" alt="${2:img}" title="image title" width="100%"/>
 $0
