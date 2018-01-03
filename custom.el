@@ -56,6 +56,7 @@
  '(org-log-into-drawer t)
  '(org-pomodoro-play-sounds nil)
  '(org-reverse-note-order t)
+ '(org-twbs-creator-string "")
  '(origami-fold-replacement "  ")
  '(package-selected-packages
    (quote

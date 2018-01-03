@@ -293,22 +293,22 @@ unwanted space when exporting org-mode to html."
 </div>")
       (defvar ztlevi-website-html-blog-head
         "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://www.pirilampo.org/styles/readtheorg/css/htmlize.css\"/>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"http://www.pirilampo.org/styles/readtheorg/css/readtheorg.css\"/>\n<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js\"></script>\n<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js\"></script>\n<script type=\"text/javascript\" src=\"http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.js\"></script>\n<script type=\"text/javascript\" src=\"http://www.pirilampo.org/styles/readtheorg/js/readtheorg.js\"></script>")
+
       (setq org-publish-project-alist
-            `(
-              ("blog-notes"
+            '(("org-notes"
                :base-directory "~/Dropbox/Org-Notes"
                :base-extension "org"
                :publishing-directory "~/Dropbox/Org-Notes/public_html/"
-
                :recursive t
-               :html-head , ztlevi-website-html-blog-head
-               :publishing-function org-html-publish-to-html
+               ;; :html-head ,ztlevi-website-html-blog-head
+               :publishing-function org-twbs-publish-to-html
+               :with-sub-superscript nil
                :headline-levels 4       ; Just the default for this project.
                :auto-preamble t
                :exclude "gtd.org"
                :exclude-tags ("ol" "noexport")
-               :section-numbers nil
-               :html-preamble ,ztlevi-website-html-preamble
+               ;; :html-preamble ,ztlevi-website-html-preamble
+               ;; :html-postamble nil
                :author "ztlevi"
                :email "zhouting@umich.edu"
                :auto-sitemap t          ; Generate sitemap.org automagically...
@@ -317,15 +317,14 @@ unwanted space when exporting org-mode to html."
                :sitemap-sort-files anti-chronologically
                :sitemap-file-entry-format "%t" ; %d to output date, we don't need date here
                )
-
-              ("blog-static"
+              ("org-static"
                :base-directory "~/Dropbox/Org-Notes"
                :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
                :publishing-directory "~/Dropbox/Org-Notes/public_html/"
                :recursive t
                :publishing-function org-publish-attachment
                )
-              ("blog" :components ("blog-notes" "blog-static"))))
+              ("notes" :components ("org-notes" "org-static"))))
 
       (add-hook 'org-after-todo-statistics-hook 'ztlevi/org-summary-todo)
       ;; used by ztlevi/org-clock-sum-today-by-tags
