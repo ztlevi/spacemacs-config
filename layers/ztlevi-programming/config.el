@@ -63,7 +63,7 @@
 ;; this hook needs to be added before others to take effect
 (defun turn-on-react-mode-for-js2 ()
   (interactive)
-  (cond ((string-match "/Developer/react_github/" buffer-file-name)
+  (cond ((string-match "/react_github/" buffer-file-name)
          (react-mode))))
 (add-hook 'js2-mode-hook 'turn-on-react-mode-for-js2)
 
