@@ -117,7 +117,7 @@ This function should only modify configuration layer settings."
                  typescript-fmt-on-save nil
                  typescript-fmt-tool 'typescript-formatter)
      (emacs-lisp :packages (not nameless overseer))
-     (c-c++ :packages (not realgud clang-format disaster)
+     (c-c++ :packages (not realgud clang-format disaster rtags company-rtags flycheck-rtags ivy-rtags ggtags counsel-gtags helm-gtags)
             :variables
             c-c++-enable-c++11 t
             c-c++-enable-clang-support t
@@ -164,7 +164,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil then Spacelpa repository is the primary source to install
    ;; a locked version of packages. If nil then Spacemacs will install the lastest
    ;; version of packages from MELPA. (default nil)
-   dotspacemacs-use-spacelpa t
+   dotspacemacs-use-spacelpa nil
    ;; If non-nil then verify the signature for downloaded Spacelpa archives.
    ;; (default nil)
    dotspacemacs-verify-spacelpa-archives nil
@@ -486,6 +486,7 @@ It should only modify the values of Spacemacs settings."
   (spacemacs|diminish which-key-mode)
   (spacemacs|diminish spacemacs-whitespace-cleanup-mode)
   (spacemacs|diminish counsel-mode)
+  (spacemacs|diminish importmagic-mode)
 
   (evilified-state-evilify-map special-mode-map :mode special-mode)
 
