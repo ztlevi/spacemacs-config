@@ -219,10 +219,6 @@ version 2015-08-21"
 
                                ("Task" "[. \t]task([ \t]*['\"]\\([^'\"]+\\)" 1)))))
 
-(defun my-doxymacs-font-lock-hook ()
-  (if (or (eq major-mode 'c-mode) (eq major-mode 'c++-mode))
-      (doxymacs-font-lock)))
-
 (defun my-project-name-contains-substring (REGEX)
   (let ((dir (if (buffer-file-name)
                  (file-name-directory (buffer-file-name))

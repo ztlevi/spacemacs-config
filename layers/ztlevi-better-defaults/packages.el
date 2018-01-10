@@ -164,6 +164,7 @@
 
 (defun ztlevi-better-defaults/init-profiler ()
   (use-package profiler
+    :defer t
     :init
     (evilified-state-evilify profiler-report-mode profiler-report-mode-map)))
 

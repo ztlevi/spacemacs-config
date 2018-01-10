@@ -187,7 +187,6 @@ DEFAULT is non-nil, set the default mode-line for all buffers."
 (use-package shrink-path
   :commands (shrink-path-prompt shrink-path-file-mixed))
 
-
 ;;
 ;; Variables
 ;;

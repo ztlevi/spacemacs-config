@@ -27,7 +27,6 @@
     evil-surround
     discover-my-major
     ace-window
-    avy
     ;; 4clojure
     persp-mode
     tiny
@@ -65,7 +64,7 @@
 
 (defun ztlevi-misc/init-atomic-chrome ()
   (use-package atomic-chrome
-    :ensure t                           ; To install its dependencies
+    :defer 3
     :preface
     (defun ztlevi-atomic-chrome-server-running-p ()
       (cond ((executable-find "lsof")
@@ -97,6 +96,7 @@
 
 (defun ztlevi-misc/init-highlight-global ()
   (use-package highlight-global
+    :defer t
     :init
     (progn
       (spacemacs/set-leader-keys "hh" 'highlight-frame-toggle)
@@ -214,11 +214,11 @@
 (defun ztlevi-misc/init-tiny ()
   (use-package tiny
     :defer t
-    :init
-    (spacemacs/set-leader-keys "oe" 'tiny-expand)))
+    :init (spacemacs/set-leader-keys "oe" 'tiny-expand)))
 
 (defun ztlevi-misc/init-helm-github-stars ()
   (use-package helm-github-stars
+    :defer t
     :commands (helm-github-stars)
     :init
     (setq helm-github-stars-username "ztlevi")))
@@ -229,36 +229,16 @@
                                               '(evil-next-visual-line
                                                 evil-previous-visual-line)))))
 
-(defun ztlevi-misc/init-litable ()
-  (use-package litable
-    :init
-    :defer t))
-
-(defun ztlevi-misc/init-osx-dictionary ()
-  (use-package osx-dictionary
-    :init
-    (progn
-      (evilified-state-evilify osx-dictionary-mode osx-dictionary-mode-map)
-      (setq osx-dictionary-use-chinese-text-segmentation t)
-      (global-set-key (kbd "C-c d") 'osx-dictionary-search-pointer)
-      )))
-
-
 (defun ztlevi-misc/init-4clojure ()
   (use-package 4clojure
+    :defer t
     :init
     (progn
       (spacemacs/declare-prefix "o4" "4clojure")
       (spacemacs/set-leader-keys "o4q" '4clojure-open-question)
       (spacemacs/set-leader-keys "o4n" '4clojure-next-question)
       (spacemacs/set-leader-keys "o4p" '4clojure-previous-question)
-      (spacemacs/set-leader-keys "o4c" '4clojure-check-answers)
-      )))
-
-(defun ztlevi-misc/post-init-avy ()
-  (progn
-    (global-set-key (kbd "C-s-'") 'avy-goto-char-2)
-    (global-set-key (kbd "M-'") 'avy-goto-char-2)))
+      (spacemacs/set-leader-keys "o4c" '4clojure-check-answers))))
 
 (defun ztlevi-misc/post-init-ace-window ()
   (global-set-key (kbd "C-x C-o") #'ace-window))
@@ -269,9 +249,7 @@
     :init
     (progn
       (spacemacs/set-leader-keys (kbd "mhm") 'discover-my-major)
-      (evilified-state-evilify makey-key-mode makey-key-mode-get-key-map)
-      )))
-
+      (evilified-state-evilify makey-key-mode makey-key-mode-get-key-map))))
 
 (defun ztlevi-misc/post-init-elfeed ()
   (use-package elfeed
@@ -390,10 +368,12 @@
 
 (defun ztlevi-misc/init-visual-regexp ()
   (use-package visual-regexp
+    :defer t
     :commands (vr/replace vr/query-replace)))
 
 (defun ztlevi-misc/init-visual-regexp-steroids ()
   (use-package visual-regexp-steroids
+    :defer t
     :commands (vr/select-replace vr/select-query-replace)
     :init
     (progn
@@ -402,6 +382,7 @@
 
 (defun ztlevi-misc/init-multiple-cursors ()
   (use-package multiple-cursors
+    :defer t
     :init
     (progn
       (bind-key* "C-s-l" 'mc/edit-lines)
@@ -411,11 +392,16 @@
       (bind-key* "s->" 'mc/unmark-next-like-this)
       (bind-key* "s-<" 'mc/unmark-previous-like-this)
 
+      ;; add mouse click
+      (global-unset-key (kbd "M-<down-mouse-1>"))
+      (global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
+
       ;; http://endlessparentheses.com/multiple-cursors-keybinds.html?source=rss
       (define-prefix-command 'endless/mc-map)
       ;; C-x m is usually `compose-mail'. Bind it to something
       ;; else if you use this command.
       (define-key ctl-x-map "m" 'endless/mc-map)
+
 ;;; Really really nice!
       (define-key endless/mc-map "i" #'mc/insert-numbers)
       (define-key endless/mc-map "h" #'mc-hide-unmatched-lines-mode)
@@ -427,16 +413,12 @@
       (define-key endless/mc-map "s" #'mc/sort-regions)
       (define-key endless/mc-map "l" #'mc/edit-lines)
       (define-key endless/mc-map "\C-a" #'mc/edit-beginnings-of-lines)
-      (define-key endless/mc-map "\C-e" #'mc/edit-ends-of-lines)
-      )
+      (define-key endless/mc-map "\C-e" #'mc/edit-ends-of-lines))
     :config
     (setq mc/always-repeat-command t)
     (setq mc/always-run-for-all t)
 
-    (define-key mc/keymap (kbd "<return>") nil)
-    (global-unset-key (kbd "M-<down-mouse-1>"))
-    (global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
-    ))
+    (define-key mc/keymap (kbd "<return>") nil)))
 
 (defun ztlevi-misc/post-init-persp-mode ()
   (setq persp-kill-foreign-buffer-action 'kill)
@@ -596,6 +578,7 @@
 
 (defun ztlevi-misc/init-wrap-region ()
   (use-package wrap-region
+    :defer t
     :init
     (progn
       (wrap-region-global-mode t)
@@ -606,9 +589,7 @@
          ("/* " " */" "#" (java-mode javascript-mode css-mode js2-mode))
          ("`" "`" nil (markdown-mode ruby-mode))))
       (add-to-list 'wrap-region-except-modes 'dired-mode)
-      (add-to-list 'wrap-region-except-modes 'web-mode)
-      )
-    :defer t
+      (add-to-list 'wrap-region-except-modes 'web-mode))
     :config
     (spacemacs|hide-lighter wrap-region-mode)))
 

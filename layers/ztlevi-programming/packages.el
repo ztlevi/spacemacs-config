@@ -16,7 +16,6 @@
     ;; rjsx-mode
     xref-js2
     css-mode
-    paredit
     lispy
     cmake-font-lock
     cmake-mode
@@ -348,6 +347,7 @@
 
 (defun ztlevi-programming/init-eacl ()
   (use-package eacl
+    :defer t
     :config
     ;; only for mac
     (setq eacl-grep-program "ggrep")))
@@ -454,21 +454,10 @@
 (defun ztlevi-programming/post-init-tagedit ()
   (add-hook 'web-mode-hook (lambda () (tagedit-mode 1))))
 
-;; For each extension, define a function ztlevi/init-<extension-name>
-;;
-(defun ztlevi-programming/init-doxymacs ()
-  "Initialize doxymacs"
-  (use-package doxymacs
-    :init
-    (add-hook 'c-mode-common-hook 'doxymacs-mode)
-    :config
-    (progn
-      (add-hook 'font-lock-mode-hook 'my-doxymacs-font-lock-hook)
-      (spacemacs|hide-lighter doxymacs-mode))))
-
 ;; https://atlanis.net/blog/posts/nodejs-repl-eval.html
 (defun ztlevi-programming/init-nodejs-repl-eval ()
   (use-package nodejs-repl-eval
+    :defer t
     :commands (nodejs-repl-eval-buffer nodejs-repl-eval-dwim nodejs-repl-eval-function)
     :init
     (progn
@@ -477,9 +466,7 @@
       (spacemacs/set-leader-keys-for-major-mode 'js2-mode
         "sb" 'nodejs-repl-eval-buffer
         "sf" 'nodejs-repl-eval-function
-        "sd" 'nodejs-repl-eval-dwim))
-    :defer t
-    ))
+        "sd" 'nodejs-repl-eval-dwim))))
 
 (defun ztlevi-programming/post-init-lua-mode ()
   (progn
@@ -556,6 +543,7 @@
 
 (defun ztlevi-programming/init-counsel-etags ()
   (use-package counsel-etags
+    :defer t
     :config
     (eval-after-load 'grep
       '(progn
@@ -593,20 +581,6 @@
               (lambda ()
                 (add-hook 'after-save-hook
                           'counsel-etags-virtual-update-tags 'append 'local)))))
-
-(defun ztlevi-programming/init-paredit ()
-  (use-package paredit
-    :commands (paredit-wrap-round
-               paredit-wrap-square
-               paredit-wrap-curly
-               paredit-splice-sexp-killing-backward)
-    :init
-    (progn
-
-      (bind-key* "s-(" #'paredit-wrap-round)
-      (bind-key* "s-[" #'paredit-wrap-square)
-      (bind-key* "s-{" #'paredit-wrap-curly)
-      )))
 
 (defun ztlevi-programming/post-init-company ()
   (progn
