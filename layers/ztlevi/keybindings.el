@@ -76,6 +76,9 @@
 (define-key evil-normal-state-map (kbd "gr") 'counsel-etags-recent-tag)
 (spacemacs/set-leader-keys "ou" 'counsel-etags-update-tags-force)
 
+;; prettier js
+(spacemacs/set-leader-keys "tp" 'prettier-js-mode)
+
 ;; redefine C-i and S-tab
 (global-set-key (kbd "<C-i>") 'evil-shift-right-line)
 (global-set-key (kbd "<S-tab>") 'evil-shift-left-line)
