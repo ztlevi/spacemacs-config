@@ -117,7 +117,7 @@ This function should only modify configuration layer settings."
                  typescript-fmt-on-save nil
                  typescript-fmt-tool 'typescript-formatter)
      (emacs-lisp :packages (not nameless overseer))
-     (c-c++ :packages (not realgud clang-format disaster)
+     (c-c++ :packages (not realgud clang-format disaster rtags company-rtags flycheck-rtags ivy-rtags)
             :variables
             c-c++-enable-rtags-support nil
             c-c++-enable-c++11 t
@@ -141,9 +141,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
    '(
-     evil-escape exec-path-from-shell holy-mode spacemacs-theme eyebrowse
-     rtags company-rtags flycheck-rtags ivy-rtags ggtags counsel-gtags helm-gtags
-     )
+     evil-escape exec-path-from-shell holy-mode spacemacs-theme eyebrowse)
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
 
