@@ -119,6 +119,7 @@ This function should only modify configuration layer settings."
      (emacs-lisp :packages (not nameless overseer))
      (c-c++ :packages (not realgud clang-format disaster)
             :variables
+            c-c++-enable-rtags-support nil
             c-c++-enable-c++11 t
             c-c++-enable-clang-support t
             c-c++-enable-cmake-ide-support t
