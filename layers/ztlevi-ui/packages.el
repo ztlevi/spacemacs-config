@@ -61,6 +61,7 @@
 
 (defun ztlevi-ui/init-shrink-path ()
   (use-package shrink-path
+    :defer t
     :commands (shrink-path-prompt shrink-path-file-mixed)))
 
 (defun ztlevi-ui/init-all-the-icons-dired ()

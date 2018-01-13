@@ -140,8 +140,7 @@ This function should only modify configuration layer settings."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
-   '(
-     evil-escape exec-path-from-shell holy-mode spacemacs-theme eyebrowse)
+   '(evil-escape exec-path-from-shell holy-mode spacemacs-theme eyebrowse)
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
 

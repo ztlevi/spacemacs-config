@@ -560,17 +560,6 @@
               #'(lambda() (set (make-local-variable 'after-change-functions) #'refresh-chrome-current-tab)))
     ))
 
-(defun ztlevi-misc/init-moz-controller ()
-  (use-package moz-controller
-    :init
-    (progn
-      (moz-controller-global-mode t)
-      (spacemacs|hide-lighter moz-controller-mode))))
-
-(defun ztlevi-misc/init-ag ()
-  (use-package ag
-    :init))
-
 (defun ztlevi-misc/post-init-erc ()
   (progn
     (add-hook 'erc-text-matched-hook 'my-erc-hook)

@@ -417,13 +417,13 @@ holding contextual information."
 
 (defun ztlevi-org/init-org-mac-link ()
   (use-package org-mac-link
+    :defer t
     :commands org-mac-grab-link
     :init
     (progn
       (add-hook 'org-mode-hook
                 (lambda ()
-                  (define-key org-mode-map (kbd "C-c g") 'org-mac-grab-link))))
-    :defer t))
+                  (define-key org-mode-map (kbd "C-c g") 'org-mac-grab-link))))))
 
 (defun ztlevi-org/post-init-ox-reveal ()
   (progn
