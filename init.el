@@ -98,7 +98,7 @@ This function should only modify configuration layer settings."
      ;; (ruby :variables ruby-version-manager 'chruby)
      ;; racket
      ;; lua
-     ;; latex
+     latex
      (markdown :packages (not gh-md))
      (org :packages (not org-projectile org-download org-present org-brain)
           :variables
@@ -112,7 +112,7 @@ This function should only modify configuration layer settings."
      (python :variables
              python-test-runner '(nose pytest))
      html
-     (javascript :packages (not web-beautify skewer-mode livid-mode))
+     (javascript :packages (not web-beautify livid-mode))
      (typescript :variables
                  typescript-fmt-on-save nil
                  typescript-fmt-tool 'typescript-formatter)
