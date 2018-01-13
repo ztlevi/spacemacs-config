@@ -204,11 +204,7 @@
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil))
 
     (web-mode-toggle-current-element-highlight)
-    (web-mode-dom-errors-show))
-  (setq company-backends-web-mode '((company-dabbrev-code
-                                     company-keywords
-                                     company-etags)
-                                    company-files company-dabbrev)))
+    (web-mode-dom-errors-show)))
 
 (defun ztlevi-programming/post-init-yasnippet ()
   (progn
@@ -373,14 +369,6 @@
     (spacemacs|define-jump-handlers js2-mode)
     (add-hook 'spacemacs-jump-handlers-js2-mode 'etags-select-find-tag-at-point)
 
-    (setq company-backends-js2-mode '((company-dabbrev-code :with company-keywords company-etags)
-                                      company-files company-dabbrev))
-
-    (ztlevi|toggle-company-backends company-tern)
-
-    (spacemacs/set-leader-keys-for-major-mode 'js2-mode
-      "tb" 'ztlevi/company-toggle-company-tern)
-
     ;; add your own keywords highlight here
     (font-lock-add-keywords 'js2-mode
                             '(("\\<\\(cc\\)\\>" 1 font-lock-type-face)))
@@ -488,58 +476,29 @@
     ))
 
 (defun ztlevi-programming/post-init-cc-mode ()
-  (progn
-    (setq company-backends-c-mode-common '((company-dabbrev-code :with company-keywords company-gtags company-etags)
-                                           company-files company-dabbrev))
+  ;; http://stackoverflow.com/questions/23553881/emacs-indenting-of-c11-lambda-functions-cc-mode
+  (defadvice c-lineup-arglist (around my activate)
+    "Improve indentation of continued C++11 lambda function opened as argument."
+    (setq ad-return-value
+          (if (and (equal major-mode 'c++-mode)
+                   (ignore-errors
+                     (save-excursion
+                       (goto-char (c-langelem-pos langelem))
+                       ;; Detect "[...](" or "[...]{". preceded by "," or "(",
+                       ;;   and with unclosed brace.
+                       (looking-at ".*[(,][ \t]*\\[[^]]*\\][ \t]*[({][^}]*$"))))
+              0                       ; no additional indent
+            ad-do-it)))               ; default behavior
 
-    ;; http://stackoverflow.com/questions/23553881/emacs-indenting-of-c11-lambda-functions-cc-mode
-    (defadvice c-lineup-arglist (around my activate)
-      "Improve indentation of continued C++11 lambda function opened as argument."
-      (setq ad-return-value
-            (if (and (equal major-mode 'c++-mode)
-                     (ignore-errors
-                       (save-excursion
-                         (goto-char (c-langelem-pos langelem))
-                         ;; Detect "[...](" or "[...]{". preceded by "," or "(",
-                         ;;   and with unclosed brace.
-                         (looking-at ".*[(,][ \t]*\\[[^]]*\\][ \t]*[({][^}]*$"))))
-                0                       ; no additional indent
-              ad-do-it)))               ; default behavior
-
-
-    (setq c-default-style "linux") ;; set style to "linux"
-    (setq c-basic-offset 4)
-    (c-set-offset 'substatement-open 0)
-    (with-eval-after-load 'c++-mode
-      (define-key c++-mode-map (kbd "s-.") 'company-ycmd)))
-
-  )
+  (setq c-default-style "linux") ;; set style to "linux"
+  (setq c-basic-offset 4)
+  (c-set-offset 'substatement-open 0))
 
 (defun ztlevi-programming/init-flycheck-clojure ()
   (use-package flycheck-clojure
     :defer t
     :init
     (eval-after-load 'flycheck '(flycheck-clojure-setup))))
-
-(defun ztlevi-programming/post-init-ycmd ()
-  (progn
-    (setq ycmd-tag-files 'auto)
-    (setq ycmd-request-message-level -1)
-    (set-variable 'ycmd-server-command `("python" ,(expand-file-name "~/Github/ycmd/ycmd/__main__.py")))
-    (setq company-backends-c-mode-common '((company-c-headers
-                                            company-dabbrev-code
-                                            company-keywords
-                                            company-gtags :with company-yasnippet)
-                                           company-files company-dabbrev ))
-
-    (ztlevi|toggle-company-backends company-ycmd)
-    (eval-after-load 'ycmd
-      '(spacemacs|hide-lighter ycmd-mode))
-
-    (spacemacs/set-leader-keys-for-major-mode 'c-mode
-      "tb" 'ztlevi/company-toggle-company-ycmd)
-    (spacemacs/set-leader-keys-for-major-mode 'c++-mode
-      "tb" 'ztlevi/company-toggle-company-ycmd)))
 
 (defun ztlevi-programming/init-counsel-etags ()
   (use-package counsel-etags
