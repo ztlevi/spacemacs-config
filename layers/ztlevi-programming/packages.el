@@ -365,66 +365,45 @@
 ;; (add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable)
 
 (defun ztlevi-programming/post-init-js2-mode ()
-  (progn
-    (spacemacs|define-jump-handlers js2-mode)
-    (add-hook 'spacemacs-jump-handlers-js2-mode 'etags-select-find-tag-at-point)
+  (spacemacs|define-jump-handlers js2-mode)
+  (add-hook 'spacemacs-jump-handlers-js2-mode 'etags-select-find-tag-at-point)
 
-    ;; add your own keywords highlight here
-    (font-lock-add-keywords 'js2-mode
-                            '(("\\<\\(cc\\)\\>" 1 font-lock-type-face)))
+  ;; add your own keywords highlight here
+  (font-lock-add-keywords 'js2-mode
+                          '(("\\<\\(cc\\)\\>" 1 font-lock-type-face)))
 
-    (spacemacs/declare-prefix-for-mode 'js2-mode "ms" "repl")
+  (spacemacs/declare-prefix-for-mode 'js2-mode "ms" "repl")
 
-    (with-eval-after-load 'js2-mode
-      (progn
-        ;; these mode related variables must be in eval-after-load
-        ;; https://github.com/magnars/.emacs.d/blob/master/settings/setup-js2-mode.el
-        (setq js2-allow-rhino-new-expr-initializer nil)
-        (setq js2-auto-indent-p nil)
-        (setq js2-enter-indents-newline nil)
-        (setq js2-global-externs '("module" "ccui" "require" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location" "__dirname" "console" "JSON"))
-        (setq js2-idle-timer-delay 0.2)
-        (setq js2-mirror-mode nil)
-        (setq js2-strict-inconsistent-return-warning nil)
-        (setq js2-include-rhino-externs nil)
-        (setq js2-include-gears-externs nil)
-        (setq js2-concat-multiline-strings 'eol)
-        (setq js2-rebind-eol-bol-keys nil)
-        (setq js2-auto-indent-p t)
+  (with-eval-after-load 'js2-mode
+    ;; these mode related variables must be in eval-after-load
+    ;; https://github.com/magnars/.emacs.d/blob/master/settings/setup-js2-mode.el
+    (setq js2-allow-rhino-new-expr-initializer nil)
+    (setq js2-auto-indent-p nil)
+    (setq js2-enter-indents-newline nil)
+    (setq js2-global-externs '("module" "ccui" "require" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location" "__dirname" "console" "JSON"))
+    (setq js2-idle-timer-delay 0.2)
+    (setq js2-mirror-mode nil)
+    (setq js2-strict-inconsistent-return-warning nil)
+    (setq js2-include-rhino-externs nil)
+    (setq js2-include-gears-externs nil)
+    (setq js2-concat-multiline-strings 'eol)
+    (setq js2-rebind-eol-bol-keys nil)
+    (setq js2-auto-indent-p t)
 
-        (setq js2-bounce-indent nil)
-        (setq js-indent-level 2)
-        (setq js2-basic-offset 2)
-        (setq js-switch-indent-offset 2)
-        ;; Let flycheck handle parse errors
-        (setq js2-mode-show-parse-errors nil)
-        (setq js2-mode-show-strict-warnings nil)
-        (setq js2-highlight-external-variables t)
-        (setq js2-strict-trailing-comma-warning nil)
+    (setq js2-bounce-indent nil)
+    (setq js-indent-level 2)
+    (setq js2-basic-offset 2)
+    (setq js-switch-indent-offset 2)
+    ;; Let flycheck handle parse errors
+    (setq js2-mode-show-parse-errors nil)
+    (setq js2-mode-show-strict-warnings nil)
+    (setq js2-highlight-external-variables t)
+    (setq js2-strict-trailing-comma-warning nil)
 
-        (add-hook 'web-mode-hook 'my-web-mode-indent-setup)
-        (spacemacs/set-leader-keys-for-major-mode 'js2-mode
-          "ti" 'my-toggle-web-indent)
-        (spacemacs/set-leader-keys-for-major-mode 'js-mode
-          "ti" 'my-toggle-web-indent)
-        (spacemacs/set-leader-keys-for-major-mode 'web-mode
-          "ti" 'my-toggle-web-indent)
-        (spacemacs/set-leader-keys-for-major-mode 'css-mode
-          "ti" 'my-toggle-web-indent)
+    (eval-after-load 'tern-mode
+      '(spacemacs|hide-lighter tern-mode)))
 
-        (spacemacs/declare-prefix-for-mode 'js2-mode "mt" "toggle")
-        (spacemacs/declare-prefix-for-mode 'js-mode "mt" "toggle")
-        (spacemacs/declare-prefix-for-mode 'web-mode "mt" "toggle")
-        (spacemacs/declare-prefix-for-mode 'css-mode "mt" "toggle")
-
-
-        (eval-after-load 'tern-mode
-          '(spacemacs|hide-lighter tern-mode))
-        ))
-
-    (evilified-state-evilify js2-error-buffer-mode js2-error-buffer-mode-map)
-
-    ))
+  (evilified-state-evilify js2-error-buffer-mode js2-error-buffer-mode-map))
 
 (defun ztlevi-programming/post-init-css-mode ()
   (progn

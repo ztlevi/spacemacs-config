@@ -93,20 +93,28 @@
     (bb/define-key helm-bookmark-map (kbd "C-e") 'helm-bookmark-run-edit)))
 
 ;; prettier js
+(spacemacs/set-leader-keys-for-major-mode 'js2-mode "=" 'prettier-js)
+(spacemacs/set-leader-keys-for-major-mode 'typescript-mode "=" 'prettier-js)
+(spacemacs/set-leader-keys-for-major-mode 'react-mode "=" 'prettier-js)
+(spacemacs/set-leader-keys-for-major-mode 'json-mode "=" 'prettier-js)
+(spacemacs/set-leader-keys-for-major-mode 'css-mode "=" 'prettier-js)
+(spacemacs/set-leader-keys-for-major-mode 'markdown-mode "=" 'prettier-js)
+(spacemacs/set-leader-keys-for-major-mode 'gfm-mode "=" 'prettier-js)
+
+;; toggle indent
+(add-hook 'web-mode-hook 'my-web-mode-indent-setup)
 (spacemacs/set-leader-keys-for-major-mode 'js2-mode
-  "=" 'prettier-js)
-(spacemacs/set-leader-keys-for-major-mode 'typescript-mode
-  "=" 'prettier-js)
+  "ti" 'my-toggle-web-indent)
 (spacemacs/set-leader-keys-for-major-mode 'react-mode
-  "=" 'prettier-js)
-(spacemacs/set-leader-keys-for-major-mode 'json-mode
-  "=" 'prettier-js)
+  "ti" 'my-toggle-web-indent)
+(spacemacs/set-leader-keys-for-major-mode 'web-mode
+  "ti" 'my-toggle-web-indent)
 (spacemacs/set-leader-keys-for-major-mode 'css-mode
-  "=" 'prettier-js)
-(spacemacs/set-leader-keys-for-major-mode 'markdown-mode
-  "=" 'prettier-js)
-(spacemacs/set-leader-keys-for-major-mode 'gfm-mode
-  "=" 'prettier-js)
+  "ti" 'my-toggle-web-indent)
+(spacemacs/declare-prefix-for-mode 'js2-mode "mt" "toggle")
+(spacemacs/declare-prefix-for-mode 'react-mode "mt" "toggle")
+(spacemacs/declare-prefix-for-mode 'web-mode "mt" "toggle")
+(spacemacs/declare-prefix-for-mode 'css-mode "mt" "toggle")
 
 ;; yasnippet
 (define-key yas-minor-mode-map (kbd "<C-tab>") 'yas-expand)
@@ -165,10 +173,7 @@
 
 (global-set-key [remap fill-paragraph] #'endless/fill-or-unfill)
 
-;; (global-set-key (kbd "C-.") 'company-capf)
-
 (global-set-key (kbd "s-g") 'goto-line)
-;; (global-set-key (kbd "s-s") 'save-buffer)
 (global-set-key (kbd "C-`") 'toggle-input-method)
 (bind-key* "s-r" 'mc/reverse-regions)
 (global-set-key (kbd "<f5>") 'ztlevi/run-current-file)
@@ -176,9 +181,6 @@
 ;; "http://endlessparentheses.com/transposing-keybinds-in-emacs.html?source=rss"
 ;; (global-set-key "\C-t" #'transpose-lines)
 ;; (define-key ctl-x-map "\C-t" #'transpose-chars)
-
-(when (spacemacs/system-is-mac)
-  (spacemacs/set-leader-keys "o!" 'ztlevi/iterm-shell-command))
 
 (spacemacs|add-toggle toggle-shadowsocks-proxy-mode
   :status shadowsocks-proxy-mode
@@ -261,16 +263,14 @@
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 (spacemacs/set-leader-keys "bM" 'spacemacs/switch-to-messages-buffer)
 
-(bind-key* "s-p" 'ztlevi/open-file-with-projectile-or-counsel-git)
-
 (spacemacs/set-leader-keys "oL" 'ztlevi/browse-live-server)
 
 (spacemacs/set-leader-keys "pa" 'projectile-find-other-file)
 (spacemacs/set-leader-keys "pA" 'projectile-find-other-file-other-window)
-(spacemacs/set-leader-keys ":" 'counsel-M-x)
 
 (spacemacs/set-leader-keys "ok" 'helm-show-kill-ring)
 
+(global-set-key (kbd "s-p") 'ztlevi/open-file-with-projectile-or-counsel-git)
 (global-set-key (kbd "s-s") 'evil-write-all)
 (global-set-key (kbd "s-w") 'delete-window-or-frame)
 (global-set-key (kbd "C-s-o") 'other-frame)
@@ -287,3 +287,6 @@
   (global-set-key (kbd "s-n") 'make-frame)
   (global-set-key (kbd "s-z") 'undo-tree-undo)
   (global-set-key (kbd "s-Z") 'undo-tree-redo))
+;; keybindings for macOS
+(when (spacemacs/system-is-mac)
+  (spacemacs/set-leader-keys "o!" 'ztlevi/iterm-shell-command))
