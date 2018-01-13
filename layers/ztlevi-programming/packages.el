@@ -204,7 +204,10 @@
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil))
 
     (web-mode-toggle-current-element-highlight)
-    (web-mode-dom-errors-show)))
+    (web-mode-dom-errors-show)
+
+    ;; live server
+    (spacemacs/set-leader-keys-for-major-mode 'web-mode "l" 'httpd-serve-directory)))
 
 (defun ztlevi-programming/post-init-yasnippet ()
   (progn
