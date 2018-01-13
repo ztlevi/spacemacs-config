@@ -78,6 +78,8 @@
             ("emacs-china\\.org"   . gfm-mode)
             ("stackexchange\\.com" . gfm-mode)
             ("stackoverflow\\.com" . gfm-mode)
+            ;; jupyter notebook
+            ("localhost\\:8888"    . python-mode)
             ("lintcode\\.com"      . python-mode)
             ("leetcode\\.com"      . python-mode)))
 
