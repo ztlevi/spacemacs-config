@@ -207,7 +207,7 @@
     (web-mode-dom-errors-show)
 
     ;; live server
-    (spacemacs/set-leader-keys-for-major-mode 'web-mode "l" 'httpd-serve-directory)))
+    (spacemacs/set-leader-keys-for-major-mode 'web-mode "l" 'live-server-preview)))
 
 (defun ztlevi-programming/post-init-yasnippet ()
   (progn

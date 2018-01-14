@@ -56,7 +56,7 @@
          #+END_SRC
        - npm
          #+BEGIN_SRC shell
-           npm install -g prettier eslint babel-eslint eslint-plugin-react eslint-plugin-html tern typescript tslint typescript-formatter
+           npm install -g prettier live-server eslint babel-eslint eslint-plugin-react eslint-plugin-html tern typescript tslint typescript-formatter
          #+END_SRC
        - pip
          #+BEGIN_SRC shell
@@ -71,9 +71,7 @@
       '(evil-escape-key-sequence "jk")
       #+END_SRC
 
-   2. The live server "simple-httpd" port is set to be 48080 in the custom.el. So the testing page for this live server is http://localhost:48080/. Start the live server with ~httpd-serve-directory~.
-
-   3. Ctags setting is under *my-setup-develop-environment()* function. Add scripts like this to automatically generate TAGS for your project. You may need to install ctags if you never used before.
+   2. Ctags setting is under *my-setup-develop-environment()* function. Add scripts like this to automatically generate TAGS for your project. You may need to install ctags if you never used before.
       #+BEGIN_SRC lisp
         ((my-project-name-contains-substring "Sites/TRIdemo")
          (message "load tags for TRIdemo...")
@@ -83,16 +81,16 @@
 
       Or ~cd /path/to/my/project~, ~ctags -e -R .~ and manually use *select-tag-table* function to select TAGS(set the tags-table-list value).
 
-   4. Atomic Chrome is very useful to edit the textarea in Chrome. You will need to install the Chrome extension [[https://chrome.google.com/webstore/detail/atomic-chrome/lhaoghhllmiaaagaffababmkdllgfcmc][here]].
+   3. Atomic Chrome is very useful to edit the textarea in Chrome. You will need to install the Chrome extension [[https://chrome.google.com/webstore/detail/atomic-chrome/lhaoghhllmiaaagaffababmkdllgfcmc][here]].
 
-   5. Prodigy is great to define your own services and fire up the service easily. Custom setting is under function *ztlevi-misc/post-init-prodigy*
+   4. Prodigy is great to define your own services and fire up the service easily. Custom setting is under function *ztlevi-misc/post-init-prodigy*
 
       Note: If you are on a Mac, disable nap mode for Emacs, otherwise requests will be very slow when Emacs enters nap mode:
       #+BEGIN_SRC shell
         defaults write org.gnu.Emacs NSAppSleepDisabled -bool YES
       #+END_SRC
 
-   6. To change the home page banner, configure the setting in ~dotspacemacs-startup-banner '"~/.spacemacs.d/icons/banner.png"~.
+   5. To change the home page banner, configure the setting in ~dotspacemacs-startup-banner '"~/.spacemacs.d/icons/banner.png"~.
 
 ** What's the highlight of this configuration
    1. It's a highly customize optimized Spacemacs configuration, it's relied on the *develop* branch of the officially Spacemacs.

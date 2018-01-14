@@ -31,7 +31,6 @@
  '(helm-move-to-line-cycle-in-source t)
  '(httpd-host (quote local))
  '(httpd-port 48080)
- '(httpd-start-hook (quote (ztlevi/browse-live-server)))
  '(hybrid-mode-use-evil-search-module t)
  '(ibuffer-filter-group-name-face (quote link))
  '(lua-documentation-url "http://www.lua.org/manual/5.3/manual.html")

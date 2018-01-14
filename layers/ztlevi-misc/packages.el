@@ -34,6 +34,7 @@
     flyspell-correct
     peep-dired
     markdown-mode
+    (live-server :location local)
     edit-indirect
     ivy
     swiper
@@ -639,6 +640,11 @@
 (defun ztlevi-misc/init-edit-indirect ()
   (use-package edit-indirect
     :defer t))
+
+(defun ztlevi-misc/init-live-server ()
+  (use-package live-server
+    :defer t
+    :commands (live-server-preview)))
 
 (defun ztlevi-misc/post-init-markdown-mode ()
   (progn
