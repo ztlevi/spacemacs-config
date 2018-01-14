@@ -245,23 +245,15 @@
   (setq json-reformat:indent-width 2)
   (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.fire\\'" . json-mode))
-  (add-to-list 'auto-mode-alist '("\\.fire.meta\\'" . json-mode))
-
-  (spacemacs/set-leader-keys-for-major-mode 'json-mode
-    "ti" 'my-toggle-web-indent))
+  (add-to-list 'auto-mode-alist '("\\.fire.meta\\'" . json-mode)))
 
 ;; (defun ztlevi-programming/post-init-web-beautify ()
 ;;   (spacemacs/set-leader-keys-for-major-mode 'json-mode
 ;;     "=" 'json-reformat-region-or-buffer))
 
-
 (defun ztlevi-programming/init-nodejs-repl ()
   (use-package nodejs-repl
-    :init
     :defer t))
-
-(defun ztlevi-programming/init-flycheck-package ()
-  (use-package flycheck-package))
 
 (defun ztlevi-programming/init-lispy ()
   (use-package lispy
