@@ -20,8 +20,6 @@
     cmake-font-lock
     cmake-mode
     flycheck
-    nodejs-repl
-    (nodejs-repl-eval :location local)
     ;; lsp-mode
     ;; lsp-javascript-typescript
     js2-mode
@@ -179,23 +177,6 @@
     :config
     (spacemacs|hide-lighter ctags-auto-update-mode)))
 
-;; nodejs-repl is much better now.
-;; (defun ztlevi-programming/init-js-comint ()
-;;   (use-package js-comint
-;;     :init
-;;     (progn
-;;       ;; http://stackoverflow.com/questions/13862471/using-node-js-with-js-comint-in-emacs
-;;       (setq inferior-js-mode-hook
-;;             (lambda ()
-;;               ;; We like nice colors
-;;               (ansi-color-for-comint-mode-on)
-;;               ;; Deal with some prompt nonsense
-;;               (add-to-list
-;;                'comint-preoutput-filter-functions
-;;                (lambda (output)
-;;                  (replace-regexp-in-string "\033\\[[0-9]+[GKJ]" "" output)))))
-;;       (setq inferior-js-program-command "node"))))
-
 (defun ztlevi-programming/post-init-web-mode ()
   (with-eval-after-load 'web-mode
     ;; for react mode html indentation
@@ -250,10 +231,6 @@
 ;; (defun ztlevi-programming/post-init-web-beautify ()
 ;;   (spacemacs/set-leader-keys-for-major-mode 'json-mode
 ;;     "=" 'json-reformat-region-or-buffer))
-
-(defun ztlevi-programming/init-nodejs-repl ()
-  (use-package nodejs-repl
-    :defer t))
 
 (defun ztlevi-programming/init-lispy ()
   (use-package lispy
@@ -415,20 +392,6 @@
 
 (defun ztlevi-programming/post-init-tagedit ()
   (add-hook 'web-mode-hook (lambda () (tagedit-mode 1))))
-
-;; https://atlanis.net/blog/posts/nodejs-repl-eval.html
-(defun ztlevi-programming/init-nodejs-repl-eval ()
-  (use-package nodejs-repl-eval
-    :defer t
-    :commands (nodejs-repl-eval-buffer nodejs-repl-eval-dwim nodejs-repl-eval-function)
-    :init
-    (progn
-      (spacemacs/declare-prefix-for-mode 'js2-mode
-        "ms" "REPL")
-      (spacemacs/set-leader-keys-for-major-mode 'js2-mode
-        "sb" 'nodejs-repl-eval-buffer
-        "sf" 'nodejs-repl-eval-function
-        "sd" 'nodejs-repl-eval-dwim))))
 
 (defun ztlevi-programming/post-init-lua-mode ()
   (progn
