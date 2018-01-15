@@ -204,11 +204,6 @@
 (bind-key* "s-y" 'aya-expand)
 ;; (bind-key* "C-l" 'recenter)
 
-(spacemacs/declare-prefix "ot" "Toggle")
-
-(global-set-key (kbd "<f1>") 'ztlevi/helm-hotspots)
-(spacemacs/set-leader-keys "oo" 'ztlevi/helm-hotspots)
-
 ;; (spacemacs/set-leader-keys "op" 'ztlevi/org-save-and-export)
 (spacemacs/set-leader-keys "fR" 'ztlevi/rename-file-and-buffer)
 
@@ -221,12 +216,19 @@
 (spacemacs/set-leader-keys "Bj" 'counsel-bookmark)
 (spacemacs/set-leader-keys "Bb" 'bookmark-bmenu-list)
 
+;; custom key
+(spacemacs/declare-prefix "ot" "Toggle")
+(global-set-key (kbd "<f1>") 'ztlevi/helm-hotspots)
+(spacemacs/set-leader-keys "oo" 'ztlevi/helm-hotspots)
+(spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
+(spacemacs/set-leader-keys "ok" 'helm-show-kill-ring)
+(spacemacs/set-leader-keys "o(" 'ielm)
+(spacemacs/set-leader-keys "og" 'my-git-timemachine)
 (spacemacs/set-leader-keys "oc" 'eacl-complete-tag)
 (spacemacs/set-leader-keys "od" 'occur-dwim)
 (spacemacs/set-leader-keys "on" 'occur-non-ascii)
 (spacemacs/set-leader-keys "ox" 'org-open-at-point-global)
 (spacemacs/set-leader-keys "or" 'ztlevi/browser-refresh--chrome-applescript)
-(spacemacs/set-leader-keys "om" 'org-pandoc-export-to-markdown_github-and-open)
 
 (spacemacs/set-leader-keys "rr" 'react-mode)
 ;; resume
@@ -244,10 +246,8 @@
 
 (spacemacs/set-leader-keys "en" 'flycheck-next-error)
 (spacemacs/set-leader-keys "ep" 'flycheck-previous-error)
-(spacemacs/set-leader-keys "o(" 'ielm)
 
 (spacemacs/set-leader-keys "gL" 'magit-log-buffer-file)
-(spacemacs/set-leader-keys "og" 'my-git-timemachine)
 
 ;; dash find
 (spacemacs/set-leader-keys "fd" 'dash-at-point)
@@ -258,15 +258,14 @@
 (spacemacs/set-leader-keys "fh" 'ffap-hexl-mode)
 (spacemacs/set-leader-keys "fp" 'projectile-find-file-dwim-other-window)
 (spacemacs/set-leader-keys "nh" 'spacemacs/evil-search-clear-highlight)
+
+;; layout
+(spacemacs/declare-prefix "ol" "layout")
 (spacemacs/set-leader-keys "oll" 'ztlevi/load-my-layout)
 (spacemacs/set-leader-keys "ols" 'ztlevi/save-my-layout)
-(spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
-(spacemacs/set-leader-keys "bM" 'spacemacs/switch-to-messages-buffer)
 
 (spacemacs/set-leader-keys "pa" 'projectile-find-other-file)
 (spacemacs/set-leader-keys "pA" 'projectile-find-other-file-other-window)
-
-(spacemacs/set-leader-keys "ok" 'helm-show-kill-ring)
 
 (global-set-key (kbd "s-p") 'ztlevi/open-file-with-projectile-or-counsel-git)
 (global-set-key (kbd "s-s") 'evil-write-all)

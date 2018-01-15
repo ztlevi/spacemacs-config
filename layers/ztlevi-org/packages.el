@@ -60,6 +60,9 @@
       ;; (spacemacs|disable-company org-mode)
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "," 'org-priority)
+      (spacemacs/set-leader-keys-for-major-mode 'org-mode
+        "eg" 'org-pandoc-export-to-gfm-and-open)
+
       (require 'org-compat)
       (require 'org)
       ;; (add-to-list 'org-modules "org-habit")
@@ -313,7 +316,7 @@ unwanted space when exporting org-mode to html."
                :email "zhouting@umich.edu"
                :auto-sitemap t          ; Generate sitemap.org automagically...
                :sitemap-filename "index.org" ; ... call it sitemap.org (it's the default)...
-               :sitemap-title "my wiki"     ; ... with title 'Sitemap'.
+               :sitemap-title "my wiki"      ; ... with title 'Sitemap'.
                :sitemap-sort-files anti-chronologically
                :sitemap-file-entry-format "%t" ; %d to output date, we don't need date here
                )
