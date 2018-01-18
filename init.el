@@ -59,7 +59,8 @@ This function should only modify configuration layer settings."
                       syntax-checking-enable-tooltips nil)
      (spell-checking :packages (not auto-dictionary flyspell-correct-helm)
                      :variables spell-checking-enable-by-default nil)
-     (auto-completion :packages (not ac-ispell auto-complete helm-c-yasnippet company-quickhelp)
+     (auto-completion :packages (not ac-ispell auto-complete helm-c-yasnippet company-quickhelp
+                                     yasnippet-snippets)
                       :variables auto-completion-enable-sort-by-usage t
                       auto-completion-enable-snippets-in-popup t)
      (vinegar :variables vinegar-reuse-dired-buffer t)
