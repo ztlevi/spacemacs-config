@@ -36,6 +36,7 @@
     ;; flycheck-clojure
     counsel-etags
     (python :location built-in)
+    ;; (pipenv :location (recipe :fetcher github :repo "pwalsh/pipenv.el"))
     (emacs-lisp :location built-in)
     ;; clojure-mode
     company
@@ -163,6 +164,11 @@
   ;; (setq python-shell-interpreter-args "-i")
   ;; (setq flycheck-python-pylint-executable "/usr/local/bin/pylint")
   )
+
+;; (defun ztlevi-programming/init-pipenv ()
+;;   (use-package pipenv
+;;     :after python))
+;; (add-hook 'projectile-after-switch-project-hook #'pipenv-activate)
 
 (defun ztlevi-programming/post-init-js-doc ()
   (setq js-doc-mail-address "zhouting@umich.edu"
