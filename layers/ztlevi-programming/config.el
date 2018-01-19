@@ -51,6 +51,34 @@
   :documentation "Enable iimage mode"
   :evil-leader "oti")
 
+;; grep ignore files
+(eval-after-load 'grep
+  '(progn
+     (dolist (v '("auto"
+                  "target"
+                  "node_modules"
+                  "bower_components"
+                  "*dist"
+                  ".sass_cache"
+                  ".cache"
+                  ".npm"
+                  "elpa"))
+       (add-to-list 'grep-find-ignored-directories v))
+
+     (dolist (v '("*.min.js"
+                  "*.map"
+                  "*.bundle.js"
+                  "*.min.css"
+                  "tags"
+                  "TAGS"
+                  "GTAGS"
+                  "GRTAGS"
+                  "GPATH"
+                  "cscope.files"
+                  "*.json"
+                  "*.log"))
+       (add-to-list 'grep-find-ignored-files v))))
+
 (add-hook 'term-mode-hook 'ztlevi/ash-term-hooks)
 
 ;; js2 mode hooks
