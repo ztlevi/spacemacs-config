@@ -489,7 +489,6 @@
         (add-to-list 'projectile-other-file-alist '("js" "html"))))
 
     (defvar my-simple-todo-regex "\\<\\(FIXME\\|TODO\\|BUG\\):")
-
     (defun my-simple-todo ()
       "When in a project, create a `multi-occur' buffer matching the
   regex in `my-simple-todo-regex' across all buffers in the
@@ -497,8 +496,7 @@
       (interactive)
       (if (projectile-project-p)
           (multi-occur (projectile-project-buffers) my-simple-todo-regex)
-        (occur my-simple-todo-regex)))
-    (spacemacs/set-leader-keys "pf" 'ztlevi/open-file-with-projectile-or-counsel-git)
+        (occur my-simple-todo-regex))) 
     (spacemacs/set-leader-keys "pt" 'my-simple-todo)))
 
 (defun ztlevi-misc/post-init-prodigy ()

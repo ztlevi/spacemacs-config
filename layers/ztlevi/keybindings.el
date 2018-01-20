@@ -231,19 +231,13 @@
 (spacemacs/set-leader-keys "or" 'ztlevi/browser-refresh--chrome-applescript)
 
 (spacemacs/set-leader-keys "rr" 'react-mode)
+
 ;; resume
 (spacemacs/set-leader-keys "rh" 'helm-resume)
 (spacemacs/set-leader-keys "ri" 'ivy-resume)
 (spacemacs/set-leader-keys "rb" 'popwin:display-last-buffer)
 
-;; ivy specific keybindings
-(if (configuration-layer/layer-usedp 'ivy)
-    (progn
-      (spacemacs/set-leader-keys "ff" 'counsel-find-file)
-      (spacemacs/set-leader-keys "fL" 'counsel-locate)
-      (spacemacs/set-leader-keys "hi" 'counsel-info-lookup-symbol)
-      (spacemacs/set-leader-keys "pb" 'projectile-switch-to-buffer)))
-
+;; flycheck
 (spacemacs/set-leader-keys "en" 'flycheck-next-error)
 (spacemacs/set-leader-keys "ep" 'flycheck-previous-error)
 
@@ -256,18 +250,13 @@
 ;; deal with BOM
 (spacemacs/set-leader-keys "fl" 'find-file-literally-at-point)
 (spacemacs/set-leader-keys "fh" 'ffap-hexl-mode)
-(spacemacs/set-leader-keys "fp" 'projectile-find-file-dwim-other-window)
-(spacemacs/set-leader-keys "nh" 'spacemacs/evil-search-clear-highlight)
 
 ;; layout
 (spacemacs/declare-prefix "ol" "layout")
 (spacemacs/set-leader-keys "oll" 'ztlevi/load-my-layout)
 (spacemacs/set-leader-keys "ols" 'ztlevi/save-my-layout)
 
-(spacemacs/set-leader-keys "pa" 'projectile-find-other-file)
-(spacemacs/set-leader-keys "pA" 'projectile-find-other-file-other-window)
-
-(global-set-key (kbd "s-p") 'ztlevi/open-file-with-projectile-or-counsel-git)
+(global-set-key (kbd "s-p") 'counsel-projectile)
 (global-set-key (kbd "s-s") 'evil-write-all)
 (global-set-key (kbd "s-w") 'delete-window-or-frame)
 (global-set-key (kbd "C-s-o") 'other-frame)

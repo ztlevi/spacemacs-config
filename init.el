@@ -54,7 +54,7 @@ This function should only modify configuration layer settings."
      prodigy
      search-engine
      graphviz
-     (ivy :packages (not counsel-projectile))
+     ivy
      (syntax-checking :variables syntax-checking-enable-by-default nil
                       syntax-checking-enable-tooltips nil)
      (spell-checking :packages (not auto-dictionary flyspell-correct-helm)

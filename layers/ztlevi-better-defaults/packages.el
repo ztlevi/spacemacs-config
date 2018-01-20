@@ -144,7 +144,6 @@
         "f"         (if (configuration-layer/layer-used-p 'ivy)
                         'counsel-find-file
                       'helm-find-files)
-        "J"         'ztlevi/open-file-with-projectile-or-counsel-git
         "I"         'vinegar/dotfiles-toggle
         (kbd "~")   '(lambda ()(interactive) (find-alternate-file "~/"))
         "e"         'dired-toggle-read-only

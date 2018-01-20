@@ -248,15 +248,6 @@ e.g. Sunday, September 17, 2000."
   global-shadowsocks-proxy-mode shadowsocks-proxy-mode shadowsocks-proxy-mode
   :group 'shadowsocks-proxy)
 
-
-(defun ztlevi/open-file-with-projectile-or-counsel-git ()
-  (interactive)
-  (if (ztlevi/git-project-root)
-      (counsel-git)
-    (if (projectile-project-p)
-        (projectile-find-file)
-      (counsel-file-jump))))
-
 ;; http://blog.lojic.com/2009/08/06/send-growl-notifications-from-carbon-emacs-on-osx/
 (defun ztlevi/growl-notification (title message &optional sticky)
   "Send a Growl notification"
