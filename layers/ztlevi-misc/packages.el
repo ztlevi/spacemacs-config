@@ -609,12 +609,14 @@
 (defun ztlevi-misc/post-init-magit ()
   (progn
     (with-eval-after-load 'magit
-      (progn
-        (add-to-list 'magit-no-confirm 'stage-all-changes)
-        (setq magit-completing-read-function 'magit-builtin-completing-read)
+      ;; set magit display buffer way, need to be eval after magit
+      (setq magit-display-buffer-function (quote magit-display-buffer-same-window-except-diff-v1))
 
-        (magit-define-popup-switch 'magit-push-popup ?u
-          "Set upstream" "--set-upstream")))
+      (add-to-list 'magit-no-confirm 'stage-all-changes)
+      (setq magit-completing-read-function 'magit-builtin-completing-read)
+
+      (magit-define-popup-switch 'magit-push-popup ?u
+        "Set upstream" "--set-upstream"))
 
     ;; prefer two way ediff
     (setq magit-ediff-dwim-show-on-hunks t)
