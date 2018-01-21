@@ -29,7 +29,7 @@
     ace-window
     ;; 4clojure
     persp-mode
-    tiny
+    focus
     ;; smartparens
     flyspell-correct
     peep-dired
@@ -214,10 +214,9 @@
         (kbd "(>") 'sp-backward-barf-sexp
         (kbd "(<") 'sp-backward-slurp-sexp))))
 
-(defun ztlevi-misc/init-tiny ()
-  (use-package tiny
-    :defer t
-    :init (spacemacs/set-leader-keys "oe" 'tiny-expand)))
+(defun ztlevi-misc/init-focus ()
+  (use-package focus
+    :defer t))
 
 (defun ztlevi-misc/init-helm-github-stars ()
   (use-package helm-github-stars
