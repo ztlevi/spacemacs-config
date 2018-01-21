@@ -1,5 +1,6 @@
 * My personal Emacs configuration
-  My Spacemacs configuration is based on [[https://github.com/zilongshanren/spacemacs-private][zilongshanren]].
+** Screen shots
+   #+HTML: <img src="./screenshots/1.jpg" alt="img" title="my emacs" width="100%"/>
 
 ** Installation
 *** Install Emacs-mac on Mac
