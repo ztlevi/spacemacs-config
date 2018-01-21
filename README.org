@@ -72,15 +72,7 @@
       '(evil-escape-key-sequence "jk")
       #+END_SRC
 
-   2. Ctags setting is under *my-setup-develop-environment()* function. Add scripts like this to automatically generate TAGS for your project. You may need to install ctags if you never used before.
-      #+BEGIN_SRC lisp
-        ((my-project-name-contains-substring "Sites/TRIdemo")
-         (message "load tags for TRIdemo...")
-         (setq tags-table-list
-               (list (my-create-tags-if-needed "/Users/ztlevi/Sites/TRIdemo/app"))))
-      #+END_SRC
-
-      Or ~cd /path/to/my/project~, ~ctags -e -R .~ and manually use *select-tag-table* function to select TAGS(set the tags-table-list value).
+   2. Use ~counsel-etags-find-tag-at-point~ (~g f~) to choose the etags directory and find candidates.
 
    3. Atomic Chrome is very useful to edit the textarea in Chrome. You will need to install the Chrome extension [[https://chrome.google.com/webstore/detail/atomic-chrome/lhaoghhllmiaaagaffababmkdllgfcmc][here]].
 
