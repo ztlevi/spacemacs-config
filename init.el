@@ -41,7 +41,7 @@ This function should only modify configuration layer settings."
      spacemacs-misc
      ;; spacemacs-modeline
      (spacemacs-navigation :packages (not flx-ido smooth-scrolling))
-     (spacemacs-org :packages (not org-bullets))
+     spacemacs-org
      spacemacs-visual
 
      ;; ======================== Misc =========================
@@ -140,7 +140,8 @@ This function should only modify configuration layer settings."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
-   '(evil-escape exec-path-from-shell holy-mode spacemacs-theme eyebrowse)
+   '(evil-escape exec-path-from-shell holy-mode spacemacs-theme eyebrowse
+                 org-bullets)
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
 
