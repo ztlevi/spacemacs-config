@@ -3,45 +3,45 @@
    #+HTML: <img src="./screenshots/1.jpg" alt="img" title="my emacs" width="100%"/>
 
 ** Installation
-*** Install Emacs-mac on Mac
+*** Step1: Install Emacs
+**** Install Emacs-mac on Mac
+     - *Method 1*: Use brew cask(Recommended)
+       #+BEGIN_SRC shell
+         brew tap railwaycat/emacsmacport
+         brew cask install emacs-mac-spacemacs-icon
+       #+END_SRC
 
-    - *Method 1*: Use brew cask(Recommended)
-      #+BEGIN_SRC shell
-        brew tap railwaycat/emacsmacport
-        brew cask install emacs-mac-spacemacs-icon
-      #+END_SRC
+     - *Method 2*: Just brew, need compiling. (more customization)
+       #+BEGIN_SRC shell
+         brew tap railwaycat/emacsmacport
+         brew install emacs-mac --with-spacemacs-icon --with-gnutls --with-natural-title-bar
+         # create alias in /Applications
+         rm /Applications/Emacs
+         brew linkapps emacs-mac
+       #+END_SRC
 
-    - *Method 2*: Just brew, need compiling. (more customization)
-      #+BEGIN_SRC shell
-        brew tap railwaycat/emacsmacport
-        brew install emacs-mac --with-spacemacs-icon --with-gnutls --with-natural-title-bar
-        # create alias in /Applications
-        rm /Applications/Emacs
-        brew linkapps emacs-mac
-      #+END_SRC
-
-      #+BEGIN_QUOTE
-      Notes: (just for method 2)
-      1. natural-title-bar usage [[https://github.com/railwaycat/homebrew-emacsmacport/wiki/Natural-Title-Bar][here]].
-      2. Solution to incoming network connection:
-         Codesign your Emacs.app. Instructions over [[http://apple.stackexchange.com/questions/3271/how-to-get-rid-of-firewall-accept-incoming-connections-dialog/170566][here]].
-         ~codesign --deep --force --verbose --sign ztlevi /usr/local/opt/emacs-mac/Emacs.app~
-      #+END_QUOTE
-*** Install Emacs on Linux
-    #+BEGIN_SRC shell
+       #+BEGIN_QUOTE
+       Notes: (just for method 2)
+       1. natural-title-bar usage [[https://github.com/railwaycat/homebrew-emacsmacport/wiki/Natural-Title-Bar][here]].
+       2. Solution to incoming network connection:
+          Codesign your Emacs.app. Instructions over [[http://apple.stackexchange.com/questions/3271/how-to-get-rid-of-firewall-accept-incoming-connections-dialog/170566][here]].
+          ~codesign --deep --force --verbose --sign ztlevi /usr/local/opt/emacs-mac/Emacs.app~
+       #+END_QUOTE
+**** Install Emacs on Linux
+     #+BEGIN_SRC shell
       # Ubuntu
       sudo apt-get insatll emacs
       # Arch
       sudo pacman -S emacs
-    #+END_SRC
+     #+END_SRC
 
-*** Install Spacemacs
+*** Step2: Install Spacemacs
     #+BEGIN_SRC shell
       rm -r ~/.emacs.d
       git clone https://github.com/syl20bnr/spacemacs -b develop ~/.emacs.d
     #+END_SRC
 
-*** Configuration and Dependencies
+*** Step3: Configuration and Dependencies
     This Emacs configuration is written for Emacs 25.1+ on Mac OS X 10.11+ and Linux Arch. Windows users may need to tweak the config for themselves.
 
     1. Clone my configuration:
