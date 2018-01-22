@@ -87,6 +87,7 @@
  '(imenu-list-entry-face-3 ((t (:inherit font-lock-function-name-face))))
  '(org-level-2 ((t (:background "#fafafa" :foreground "#b751b6" :weight bold))))
  '(origami-fold-replacement-face ((t (:inherit (quote font-lock-keyword-face)))))
- '(show-paren-match ((t (:background "#cccccc")))))
+ '(show-paren-match ((t (:background "#cccccc"))))
+ '(term-bold ((t (:inherit bold :family "Ubuntu Mono derivative Powerline" :height 1.1)))))
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
