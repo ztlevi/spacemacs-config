@@ -26,7 +26,6 @@
     evil
     evil-surround
     discover-my-major
-    ace-window
     ;; 4clojure
     persp-mode
     focus
@@ -241,9 +240,6 @@
       (spacemacs/set-leader-keys "o4n" '4clojure-next-question)
       (spacemacs/set-leader-keys "o4p" '4clojure-previous-question)
       (spacemacs/set-leader-keys "o4c" '4clojure-check-answers))))
-
-(defun ztlevi-misc/post-init-ace-window ()
-  (global-set-key (kbd "C-x C-o") #'ace-window))
 
 (defun ztlevi-misc/init-discover-my-major ()
   (use-package discover-my-major
