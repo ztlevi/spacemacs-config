@@ -462,7 +462,7 @@ It should only modify the values of Spacemacs settings."
 
   ;; ============================== Others =====================================
   ;; enable ligatures support (emacs mac port only)
-  ;; others here: https://github.com/tonsky/FiraCode/wiki/Setting-up-Emacs
+  ;; others here: https://github.com/tonsky/FiraCode/wiki/Emacs-instructions
   (mac-auto-operator-composition-mode)
 
   ;; enable flyspell in text-mode
