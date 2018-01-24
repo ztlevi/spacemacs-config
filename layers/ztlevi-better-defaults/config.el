@@ -141,7 +141,7 @@ Single Capitals as you type."
 
 ;; check large file
 (defun spacemacs/check-large-file ()
-  (when (> (buffer-size) 150000)
+  (when (> (buffer-size) 100000)
     (progn (fundamental-mode)
            (hl-line-mode -1)))
   (if (and (executable-find "wc")
