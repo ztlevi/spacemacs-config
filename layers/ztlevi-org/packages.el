@@ -56,6 +56,8 @@
   (add-hook 'org-mode-hook 'spacemacs/toggle-truncate-lines-off)
   (with-eval-after-load 'org
     (progn
+      ;; do not hide header's leading star
+      (setq org-hide-leading-stars nil)
 
       ;; (spacemacs|disable-company org-mode)
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
