@@ -31,7 +31,7 @@
     web-mode
     ;; web-beautify
     js-doc
-    lua-mode
+    ;; lua-mode
     (cc-mode :location built-in)
     ;; flycheck-clojure
     counsel-etags
@@ -43,7 +43,7 @@
     (eldoc :location built-in)
     dumb-jump
     graphviz-dot-mode
-    cider
+    ;; cider
     robe
     )
   )

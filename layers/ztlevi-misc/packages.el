@@ -11,8 +11,8 @@
 
 (defconst ztlevi-misc-packages
   '(
-    sx
-    sos
+    ;; sx
+    ;; sos
     helm-github-stars
     atomic-chrome
     projectile
@@ -319,6 +319,7 @@
     ;; indent buffer
     (define-key evil-normal-state-map (kbd ",=") 'spacemacs/indent-region-or-buffer)
     (define-key evil-visual-state-map (kbd ",=") 'spacemacs/indent-region-or-buffer)
+    (spacemacs/set-leader-keys "m=" 'spacemacs/indent-region-or-buffer)
 
     ;; bind [, ] functions
     (define-key evil-normal-state-map (kbd "[ SPC") (lambda () (interactive) (evil-insert-newline-above) (forward-line)))
@@ -491,7 +492,7 @@
       (interactive)
       (if (projectile-project-p)
           (multi-occur (projectile-project-buffers) my-simple-todo-regex)
-        (occur my-simple-todo-regex))) 
+        (occur my-simple-todo-regex)))
     (spacemacs/set-leader-keys "pt" 'my-simple-todo)))
 
 (defun ztlevi-misc/post-init-prodigy ()
