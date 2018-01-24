@@ -514,6 +514,14 @@ It should only modify the values of Spacemacs settings."
 
   ;; force horizontal split window
   (setq split-width-threshold 120)
+
+  ;; set arguements for search tools
+  (setq spacemacs--counsel-commands
+        '(("rg" . "rg --smart-case --follow --hidden --no-heading --color never --line-number --max-columns 150 %s %S .")
+          ("ag" . "ag --nocolor --nogroup %s %S .")
+          ("pt" . "pt -e --nocolor --nogroup %s %S .")
+          ("ack" . "ack --nocolor --nogroup %s %S .")
+          ("grep" . "grep -nrP %s %S .")))
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))

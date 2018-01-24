@@ -441,7 +441,6 @@ holding contextual information."
     :init
     (spacemacs/set-leader-keys "oto" 'org-tree-slide-mode)))
 
-
 (defun ztlevi-org/init-org-download ()
   (use-package org-download
     :defer t
