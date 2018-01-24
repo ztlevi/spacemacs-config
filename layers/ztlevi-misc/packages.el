@@ -385,7 +385,7 @@
     (progn
       (bind-key* "C-s-l" 'mc/edit-lines)
       (bind-key* "C-s-g" 'mc/mark-all-like-this)
-      (bind-key* "C->" 'ztlevi/my-mc-mark-next-like-this)
+      (bind-key* "C->" 'mc/mark-next-like-this)
       (bind-key* "C-<" 'mc/mark-previous-like-this)
       (bind-key* "s->" 'mc/unmark-next-like-this)
       (bind-key* "s-<" 'mc/unmark-previous-like-this)

@@ -454,13 +454,6 @@ With PREFIX, cd to project root."
   end tell
   " cmd))))
 
-(defun ztlevi/my-mc-mark-next-like-this ()
-  (interactive)
-  (if (region-active-p)
-      (mc/mark-next-like-this 1)
-    (er/expand-region 1)))
-
-
 (defun wrap-sexp-with-new-round-parens ()
   (interactive)
   (insert "()")
