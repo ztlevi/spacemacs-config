@@ -59,6 +59,7 @@
  '(org-pomodoro-play-sounds nil)
  '(org-reverse-note-order t)
  '(org-twbs-creator-string "")
+ '(org-export-with-sub-superscripts (quote {}))
  '(origami-fold-replacement "  ")
  '(package-selected-packages
    (quote
