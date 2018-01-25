@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Option for seb(_), super(^) setting
+# key: sub_super->
+# --
+#+OPTIONS: ^:{}
+$0

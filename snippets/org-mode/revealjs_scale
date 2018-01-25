@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Reveal.js scale
+# key: rv_scale->
+# --
+#+REVEAL_MAX_SCALE: 0.8
+$0
