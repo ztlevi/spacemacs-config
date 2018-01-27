@@ -117,7 +117,11 @@ This function should only modify configuration layer settings."
      (python :variables
              python-test-runner '(nose pytest))
      html
-     (javascript :packages (not web-beautify livid-mode))
+     (javascript :packages (not web-beautify livid-mode)
+                 :variables
+                 node-add-modules-path t
+                 js2-basic-offset 2
+                 js-indent-level 2)
      (typescript :variables
                  typescript-fmt-on-save nil
                  typescript-fmt-tool 'typescript-formatter)

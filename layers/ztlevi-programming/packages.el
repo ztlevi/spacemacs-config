@@ -369,8 +369,6 @@
     (setq js2-auto-indent-p t)
 
     (setq js2-bounce-indent nil)
-    (setq js-indent-level 2)
-    (setq js2-basic-offset 2)
     (setq js-switch-indent-offset 2)
     ;; Let flycheck handle parse errors
     (setq js2-mode-show-parse-errors nil)

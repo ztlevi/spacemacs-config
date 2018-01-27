@@ -230,6 +230,7 @@
 (spacemacs/set-leader-keys "on" 'occur-non-ascii)
 (spacemacs/set-leader-keys "ox" 'org-open-at-point-global)
 (spacemacs/set-leader-keys "or" 'ztlevi/browser-refresh--chrome-applescript)
+(spacemacs/set-leader-keys "oT" 'ztlevi/untabify-buffer)
 
 (spacemacs/set-leader-keys "rr" 'react-mode)
 
