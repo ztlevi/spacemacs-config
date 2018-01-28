@@ -11,11 +11,11 @@
 
 (defconst ztlevi-ui-packages
   '(
+    all-the-icons
     all-the-icons-dired
     ;; doom modeline needs all-the-icons, shrink-path enabled
-    (doom-modeline :location local)
-    shrink-path
-    all-the-icons
+    ;; (doom-modeline :location local)
+    ;; shrink-path
     ;; if you wnat to use spaceline, please comment out ztlevi-mode-line
     ;; (ztlevi-mode-line :location built-in)
     ;; spaceline

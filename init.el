@@ -43,7 +43,7 @@ This function should only modify configuration layer settings."
      (spacemacs-evil :packages (not evil-args evil-mc evil-ediff evil-exchange evil-unimpaired evil-indent-plus vi-tilde-fringe evil-lisp-state))
      ;; spacemacs-language
      spacemacs-misc
-     ;; spacemacs-modeline
+     (spacemacs-modeline :packages (not spaceline-all-the-icons vim-powerline symon fancy-battery))
      (spacemacs-navigation :packages (not flx-ido smooth-scrolling))
      spacemacs-org
      spacemacs-visual
@@ -260,7 +260,7 @@ It should only modify the values of Spacemacs settings."
    ;; to create your own spaceline theme. Value can be a symbol or list with\
    ;; additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(spacemacs :separator slant :separator-scale 1.5)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -581,6 +581,8 @@ It should only modify the values of Spacemacs settings."
 
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
+  ;; diminish modes
+  (spacemacs|diminish hybrid-mode)
   (spacemacs|diminish mmm-mode)
   (spacemacs|diminish prettier-js-mode " Ⓟ" " P")
   (spacemacs|diminish dired-omit-mode)
