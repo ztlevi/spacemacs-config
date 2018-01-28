@@ -57,7 +57,7 @@ This function should only modify configuration layer settings."
      colors
      prodigy
      search-engine
-     graphviz
+     ;; graphviz
      ivy
      (syntax-checking :variables syntax-checking-enable-by-default nil
                       syntax-checking-enable-tooltips nil)
@@ -113,7 +113,7 @@ This function should only modify configuration layer settings."
           org-enable-reveal-js-support t)
      gpu
      yaml
-     php
+     ;; php
      (python :variables
              python-test-runner '(nose pytest))
      html
