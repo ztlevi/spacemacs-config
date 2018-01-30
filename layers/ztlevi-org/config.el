@@ -18,3 +18,12 @@
   (add-to-list 'ispell-skip-region-alist '("^#\\+BEGIN_SRC" . "^#\\+END_SRC")))
 
 (add-hook 'org-mode-hook #'ztlevi/org-ispell)
+
+(defun ztlevi/markdown-ispell ()
+  "Configure `ispell-skip-region-alist' for `org-mode'."
+  (make-local-variable 'ispell-skip-region-alist)
+  (add-to-list 'ispell-skip-region-alist '("`" "`"))
+  (add-to-list 'ispell-skip-region-alist '("^```" . "^```")))
+
+(add-hook 'markdown-mode-hook #'ztlevi/markdown-ispell)
+(add-hook 'gfm-mode-hook #'ztlevi/markdown-ispell)
