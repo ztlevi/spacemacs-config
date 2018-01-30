@@ -53,6 +53,7 @@
 (defun ztlevi-programming/init-prettier-js ()
   (use-package prettier-js
     :defer t
+    :commands (prettier-js)
     :config
     (setq prettier-js-show-errors (quote echo))))
 

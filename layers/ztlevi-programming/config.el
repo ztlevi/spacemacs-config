@@ -14,25 +14,35 @@
 (add-hook 'emacs-lisp-mode-hook (lambda () (flycheck-mode -1)))
 
 ;; add to mode alist
-(add-to-list 'auto-mode-alist '("Capstanfile\\'" . yaml-mode))
-(add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
-(add-to-list 'auto-mode-alist '("\\.c\\'" . c++-mode))
-(add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
-(add-to-list 'auto-mode-alist '("\\.xtpl\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.blade.php\\'" . web-mode))
+(dolist (m '(("Capstanfile\\'" . yaml-mode)
+             ("\\.mm\\'" . objc-mode)
+             ("\\.c\\'" . c++-mode)
+             ("\\.zsh\\'" . shell-script-mode)
+             ("\\.xtpl\\'" . web-mode)
+             ("\\.vue\\'" . web-mode)
+             ("\\.blade.php\\'" . web-mode)))
+  (add-to-list 'auto-mode-alist m))
 
 (add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt '("xml" "xsd" "rng" "xslt" "xsl") t) "\\'") 'nxml-mode))
 (setq nxml-slash-auto-complete-flag t)
 
+;; turn on react mode recursively in some directories
+;; this hook needs to be added before others to take effect
+(defun turn-on-react-mode-for-js2 ()
+  (interactive)
+  (cond ((string-match "/react_github/" buffer-file-name)
+         (react-mode))))
+(add-hook 'js2-mode-hook 'turn-on-react-mode-for-js2)
+
 ;; prettier js
-(add-hook 'js2-mode-hook 'prettier-js-mode)
-(add-hook 'typescript-mode-hook 'prettier-js-mode)
-(add-hook 'react-mode-hook 'prettier-js-mode)
-(add-hook 'json-mode-hook 'prettier-js-mode)
-(add-hook 'css-mode-hook 'prettier-js-mode)
-(add-hook 'markdown-mode-hook 'prettier-js-mode)
-(add-hook 'gfm-mode-hook 'prettier-js-mode)
+(dolist (hook '(js2-mode-hook
+                typescript-mode-hook
+                react-mode-hook
+                json-mode-hook
+                css-mode-hook
+                markdown-mode-hook
+                gfm-mode-hook))
+  (add-hook hook 'prettier-js-mode))
 
 ;; only enable prettier for js and jsx if in web-mode
 (defun enable-minor-mode (my-pair)
@@ -86,14 +96,6 @@
           (lambda ()
             (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
 (add-hook 'js2-mode-hook 'my-js2-mode-hook)
-
-;; turn on react mode recursively in some directories
-;; this hook needs to be added before others to take effect
-(defun turn-on-react-mode-for-js2 ()
-  (interactive)
-  (cond ((string-match "/react_github/" buffer-file-name)
-         (react-mode))))
-(add-hook 'js2-mode-hook 'turn-on-react-mode-for-js2)
 
 ;; ============= Use textlint ============
 ;; npm i -g textlint textlint-rule-spellchecker textlint-rule-common-misspellings
