@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
 # name: -vendor-prefix
+# contributor: Prateek Saxena
 # key: -v->
 # --
 $1: $2;

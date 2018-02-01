@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: generate_n
-# key: gnn
+# key: gnn->
 # --
 std::generate_n(std::begin(${1:container}), $2, []($3) {
   $4

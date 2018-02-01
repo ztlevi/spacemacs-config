@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+#key: comment->
+# name: comment
+# --
+(*
+$0
+*)

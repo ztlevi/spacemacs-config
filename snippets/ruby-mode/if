@@ -1,4 +1,5 @@
 #name : if ... end
+#key: if->
 #group : control structure
 # --
 if ${1:condition}

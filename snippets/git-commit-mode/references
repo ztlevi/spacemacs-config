@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: references
-# key: ref
+# key: ref->
 # --
 references #${1:100}

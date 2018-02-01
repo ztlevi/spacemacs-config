@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: iterator
-# key: it->
+# key: iterator->
 # --
 public Iterator<${1:type}> iterator() {
        $0

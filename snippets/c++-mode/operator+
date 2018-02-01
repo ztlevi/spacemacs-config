@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: operator+
-# key: +
+# key: +->
 # group: operator overloading
 # --
 ${1:MyClass} $1::operator+(const $1 &other)

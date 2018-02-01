@@ -1,4 +1,5 @@
 #name : if __FILE__ == $PROGRAM_NAME ... end
+#key: app->
 #group : general
 # --
 if __FILE__ == $PROGRAM_NAME

@@ -1,4 +1,5 @@
 #name : /usr/bin/ruby -wU
+#key: rb->
 #group : general
 # --
 #!/usr/bin/ruby -wU

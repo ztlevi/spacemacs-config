@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: self
-# key: sl->
+# key: .->
 # group: object oriented
 # --
 self.$0

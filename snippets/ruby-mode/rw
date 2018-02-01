@@ -1,4 +1,5 @@
 #name : attr_accessor ...
+#key: rw->
 #group : definitions
 # --
 attr_accessor :

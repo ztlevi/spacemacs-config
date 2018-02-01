@@ -1,4 +1,5 @@
 #name : each_value { |val| ... }
+#key: eav->
 #group : collections
 # --
 each_value { |${val}| $0 }

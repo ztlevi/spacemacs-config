@@ -1,4 +1,5 @@
 #name : traversing a directory
+#key: traverse_dir->
 #contributor : Xah Lee
 # --
 ;; apply a function to all files in a dir

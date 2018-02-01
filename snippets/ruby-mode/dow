@@ -1,4 +1,5 @@
 #name : downto(...) { |n| ... }
+#key: dow->
 #group : control structure
 # --
 downto(${0}) { |${n}|

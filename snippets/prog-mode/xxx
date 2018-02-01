@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: xxx
-# key: xxx->
+# key: x->
 # --
-`(yas-with-comment "XXX: ")`
+`comment-start`XXX: $0`comment-end`

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: operator[]
-# key: []
+# key: []->
 # group: operator overloading
 # --
 ${1:Type}& operator[](${2:int index})

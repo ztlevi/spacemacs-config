@@ -1,0 +1,6 @@
+#name : -export([]).
+#key: exp->
+#contributor : hitesh <hitesh.jasani@gmail.com>
+# --
+-export([${1:start/0}]).
+$0

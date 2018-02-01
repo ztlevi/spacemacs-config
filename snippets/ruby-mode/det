@@ -1,4 +1,5 @@
 #name : detect { |...| ... }
+#key: det->
 #group : collections
 # --
 detect { |${e}| $0 }

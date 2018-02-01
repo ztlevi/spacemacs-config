@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+#key: inc->
+# name : #include <...>
+# key  : incs
+# --
+#include <$1>

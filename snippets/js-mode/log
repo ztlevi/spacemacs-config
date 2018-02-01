@@ -1,8 +1,5 @@
 # -*- mode: snippet -*-
-# name: Console log
-# key: log->
+#key: log->
+#name : console.log
 # --
-console.log('====================================')
-console.log($1)
-console.log('====================================')
-$0
+console.log($0);

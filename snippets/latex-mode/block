@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: block
-# key: bl
+# key: bl->
 # --
 \begin{block}{$1}
         $0

@@ -1,4 +1,5 @@
 #name : delete_if { |...| ... }
+#key: deli->
 #group : collections
 # --
 delete_if { |${e}| $0 }

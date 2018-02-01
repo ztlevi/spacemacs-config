@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+#key: repeat-with->
+# name: repeat-with
+# --
+repeat with $1
+$0
+end repeat

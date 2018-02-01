@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: benchmark
-# key: bench
+# key: bench->
 # contributor : @atotto
 # --
 func Benchmark$1(b *testing.B) {

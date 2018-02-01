@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+#key: tell-application-to-activate->
+# name: tell-application-to-activate
+# --
+tell application "$1" to activate
+$0

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: throw
-# key: throw
+# key: throw->
 # --
 throw ${1:MyError}($0);

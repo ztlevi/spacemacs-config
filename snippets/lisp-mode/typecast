@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+#key: typecast->
+# name: typecast
+# name: cast
+# --
+(coerce ${1:object} ${2:type})
+$0

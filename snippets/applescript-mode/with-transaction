@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+#key: with-transaction->
+# name: with-transaction
+# --
+with transaction
+$0
+end transaction

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: attribute
-# key: @
+# key: @->
 # --
 @${1:attr} = $0

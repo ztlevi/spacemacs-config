@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: begin
-# key: begin
+# key: begin->
 # --
 \begin{${1:environment}}
 $0

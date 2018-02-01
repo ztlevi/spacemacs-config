@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: is_partitioned
-# key: ipt
+# key: ipt->
 # --
 if (std::is_partitioned(std::begin(${1:container}), std::end($1), []($2) {
   $3

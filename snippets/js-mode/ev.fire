@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+#key: ev.fire->
+#name : fireEvent
+# --
+fireEvent('$0')

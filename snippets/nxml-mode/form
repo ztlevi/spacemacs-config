@@ -1,0 +1,7 @@
+#contributor : Anders Bach Nielsen <abachn@abachn.net>
+#key: form->
+#name :<form method="..." action="..."></form>
+# --
+<form method="$1" action="$2">
+  $0
+</form>

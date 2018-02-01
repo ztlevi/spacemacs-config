@@ -1,6 +1,6 @@
 # name: module ... end
 # contributor: hitesh <hitesh.jasani@gmail.com>, jimeh <contact@jimeh.me>
-# key: mod
+# key: mod->
 # --
 module ${1:`(let ((fn (capitalize (file-name-nondirectory
                                  (file-name-sans-extension

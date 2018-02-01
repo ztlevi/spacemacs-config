@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: switch
-# key: sw
+# key: sw->
 # --
 switch $1 {
 case $2:

@@ -1,4 +1,5 @@
+#contributor : rejeep <johan.rejeep@gmail.com>
+#key: mar.right->
 #name : margin-right: ...
-#key : mar.right->
 # --
 margin-right: $1;

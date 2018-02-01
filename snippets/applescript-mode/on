@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+#key: on->
+# name: on
+# --
+on $1
+$0
+end $1

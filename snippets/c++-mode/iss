@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: is_sorted
-# key: iss
+# key: iss->
 # --
 if (std::is_sorted(std::begin(${1:container}), std::end($1))) {
   $2

@@ -1,4 +1,5 @@
+#contributor : rejeep <johan.rejeep@gmail.com>
+#key: disp.inline->
 #name : display: inline
-#key : disp.inline->
 # --
 display: inline;

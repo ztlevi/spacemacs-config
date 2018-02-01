@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+#key: ignoring-application-responses->
+# name: ignoring-application-responses
+# --
+ignoring application responses
+$0
+end ignoring

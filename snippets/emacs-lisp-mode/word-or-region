@@ -1,4 +1,5 @@
 #name : Command that works on region or word
+#key: word-or-region->
 #contributor : Xah Lee
 # --
 ;; example of a command that works on current word or text selection

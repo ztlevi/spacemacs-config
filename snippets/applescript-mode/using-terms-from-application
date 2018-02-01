@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+#key: using-terms-from-application->
+# name: using-terms-from-application
+# --
+using terms from application "$1"
+$0
+end using terms from

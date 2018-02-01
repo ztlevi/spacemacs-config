@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: include Module
-# key: inc
+# key: inc->
 # group: general
 # --
 include ${1:Module}

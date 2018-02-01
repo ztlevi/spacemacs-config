@@ -1,4 +1,5 @@
+#contributor : rejeep <johan.rejeep@gmail.com>
+#key: fs->
 #name : font-size: ...
-#key : fs->
 # --
 font-size: ${12px};

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: push_heap
-# key: phh
+# key: phh->
 # --
 std::push_heap(std::begin(${1:container}), std::end($1));
 $0

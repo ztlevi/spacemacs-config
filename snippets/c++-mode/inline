@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: inline
-# key: il
+# key: il->
 # --
 inline $0

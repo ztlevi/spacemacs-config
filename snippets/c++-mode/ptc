@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: partition_copy
-# key: ptc
+# key: ptc->
 # --
 std::partition_copy(std::begin(${1:container}), std::end($1),
                   std::begin($2), std::end($3));

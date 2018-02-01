@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: alertblock
-# key: al
+# key: al->
 # --
 \begin{alertblock}{$2}
         $0

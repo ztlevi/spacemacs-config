@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 #name : uml
-# key: uml->
+#key : uml->
 #contributor : Robert O'Connor
 # --
 #+BEGIN_UML

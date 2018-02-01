@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: init
-# key: init
+# key: init->
 # --
 def initialize(${1:args})
     $0

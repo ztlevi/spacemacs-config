@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: full template of article class
-# key: article
+# key: article->
 # --
 \documentclass[${1:options}]{article}
 

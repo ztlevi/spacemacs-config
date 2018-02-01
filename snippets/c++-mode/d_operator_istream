@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: d_operator>>
-# key: >>
+# key: >>->
 # --
 friend std::istream& operator>>(std::istream&, const ${1:Class}&);

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: gtest
-# key: gtest
+# key: gtest->
 # group: testing
 # --
 #include <gtest/gtest.h>
