@@ -40,7 +40,7 @@ This function should only modify configuration layer settings."
      spacemacs-layouts
      (spacemacs-editing :packages (not lorem-ipsum clean-aindent-mode smartparens))
      (spacemacs-editing-visual :packages (not volatile-highlights rainbow-delimiters highlight-indentation lorem-ipsum))
-     (spacemacs-evil :packages (not evil-args evil-mc evil-ediff evil-exchange evil-unimpaired evil-indent-plus vi-tilde-fringe evil-lisp-state))
+     (spacemacs-evil :packages (not evil-args evil-mc evil-ediff evil-exchange evil-unimpaired evil-indent-plus vi-tilde-fringe evil-lisp-state evil-cleverparens))
      ;; spacemacs-language
      spacemacs-misc
      (spacemacs-modeline :packages (not spaceline-all-the-icons vim-powerline symon fancy-battery))
@@ -92,6 +92,7 @@ This function should only modify configuration layer settings."
      restclient
      ;; (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      (shell :variables shell-default-shell 'ansi-term)
+     (shell-scripts :packages (not fish-mode flycheck-bashate))
      ;; docker
      deft
      (chrome :packages (not edit-server gmail-message-mode))
@@ -108,10 +109,13 @@ This function should only modify configuration layer settings."
      ;; (ruby :variables ruby-version-manager 'chruby)
      ;; racket
      ;; lua
-     latex
+     (latex :variables
+            latex-build-command "LatexMk" ;; latexmk -pdf --synctex=1 -interaction=nonstopmode  -file-line-error  filename.tex
+            latex-enable-folding t)
      (markdown :packages (not gh-md))
      (org :packages (not org-projectile org-download org-present org-brain)
           :variables
+          org-startup-folded t
           org-want-todo-bindings t
           org-enable-bootstrap-support t
           org-enable-github-support t
@@ -120,6 +124,7 @@ This function should only modify configuration layer settings."
      yaml
      ;; php
      (python :variables
+             python-enable-yapf-format-on-save t
              python-test-runner '(nose pytest))
      html
      (javascript :packages (not web-beautify livid-mode)
