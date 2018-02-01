@@ -107,17 +107,6 @@ version 2015-08-21"
 
   (setq indent-tabs-mode nil))
 
-(defun ztlevi/load-yasnippet ()
-  (interactive)
-  (unless yas-global-mode
-    (progn
-      (yas-global-mode 1)
-      (setq my-snippet-dir (expand-file-name "~/.spacemacs.d/snippets"))
-      (setq yas-snippet-dirs  my-snippet-dir)
-      (yas-load-directory my-snippet-dir)
-      (setq yas-wrap-around-region t)))
-  (yas-minor-mode 1))
-
 (defun conditionally-enable-lispy ()
   (when (eq this-command 'eval-expression)
     (lispy-mode 1)))
@@ -234,6 +223,5 @@ version 2015-08-21"
 (defun ztlevi/company-init ()
   "set my own company-idle-delay and company-minimum-prefix-length"
   (interactive)
-  (setq-local company-idle-delay ztlevi/company-idle-delay)
   (set (make-local-variable 'company-minimum-prefix-length)
        ztlevi/company-minimum-prefix-length))

@@ -65,8 +65,13 @@ This function should only modify configuration layer settings."
                      :variables spell-checking-enable-by-default nil)
      (auto-completion :packages (not ac-ispell auto-complete helm-c-yasnippet company-quickhelp
                                      yasnippet-snippets)
-                      :variables auto-completion-enable-sort-by-usage t
-                      auto-completion-enable-snippets-in-popup t)
+                      :variables
+                      auto-completion-enable-sort-by-usage t
+                      auto-completion-return-key-behavior 'complete
+                      auto-completion-tab-key-behavior 'complete
+                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-idle-delay 0.2
+                      auto-completion-private-snippets-directory "~/.spacemacs.d/snippets")
      (vinegar :variables vinegar-reuse-dired-buffer t)
      (spacemacs-layouts :variables layouts-enable-autosave nil
                         layouts-autosave-delay 300)

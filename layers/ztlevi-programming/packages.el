@@ -27,7 +27,6 @@
     js2-refactor
     json-mode
     racket-mode
-    yasnippet
     web-mode
     ;; web-beautify
     js-doc
@@ -196,23 +195,6 @@
 
     ;; live server
     (spacemacs/set-leader-keys-for-major-mode 'web-mode "l" 'live-server-preview)))
-
-(defun ztlevi-programming/post-init-yasnippet ()
-  (progn
-    ;; remove yas-installed-snippets-dir from yas-snippet-dirs
-    (with-eval-after-load 'yasnippet
-      (setq yas-snippet-dirs (remq 'yas-installed-snippets-dir yas-snippet-dirs)))
-
-    (set-face-background 'secondary-selection "gray")
-    (setq-default yas-prompt-functions '(yas-ido-prompt yas-dropdown-prompt))
-    (mapc #'(lambda (hook) (remove-hook hook 'spacemacs/load-yasnippet)) '(prog-mode-hook
-                                                                           org-mode-hook
-                                                                           markdown-mode-hook))
-
-    (spacemacs/add-to-hooks 'ztlevi/load-yasnippet '(prog-mode-hook
-                                                     markdown-mode-hook
-                                                     org-mode-hook))
-    ))
 
 (defun ztlevi-programming/post-init-racket-mode ()
   (progn
@@ -461,8 +443,6 @@
     ;; set the company minimum prefix length and idle delay
     (defvar ztlevi/company-minimum-prefix-length 1
       "my own variable for company-minimum-prefix-length")
-    (defvar ztlevi/company-idle-delay 0
-      "my own variable for company-idle-delay")
     (add-hook 'company-mode-hook #'ztlevi/company-init)
 
     (when (configuration-layer/package-usedp 'company)
@@ -472,7 +452,6 @@
     (with-eval-after-load 'company
       (progn
         (bb/define-key company-active-map (kbd "C-f") nil)
-        (bb/define-key company-active-map (kbd "<tab>") 'company-complete-selection)
         (bb/define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
         (bb/define-key company-active-map (kbd "C-j") 'company-show-location)))
     ))
