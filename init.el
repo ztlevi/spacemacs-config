@@ -595,6 +595,7 @@ It should only modify the values of Spacemacs settings."
   (spacemacs|diminish hybrid-mode)
   (spacemacs|diminish mmm-mode)
   (spacemacs|diminish prettier-js-mode " Ⓟ" " P")
+  (spacemacs|diminish atomic-chrome-edit-mode " Ⓐ" " A")
   (spacemacs|diminish dired-omit-mode)
   (spacemacs|diminish helm-gtags-mode)
   (spacemacs|diminish ggtags-mode)

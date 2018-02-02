@@ -269,7 +269,6 @@
       "hd" 'cmake-help)
     (add-hook 'cmake-mode-hook (function cmake-rename-buffer))))
 
-
 (defun ztlevi-programming/post-init-flycheck ()
   (progn
     ;; disable jshint since we prefer eslint checking
@@ -283,15 +282,7 @@
     ;; disable json-jsonlist checking for json files
     (setq-default flycheck-disabled-checkers
                   (append flycheck-disabled-checkers
-                          '(json-jsonlist)))
-
-    ;; add c++ flycheck standard
-    (add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++11"))))
-
-  (with-eval-after-load 'flycheck
-    (progn
-      (setq flycheck-display-errors-delay 0.9)
-      (setq flycheck-idle-change-delay 2.0))))
+                          '(json-jsonlist)))))
 
 (defun ztlevi-programming/post-init-eldoc ()
   (setq eldoc-idle-delay 0.4))
