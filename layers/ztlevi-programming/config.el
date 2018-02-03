@@ -130,3 +130,7 @@
       (append
        '(("\\.mak\\'" . makefile-bsdmake-mode))
        auto-mode-alist))
+
+;; set java mode indent
+(add-hook 'java-mode-hook (lambda ()
+                            (setq c-basic-offset 4)))
