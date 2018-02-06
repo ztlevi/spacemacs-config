@@ -611,6 +611,9 @@ It should only modify the values of Spacemacs settings."
   ;; settings for transparent
   ;; (spacemacs/toggle-transparency)
 
+  ;; disable apple powerline rgb
+  (setq powerline-image-apple-rgb nil)
+
   ;;解决org表格里面中英文对齐的问题
   (when (configuration-layer/layer-usedp 'chinese)
     (when (and (spacemacs/system-is-mac) window-system)
