@@ -54,9 +54,6 @@
 ;; imenu list
 (spacemacs/set-leader-keys "bi" #'imenu-list-smart-toggle)
 
-;; atomic chrome
-(spacemacs/set-leader-keys "cc" 'atomic-chrome-close-current-buffer)
-
 ;; company complete
 (global-set-key (kbd "C-SPC") 'company-complete)
 

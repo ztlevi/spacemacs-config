@@ -94,7 +94,10 @@
 
     (if (ztlevi-atomic-chrome-server-running-p)
         (message "Can't start atomic-chrome server, because port 64292 is already used")
-      (atomic-chrome-start-server))))
+      (atomic-chrome-start-server))
+
+    ;; bind keys
+    (spacemacs/set-leader-keys "cc" 'atomic-chrome-close-current-buffer)))
 
 (defun ztlevi-misc/init-highlight-global ()
   (use-package highlight-global
