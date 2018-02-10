@@ -29,7 +29,6 @@
     ;; 4clojure
     persp-mode
     focus
-    ;; smartparens
     flyspell-correct
     peep-dired
     markdown-mode
@@ -199,22 +198,6 @@
     (with-eval-after-load 'flyspell
       (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-previous-word-generic))
     (setq flyspell-correct-interface 'flyspell-correct-ivy)))
-
-(defun ztlevi-misc/post-init-smartparens ()
-  (use-package smartparens
-    :defer t
-    :init
-    (progn
-      (global-set-key (kbd "C-(") 'wrap-sexp-with-new-round-parens))
-    :config
-    (progn
-      (setq sp-highlight-pair-overlay nil)
-
-      (evil-define-key 'normal sp-keymap
-        (kbd ")>") 'sp-forward-slurp-sexp
-        (kbd ")<") 'sp-forward-barf-sexp
-        (kbd "(>") 'sp-backward-barf-sexp
-        (kbd "(<") 'sp-backward-slurp-sexp))))
 
 (defun ztlevi-misc/init-focus ()
   (use-package focus

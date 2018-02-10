@@ -38,7 +38,7 @@ This function should only modify configuration layer settings."
      ;; look at ido
      (spacemacs-completion :packages (not default-helm-config ido-vertical-mode))
      spacemacs-layouts
-     (spacemacs-editing :packages (not lorem-ipsum clean-aindent-mode smartparens))
+     (spacemacs-editing :packages (not lorem-ipsum clean-aindent-mode))
      (spacemacs-editing-visual :packages (not volatile-highlights rainbow-delimiters highlight-indentation lorem-ipsum))
      (spacemacs-evil :packages (not evil-args evil-mc evil-ediff evil-exchange evil-unimpaired evil-indent-plus vi-tilde-fringe evil-lisp-state evil-cleverparens))
      ;; spacemacs-language
