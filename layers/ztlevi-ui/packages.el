@@ -19,7 +19,6 @@
     ;; if you wnat to use spaceline, please comment out ztlevi-mode-line
     ;; (ztlevi-mode-line :location built-in)
     ;; spaceline
-    diminish
     popwin
     (whitespace :location built-in)
     doom-themes
@@ -71,20 +70,6 @@
 (defun ztlevi-ui/init-all-the-icons ()
   (use-package all-the-icons
     :defer t))
-
-(defun ztlevi-ui/post-init-diminish ()
-  (progn
-    (with-eval-after-load 'all-the-icons-dired
-      (diminish 'all-the-icons-dired-mode))
-    (with-eval-after-load 'whitespace
-      (diminish 'whitespace-mode))
-    (with-eval-after-load 'smartparens
-      (diminish 'smartparens-mode))
-    (with-eval-after-load 'which-key
-      (diminish 'which-key-mode))
-    (with-eval-after-load 'hungry-delete
-      (diminish 'hungry-delete-mode))))
-
 
 (defun ztlevi-ui/post-init-spaceline ()
   (use-package spaceline-config

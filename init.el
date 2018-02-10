@@ -593,19 +593,6 @@ It should only modify the values of Spacemacs settings."
 
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
-  ;; diminish modes
-  (spacemacs|diminish hybrid-mode)
-  (spacemacs|diminish mmm-mode)
-  (spacemacs|diminish prettier-js-mode " Ⓟ" " P")
-  (spacemacs|diminish atomic-chrome-edit-mode " Ⓐ" " A")
-  (spacemacs|diminish dired-omit-mode)
-  (spacemacs|diminish helm-gtags-mode)
-  (spacemacs|diminish ggtags-mode)
-  (spacemacs|diminish which-key-mode)
-  (spacemacs|diminish spacemacs-whitespace-cleanup-mode)
-  (spacemacs|diminish counsel-mode)
-  (spacemacs|diminish importmagic-mode)
-
   (evilified-state-evilify-map special-mode-map :mode special-mode)
 
   ;; ============================== U I ========================================
@@ -635,6 +622,23 @@ It should only modify the values of Spacemacs settings."
 
   ;; force horizontal split window
   (setq split-width-threshold 120)
+
+  ;; diminish modes
+  (spacemacs|diminish prettier-js-mode " Ⓟ" " P")
+  (spacemacs|diminish atomic-chrome-edit-mode " Ⓐ" " A")
+  (spacemacs|diminish which-key-mode)
+  (spacemacs|diminish smartparens-mode)
+  (spacemacs|diminish hybrid-mode)
+  (spacemacs|diminish mmm-mode)
+  (spacemacs|diminish dired-omit-mode)
+  (spacemacs|diminish all-the-icons-dired-mode)
+  (spacemacs|diminish helm-gtags-mode)
+  (spacemacs|diminish ggtags-mode)
+  (spacemacs|diminish counsel-mode)
+  (spacemacs|diminish importmagic-mode)
+  (spacemacs|diminish whitespace-mode)
+  (spacemacs|diminish hungry-delete-mode)
+  (spacemacs|diminish spacemacs-whitespace-cleanup-mode)
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
