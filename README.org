@@ -57,7 +57,7 @@
          #+END_SRC
        - npm
          #+BEGIN_SRC shell
-           npm install -g prettier live-server eslint babel-eslint eslint-plugin-react eslint-plugin-html tern typescript tslint typescript-formatter
+           npm install -g prettier live-server tern
          #+END_SRC
        - pip
          #+BEGIN_SRC shell
