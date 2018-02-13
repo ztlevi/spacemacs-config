@@ -305,7 +305,6 @@
     ;; indent buffer
     (define-key evil-normal-state-map (kbd ",=") 'spacemacs/indent-region-or-buffer)
     (define-key evil-visual-state-map (kbd ",=") 'spacemacs/indent-region-or-buffer)
-    (spacemacs/set-leader-keys "m=" 'spacemacs/indent-region-or-buffer)
 
     ;; bind [, ] functions
     (define-key evil-normal-state-map (kbd "[ SPC") (lambda () (interactive) (evil-insert-newline-above) (forward-line)))
