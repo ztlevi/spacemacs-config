@@ -23,6 +23,7 @@
   ;; ranger and deer
   (spacemacs/set-leader-keys "fj" 'deer)
   (with-eval-after-load 'ranger
+    (define-key ranger-normal-mode-map (kbd "C-<tab>") 'ranger-next-tab)
     (define-key ranger-normal-mode-map (kbd "U") 'dired-unmark-all-files)
     (define-key ranger-normal-mode-map (kbd "u") 'dired-unmark)
     (define-key ranger-normal-mode-map (kbd "(") 'dired-hide-details-mode)
