@@ -59,7 +59,7 @@ This function should only modify configuration layer settings."
      search-engine
      ;; graphviz
      ivy
-     (syntax-checking :variables syntax-checking-enable-by-default nil
+     (syntax-checking :variables syntax-checking-enable-by-default t
                       syntax-checking-enable-tooltips nil)
      (spell-checking :packages (not auto-dictionary flyspell-correct-helm)
                      :variables spell-checking-enable-by-default nil)
