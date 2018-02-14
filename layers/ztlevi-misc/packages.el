@@ -300,8 +300,6 @@
     (defadvice evil-search-previous (after advice-for-evil-search-previous activate)
       (evil-scroll-line-to-center (line-number-at-pos)))
 
-    (define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
-
     ;; indent buffer
     (define-key evil-normal-state-map (kbd ",=") 'spacemacs/indent-region-or-buffer)
     (define-key evil-visual-state-map (kbd ",=") 'spacemacs/indent-region-or-buffer)
@@ -315,7 +313,6 @@
     (define-key evil-normal-state-map (kbd "M-y") 'counsel-yank-pop)
 
     (define-key evil-motion-state-map "\C-e" 'mwim-end-of-code-or-line)
-
     (define-key evil-ex-completion-map "\C-a" 'move-beginning-of-line)
     (define-key evil-ex-completion-map "\C-b" 'backward-char)
     (define-key evil-ex-completion-map "\C-k" 'kill-line)
@@ -323,16 +320,6 @@
 
     ;; visual-state-map
     (define-key evil-visual-state-map (kbd "C-r") 'ztlevi/evil-quick-replace)
-    (define-key evil-visual-state-map (kbd "ml") 'mc/edit-lines)
-    (define-key evil-visual-state-map (kbd "mn") 'mc/mark-next-like-this)
-    (define-key evil-visual-state-map (kbd "mN") 'mc/unmark-next-like-this)
-    (define-key evil-visual-state-map (kbd "mp") 'mc/mark-previous-like-this)
-    (define-key evil-visual-state-map (kbd "mP") 'mc/unmark-previous-like-this)
-    (define-key evil-visual-state-map (kbd "ma") 'mc/mark-all-like-this)
-    (define-key evil-visual-state-map (kbd "mf") 'mc/mark-all-like-this-in-defun)
-
-    ;; in spacemacs, we always use evilify miscro state
-    (evil-add-hjkl-bindings package-menu-mode-map 'emacs)
 
     ;; set C-w as delete word backward
     (define-key evil-emacs-state-map (kbd "C-w") 'evil-delete-backward-word)

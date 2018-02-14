@@ -124,7 +124,7 @@ This function should only modify configuration layer settings."
      yaml
      ;; php
      (python :variables
-             python-enable-yapf-format-on-save t
+             ;; python-enable-yapf-format-on-save t
              python-test-runner '(nose pytest))
      html
      (javascript :packages (not web-beautify livid-mode)
