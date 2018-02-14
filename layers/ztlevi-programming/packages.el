@@ -225,15 +225,12 @@
   (use-package lispy
     :defer t
     :init
-    (progn
-      (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
-      (add-hook 'ielm-mode-hook (lambda () (lispy-mode 1)))
-      (add-hook 'inferior-emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
-      ;; (add-hook 'spacemacs-mode-hook (lambda () (lispy-mode 1)))
-      (add-hook 'clojure-mode-hook (lambda () (lispy-mode 1)))
-      (add-hook 'scheme-mode-hook (lambda () (lispy-mode 1)))
-      (add-hook 'cider-repl-mode-hook (lambda () (lispy-mode 1)))
-      )
+    (spacemacs/add-to-hooks (lambda () (lispy-mode)) '(emacs-lisp-mode-hook
+                                                       ielm-mode-hook
+                                                       inferior-emacs-lisp-mode-hook
+                                                       clojure-mode-hook
+                                                       scheme-mode-hook
+                                                       cider-repl-mode-hook))
     :config
     (progn
       (push '(cider-repl-mode . ("[`'~@]+" "#" "#\\?@?")) lispy-parens-preceding-syntax-alist)
@@ -251,7 +248,6 @@
       (define-key lispy-mode-map (kbd "s-m") 'lispy-mark-symbol)
       (define-key lispy-mode-map (kbd "s-1") 'lispy-describe-inline)
       (define-key lispy-mode-map (kbd "s-2") 'lispy-arglist-inline))))
-
 
 (defun ztlevi-programming/init-cmake-font-lock ()
   (use-package cmake-font-lock

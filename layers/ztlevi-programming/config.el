@@ -10,8 +10,8 @@
 ;;; License: GPLv3
 
 ;; Flyckeck disable and enable
-(add-hook 'emacs-lisp-mode-hook (lambda () (flycheck-mode -1)))
-(add-hook 'text-mode-hook (lambda () (flycheck-mode -1)))
+(spacemacs/add-to-hooks (lambda () (flycheck-mode -1)) '(emacs-lisp-mode-hook
+                                                         text-mode-hook))
 
 ;; add to mode alist
 (dolist (m '(("Capstanfile\\'" . yaml-mode)
@@ -37,14 +37,13 @@
 (add-hook 'js2-mode-hook 'turn-on-react-mode-for-js2)
 
 ;; prettier js
-(dolist (hook '(js2-mode-hook
-                typescript-mode-hook
-                react-mode-hook
-                json-mode-hook
-                css-mode-hook
-                markdown-mode-hook
-                gfm-mode-hook))
-  (add-hook hook 'prettier-js-mode))
+(spacemacs/add-to-hooks 'prettier-js-mode '(js2-mode-hook
+                                            typescript-mode-hook
+                                            react-mode-hook
+                                            json-mode-hook
+                                            css-mode-hook
+                                            markdown-mode-hook
+                                            gfm-mode-hook))
 
 ;; only enable prettier for js and jsx if in web-mode
 (defun enable-minor-mode (my-pair)
