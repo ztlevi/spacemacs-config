@@ -22,6 +22,7 @@
  '(erc-nick "ztlevi")
  '(erc-port 6666)
  '(evil-cross-lines t)
+ '(evil-shift-round nil)
  '(expand-region-exclude-text-mode-expansions (quote (html-mode nxml-mode web-mode)))
  '(flymd-close-buffer-delete-temp-files t)
  '(gc-cons-threshold 20000000)

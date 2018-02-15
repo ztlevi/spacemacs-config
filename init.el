@@ -537,27 +537,22 @@ It should only modify the values of Spacemacs settings."
 
 (defun dotspacemacs/user-init ()
   ;; China elpa
-  ;; (setq configuration-layer--elpa-archives
+  ;; (setq configuration-layer-elpa-archives
   ;;       '(("melpa-cn" . "https://elpa.emacs-china.org/melpa/")
   ;;         ("org-cn"   . "https://elpa.emacs-china.org/org/")
   ;;         ("gnu-cn"   . "https://elpa.emacs-china.org/gnu/")))
 
-  ;; https://github.com/syl20bnr/spacemacs/issues/2705
-  ;; (setq tramp-mode nil)
   (setq ranger-override-dired t)
 
+  ;; https://github.com/syl20bnr/spacemacs/blob/develop/doc/FAQ.org#why-is-spacemacs-hanging-on-startup
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
   ;; ss proxy. But it will cause anacond-mode failed.
   (setq socks-server '("Default server" "127.0.0.1" 1080 5))
-  (setq evil-shift-round nil)
 
   (setq byte-compile-warnings '(not obsolete))
-  (setq warning-minimum-level :error)
-  ;; hack for remove purpose mode
-  (setq purpose-mode nil)
-  )
+  (setq warning-minimum-level :error))
 
 (defun dotspacemacs/user-config ()
   ;; ======================Config for different system==========================
