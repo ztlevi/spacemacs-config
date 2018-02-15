@@ -126,6 +126,7 @@ This function should only modify configuration layer settings."
      (python :variables
              ;; python-enable-yapf-format-on-save t
              python-test-runner '(nose pytest))
+     ipython-notebook
      html
      (javascript :packages (not web-beautify livid-mode)
                  :variables
