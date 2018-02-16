@@ -128,6 +128,7 @@ This function should only modify configuration layer settings."
              python-test-runner '(nose pytest))
      ipython-notebook
      html
+     (java :packages (not eclim ensime company-emacs-eclim))
      (javascript :packages (not web-beautify livid-mode)
                  :variables
                  node-add-modules-path t
