@@ -244,10 +244,7 @@
 
       (add-hook
        'minibuffer-setup-hook
-       'conditionally-enable-lispy)
-      (define-key lispy-mode-map (kbd "s-m") 'lispy-mark-symbol)
-      (define-key lispy-mode-map (kbd "s-1") 'lispy-describe-inline)
-      (define-key lispy-mode-map (kbd "s-2") 'lispy-arglist-inline))))
+       'conditionally-enable-lispy))))
 
 (defun ztlevi-programming/init-cmake-font-lock ()
   (use-package cmake-font-lock
