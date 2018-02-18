@@ -63,6 +63,10 @@
 ;; hungry delete
 (global-set-key (kbd "s-<backspace>") 'hungry-delete-backward)
 
+;; macro
+(global-set-key (kbd "s-m") 'call-last-kbd-macro)
+(spacemacs/set-leader-keys "om" 'kmacro-edit-macro)
+
 ;; expand region
 (global-set-key (kbd "C-s-.") 'er/expand-region)
 (global-set-key (kbd "C-s-,") 'er/contract-region)
