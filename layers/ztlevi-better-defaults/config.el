@@ -9,13 +9,6 @@
 ;;
 ;;; License: GPLv3
 
-;; set perspective auto save
-;; (setq persp-auto-save-persps-to-their-file nil)
-;; (setq persp-auto-save-num-of-backups 0)
-;; (setq persp-auto-resume-time 0)
-
-;; (setq tab-always-indent 'complete)
-
 (setq auto-coding-regexp-alist
       (delete (rassoc 'utf-16be-with-signature auto-coding-regexp-alist)
               (delete (rassoc 'utf-16le-with-signature auto-coding-regexp-alist)

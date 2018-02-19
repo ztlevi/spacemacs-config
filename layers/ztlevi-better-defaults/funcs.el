@@ -17,7 +17,6 @@ Position the cursor at its beginning, according to the current mode."
   (move-end-of-line nil)
   (newline-and-indent))
 
-
 (defun ztlevi/rename-file-and-buffer ()
   "Rename the current buffer and file it is visiting."
   (interactive)
