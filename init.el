@@ -53,7 +53,9 @@ This function should only modify configuration layer settings."
      (vinegar :variables vinegar-reuse-dired-buffer t)
      (pandoc :variables org-pandoc-options '((standalone . t)))
      (dash :packages (not counsel-dash helm-dash))
-     better-defaults
+     (better-defaults :variables
+                      better-defaults-move-to-end-of-code-first t
+                      better-defaults-move-to-beginning-of-code-first t)
      ;; (github :packages (not magit-gh-pulls))
      colors
      prodigy
