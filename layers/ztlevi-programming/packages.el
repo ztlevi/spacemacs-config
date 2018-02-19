@@ -17,16 +17,15 @@
     xref-js2
     css-mode
     lispy
+    ;; racket-mode
     cmake-font-lock
     cmake-mode
     flycheck
-    ;; lsp-mode
     ;; lsp-javascript-typescript
     js2-mode
     eacl
     js2-refactor
     json-mode
-    racket-mode
     web-mode
     ;; web-beautify
     js-doc
@@ -233,6 +232,8 @@
                                                        cider-repl-mode-hook))
     :config
     (progn
+      (define-key lispy-mode-map (kbd "C-a") 'mwim-beginning-of-code-or-line)
+
       (push '(cider-repl-mode . ("[`'~@]+" "#" "#\\?@?")) lispy-parens-preceding-syntax-alist)
 
       (spacemacs|hide-lighter lispy-mode)
@@ -292,13 +293,6 @@
     :config
     ;; only for mac
     (setq eacl-grep-program "ggrep")))
-
-(defun ztlevi-programming/init-lsp-mode ()
-  (use-package lsp-mode
-    :defer t
-    :config
-    (with-eval-after-load 'lsp-mode
-      (require 'lsp-flycheck))))
 
 (defun ztlevi-programming/init-lsp-javascript-typescript ()
   (use-package lsp-javascript-typescript
