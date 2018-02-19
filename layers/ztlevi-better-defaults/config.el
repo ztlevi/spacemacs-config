@@ -68,7 +68,7 @@
 ;; this setting will cause command `vc-annotate` failed
 ;; (setq vc-handled-backends ())
 
-(setq large-file-warning-threshold 100000000)
+;; (setq large-file-warning-threshold 100000000)
 ;;http://batsov.com/emacsredux/blog/2015/05/09/emacs-on-os-x/
 
 (setq save-abbrevs nil)
@@ -131,18 +131,6 @@ Single Capitals as you type."
   (if dubcaps-mode
       (add-hook 'post-self-insert-hook #'dcaps-to-scaps nil 'local)
     (remove-hook 'post-self-insert-hook #'dcaps-to-scaps 'local)))
-
-;; check large file
-(defun spacemacs/check-large-file ()
-  (when (> (buffer-size) 100000)
-    (progn (fundamental-mode)
-           (hl-line-mode -1)))
-  (if (and (executable-find "wc")
-           (> (string-to-number (shell-command-to-string (format "wc -l %s" (buffer-file-name))))
-              1500))
-      (linum-mode -1)))
-
-(add-hook 'find-file-hook 'spacemacs/check-large-file)
 
 (defadvice find-file (before make-directory-maybe
                              (filename &optional wildcards) activate)
