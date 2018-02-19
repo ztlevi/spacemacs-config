@@ -355,9 +355,6 @@
               (lambda ()
                 (setq imenu-create-index-function 'css-imenu-make-index)))))
 
-(defun ztlevi-programming/post-init-tagedit ()
-  (add-hook 'web-mode-hook (lambda () (tagedit-mode 1))))
-
 (defun ztlevi-programming/post-init-lua-mode ()
   (progn
     (add-hook 'lua-mode-hook 'evil-matchit-mode)
