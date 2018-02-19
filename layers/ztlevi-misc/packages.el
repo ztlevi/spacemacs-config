@@ -316,14 +316,9 @@
     (define-key evil-ex-completion-map "\C-a" 'move-beginning-of-line)
     (define-key evil-ex-completion-map "\C-b" 'backward-char)
     (define-key evil-ex-completion-map "\C-k" 'kill-line)
-    (define-key minibuffer-local-map (kbd "C-w") 'evil-delete-backward-word)
 
     ;; visual-state-map
     (define-key evil-visual-state-map (kbd "C-r") 'ztlevi/evil-quick-replace)
-
-    ;; set C-w as delete word backward
-    (define-key evil-emacs-state-map (kbd "C-w") 'evil-delete-backward-word)
-    (evil-define-key 'emacs term-raw-map (kbd "C-w") 'evil-delete-backward-word)
 
     ;; set evil state cursor
     ;; (setq evil-normal-state-cursor '("#ff007f" box))
