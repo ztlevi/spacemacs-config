@@ -60,8 +60,9 @@
            npm install -g prettier live-server tern
          #+END_SRC
        - pip
+         Make sure your ~python-shell-interpreter~ and pip is using the same environment (anaconda, python2 or python3). Check it with ~which -a pip ipython~
          #+BEGIN_SRC shell
-           pip3 install yapf
+           pip install yapf python-language-server
          #+END_SRC
 
 ** Usage
