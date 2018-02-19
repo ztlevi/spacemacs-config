@@ -50,6 +50,7 @@ This function should only modify configuration layer settings."
 
      ;; ======================== Misc =========================
      (ranger :variables ranger-show-preview t)
+     (vinegar :variables vinegar-reuse-dired-buffer t)
      (pandoc :variables org-pandoc-options '((standalone . t)))
      (dash :packages (not counsel-dash helm-dash))
      better-defaults
@@ -72,7 +73,6 @@ This function should only modify configuration layer settings."
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-idle-delay 0.2
                       auto-completion-private-snippets-directory "~/.spacemacs.d/snippets")
-     (vinegar :variables vinegar-reuse-dired-buffer t)
      (spacemacs-layouts :variables layouts-enable-autosave nil
                         layouts-autosave-delay 300)
      (git :packages (not magit-gitflow orgit smeargle)

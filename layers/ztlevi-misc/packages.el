@@ -30,7 +30,6 @@
     persp-mode
     focus
     flyspell-correct
-    peep-dired
     markdown-mode
     (live-server :location local)
     edit-indirect
@@ -113,7 +112,7 @@
 
 (defun ztlevi-misc/post-init-golden-ratio ()
   (with-eval-after-load 'golden-ratio
-    (dolist (mode '("dired-mode" "occur-mode"))
+    (dolist (mode '("occur-mode"))
       (add-to-list 'golden-ratio-exclude-modes mode))
     (dolist (n '("COMMIT_EDITMSG"))
       (add-to-list 'golden-ratio-exclude-buffer-names n))))
@@ -183,15 +182,6 @@
   (add-to-list 'origami-parser-alist `(python-mode . ,(origami-markers-parser "# region" "# endregion")))
   (add-to-list 'origami-parser-alist `(ruby-mode . ,(origami-markers-parser "#region" "#endregion")))
   )
-
-(defun ztlevi-misc/init-peep-dired ()
-  ;;preview files in dired
-  (use-package peep-dired
-    :defer t
-    :commands (peep-dired-next-file
-               peep-dired-prev-file)
-    :bind (:map dired-mode-map
-                ("P" . peep-dired))))
 
 (defun ztlevi-misc/post-init-flyspell-correct ()
   (progn
