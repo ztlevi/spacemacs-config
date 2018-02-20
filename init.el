@@ -34,8 +34,7 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     ;; =================== Spacemacs Layers ====================
-     ;; look at ido
+     ;; ================== Spacemacs Layers ==================
      (spacemacs-completion :packages (not default-helm-config ido-vertical-mode))
      spacemacs-layouts
      (spacemacs-editing :packages (not lorem-ipsum clean-aindent-mode))
@@ -48,7 +47,7 @@ This function should only modify configuration layer settings."
      spacemacs-org
      spacemacs-visual
 
-     ;; ======================== Misc =========================
+     ;; ======================== Misc ========================
      (ranger :variables ranger-show-preview t)
      (vinegar :variables vinegar-reuse-dired-buffer t)
      (pandoc :variables org-pandoc-options '((standalone . t)))
@@ -101,11 +100,11 @@ This function should only modify configuration layer settings."
      ;; neotree
      treemacs
 
-     ;; ======================== Frameworks ======================
+     ;; ===================== Frameworks =====================
      ;; ruby-on-rails
      react
 
-     ;; ======================== Languages =======================
+     ;; ===================== Languages =====================
      ;; (clojure :variables clojure-enable-fancify-symbols t)
      ;; (ruby :variables ruby-version-manager 'chruby)
      ;; racket
@@ -151,7 +150,7 @@ This function should only modify configuration layer settings."
             c-c++-enable-google-newline t
             c-c++-enable-c++11 t)
 
-     ;; ======================== Others =======================
+     ;; ======================== Others ========================
      ztlevi
      (chinese :packages youdao-dictionary
               :variables chinese-enable-youdao-dict t)
@@ -213,7 +212,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; If non-nil then Spacelpa repository is the primary source to install
    ;; a locked version of packages. If nil then Spacemacs will install the
-   ;; lastest version of packages from MELPA. (default nil)
+   ;; latest version of packages from MELPA. (default nil)
    dotspacemacs-use-spacelpa nil
 
    ;; If non-nil then verify the signature for downloaded Spacelpa archives.
@@ -293,8 +292,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-default-font '("Operator Mono Lig"
                                :size 18
                                :weight normal
-                               :width normal
-                               :powerline-scale 1.1)
+                               :width normal)
 
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
@@ -560,7 +558,7 @@ It should only modify the values of Spacemacs settings."
   (setq warning-minimum-level :error))
 
 (defun dotspacemacs/user-config ()
-  ;; ======================Config for different system==========================
+  ;; ================== Config for different system ==================
   (cond
    ((string-equal system-type "darwin") ; Mac OS X
     (progn
@@ -572,11 +570,7 @@ It should only modify the values of Spacemacs settings."
     (progn
       (message "Microsoft Windows"))))
 
-  ;; ============================== Others =====================================
-  ;; enable ligatures support (emacs mac port only)
-  ;; others here: https://github.com/tonsky/FiraCode/wiki/Emacs-instructions
-  (mac-auto-operator-composition-mode)
-
+  ;; ======================== Others ===========================
   ;; enable flyspell in text-mode
   (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
 
@@ -595,7 +589,7 @@ It should only modify the values of Spacemacs settings."
 
   (evilified-state-evilify-map special-mode-map :mode special-mode)
 
-  ;; ============================== U I ========================================
+  ;; ======================== U I ==============================
   ;; settings for transparent
   ;; (spacemacs/toggle-transparency)
 
@@ -605,7 +599,7 @@ It should only modify the values of Spacemacs settings."
   ;; disable apple powerline rgb
   (setq powerline-image-apple-rgb nil)
 
-  ;;解决org表格里面中英文对齐的问题
+  ;; solve org table Chinese and English text align issue
   (when (configuration-layer/layer-usedp 'chinese)
     (when (and (spacemacs/system-is-mac) window-system)
       (spacemacs//set-monospaced-font "Operator Mono Lig" "Hiragino Sans GB" 18 20)))
