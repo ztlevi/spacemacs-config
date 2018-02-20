@@ -135,3 +135,61 @@
 ;; set java mode indent
 (add-hook 'java-mode-hook (lambda ()
                             (setq c-basic-offset 4)))
+
+(setq-default js2-additional-externs
+              '("$"
+                "$A" ; salesforce lightning component
+                "$LightningApp" ; salesforce
+                "AccessifyHTML5"
+                "Blob"
+                "FormData"
+                "KeyEvent"
+                "Raphael"
+                "React"
+                "URLSearchParams"
+                "__dirname" ; Node
+                "_content" ; Keysnail
+                "after"
+                "afterEach"
+                "angular"
+                "app"
+                "assert"
+                "assign"
+                "before"
+                "beforeEach"
+                "browser"
+                "by"
+                "clearInterval"
+                "clearTimeout"
+                "command" ; Keysnail
+                "content" ; Keysnail
+                "define"
+                "describe"
+                "documentRef"
+                "global"
+                "display" ; Keysnail
+                "element"
+                "expect"
+                "ext" ; Keysnail
+                "fetch"
+                "gBrowser" ; Keysnail
+                "goDoCommand" ; Keysnail
+                "hook" ; Keysnail
+                "inject"
+                "isDev"
+                "it"
+                "jQuery"
+                "jasmine"
+                "key" ; Keysnail
+                "ko"
+                "log"
+                "module"
+                "plugins" ; Keysnail
+                "process"
+                "require"
+                "setInterval"
+                "setTimeout"
+                "shell" ; Keysnail
+                "tileTabs" ; Firefox addon
+                "util" ; Keysnail
+                "utag"))

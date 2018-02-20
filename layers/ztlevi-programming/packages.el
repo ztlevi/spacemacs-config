@@ -313,32 +313,16 @@
 
   (spacemacs/declare-prefix-for-mode 'js2-mode "ms" "repl")
 
-  (with-eval-after-load 'js2-mode
-    ;; these mode related variables must be in eval-after-load
-    ;; https://github.com/magnars/.emacs.d/blob/master/settings/setup-js2-mode.el
-    (setq js2-allow-rhino-new-expr-initializer nil)
-    (setq js2-auto-indent-p nil)
-    (setq js2-enter-indents-newline nil)
-    (setq js2-global-externs '("module" "ccui" "require" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location" "__dirname" "console" "JSON"))
-    (setq js2-idle-timer-delay 0.2)
-    (setq js2-mirror-mode nil)
-    (setq js2-strict-inconsistent-return-warning nil)
-    (setq js2-include-rhino-externs nil)
-    (setq js2-include-gears-externs nil)
-    (setq js2-concat-multiline-strings 'eol)
-    (setq js2-rebind-eol-bol-keys nil)
-    (setq js2-auto-indent-p t)
-
-    (setq js2-bounce-indent nil)
-    (setq js-switch-indent-offset 2)
-    ;; Let flycheck handle parse errors
-    (setq js2-mode-show-parse-errors nil)
-    (setq js2-mode-show-strict-warnings nil)
-    (setq js2-highlight-external-variables t)
-    (setq js2-strict-trailing-comma-warning nil)
-
-    (eval-after-load 'tern-mode
-      '(spacemacs|hide-lighter tern-mode)))
+  ;; js default variables
+  ;; https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-javascript.el
+  (setq-default js2-strict-inconsistent-return-warning nil ; return <=> return null
+                js2-skip-preprocessor-directives t
+                js2-bounce-indent-p t
+                ;; Let flycheck handle parse errors
+                js2-strict-trailing-comma-warning nil
+                js2-mode-show-parse-errors nil
+                js2-mode-show-strict-warnings nil
+                js2-highlight-external-variables t)
 
   (evilified-state-evilify js2-error-buffer-mode js2-error-buffer-mode-map))
 
