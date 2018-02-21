@@ -11,36 +11,34 @@
 
 (defconst ztlevi-programming-packages
   '(
-    prettier-js
-    (stylus-mode :location (recipe :fetcher github :repo "vladh/stylus-mode"))
-    ;; rjsx-mode
-    xref-js2
-    css-mode
-    lispy
-    ;; racket-mode
+    company
+    counsel-etags
+    (eldoc :location built-in)
+    (cc-mode :location built-in)
     cmake-font-lock
     cmake-mode
-    flycheck
-    ;; lsp-javascript-typescript
     js2-mode
+    react-mode
+    xref-js2
+    ;; lsp-javascript-typescript
+    ;; rjsx-mode
     eacl
     js2-refactor
-    json-mode
+    js-doc
+    prettier-js
     web-mode
     ;; web-beautify
-    js-doc
+    (stylus-mode :location (recipe :fetcher github :repo "vladh/stylus-mode"))
+    json-mode
+    css-mode
+    ;; racket-mode
+    flycheck
     ;; lua-mode
-    (cc-mode :location built-in)
-    ;; flycheck-clojure
-    counsel-etags
     (python :location built-in)
     ;; (pipenv :location (recipe :fetcher github :repo "pwalsh/pipenv.el"))
     (emacs-lisp :location built-in)
-    ;; clojure-mode
-    company
-    (eldoc :location built-in)
-    dumb-jump
-    graphviz-dot-mode
+    lispy
+    ;; graphviz-dot-mode
     ;; cider
     robe
     )
@@ -142,17 +140,6 @@
     (require 'company-keywords)
     (push '(graphviz-dot-mode  "digraph" "node" "shape" "subgraph" "label" "edge" "bgcolor" "style" "record") company-keywords-alist)))
 
-(defun ztlevi-programming/post-init-dumb-jump ()
-  (setq dumb-jump-selector 'ivy)
-  (defun my-dumb-jump ()
-    (interactive)
-    (evil-set-jump)
-    (dumb-jump-go))
-  (global-set-key (kbd "C-s-g") 'my-dumb-jump))
-
-(defun ztlevi-programming/post-init-clojure-mode ()
-  )
-
 (defun ztlevi-programming/post-init-emacs-lisp ()
   (remove-hook 'emacs-lisp-mode-hook 'auto-compile-mode))
 
@@ -250,10 +237,6 @@
 (defun ztlevi-programming/init-cmake-font-lock ()
   (use-package cmake-font-lock
     :defer t))
-
-(defun ztlevi-programming/init-google-c-style ()
-  (use-package google-c-style
-    :init (add-hook 'c-mode-common-hook 'google-set-c-style)))
 
 (defun ztlevi-programming/post-init-cmake-mode ()
   (progn
