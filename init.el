@@ -619,6 +619,7 @@ It should only modify the values of Spacemacs settings."
 
   ;; diminish modes
   (spacemacs|diminish prettier-js-mode " Ⓟ" " P")
+  (spacemacs|diminish meghanada-mode " Ⓜ︎" " M")
   (spacemacs|diminish atomic-chrome-edit-mode " Ⓐ" " A")
   (spacemacs|diminish which-key-mode)
   (spacemacs|diminish smartparens-mode)

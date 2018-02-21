@@ -225,3 +225,9 @@ version 2015-08-21"
   (interactive)
   (set (make-local-variable 'company-minimum-prefix-length)
        ztlevi/company-minimum-prefix-length))
+
+;; return nil to write content to file
+(defun ztlevi/untabify-buffer ()
+  (interactive)
+  (save-excursion
+    (untabify (point-min) (point-max)) nil))

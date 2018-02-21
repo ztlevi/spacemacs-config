@@ -13,18 +13,11 @@
 (spacemacs/add-to-hooks (lambda () (flycheck-mode -1)) '(emacs-lisp-mode-hook
                                                          text-mode-hook))
 
-;; add to mode alist
-(dolist (m '(("Capstanfile\\'" . yaml-mode)
-             ("\\.mm\\'" . objc-mode)
-             ("\\.c\\'" . c++-mode)
-             ("\\.zsh\\'" . shell-script-mode)
-             ("\\.xtpl\\'" . web-mode)
-             ("\\.vue\\'" . web-mode)
-             ("\\.blade.php\\'" . web-mode)))
-  (add-to-list 'auto-mode-alist m))
-
-(add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt '("xml" "xsd" "rng" "xslt" "xsl") t) "\\'") 'nxml-mode))
-(setq nxml-slash-auto-complete-flag t)
+;; js2 mode hooks
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+(add-hook 'js2-mode-hook 'my-js2-mode-hook)
 
 ;; turn on react mode recursively in some directories
 ;; this hook needs to be added before others to take effect
@@ -35,6 +28,23 @@
    ((string-match "/learn-redux/" buffer-file-name) (react-mode))
    ))
 (add-hook 'js2-mode-hook 'turn-on-react-mode-for-js2)
+
+;; c++ hook
+(add-hook 'c++-mode-hook
+          #'(lambda ()
+              (add-hook 'write-contents-hooks
+                        'ztlevi/untabify-buffer nil t)))
+
+;; java hook
+(add-hook 'java-mode-hook
+          (lambda ()
+            ;; meghanada-mode on
+            (setq c-basic-offset 2)
+            ;; use code format
+            (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
+
+;; term hook
+(add-hook 'term-mode-hook 'ztlevi/ash-term-hooks)
 
 ;; prettier js
 (spacemacs/add-to-hooks 'prettier-js-mode '(js2-mode-hook
@@ -90,15 +100,7 @@
                   "*.log"))
        (add-to-list 'grep-find-ignored-files v))))
 
-(add-hook 'term-mode-hook 'ztlevi/ash-term-hooks)
-
-;; js2 mode hooks
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
-(add-hook 'js2-mode-hook 'my-js2-mode-hook)
-
-;; ============= Use textlint ============
+;; =============== Use textlint ===============
 ;; npm i -g textlint textlint-rule-spellchecker textlint-rule-common-misspellings
 ;; (flycheck-define-checker textlint
 ;;   "A linter for prose."
@@ -116,26 +118,21 @@
 ;; (add-hook 'markdown-mode-hook 'flycheck-mode)
 ;; (add-hook 'gfm-mode-hook 'flycheck-mode)
 
-;; return nil to write content to file
-(defun ztlevi/untabify-buffer ()
-  (interactive)
-  (save-excursion
-    (untabify (point-min) (point-max)) nil))
+;; add to mode alist
+(dolist (m '(("Capstanfile\\'" . yaml-mode)
+             ("\\.mm\\'" . objc-mode)
+             ("\\.c\\'" . c++-mode)
+             ("\\.zsh\\'" . shell-script-mode)
+             ("\\.xtpl\\'" . web-mode)
+             ("\\.vue\\'" . web-mode)
+             ("\\.mak\\'" . makefile-bsdmake-mode)
+             ("\\.blade.php\\'" . web-mode)))
+  (add-to-list 'auto-mode-alist m))
 
-(add-hook 'c++-mode-hook
-          #'(lambda ()
-              (add-hook 'write-contents-hooks
-                        'ztlevi/untabify-buffer nil t)))
+(add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt '("xml" "xsd" "rng" "xslt" "xsl") t) "\\'") 'nxml-mode))
+(setq nxml-slash-auto-complete-flag t)
 
-(setq auto-mode-alist
-      (append
-       '(("\\.mak\\'" . makefile-bsdmake-mode))
-       auto-mode-alist))
-
-;; set java mode indent
-(add-hook 'java-mode-hook (lambda ()
-                            (setq c-basic-offset 4)))
-
+;; variables are considered undeclared for purposes of highlighting
 (setq-default js2-additional-externs
               '("$"
                 "$A" ; salesforce lightning component
