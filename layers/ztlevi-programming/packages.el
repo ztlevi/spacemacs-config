@@ -61,30 +61,14 @@
   (with-eval-after-load 'web-mode
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
-    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
-
-  (setq js2-basic-offset 2)
-  (setq css-indent-offset 2)
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  (setq web-mode-attr-indent-offset 2)
-  (setq react-indent-level 2))
+    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil))))
 
 (defun ztlevi-programming/init-rjsx-mode ()
   (use-package rjsx-mode
     :defer t
     :config
-    (setq js2-basic-offset 2)
-    (setq css-indent-offset 2)
-    (setq web-mode-markup-indent-offset 2)
-    (setq web-mode-css-indent-offset 2)
-    (setq web-mode-code-indent-offset 2)
-    (setq web-mode-attr-indent-offset 2)
-
     (with-eval-after-load 'rjsx-mode
-      (define-key rjsx-mode-map (kbd "C-d") nil))
-    ))
+      (define-key rjsx-mode-map (kbd "C-d") nil))))
 ;; (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
 
 (defun ztlevi-programming/post-init-robe ()
@@ -359,12 +343,6 @@
   (setq c-default-style "linux") ;; set style to "linux"
   (setq c-basic-offset 4)
   (c-set-offset 'substatement-open 0))
-
-(defun ztlevi-programming/init-flycheck-clojure ()
-  (use-package flycheck-clojure
-    :defer t
-    :init
-    (eval-after-load 'flycheck '(flycheck-clojure-setup))))
 
 (defun ztlevi-programming/init-counsel-etags ()
   (use-package counsel-etags
