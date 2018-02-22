@@ -30,7 +30,6 @@
     ;; web-beautify
     (stylus-mode :location (recipe :fetcher github :repo "vladh/stylus-mode"))
     json-mode
-    css-mode
     ;; racket-mode
     flycheck
     ;; lua-mode
@@ -49,9 +48,20 @@
 (defun ztlevi-programming/init-prettier-js ()
   (use-package prettier-js
     :defer t
-    :commands (prettier-js)
     :config
-    (setq prettier-js-show-errors (quote echo))))
+    (progn
+      (setq prettier-js-show-errors (quote echo))
+
+      (spacemacs|diminish prettier-js-mode " Ⓟ" " P")
+
+      ;; bind key
+      (spacemacs/set-leader-keys-for-major-mode 'js2-mode "=" 'prettier-js)
+      (spacemacs/set-leader-keys-for-major-mode 'typescript-mode "=" 'prettier-js)
+      (spacemacs/set-leader-keys-for-major-mode 'react-mode "=" 'prettier-js)
+      (spacemacs/set-leader-keys-for-major-mode 'json-mode "=" 'prettier-js)
+      (spacemacs/set-leader-keys-for-major-mode 'css-mode "=" 'prettier-js)
+      (spacemacs/set-leader-keys-for-major-mode 'markdown-mode "=" 'prettier-js)
+      (spacemacs/set-leader-keys-for-major-mode 'gfm-mode "=" 'prettier-js))))
 
 (defun ztlevi-programming/init-stylus-mode ()
   (use-package stylus-mode
@@ -292,19 +302,6 @@
                 js2-highlight-external-variables t)
 
   (evilified-state-evilify js2-error-buffer-mode js2-error-buffer-mode-map))
-
-(defun ztlevi-programming/post-init-css-mode ()
-  (progn
-    (dolist (hook '(css-mode-hook sass-mode-hook less-mode-hook))
-      (add-hook hook 'rainbow-mode))
-
-    (defun css-imenu-make-index ()
-      (save-excursion
-        (imenu--generic-function '((nil "^ *\\([^ ]+\\) *{ *$" 1)))))
-
-    (add-hook 'css-mode-hook
-              (lambda ()
-                (setq imenu-create-index-function 'css-imenu-make-index)))))
 
 (defun ztlevi-programming/post-init-lua-mode ()
   (progn

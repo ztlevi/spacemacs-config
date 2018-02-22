@@ -70,32 +70,35 @@
             ((executable-find "netstat") ; Windows
              (zerop (call-process-shell-command "netstat -aon | grep 64292")))))
     :config
-    (setq atomic-chrome-buffer-open-style 'full) ;; or frame, split
-    (setq atomic-chrome-url-major-mode-alist
-          '(("github\\.com"        . gfm-mode)
-            ("emacs-china\\.org"   . gfm-mode)
-            ("stackexchange\\.com" . gfm-mode)
-            ("stackoverflow\\.com" . gfm-mode)
-            ;; jupyter notebook
-            ("localhost\\:8888"    . python-mode)
-            ("lintcode\\.com"      . python-mode)
-            ("leetcode\\.com"      . python-mode)))
+    (progn
+      (spacemacs|diminish atomic-chrome-edit-mode " Ⓐ" " A")
 
-    (defun ztlevi-atomic-chrome-mode-setup ()
-      (setq header-line-format
-            (substitute-command-keys
-             "Edit Chrome text area.  Finish \
+      (setq atomic-chrome-buffer-open-style 'full) ;; or frame, split
+      (setq atomic-chrome-url-major-mode-alist
+            '(("github\\.com"        . gfm-mode)
+              ("emacs-china\\.org"   . gfm-mode)
+              ("stackexchange\\.com" . gfm-mode)
+              ("stackoverflow\\.com" . gfm-mode)
+              ;; jupyter notebook
+              ("localhost\\:8888"    . python-mode)
+              ("lintcode\\.com"      . python-mode)
+              ("leetcode\\.com"      . python-mode)))
+
+      (defun ztlevi-atomic-chrome-mode-setup ()
+        (setq header-line-format
+              (substitute-command-keys
+               "Edit Chrome text area.  Finish \
 `\\[atomic-chrome-close-current-buffer]'.")))
 
-    (add-hook 'atomic-chrome-edit-mode-hook #'ztlevi-atomic-chrome-mode-setup)
-    (add-hook 'atomic-chrome-edit-done-hook (lambda () (shell-command "open -a \"/Applications/Google Chrome.app\"")))
+      (add-hook 'atomic-chrome-edit-mode-hook #'ztlevi-atomic-chrome-mode-setup)
+      (add-hook 'atomic-chrome-edit-done-hook (lambda () (shell-command "open -a \"/Applications/Google Chrome.app\"")))
 
-    (if (ztlevi-atomic-chrome-server-running-p)
-        (message "Can't start atomic-chrome server, because port 64292 is already used")
-      (atomic-chrome-start-server))
+      (if (ztlevi-atomic-chrome-server-running-p)
+          (message "Can't start atomic-chrome server, because port 64292 is already used")
+        (atomic-chrome-start-server))
 
-    ;; bind keys
-    (spacemacs/set-leader-keys "cc" 'atomic-chrome-close-current-buffer)))
+      ;; bind keys
+      (spacemacs/set-leader-keys "cc" 'atomic-chrome-close-current-buffer))))
 
 (defun ztlevi-misc/init-highlight-global ()
   (use-package highlight-global

@@ -32,6 +32,8 @@
 ;; c++ hook
 (add-hook 'c++-mode-hook
           #'(lambda ()
+              ;; offset is set by google c style
+              ;; (setq c-basic-offset 2)
               (add-hook 'write-contents-hooks
                         'ztlevi/untabify-buffer nil t)))
 
@@ -46,15 +48,17 @@
 ;; term hook
 (add-hook 'term-mode-hook 'ztlevi/ash-term-hooks)
 
-;; web mode
-(add-hook 'web-mode-hook 'my-web-mode-indent-setup)
-(defun my-web-mode-indent-setup ()
-  (setq web-mode-attr-indent-offset 2) ; web-mode
-  (setq web-mode-code-indent-offset 2) ; web-mode, js code in html file
-  (setq web-mode-css-indent-offset 2) ; web-mode, css in html file
-  (setq web-mode-markup-indent-offset 2) ; web-mode, html tag in html file
-  (setq web-mode-sql-indent-offset 2) ; web-mode
-  (setq web-mode-attr-value-indent-offset 2))
+;; css mode
+(defun css-imenu-make-index ()
+  (save-excursion
+    (imenu--generic-function '((nil "^ *\\([^ ]+\\) *{ *$" 1)))))
+
+(add-hook 'css-mode-hook
+          (lambda ()
+            (setq imenu-create-index-function 'css-imenu-make-index)))
+
+(dolist (hook '(css-mode-hook sass-mode-hook less-mode-hook))
+  (add-hook hook 'rainbow-mode))
 
 ;; prettier js
 (spacemacs/add-to-hooks 'prettier-js-mode '(js2-mode-hook

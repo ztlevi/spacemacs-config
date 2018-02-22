@@ -105,6 +105,7 @@ This function should only modify configuration layer settings."
      react
 
      ;; ===================== Languages =====================
+     ;; Language indent offset is defined in `spacemacs--indent-variable-alist`
      ;; (clojure :variables clojure-enable-fancify-symbols t)
      ;; (ruby :variables ruby-version-manager 'chruby)
      ;; racket
@@ -125,18 +126,28 @@ This function should only modify configuration layer settings."
      yaml
      ;; php
      (python :variables
+             python-indent-offset 4
              python-backend 'anaconda
              ;; python-enable-yapf-format-on-save t
              python-test-runner '(nose pytest))
      ipython-notebook
-     html
+     (html :variables
+           css-indent-offset 2
+           web-mode-markup-indent-offset 2 ; web-mode, html tag in html file
+           web-mode-css-indent-offset    2 ; web-mode, css in html file
+           web-mode-code-indent-offset   2 ; web-mode, js code in html file
+           web-mode-attr-indent-offset   2 ; web-mode
+           web-mode-sql-indent-offset    2 ; web-mode
+           web-mode-attr-value-indent-offset 2)
      (java :packages (not eclim ensime company-emacs-eclim))
      (javascript :packages (not web-beautify livid-mode)
                  :variables
                  node-add-modules-path t
-                 js2-basic-offset 2
-                 js-indent-level 2)
+                 js2-basic-offset 2 ; javascript indent
+                 js-indent-level  2 ; json indent
+                 )
      (typescript :variables
+                 typescript-indent-level 2
                  typescript-fmt-on-save nil
                  typescript-fmt-tool 'typescript-formatter)
      (emacs-lisp :packages (not nameless overseer))
@@ -618,13 +629,12 @@ It should only modify the values of Spacemacs settings."
   (setq split-width-threshold 120)
 
   ;; diminish modes
-  (spacemacs|diminish prettier-js-mode " Ⓟ" " P")
   (spacemacs|diminish meghanada-mode " Ⓜ︎" " M")
-  (spacemacs|diminish atomic-chrome-edit-mode " Ⓐ" " A")
   (spacemacs|diminish which-key-mode)
   (spacemacs|diminish smartparens-mode)
   (spacemacs|diminish hybrid-mode)
   (spacemacs|diminish mmm-mode)
+  (spacemacs|diminish tide-mode)
   (spacemacs|diminish dired-omit-mode)
   (spacemacs|diminish all-the-icons-dired-mode)
   (spacemacs|diminish helm-gtags-mode)
