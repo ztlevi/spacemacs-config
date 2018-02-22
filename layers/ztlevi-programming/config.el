@@ -46,6 +46,16 @@
 ;; term hook
 (add-hook 'term-mode-hook 'ztlevi/ash-term-hooks)
 
+;; web mode
+(add-hook 'web-mode-hook 'my-web-mode-indent-setup)
+(defun my-web-mode-indent-setup ()
+  (setq web-mode-attr-indent-offset 2) ; web-mode
+  (setq web-mode-code-indent-offset 2) ; web-mode, js code in html file
+  (setq web-mode-css-indent-offset 2) ; web-mode, css in html file
+  (setq web-mode-markup-indent-offset 2) ; web-mode, html tag in html file
+  (setq web-mode-sql-indent-offset 2) ; web-mode
+  (setq web-mode-attr-value-indent-offset 2))
+
 ;; prettier js
 (spacemacs/add-to-hooks 'prettier-js-mode '(js2-mode-hook
                                             typescript-mode-hook

@@ -102,21 +102,6 @@
 (spacemacs/set-leader-keys-for-major-mode 'markdown-mode "=" 'prettier-js)
 (spacemacs/set-leader-keys-for-major-mode 'gfm-mode "=" 'prettier-js)
 
-;; toggle indent
-(add-hook 'web-mode-hook 'my-web-mode-indent-setup)
-(spacemacs/set-leader-keys-for-major-mode 'js2-mode
-  "ti" 'my-toggle-web-indent)
-(spacemacs/set-leader-keys-for-major-mode 'react-mode
-  "ti" 'my-toggle-web-indent)
-(spacemacs/set-leader-keys-for-major-mode 'web-mode
-  "ti" 'my-toggle-web-indent)
-(spacemacs/set-leader-keys-for-major-mode 'css-mode
-  "ti" 'my-toggle-web-indent)
-(spacemacs/declare-prefix-for-mode 'js2-mode "mt" "toggle")
-(spacemacs/declare-prefix-for-mode 'react-mode "mt" "toggle")
-(spacemacs/declare-prefix-for-mode 'web-mode "mt" "toggle")
-(spacemacs/declare-prefix-for-mode 'css-mode "mt" "toggle")
-
 ;; yasnippet
 (define-key yas-minor-mode-map (kbd "<C-tab>") 'yas-expand)
 (spacemacs/set-leader-keys "yr" 'yas-reload-all)
