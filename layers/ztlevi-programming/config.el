@@ -10,13 +10,25 @@
 ;;; License: GPLv3
 
 ;; Flyckeck disable and enable
-(spacemacs/add-to-hooks (lambda () (flycheck-mode -1)) '(emacs-lisp-mode-hook
-                                                         text-mode-hook))
+(spacemacs/add-to-hooks (lambda () (flycheck-mode -1))
+                        '(emacs-lisp-mode-hook
+                          text-mode-hook))
 
-;; js2 mode hooks
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+;; js2 mode hook
+(defun my-js2-mode-hook ()
+  (progn
+    (setq imenu-create-index-function 'js2-imenu-make-index)
+
+    (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)
+
+    (define-key js2-mode-map "\C-ci" 'js-doc-insert-function-doc-snippet)
+    (define-key js2-mode-map "@" 'js-doc-insert-tag)
+    (modify-syntax-entry ?_ "w")
+
+    (define-key js2-mode-map   (kbd "s-.") 'company-tern)
+    (spacemacs/toggle-syntax-checking-on)
+    (setq forward-sexp-function nil)
+    (set (make-local-variable 'semantic-mode) nil)))
 (add-hook 'js2-mode-hook 'my-js2-mode-hook)
 
 ;; turn on react mode recursively in some directories
@@ -31,7 +43,7 @@
 
 ;; c++ hook
 (add-hook 'c++-mode-hook
-          #'(lambda ()
+          (lambda ()
               ;; offset is set by google c style
               ;; (setq c-basic-offset 2)
               (add-hook 'write-contents-hooks
@@ -49,10 +61,6 @@
 (add-hook 'term-mode-hook 'ztlevi/ash-term-hooks)
 
 ;; css mode
-(defun css-imenu-make-index ()
-  (save-excursion
-    (imenu--generic-function '((nil "^ *\\([^ ]+\\) *{ *$" 1)))))
-
 (add-hook 'css-mode-hook
           (lambda ()
             (setq imenu-create-index-function 'css-imenu-make-index)))

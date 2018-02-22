@@ -39,7 +39,7 @@
          (forward-char) (dotimes (c n nil) (insert " ")) (backward-char (1+ n))))
 
 ;; stack overflow
-(spacemacs/set-leader-keys "os" 'sos)
+(spacemacs/set-leader-keys "os" 'run-skewer)
 
 ;; stack exchange
 (define-prefix-command 'launcher-map)

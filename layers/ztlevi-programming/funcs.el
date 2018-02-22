@@ -107,18 +107,6 @@ version 2015-08-21"
         (message "Reformated json file.")))
     (whitespace-cleanup)))
 
-(defun my-js2-mode-hook ()
-  (progn
-    (define-key js2-mode-map "\C-ci" 'js-doc-insert-function-doc-snippet)
-    (define-key js2-mode-map "@" 'js-doc-insert-tag)
-    (modify-syntax-entry ?_ "w")
-    (setq imenu-create-index-function 'js2-imenu-make-index)
-
-    (define-key js2-mode-map   (kbd "s-.") 'company-tern)
-    (spacemacs/toggle-syntax-checking-on)
-    (setq forward-sexp-function nil)
-    (set (make-local-variable 'semantic-mode) nil)))
-
 ;; this imenu generic expression aims to exclude for, while, if when aims to match functions in
 ;; es6 js, e.g. ComponentDidMount(), render() function in React
 ;; https://emacs-china.org/t/topic/4538/7
@@ -179,6 +167,10 @@ version 2015-08-21"
                                ;; }}
 
                                ("Task" "[. \t]task([ \t]*['\"]\\([^'\"]+\\)" 1)))))
+
+(defun css-imenu-make-index ()
+  (save-excursion
+    (imenu--generic-function '((nil "^ *\\([^ ]+\\) *{ *$" 1)))))
 
 (defun my-project-name-contains-substring (REGEX)
   (let ((dir (if (buffer-file-name)
