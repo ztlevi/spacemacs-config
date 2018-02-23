@@ -293,10 +293,6 @@
     (defadvice evil-search-previous (after advice-for-evil-search-previous activate)
       (evil-scroll-line-to-center (line-number-at-pos)))
 
-    ;; indent buffer
-    (define-key evil-normal-state-map (kbd ",=") 'spacemacs/indent-region-or-buffer)
-    (define-key evil-visual-state-map (kbd ",=") 'spacemacs/indent-region-or-buffer)
-
     ;; bind [, ] functions
     (define-key evil-normal-state-map (kbd "[ SPC") (lambda () (interactive) (evil-insert-newline-above) (forward-line)))
     (define-key evil-normal-state-map (kbd "] SPC") (lambda () (interactive) (evil-insert-newline-below) (forward-line -1)))
