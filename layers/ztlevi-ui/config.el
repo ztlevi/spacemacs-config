@@ -18,8 +18,8 @@
 
 ;; set initl screen size
 (setq initial-frame-alist
-      '((width . 86)
-        (height . 40)))
+      '((width . 95)
+        (height . 100)))
 
 ;; enable ligatures support (emacs mac port only)
 ;; others here: https://github.com/tonsky/FiraCode/wiki/Emacs-instructions
@@ -31,16 +31,16 @@
    #b00000000
    #b00000000
    #b00000000
-   #b01110000
+   #b11110000
    #b00010000
    #b00010000
-   #b00000000])
+   #b00010000])
 
 (define-fringe-bitmap 'left-curly-arrow
-  [#b00000000
+  [#b00001000
    #b00001000
    #b00001000
-   #b00001110
+   #b00001111
    #b00000000
    #b00000000
    #b00000000
