@@ -147,9 +147,7 @@ This function should only modify configuration layer settings."
                  js-indent-level  2 ; json indent
                  )
      (typescript :variables
-                 typescript-indent-level 2
-                 typescript-fmt-on-save nil
-                 typescript-fmt-tool 'typescript-formatter)
+                 typescript-indent-level 2)
      (emacs-lisp :packages (not nameless overseer))
      (cmake :variables cmake-enable-cmake-ide-support t)
      (c-c++ :packages (not realgud clang-format disaster rtags company-rtags flycheck-rtags ivy-rtags)
