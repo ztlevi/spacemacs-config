@@ -30,6 +30,7 @@
     (setq forward-sexp-function nil)
     (set (make-local-variable 'semantic-mode) nil)))
 (add-hook 'js2-mode-hook 'my-js2-mode-hook)
+;; (add-hook 'js2-mode-hook (lambda () (react-mode)))
 
 ;; turn on react mode recursively in some directories
 ;; this hook needs to be added before others to take effect
@@ -38,6 +39,7 @@
   (cond
    ((string-match "/react_github/" buffer-file-name) (react-mode))
    ((string-match "/learn-redux/" buffer-file-name) (react-mode))
+   ((string-match "/hackathon201/" buffer-file-name) (react-mode))
    ))
 (add-hook 'js2-mode-hook 'turn-on-react-mode-for-js2)
 
