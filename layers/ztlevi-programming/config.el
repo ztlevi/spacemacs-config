@@ -88,6 +88,8 @@
 (add-hook 'web-mode-hook #'(lambda ()
                              (enable-minor-mode
                               '("\\.jsx?\\'" . prettier-js-mode))))
+;; spacemacs disables smartparens in web mode
+(add-hook 'web-mode-hook 'spacemacs/toggle-smartparens-on)
 
 (spacemacs|add-toggle iimage
   :status iimage-mode
