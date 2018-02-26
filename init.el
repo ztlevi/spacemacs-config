@@ -605,6 +605,9 @@ It should only modify the values of Spacemacs settings."
   ;; disable spaceline which function
   (spaceline-toggle-which-function-off)
 
+  ;; disable mode line minor mode
+  (spacemacs/toggle-mode-line-minor-modes-off)
+
   ;; disable apple powerline rgb
   (setq powerline-image-apple-rgb nil)
 
