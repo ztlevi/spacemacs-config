@@ -36,11 +36,12 @@
 ;; this hook needs to be added before others to take effect
 (defun turn-on-react-mode-for-js2 ()
   (interactive)
-  (cond
-   ((string-match "/react_github/" buffer-file-name) (react-mode))
-   ((string-match "/learn-redux/" buffer-file-name) (react-mode))
-   ((string-match "/hackathon201/" buffer-file-name) (react-mode))
-   ))
+  (if (or
+       (my-project-name-contains-substring "react_github")
+       (my-project-name-contains-substring "learn-redux")
+       (my-project-name-contains-substring "learn-redux")
+       )
+      (react-mode)))
 (add-hook 'js2-mode-hook 'turn-on-react-mode-for-js2)
 
 ;; c++ hook
