@@ -1,7 +1,14 @@
 #contributor : Jimmy Wu <frozenthrone88@gmail.com>
 #key: html->
-#name : <html>...</html>
+#name : HTML5
 # --
+<!DOCTYPE html>
 <html>
-  $0
+  <head>
+    <meta charset="utf-8">
+    <title>$1</title>
+  </head>
+  <body>
+    $0
+  </body>
 </html>
