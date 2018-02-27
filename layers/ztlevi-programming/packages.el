@@ -13,6 +13,7 @@
   '(
     company
     counsel-etags
+    ;; eacl
     (eldoc :location built-in)
     (cc-mode :location built-in)
     cmake-font-lock
@@ -22,7 +23,6 @@
     xref-js2
     ;; lsp-javascript-typescript
     ;; rjsx-mode
-    eacl
     js2-refactor
     js-doc
     prettier-js
