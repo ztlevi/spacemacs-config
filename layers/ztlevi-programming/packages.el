@@ -156,13 +156,6 @@
         js-doc-url "http://www.ztlevi.com"
         js-doc-license "MIT"))
 
-(defun ztlevi-programming/init-ctags-update ()
-  (use-package ctags-update
-    :init
-    :defer t
-    :config
-    (spacemacs|hide-lighter ctags-auto-update-mode)))
-
 (defun ztlevi-programming/post-init-web-mode ()
   (with-eval-after-load 'web-mode
     ;; for react mode html indentation
