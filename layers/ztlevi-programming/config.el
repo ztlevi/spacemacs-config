@@ -47,8 +47,6 @@
 ;; c++ hook
 (add-hook 'c++-mode-hook
           (lambda ()
-              ;; offset is set by google c style
-              ;; (setq c-basic-offset 2)
               (add-hook 'write-contents-hooks
                         'ztlevi/untabify-buffer nil t)))
 
@@ -56,7 +54,6 @@
 (add-hook 'java-mode-hook
           (lambda ()
             ;; meghanada-mode on
-            (setq c-basic-offset 2)
             ;; use code format
             (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
 

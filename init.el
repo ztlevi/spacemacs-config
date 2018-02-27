@@ -139,7 +139,8 @@ This function should only modify configuration layer settings."
            web-mode-attr-indent-offset   2 ; web-mode
            web-mode-sql-indent-offset    2 ; web-mode
            web-mode-attr-value-indent-offset 2)
-     (java :packages (not eclim ensime company-emacs-eclim))
+     (java :packages (not eclim ensime company-emacs-eclim)
+           :variables c-basic-offset 2)
      (javascript :packages (not web-beautify livid-mode)
                  :variables
                  node-add-modules-path t
