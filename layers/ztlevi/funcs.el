@@ -36,4 +36,4 @@
   (interactive)
   (if (= 1 (length (window-list frame)))
       (delete-frame frame force)
-    (delete-window window)))
+    (spacemacs/delete-window)))
