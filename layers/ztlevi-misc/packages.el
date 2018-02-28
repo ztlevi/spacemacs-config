@@ -497,6 +497,16 @@
       :kill-signal 'sigkill
       :kill-process-buffer-on-stop t)
 
+    (prodigy-define-service
+      :name "Hachathon backend"
+      :command "npm"
+      :args '("run" "start")
+      :cwd "~/Developer/Github/cryptocurrency_exchange_app/backend"
+      :tags '(express)
+      :init (lambda () (browse-url "http://localhost:3000"))
+      :kill-signal 'sigkill
+      :kill-process-buffer-on-stop t)
+
     ;; (prodigy-define-service
     ;;   :name "Debug Fireball"
     ;;   :command "npm"
