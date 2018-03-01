@@ -39,7 +39,7 @@
   (if (or
        (my-project-name-contains-substring "react_github")
        (my-project-name-contains-substring "learn-redux")
-       (my-project-name-contains-substring "learn-redux")
+       (my-project-name-contains-substring "cryptocurrency_exchange_app/frontend")
        )
       (react-mode)))
 (add-hook 'js2-mode-hook 'turn-on-react-mode-for-js2)

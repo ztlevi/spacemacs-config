@@ -498,7 +498,7 @@
       :kill-process-buffer-on-stop t)
 
     (prodigy-define-service
-      :name "Hachathon backend"
+      :name "Hackathon backend"
       :command "npm"
       :args '("run" "start")
       :cwd "~/Developer/Github/cryptocurrency_exchange_app/backend"
