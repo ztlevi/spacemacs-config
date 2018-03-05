@@ -111,7 +111,6 @@
 ;; buffer key
 (spacemacs/set-leader-keys "bf" 'ztlevi/open-finder-in-current-dir)
 (spacemacs/set-leader-keys "of" 'revert-buffer-no-confirm)
-(spacemacs/set-leader-keys "oF" 'focus-mode)
 (spacemacs/set-leader-keys "bt" 'ztlevi/open-terminal-in-current-dir)
 (spacemacs/set-leader-keys "bT" 'ztlevi/open-markdown-in-typora)
 
@@ -200,8 +199,9 @@
 (spacemacs/set-leader-keys "Bb" 'bookmark-bmenu-list)
 
 ;; custom key
-(spacemacs/declare-prefix "ot" "Toggle")
 (global-set-key (kbd "<f1>") 'ztlevi/helm-hotspots)
+(spacemacs/declare-prefix "ot" "Toggle")
+(spacemacs/set-leader-keys "otf" 'focus-mode)
 (spacemacs/set-leader-keys "oo" 'ztlevi/helm-hotspots)
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 (spacemacs/set-leader-keys "ok" 'helm-show-kill-ring)
