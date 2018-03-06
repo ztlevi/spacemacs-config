@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: img
-# key: img_->
+# key: img->
 # --
 <img src="$1"
  alt="$2" align="${3:left}"
