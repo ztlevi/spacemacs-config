@@ -581,6 +581,9 @@ It should only modify the values of Spacemacs settings."
       (message "Microsoft Windows"))))
 
   ;; ======================== Others ===========================
+  ;; enable smartparens mode globally
+  (smartparens-global-mode)
+
   ;; enable flyspell in text-mode
   (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
 
