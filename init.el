@@ -36,15 +36,17 @@ This function should only modify configuration layer settings."
    '(
      ;; ================== Spacemacs Layers ==================
      (spacemacs-completion :packages (not default-helm-config ido-vertical-mode))
-     spacemacs-layouts
      (spacemacs-editing :packages (not lorem-ipsum clean-aindent-mode))
      (spacemacs-editing-visual :packages (not volatile-highlights rainbow-delimiters highlight-indentation lorem-ipsum))
      (spacemacs-evil :packages (not evil-args evil-mc evil-ediff evil-exchange evil-unimpaired evil-indent-plus vi-tilde-fringe evil-lisp-state evil-cleverparens))
      ;; spacemacs-language
+     (spacemacs-layouts :variables layouts-enable-autosave nil
+                        layouts-autosave-delay 300)
      (spacemacs-misc :packages (not dumb-jump))
      (spacemacs-modeline :packages (not spaceline-all-the-icons vim-powerline symon fancy-battery))
      (spacemacs-navigation :packages (not flx-ido smooth-scrolling))
      spacemacs-org
+     spacemacs-project
      spacemacs-visual
 
      ;; ======================== Misc ========================
@@ -73,8 +75,6 @@ This function should only modify configuration layer settings."
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-idle-delay 0.2
                       auto-completion-private-snippets-directory "~/.spacemacs.d/snippets")
-     (spacemacs-layouts :variables layouts-enable-autosave nil
-                        layouts-autosave-delay 300)
      (git :packages (not magit-gitflow orgit smeargle)
           :variables
           magit-push-always-verify nil
