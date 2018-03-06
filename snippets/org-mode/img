@@ -2,9 +2,6 @@
 # name: img
 # key: img->
 # --
-<img src="$1"
- alt="$2" align="${3:left}"
- title="${4:image title}"
- class="img"
-</img>
-$0
+#+CAPTION: $1
+#+ATTR_HTML: :alt ${2:alt} :style width:100%
+[[$0]]
