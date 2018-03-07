@@ -499,22 +499,14 @@
 
     (prodigy-define-service
       :name "Hackathon backend"
+      :env '(("REDISCLOUD_URL" "redis://rediscloud:MeQVSBSNp82uhej2QW42vQxV2TEcd5xq@redis-14678.c44.us-east-1-2.ec2.cloud.redislabs.com:14678"))
       :command "npm"
       :args '("run" "start")
       :cwd "~/Developer/Github/cryptocurrency_exchange_app/backend"
       :tags '(express)
-      :init (lambda () (browse-url "http://localhost:4000"))
+      :init (lambda () (switch-to-buffer "*prodigy-hackathon-backend*"))
       :kill-signal 'sigkill
       :kill-process-buffer-on-stop t)
-
-    ;; (prodigy-define-service
-    ;;   :name "Debug Fireball"
-    ;;   :command "npm"
-    ;;   :args '("start" "--" "--nologin" "/Users/guanghui/Github/example-cases")
-    ;;   :cwd "~/Github/fireball/"
-    ;;   :tags '(work)
-    ;;   :kill-signal 'sigkill
-    ;;   :kill-process-buffer-on-stop t)
 
     (defun refresh-chrome-current-tab (beg end length-before)
       (call-interactively 'ztlevi/browser-refresh--chrome-applescript))
