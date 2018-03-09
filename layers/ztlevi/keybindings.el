@@ -241,7 +241,7 @@
 (spacemacs/set-leader-keys "oll" 'ztlevi/load-my-layout)
 (spacemacs/set-leader-keys "ols" 'ztlevi/save-my-layout)
 
-(global-set-key (kbd "s-p") 'counsel-projectile)
+(global-set-key (kbd "s-p") 'counsel-git)
 (global-set-key (kbd "s-s") 'evil-write-all)
 (global-set-key (kbd "s-w") 'delete-window-or-frame)
 (global-set-key (kbd "C-s-o") 'other-frame)

@@ -13,6 +13,10 @@
 (add-hook 'org-mode-hook 'flyspell-mode)
 (add-hook 'markdown-mode-hook 'flyspell-mode)
 
+;; counsel git use rg
+;; https://oremacs.com/2018/03/05/grep-exclude/#using-ignore-with-ripgrep
+(setq counsel-git-cmd "rg --files")
+
 ;; customize helm
 (with-eval-after-load 'helm-make
   (progn

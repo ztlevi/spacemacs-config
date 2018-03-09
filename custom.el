@@ -17,6 +17,8 @@
  '(counsel-fzf-cmd "fzf -f %s" t)
  '(counsel-grep-base-command
    "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
+ '(counsel-rg-base-command
+   "rg -i -M 120 --no-heading --line-number --color never %s .")
  '(ctags-update-delay-seconds 1024)
  '(display-buffer-reuse-frames t)
  '(ein:jupyter-server-args (quote ("--NotebookApp.iopub_data_rate_limit=10000000")))
