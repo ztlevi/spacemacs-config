@@ -9,7 +9,7 @@
 
 ;;; Commentary:
 
-;; Realtime Markdown previews for Emacs.
+;; Realtime html previews for Emacs.
 
 ;;; Code:
 

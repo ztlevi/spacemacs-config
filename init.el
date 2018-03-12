@@ -131,13 +131,14 @@ This function should only modify configuration layer settings."
              ;; python-enable-yapf-format-on-save t
              python-test-runner '(nose pytest))
      ipython-notebook
-     (html :variables
+     (html :packages (not impatient-mode)
+           :variables
            css-indent-offset 2
-           web-mode-markup-indent-offset 2 ; web-mode, html tag in html file
-           web-mode-css-indent-offset    2 ; web-mode, css in html file
-           web-mode-code-indent-offset   2 ; web-mode, js code in html file
-           web-mode-attr-indent-offset   2 ; web-mode
-           web-mode-sql-indent-offset    2 ; web-mode
+           web-mode-markup-indent-offset 2      ; web-mode, html tag in html file
+           web-mode-css-indent-offset    2      ; web-mode, css in html file
+           web-mode-code-indent-offset   2      ; web-mode, js code in html file
+           web-mode-attr-indent-offset   2      ; web-mode
+           web-mode-sql-indent-offset    2      ; web-mode
            web-mode-attr-value-indent-offset 2)
      (java :packages (not eclim ensime company-emacs-eclim)
            :variables c-basic-offset 2)
