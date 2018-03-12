@@ -25,6 +25,7 @@
     ;; rjsx-mode
     js2-refactor
     js-doc
+    import-js
     prettier-js
     web-mode
     ;; web-beautify
@@ -34,7 +35,6 @@
     flycheck
     ;; lua-mode
     (python :location built-in)
-    ;; (pipenv :location (recipe :fetcher github :repo "pwalsh/pipenv.el"))
     (emacs-lisp :location built-in)
     lispy
     ;; graphviz-dot-mode
@@ -145,10 +145,14 @@
   ;; (setq flycheck-python-pylint-executable "/usr/local/bin/pylint")
   )
 
-;; (defun ztlevi-programming/init-pipenv ()
-;;   (use-package pipenv
-;;     :after python))
-;; (add-hook 'projectile-after-switch-project-hook #'pipenv-activate)
+(defun ztlevi-programming/init-import-js ()
+  (use-package import-js
+    :init
+    (progn
+      (run-import-js)
+      (spacemacs/set-leader-keys-for-major-mode 'js2-mode "i" 'import-js-import)
+      (spacemacs/set-leader-keys-for-major-mode 'react-mode "i" 'import-js-import))
+    :defer t))
 
 (defun ztlevi-programming/post-init-js-doc ()
   (setq js-doc-mail-address "zhouting@umich.edu"
