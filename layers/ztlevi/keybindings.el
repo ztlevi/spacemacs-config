@@ -114,6 +114,10 @@
 (spacemacs/set-leader-keys "bt" 'ztlevi/open-terminal-in-current-dir)
 (spacemacs/set-leader-keys "bT" 'ztlevi/open-markdown-in-typora)
 
+;; importmagic
+(spacemacs/set-leader-keys-for-major-mode 'python-mode
+  "i" 'importmagic-fix-symbol-at-point)
+
 ;; ein jupyter
 (spacemacs/set-leader-keys "ays" 'ein:jupyter-server-start)
 (spacemacs/set-leader-keys-for-major-mode 'ein:notebook-multilang-mode "c" 'ein:worksheet-change-cell-type)
