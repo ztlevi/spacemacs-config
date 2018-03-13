@@ -13,6 +13,7 @@
 (defun revert-buffer-no-confirm ()
   "Revert buffer without confirmation."
   (interactive)
+  (save-buffer)
   (revert-buffer :ignore-auto :noconfirm))
 
 ;; define replace-dos-eol

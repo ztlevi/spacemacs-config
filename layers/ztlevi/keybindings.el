@@ -110,7 +110,7 @@
 
 ;; buffer key
 (spacemacs/set-leader-keys "bf" 'ztlevi/open-finder-in-current-dir)
-(spacemacs/set-leader-keys "of" 'revert-buffer-no-confirm)
+(spacemacs/set-leader-keys "bR" 'revert-buffer-no-confirm)
 (spacemacs/set-leader-keys "bt" 'ztlevi/open-terminal-in-current-dir)
 (spacemacs/set-leader-keys "bT" 'ztlevi/open-markdown-in-typora)
 
