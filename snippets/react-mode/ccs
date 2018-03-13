@@ -4,12 +4,13 @@
 # group: react
 # --
 class $1 extends Component {
-  state = { $2 }
+  constructor(props) {
+    super(props)
+    this.state = { $2 }
+  }
   render() {
     return (
       $0
     )
   }
 }
-
-export default $1
