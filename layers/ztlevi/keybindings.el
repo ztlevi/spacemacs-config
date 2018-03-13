@@ -110,7 +110,6 @@
 
 ;; buffer key
 (spacemacs/set-leader-keys "bf" 'ztlevi/open-finder-in-current-dir)
-(spacemacs/set-leader-keys "bR" 'revert-buffer-no-confirm)
 (spacemacs/set-leader-keys "bt" 'ztlevi/open-terminal-in-current-dir)
 (spacemacs/set-leader-keys "bT" 'ztlevi/open-markdown-in-typora)
 
@@ -215,7 +214,8 @@
 (spacemacs/set-leader-keys "od" 'occur-dwim)
 (spacemacs/set-leader-keys "on" 'occur-non-ascii)
 (spacemacs/set-leader-keys "ox" 'org-open-at-point-global)
-(spacemacs/set-leader-keys "or" 'ztlevi/browser-refresh--chrome-applescript)
+(spacemacs/set-leader-keys "or" 'revert-buffer-no-confirm)
+(spacemacs/set-leader-keys "oR" 'ztlevi/browser-refresh--chrome-applescript)
 (spacemacs/set-leader-keys "oT" 'ztlevi/untabify-buffer)
 (spacemacs/set-leader-keys "op" 'prettier-js)
 
