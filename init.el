@@ -40,8 +40,7 @@ This function should only modify configuration layer settings."
      (spacemacs-editing-visual :packages (not volatile-highlights rainbow-delimiters highlight-indentation lorem-ipsum))
      (spacemacs-evil :packages (not evil-args evil-mc evil-ediff evil-exchange evil-unimpaired evil-indent-plus vi-tilde-fringe evil-lisp-state evil-cleverparens))
      ;; spacemacs-language
-     (spacemacs-layouts :variables layouts-enable-autosave nil
-                        layouts-autosave-delay 300)
+     (spacemacs-layouts :variables layouts-enable-autosave nil)
      (spacemacs-misc :packages (not dumb-jump))
      (spacemacs-modeline :packages (not spaceline-all-the-icons vim-powerline symon fancy-battery))
      (spacemacs-navigation :packages (not flx-ido smooth-scrolling))
