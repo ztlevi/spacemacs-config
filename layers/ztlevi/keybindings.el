@@ -219,7 +219,7 @@
 (spacemacs/set-leader-keys "oT" 'ztlevi/untabify-buffer)
 (spacemacs/set-leader-keys "op" 'prettier-js)
 
-(spacemacs/set-leader-keys "rr" 'react-mode)
+(spacemacs/set-leader-keys "rr" 'rjsx-mode)
 
 ;; resume
 (spacemacs/set-leader-keys "rh" 'helm-resume)

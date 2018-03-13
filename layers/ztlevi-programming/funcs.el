@@ -33,6 +33,16 @@ comment box."
         (overlay-put overlay 'before-string (propertize "A"
                                                         'display '(left-fringe right-triangle)))))))
 
+(defun spacemacs//setup-rjsx-mode ()
+  "Adjust web-mode to accommodate react-mode"
+  (emmet-mode 0)
+  ;; See https://github.com/CestDiego/emmet-mode/commit/3f2904196e856d31b9c95794d2682c4c7365db23
+  (setq-local emmet-expand-jsx-className? t)
+  ;; Enable js-mode snippets
+  (yas-activate-extra-mode 'js-mode)
+  ;; See https://github.com/syl20bnr/spacemacs/issues/8222
+  (set (make-local-variable 'company-minimum-prefix-length) 2))
+
 (defun ztlevi/run-current-file ()
   "Execute the current file.
 For example, if the current buffer is the file x.py, then it'll call 「python x.py」 in a shell.

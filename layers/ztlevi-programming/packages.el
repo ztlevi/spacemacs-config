@@ -22,7 +22,7 @@
     react-mode
     xref-js2
     ;; lsp-javascript-typescript
-    ;; rjsx-mode
+    rjsx-mode
     js2-refactor
     js-doc
     import-js
@@ -76,10 +76,45 @@
 (defun ztlevi-programming/init-rjsx-mode ()
   (use-package rjsx-mode
     :defer t
+    :init
+    (progn
+      ;; company-tern
+      (spacemacs|add-company-backends :backends company-tern :modes rjsx-mode)
+
+      ;; emmet
+      (add-hook 'rjsx-mode-hook 'emmet-mode)
+
+      ;; evil-matchit
+      (with-eval-after-load 'evil-matchit
+        (plist-put evilmi-plugins 'rjsx-mode
+                   '((evilmi-simple-get-tag evilmi-simple-jump)
+                     (evilmi-javascript-get-tag evilmi-javascript-jump)
+                     (evilmi-html-get-tag evilmi-html-jump))))
+
+      ;; flycheck
+      (with-eval-after-load 'flycheck
+        (dolist (checker '(javascript-eslint javascript-standard))
+          (flycheck-add-mode checker 'rjsx-mode)))
+      (spacemacs/enable-flycheck 'rjsx-mode)
+
+      ;; js doc
+      (add-hook 'rjsx-mode-hook 'spacemacs/js-doc-require)
+      (spacemacs/js-doc-set-key-bindings 'rjsx-mode)
+
+      ;; smartparens
+      (if dotspacemacs-smartparens-strict-mode
+          (add-hook 'rjsx-mode-hook #'smartparens-strict-mode)
+        (add-hook 'rjsx-mode-hook #'smartparens-mode))
+
+      ;; tern
+      (add-hook 'rjsx-mode-hook 'tern-mode)
+      ;; (spacemacs//set-tern-key-bindings 'rjsx-mode)
+
+      (add-hook 'react-mode-hook 'spacemacs//setup-rjsx-mode)
+      )
     :config
     (with-eval-after-load 'rjsx-mode
       (define-key rjsx-mode-map (kbd "C-d") nil))))
-;; (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
 
 (defun ztlevi-programming/post-init-robe ()
   (progn

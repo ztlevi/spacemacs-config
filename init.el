@@ -101,7 +101,7 @@ This function should only modify configuration layer settings."
 
      ;; ===================== Frameworks =====================
      ;; ruby-on-rails
-     react
+     ;; react
 
      ;; ===================== Languages =====================
      ;; Language indent offset is defined in `spacemacs--indent-variable-alist`
@@ -634,6 +634,9 @@ It should only modify the values of Spacemacs settings."
 
   ;; force horizontal split window
   (setq split-width-threshold 120)
+
+  ;; js use rjsx-mode
+  (setq auto-mode-alist (cons '("\\.js\\'" . rjsx-mode) auto-mode-alist))
 
   ;; diminish modes
   (spacemacs|diminish meghanada-mode " Ⓜ︎" " M")
