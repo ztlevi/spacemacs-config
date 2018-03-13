@@ -19,10 +19,8 @@
     cmake-font-lock
     cmake-mode
     js2-mode
-    react-mode
     xref-js2
     ;; lsp-javascript-typescript
-    rjsx-mode
     js2-refactor
     js-doc
     import-js
@@ -57,7 +55,7 @@
       ;; bind key
       (spacemacs/set-leader-keys-for-major-mode 'js2-mode "=" 'prettier-js)
       (spacemacs/set-leader-keys-for-major-mode 'typescript-mode "=" 'prettier-js)
-      (spacemacs/set-leader-keys-for-major-mode 'react-mode "=" 'prettier-js)
+      (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode "=" 'prettier-js)
       (spacemacs/set-leader-keys-for-major-mode 'json-mode "=" 'prettier-js)
       (spacemacs/set-leader-keys-for-major-mode 'css-mode "=" 'prettier-js)
       (spacemacs/set-leader-keys-for-major-mode 'markdown-mode "=" 'prettier-js)
@@ -66,55 +64,6 @@
 (defun ztlevi-programming/init-stylus-mode ()
   (use-package stylus-mode
     :defer t))
-
-(defun ztlevi-programming/post-init-react-mode ()
-  (with-eval-after-load 'web-mode
-    (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
-    (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
-    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil))))
-
-(defun ztlevi-programming/init-rjsx-mode ()
-  (use-package rjsx-mode
-    :defer t
-    :init
-    (progn
-      ;; company-tern
-      (spacemacs|add-company-backends :backends company-tern :modes rjsx-mode)
-
-      ;; emmet
-      (add-hook 'rjsx-mode-hook 'emmet-mode)
-
-      ;; evil-matchit
-      (with-eval-after-load 'evil-matchit
-        (plist-put evilmi-plugins 'rjsx-mode
-                   '((evilmi-simple-get-tag evilmi-simple-jump)
-                     (evilmi-javascript-get-tag evilmi-javascript-jump)
-                     (evilmi-html-get-tag evilmi-html-jump))))
-
-      ;; flycheck
-      (with-eval-after-load 'flycheck
-        (dolist (checker '(javascript-eslint javascript-standard))
-          (flycheck-add-mode checker 'rjsx-mode)))
-      (spacemacs/enable-flycheck 'rjsx-mode)
-
-      ;; js doc
-      (add-hook 'rjsx-mode-hook 'spacemacs/js-doc-require)
-      (spacemacs/js-doc-set-key-bindings 'rjsx-mode)
-
-      ;; smartparens
-      (if dotspacemacs-smartparens-strict-mode
-          (add-hook 'rjsx-mode-hook #'smartparens-strict-mode)
-        (add-hook 'rjsx-mode-hook #'smartparens-mode))
-
-      ;; tern
-      (add-hook 'rjsx-mode-hook 'tern-mode)
-      ;; (spacemacs//set-tern-key-bindings 'rjsx-mode)
-
-      (add-hook 'react-mode-hook 'spacemacs//setup-rjsx-mode)
-      )
-    :config
-    (with-eval-after-load 'rjsx-mode
-      (define-key rjsx-mode-map (kbd "C-d") nil))))
 
 (defun ztlevi-programming/post-init-robe ()
   (progn
@@ -186,7 +135,7 @@
     (progn
       (run-import-js)
       (spacemacs/set-leader-keys-for-major-mode 'js2-mode "i" 'import-js-import)
-      (spacemacs/set-leader-keys-for-major-mode 'react-mode "i" 'import-js-import))
+      (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode "i" 'import-js-import))
     :defer t))
 
 (defun ztlevi-programming/post-init-js-doc ()
@@ -309,7 +258,7 @@
     :defer t))
 
 ;; (add-hook 'js2-mode-hook #'lsp-javascript-typescript-enable)
-;; (add-hook 'react-mode-hook #'lsp-javascript-typescript-enable)
+;; (add-hook 'rjsx-mode-hook #'lsp-javascript-typescript-enable)
 ;; (add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable)
 
 (defun ztlevi-programming/post-init-js2-mode ()

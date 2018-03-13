@@ -31,24 +31,6 @@
     (set (make-local-variable 'semantic-mode) nil)))
 (add-hook 'js2-mode-hook 'my-js2-mode-hook)
 
-;; turn on react mode recursively in some directories
-;; this hook needs to be added before others to take effect
-;; (defun turn-on-react-mode-for-js2 ()
-;;   (interactive)
-;;   (if (or
-;;        (my-project-name-contains-substring "react_github")
-;;        (my-project-name-contains-substring "learn-redux")
-;;        (my-project-name-contains-substring "cryptocurrency_exchange_app/frontend")
-;;        )
-;;       (react-mode)))
-;; (add-hook 'js2-mode-hook 'turn-on-react-mode-for-js2)
-
-;; (add-to-list 'auto-mode-alist '("\\.react.js\\'" . rjsx-mode))
-;; (add-to-list 'auto-mode-alist '("\\index.android.js\\'" . rjsx-mode))
-;; (add-to-list 'auto-mode-alist '("\\index.ios.js\\'" . rjsx-mode))
-;; (add-to-list 'magic-mode-alist '("/\\*\\* @jsx .*\\*/" . rjsx-mode))
-;; (add-to-list 'magic-mode-alist '(".*import\s+.+\s+from\s+['\"]react['\"]" . rjsx-mode))
-
 ;; c++ hook
 (add-hook 'c++-mode-hook
           (lambda ()
@@ -76,7 +58,7 @@
 ;; prettier js
 (spacemacs/add-to-hooks 'prettier-js-mode '(js2-mode-hook
                                             typescript-mode-hook
-                                            react-mode-hook
+                                            rjsx-mode-hook
                                             json-mode-hook
                                             css-mode-hook
                                             markdown-mode-hook
