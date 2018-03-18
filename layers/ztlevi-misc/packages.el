@@ -38,6 +38,7 @@
     magit
     github-browse-file
     git-messenger
+    browse-at-remote
     hydra
     wrap-region
     golden-ratio
@@ -580,7 +581,8 @@
     (setq magit-process-popup-time 10)))
 
 (defun ztlevi-misc/post-init-browse-at-remote ()
-  (add-to-list 'browse-at-remote-remote-type-domains '("isl-122-ubuntu" . "gitlab")))
+  (with-eval-after-load 'browse-at-remote
+    (add-to-list 'browse-at-remote-remote-type-domains '("isl-122-ubuntu" . "gitlab"))))
 
 (defun ztlevi-misc/post-init-git-messenger ()
   (use-package git-messenger
