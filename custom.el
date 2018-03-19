@@ -24,7 +24,7 @@
  '(ein:jupyter-server-args (quote ("--NotebookApp.iopub_data_rate_limit=10000000")))
  '(erc-nick "ztlevi")
  '(erc-port 6666)
- '(evil-cross-lines t)
+ '(evil-cross-lines nil)
  '(evil-shift-round nil)
  '(exec-path-from-shell-arguments (quote ("-l")))
  '(expand-region-exclude-text-mode-expansions (quote (html-mode nxml-mode web-mode)))
