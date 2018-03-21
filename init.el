@@ -635,9 +635,6 @@ It should only modify the values of Spacemacs settings."
   ;; force horizontal split window
   (setq split-width-threshold 120)
 
-  ;; js use rjsx-mode
-  (setq auto-mode-alist (cons '("\\.js\\'" . rjsx-mode) auto-mode-alist))
-
   ;; diminish modes
   (spacemacs|diminish meghanada-mode " Ⓜ︎" " M")
   (spacemacs|diminish which-key-mode)
