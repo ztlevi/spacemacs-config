@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+#name : console.group
+#key : cg->
+# --
+console.group(${1:obj})
+$0
+console.groupEnd($1)
