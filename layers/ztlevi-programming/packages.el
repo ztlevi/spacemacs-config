@@ -224,17 +224,14 @@
 (defun ztlevi-programming/post-init-flycheck ()
   (progn
     ;; disable jshint since we prefer eslint checking
-    (setq-default flycheck-disabled-checkers
-                  (append flycheck-disabled-checkers
-                          '(javascript-jshint)))
-
-    ;; customize flycheck temp file prefix
-    (setq-default flycheck-temp-prefix ".flycheck")
-
     ;; disable json-jsonlist checking for json files
     (setq-default flycheck-disabled-checkers
                   (append flycheck-disabled-checkers
-                          '(json-jsonlist)))))
+                          '(javascript-jshint
+                            json-jsonlist)))
+
+    ;; customize flycheck temp file prefix
+    (setq-default flycheck-temp-prefix ".flycheck")))
 
 (defun ztlevi-programming/post-init-eldoc ()
   (setq eldoc-idle-delay 0.4))
