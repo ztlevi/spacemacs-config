@@ -61,12 +61,14 @@
 
       ;; (spacemacs|disable-company org-mode)
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
-        "," 'org-priority)
-      (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "eg" 'org-pandoc-export-to-gfm-and-open)
+      (spacemacs/set-leader-keys-for-major-mode 'org-mode
+        "p" 'org-priority)
+      (spacemacs/set-leader-keys-for-major-mode 'org-mode
+        "tl" 'org-toggle-link-display)
+      (define-key evil-normal-state-map (kbd "C-c C-w") 'org-refile)
 
       (require 'org-compat)
-      (require 'org)
       ;; (add-to-list 'org-modules "org-habit")
       (add-to-list 'org-modules 'org-habit)
       (require 'org-habit)
@@ -273,15 +275,14 @@ unwanted space when exporting org-mode to html."
                :empty-lines 1)))
 
       ;;An entry without a cookie is treated just like priority ' B '.
-      ;;So when create new task, they are default 重要且紧急
       (setq org-agenda-custom-commands
             '(
-              ("w" . "任务安排")
-              ("wa" "重要且紧急的任务" tags-todo "+PRIORITY=\"A\"")
-              ("wb" "重要且不紧急的任务" tags-todo "-Weekly-Monthly-Daily+PRIORITY=\"B\"")
-              ("wc" "不重要且紧急的任务" tags-todo "+PRIORITY=\"C\"")
+              ("w" . "work management")
+              ("wa" "Priority A" tags-todo "+PRIORITY=\"A\"")
+              ("wb" "Priority B" tags-todo "-Weekly-Monthly-Daily+PRIORITY=\"B\"")
+              ("wc" "Priority C" tags-todo "+PRIORITY=\"C\"")
               ("b" "Blog" tags-todo "BLOG")
-              ("p" . "项目安排")
+              ("p" . "project management")
               ("pw" tags-todo "PROJECT+WORK+CATEGORY=\"cocos2d-x\"")
               ("pl" tags-todo "PROJECT+DREAM+CATEGORY=\"ztlevi\"")
               ("W" "Weekly Review"
@@ -333,11 +334,6 @@ unwanted space when exporting org-mode to html."
 
       (add-hook 'org-after-todo-statistics-hook 'ztlevi/org-summary-todo)
       ;; used by ztlevi/org-clock-sum-today-by-tags
-
-      (define-key org-mode-map (kbd "s-p") 'org-priority)
-      (spacemacs/set-leader-keys-for-major-mode 'org-mode
-        "tl" 'org-toggle-link-display)
-      (define-key evil-normal-state-map (kbd "C-c C-w") 'org-refile)
 
       ;; hack for org headline toc
       (defun org-html-headline (headline contents info)
