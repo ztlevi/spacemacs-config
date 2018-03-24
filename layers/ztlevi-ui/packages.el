@@ -15,8 +15,8 @@
     all-the-icons-dired
     ;; moody
     ;; doom modeline needs all-the-icons, shrink-path enabled
-    ;; (doom-modeline :location local)
-    ;; shrink-path
+    (doom-modeline :location local)
+    shrink-path
     ;; if you wnat to use spaceline, please comment out ztlevi-mode-line
     ;; (ztlevi-mode-line :location built-in)
     ;; spaceline
@@ -50,6 +50,12 @@
 (defun ztlevi-ui/init-doom-modeline ()
   (use-package doom-modeline
     :init
+    ;; set doom-modeline height
+    (setq +doom-modeline-height 36)
+
+    ;; file-name style
+    (setq +doom-modeline-buffer-file-name-style 'relative-to-project)
+
     (defun t/project-root ()
       "Get project root without throwing"
       (let (projectile-require-project-root strict-p)
