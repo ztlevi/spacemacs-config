@@ -55,24 +55,6 @@
 (dolist (hook '(css-mode-hook sass-mode-hook less-mode-hook))
   (add-hook hook 'rainbow-mode))
 
-;; prettier js
-(spacemacs/add-to-hooks 'prettier-js-mode '(js2-mode-hook
-                                            typescript-mode-hook
-                                            rjsx-mode-hook
-                                            json-mode-hook
-                                            css-mode-hook
-                                            markdown-mode-hook
-                                            gfm-mode-hook))
-
-;; only enable prettier for js and jsx if in web-mode
-(defun enable-minor-mode (my-pair)
-  "Enable minor mode if filename match the regexp.  MY-PAIR is a cons cell (regexp . minor-mode)."
-  (if (buffer-file-name)
-      (if (string-match (car my-pair) buffer-file-name)
-          (funcall (cdr my-pair)))))
-(add-hook 'web-mode-hook #'(lambda ()
-                             (enable-minor-mode
-                              '("\\.jsx?\\'" . prettier-js-mode))))
 ;; spacemacs disables smartparens in web mode
 ;; (add-hook 'web-mode-hook 'spacemacs/toggle-smartparens-on)
 

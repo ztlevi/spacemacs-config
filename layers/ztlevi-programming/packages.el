@@ -46,6 +46,15 @@
 (defun ztlevi-programming/init-prettier-js ()
   (use-package prettier-js
     :defer t
+    :init
+    ;; prettier js
+    (spacemacs/add-to-hooks 'prettier-js-mode '(js2-mode-hook
+                                                typescript-mode-hook
+                                                rjsx-mode-hook
+                                                json-mode-hook
+                                                css-mode-hook
+                                                markdown-mode-hook
+                                                gfm-mode-hook))
     :config
     (progn
       (setq prettier-js-show-errors (quote echo))
