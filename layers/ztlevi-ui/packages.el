@@ -13,6 +13,7 @@
   '(
     all-the-icons
     all-the-icons-dired
+    ;; moody
     ;; doom modeline needs all-the-icons, shrink-path enabled
     ;; (doom-modeline :location local)
     ;; shrink-path
@@ -62,6 +63,22 @@
   (use-package shrink-path
     :defer t
     :commands (shrink-path-prompt shrink-path-file-mixed)))
+
+(defun ztlevi-ui/init-moody ()
+  (use-package moody
+    :init
+    (let ((line (face-attribute 'mode-line :underline)))
+      (set-face-attribute 'mode-line          nil :overline   line)
+      (set-face-attribute 'mode-line-inactive nil :overline   line)
+      (set-face-attribute 'mode-line-inactive nil :underline  line)
+      (set-face-attribute 'mode-line          nil :box        nil)
+      (set-face-attribute 'mode-line-inactive nil :box        nil)
+      (set-face-attribute 'mode-line-inactive nil :background "#f9f2d9"))
+    :config
+    (setq x-underline-at-descent-line t)
+    (moody-replace-mode-line-buffer-identification)
+    (moody-replace-vc-mode)
+    ))
 
 (defun ztlevi-ui/init-all-the-icons-dired ()
   (use-package all-the-icons-dired
