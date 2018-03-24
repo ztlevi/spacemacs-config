@@ -69,7 +69,7 @@
       (define-key evil-normal-state-map (kbd "C-c C-w") 'org-refile)
 
       (require 'org-compat)
-      ;; (add-to-list 'org-modules "org-habit")
+
       (add-to-list 'org-modules 'org-habit)
       (require 'org-habit)
 
@@ -88,9 +88,8 @@
       (setq org-agenda-window-setup 'current-window)
       (setq org-log-done t)
 
-      ;; 加密文章
+      ;; Encrypt entries
       ;; "http://coldnew.github.io/blog/2013/07/13_5b094.html"
-      ;; org-mode 設定
       (require 'org-crypt)
 
       ;; 當被加密的部份要存入硬碟時，自動加密回去
@@ -106,8 +105,6 @@
       ;; 用於加密的 GPG 金鑰
       ;; 可以設定任何 ID 或是設成 nil 來使用對稱式加密 (symmetric encryption)
       (setq org-crypt-key nil)
-
-      ;; (add-to-list 'auto-mode-alist '("\.org\\'" . org-mode))
 
       (setq org-todo-keywords
             (quote ((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d!/!)")
