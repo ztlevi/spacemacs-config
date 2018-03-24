@@ -1,5 +1,6 @@
 (defconst rjsx-packages
   '(
+    add-node-modules-path
     rjsx-mode
     company-tern
     emmet-mode
@@ -9,6 +10,9 @@
     smartparens
     tern
     ))
+
+(defun rjsx/post-init-add-node-modules-path ()
+  (add-hook 'rjsx-mode-hook #'add-node-modules-path))
 
 (defun rjsx/init-rjsx-mode ()
   (use-package rjsx-mode
