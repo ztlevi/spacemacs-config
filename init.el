@@ -42,7 +42,7 @@ This function should only modify configuration layer settings."
      ;; spacemacs-language
      (spacemacs-layouts :variables layouts-enable-autosave nil)
      (spacemacs-misc :packages (not dumb-jump))
-     (spacemacs-modeline :packages (not spaceline-all-the-icons vim-powerline symon fancy-battery))
+     ;; (spacemacs-modeline :packages (not spaceline-all-the-icons vim-powerline symon fancy-battery))
      (spacemacs-navigation :packages (not flx-ido smooth-scrolling))
      spacemacs-org
      spacemacs-project
@@ -607,12 +607,12 @@ It should only modify the values of Spacemacs settings."
   ;; (spacemacs/toggle-transparency)
 
   ;; disable spaceline segments
-  (spaceline-toggle-which-function-off)
-  (spaceline-toggle-persp-name-off)
-  (spaceline-toggle-line-column-off)
-  (spaceline-toggle-buffer-encoding-abbrev-off)
-  (spacemacs/toggle-mode-line-minor-modes-off)
-  (spacemacs/toggle-mode-line-version-control-off)
+  ;; (spaceline-toggle-which-function-off)
+  ;; (spaceline-toggle-persp-name-off)
+  ;; (spaceline-toggle-line-column-off)
+  ;; (spaceline-toggle-buffer-encoding-abbrev-off)
+  ;; (spacemacs/toggle-mode-line-minor-modes-off)
+  ;; (spacemacs/toggle-mode-line-version-control-off)
 
   ;; disable apple powerline rgb
   (setq powerline-image-apple-rgb nil)
