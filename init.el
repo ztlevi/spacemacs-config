@@ -116,7 +116,7 @@ This function should only modify configuration layer settings."
      (markdown :packages (not gh-md))
      (org :packages (not org-projectile org-download org-present org-brain)
           :variables
-          org-startup-folded t
+          org-startup-folded nil
           org-want-todo-bindings t
           org-enable-bootstrap-support t
           org-enable-github-support t
