@@ -88,7 +88,10 @@
 
 (defun ztlevi-ui/init-all-the-icons-dired ()
   (use-package all-the-icons-dired
-    :defer t))
+    :defer t
+    :init
+    (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+    ))
 
 (defun ztlevi-ui/init-all-the-icons ()
   (use-package all-the-icons

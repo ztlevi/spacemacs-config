@@ -13,9 +13,6 @@
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 1) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
 
-;; all-the-icons add hook
-(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
-
 ;; set initl screen size
 (setq initial-frame-alist
       '((width . 95)
