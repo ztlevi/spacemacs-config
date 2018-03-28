@@ -23,6 +23,9 @@
 (define-key evil-hybrid-state-map (kbd "C-r") 'evil-paste-from-register)
 (define-key evil-hybrid-state-map (kbd "C-z") 'evil-emacs-state)
 
+;; ex completion
+(define-key evil-ex-completion-map (kbd "C-d") 'delete-forward-char)
+
 ;; use black hole register
 (define-key evil-visual-state-map (kbd "<del>") (kbd "\"_d"))
 (define-key evil-visual-state-map (kbd "<backspace>") (kbd "\"_d"))
