@@ -57,7 +57,7 @@ This function should only modify configuration layer settings."
                       better-defaults-move-to-end-of-code-first t
                       better-defaults-move-to-beginning-of-code-first t)
      ;; (github :packages (not magit-gh-pulls))
-     colors
+     (colors :packages (not rainbow-identifiers))
      prodigy
      search-engine
      ;; graphviz
@@ -498,7 +498,7 @@ It should only modify the values of Spacemacs settings."
    ;; Select a scope to highlight delimiters. Possible values are `any',
    ;; `current', `all' or `nil'. Default is `all' (highlight any scope and
    ;; emphasis the current one). (default 'all)
-   dotspacemacs-highlight-delimiters 'all
+   dotspacemacs-highlight-delimiters 'current
 
    ;; If non-nil, advise quit functions to keep server open when quitting.
    ;; (default nil)
