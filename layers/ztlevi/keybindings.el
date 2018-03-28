@@ -38,7 +38,7 @@
   "]s" (lambda (n) (interactive "p")
          (forward-char) (dotimes (c n nil) (insert " ")) (backward-char (1+ n))))
 
-;; stack overflow
+;; javascript skewer
 (spacemacs/set-leader-keys "os" 'run-skewer)
 
 ;; stack exchange
