@@ -19,7 +19,7 @@
     cmake-font-lock
     cmake-mode
     js2-mode
-    xref-js2
+    lsp-ui
     lsp-javascript-typescript
     ;; lsp-javascript-flow
     js2-refactor
@@ -259,6 +259,18 @@
     ;; only for mac
     (setq eacl-grep-program "ggrep")))
 
+(defun ztlevi-programming/post-init-lsp-ui ()
+  (spacemacs//set-lsp-key-bindings 'python-mode)
+  (spacemacs//set-lsp-key-bindings 'js2-mode)
+  (spacemacs//set-lsp-key-bindings 'rjsx-mode)
+
+  ;; (define-key evil-normal-state-map (kbd "gf") #'lsp-ui-peek-find-definitions)
+  (define-key evil-normal-state-map (kbd "gr") #'lsp-ui-peek-find-references)
+
+  (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+  (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
+)
+
 (defun ztlevi-programming/init-lsp-javascript-typescript ()
   (use-package lsp-javascript-typescript
     :commands (lsp-javascript-typescript-enable)
@@ -372,7 +384,3 @@
     (setq company-c-headers-path-user
           (quote
            ("/Users/guanghui/cocos2d-x/cocos/platform" "/Users/guanghui/cocos2d-x/cocos" "." "/Users/guanghui/cocos2d-x/cocos/audio/include/")))))
-
-(defun ztlevi-programming/init-xref-js2 ()
-  (use-package xref-js2
-    :defer t))
