@@ -57,7 +57,7 @@ This function should only modify configuration layer settings."
                       better-defaults-move-to-end-of-code-first t
                       better-defaults-move-to-beginning-of-code-first t)
      ;; (github :packages (not magit-gh-pulls))
-     (colors :packages (not rainbow-identifiers))
+     (colors :packages (rainbow-mode))
      prodigy
      search-engine
      ;; graphviz
