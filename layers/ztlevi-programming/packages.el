@@ -279,14 +279,7 @@
     :defer t))
 
 (defun ztlevi-programming/post-init-js2-mode ()
-  (spacemacs|define-jump-handlers js2-mode)
   (add-hook 'spacemacs-jump-handlers-js2-mode 'etags-select-find-tag-at-point)
-
-  ;; add your own keywords highlight here
-  (font-lock-add-keywords 'js2-mode
-                          '(("\\<\\(cc\\)\\>" 1 font-lock-type-face)))
-
-  (spacemacs/declare-prefix-for-mode 'js2-mode "ms" "repl")
 
   ;; js default variables
   ;; https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-javascript.el
