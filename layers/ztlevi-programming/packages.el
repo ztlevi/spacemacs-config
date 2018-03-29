@@ -20,6 +20,7 @@
     cmake-mode
     js2-mode
     lsp-ui
+    (lsp-imenu :location built-in)
     lsp-javascript-typescript
     ;; lsp-javascript-flow
     js2-refactor
@@ -270,6 +271,14 @@
   (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
   (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
 )
+
+(defun ztlevi-programming/init-lsp-imenu ()
+  (use-package lsp-imenu
+    :init
+    (spacemacs/set-leader-keys "bl" 'lsp-ui-imenu)
+    (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
+    :defer t)
+  )
 
 (defun ztlevi-programming/init-lsp-javascript-typescript ()
   (use-package lsp-javascript-typescript
