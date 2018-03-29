@@ -41,8 +41,11 @@
   "]s" (lambda (n) (interactive "p")
          (forward-char) (dotimes (c n nil) (insert " ")) (backward-char (1+ n))))
 
-;; javascript skewer
-(spacemacs/set-leader-keys "os" 'run-skewer)
+;; counsel etags
+(define-key evil-normal-state-map (kbd "gF") 'counsel-etags-find-tag-at-point)
+(define-key evil-normal-state-map (kbd "gb") 'pop-tag-mark)
+(define-key evil-normal-state-map (kbd "gR") 'counsel-etags-recent-tag)
+(spacemacs/set-leader-keys "ou" 'counsel-etags-update-tags-force)
 
 ;; stack exchange
 (define-prefix-command 'launcher-map)
@@ -73,12 +76,6 @@
 ;; expand region
 (global-set-key (kbd "C-s-.") 'er/expand-region)
 (global-set-key (kbd "C-s-,") 'er/contract-region)
-
-;; counsel etags
-(define-key evil-normal-state-map (kbd "gf") 'counsel-etags-find-tag-at-point)
-(define-key evil-normal-state-map (kbd "gb") 'pop-tag-mark)
-(define-key evil-normal-state-map (kbd "gr") 'counsel-etags-recent-tag)
-(spacemacs/set-leader-keys "ou" 'counsel-etags-update-tags-force)
 
 ;; prettier js
 (spacemacs/set-leader-keys "tp" 'prettier-js-mode)
