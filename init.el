@@ -109,7 +109,7 @@ This function should only modify configuration layer settings."
      ;; (ruby :variables ruby-version-manager 'chruby)
      ;; racket
      ;; lua
-     ;; lsp
+     lsp
      (latex :variables
             latex-build-command "LatexMk" ;; latexmk -pdf --synctex=1 -interaction=nonstopmode  -file-line-error  filename.tex
             latex-enable-folding t)
@@ -126,7 +126,7 @@ This function should only modify configuration layer settings."
      ;; php
      (python :variables
              python-indent-offset 4
-             python-backend 'anaconda
+             python-backend 'lsp
              ;; python-enable-yapf-format-on-save t
              python-test-runner '(nose pytest))
      ipython-notebook
