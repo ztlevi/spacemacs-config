@@ -151,8 +151,8 @@
 
 (defun ztlevi-programming/post-init-js-doc ()
   (setq js-doc-mail-address "zhouting@umich.edu"
-        js-doc-author (format "ztlevi Qu <%s>" js-doc-mail-address)
-        js-doc-url "http://www.ztlevi.com"
+        js-doc-author (format "Ting Zhou <%s>" js-doc-mail-address)
+        js-doc-url "http://ztlevi.github.io"
         js-doc-license "MIT"))
 
 (defun ztlevi-programming/post-init-web-mode ()
