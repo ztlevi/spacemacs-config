@@ -261,6 +261,9 @@
     (setq eacl-grep-program "ggrep")))
 
 (defun ztlevi-programming/post-init-lsp-ui ()
+  ;; temporary fix for flycheck
+  (setq lsp-ui-flycheck-enable nil)
+
   (spacemacs//set-lsp-key-bindings 'python-mode)
   (spacemacs//set-lsp-key-bindings 'js2-mode)
   (spacemacs//set-lsp-key-bindings 'rjsx-mode)
