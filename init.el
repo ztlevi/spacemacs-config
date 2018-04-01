@@ -43,6 +43,7 @@ This function should only modify configuration layer settings."
      (spacemacs-layouts :variables layouts-enable-autosave nil)
      (spacemacs-misc :packages (not dumb-jump))
      ;; (spacemacs-modeline :packages (not spaceline-all-the-icons vim-powerline symon fancy-battery))
+     (spacemacs-modeline :packages (font-lock+))
      (spacemacs-navigation :packages (not flx-ido smooth-scrolling))
      spacemacs-org
      spacemacs-project
