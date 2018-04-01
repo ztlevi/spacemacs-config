@@ -68,9 +68,6 @@
 ;; this setting will cause command `vc-annotate` failed
 ;; (setq vc-handled-backends ())
 
-;; (setq large-file-warning-threshold 100000000)
-;;http://batsov.com/emacsredux/blog/2015/05/09/emacs-on-os-x/
-
 (setq save-abbrevs nil)
 
 ;; turn on abbrev mode globally
