@@ -1,4 +1,4 @@
-;;; packages.el --- ztlevi layer packages file for Spacemacs.
+;;; packages.el --- ztlevi layer packages file for Spacemacs. -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2016-2017 ztlevi
 ;;

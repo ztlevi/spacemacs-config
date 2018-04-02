@@ -1,4 +1,4 @@
-;;; funcs.el --- ztlevi-ui layer packages file for Spacemacs.
+;;; funcs.el --- ztlevi-ui layer packages file for Spacemacs. -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2016-2017 ztlevi
 ;;

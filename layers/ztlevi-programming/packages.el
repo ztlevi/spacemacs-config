@@ -1,4 +1,4 @@
-;;; packages.el --- ztlevi layer packages file for Spacemacs.
+;;; packages.el --- ztlevi layer packages file for Spacemacs. -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2016-2017 ztlevi
 ;;
@@ -372,6 +372,16 @@
 
 (defun ztlevi-programming/post-init-company ()
   (progn
+    ;; (spacemacs|add-company-backends
+    ;;   :backends company-lsp
+    ;;   :modes js2-mode)
+    ;; (add-hook 'js2-mode-local-vars-hook (lambda ()
+    ;;                                       (spacemacs|add-company-backends
+    ;;                                         :backends company-lsp
+    ;;                                         :modes js2-mode)
+    ;;                                       (company-mode)
+    ;;                                       ))
+
     ;; set the company minimum prefix length and idle delay
     (defvar ztlevi/company-minimum-prefix-length 1
       "my own variable for company-minimum-prefix-length")
