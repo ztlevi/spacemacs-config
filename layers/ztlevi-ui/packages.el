@@ -14,9 +14,10 @@
     all-the-icons
     all-the-icons-dired
     ;; moody
-    ;; doom modeline needs all-the-icons, shrink-path enabled
+    ;; doom modeline needs all-the-icons, shrink-path, eldoc-eval
     (doom-modeline :location local)
     shrink-path
+    eldoc-eval
     ;; if you wnat to use spaceline, please comment out ztlevi-mode-line
     ;; (ztlevi-mode-line :location built-in)
     ;; spaceline
@@ -50,25 +51,24 @@
 (defun ztlevi-ui/init-doom-modeline ()
   (use-package doom-modeline
     :init
+    (use-package all-the-icons)
+
     ;; set doom-modeline height
     (setq +doom-modeline-height 36)
 
     ;; file-name style
     (setq +doom-modeline-buffer-file-name-style 'relative-to-project)
 
-    (defun t/project-root ()
-      "Get project root without throwing"
-      (let (projectile-require-project-root strict-p)
-        (projectile-project-root)))
-
-    (defun t/init-modeline () (+doom-modeline|init))
-    (add-hook 'after-init-hook #'t/init-modeline)
-    (use-package all-the-icons)))
+    (add-hook 'after-init-hook #'+doom-modeline|init)))
 
 (defun ztlevi-ui/init-shrink-path ()
   (use-package shrink-path
     :defer t
     :commands (shrink-path-prompt shrink-path-file-mixed)))
+
+(defun ztlevi-ui/init-eldoc-eval ()
+  (use-package eldoc-eval
+    :defer t))
 
 (defun ztlevi-ui/init-moody ()
   (use-package moody

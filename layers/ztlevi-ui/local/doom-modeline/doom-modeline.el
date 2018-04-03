@@ -1,5 +1,57 @@
 ;;; ui/doom-modeline/config.el -*- lexical-binding: t; -*-
 
+;; =========================================================
+;; Replace doom-project-root calls with projectile-project-root.
+(defun t/project-root ()
+  "Get project root without throwing"
+  (let (projectile-require-project-root strict-p)
+    (projectile-project-root)))
+(defalias 'doom-project-root #'t/project-root)
+
+;; =========================================================
+;; fix when-let*
+(eval-and-compile
+  (when (version< emacs-version "26")
+    (with-no-warnings
+      (defalias 'if-let* #'if-let)
+      (defalias 'when-let* #'when-let))))
+
+;; =========================================================
+;; The +doom-modeline--make-xpm function is memoized with the def-memoized! macro. Change def-memoized! to defun.
+;;;###autoload
+(defvar doom-memoized-table (make-hash-table :test 'equal :size 10)
+  "A lookup table containing memoized functions. The keys are argument lists,
+and the value is the function's return value.")
+;;;###autoload
+(defun doom-memoize (name)
+  "Memoizes an existing function. NAME is a symbol."
+  (let ((func (symbol-function name)))
+    (put name 'function-documentation
+         (concat (documentation func) " (memoized)"))
+    (fset name
+          `(lambda (&rest args)
+             (let ((key (cons ',name args)))
+               (or (gethash key doom-memoized-table)
+                   (puthash key (apply ',func args)
+                            doom-memoized-table)))))))
+;;;###autoload
+(defmacro def-memoized! (name arglist &rest body)
+  "Create a memoize'd function. NAME, ARGLIST, DOCSTRING and BODY
+have the same meaning as in `defun'."
+  (declare (indent defun) (doc-string 3))
+  `(,(if (bound-and-true-p byte-compile-current-file)
+         'with-no-warnings
+       'progn)
+    (defun ,name ,arglist ,@body)
+    (doom-memoize ',name)))
+
+;; =========================================================
+;; Copy the following macros and functions from core/core-ui.el:
+;; def-modeline-segment!
+;; def-modeline!
+;; doom--prepare-modeline-segments
+;; doom-modeline
+;; doom-set-modeline
 (defvar doom--transient-counter 0)
 (defmacro add-transient-hook! (hook &rest forms)
   "Attaches transient forms to a HOOK.
@@ -129,54 +181,63 @@ DEFAULT is non-nil, set the default mode-line for all buffers."
             (buffer-local-value 'mode-line-format (current-buffer)))
           modeline)))
 
+;; =========================================================
+;; Copy doom-modeline config.el from here
+;; Replace use-package calls with use-package
 
-(defun +doom-modeline-eldoc (text)
-  (concat (when (display-graphic-p)
-            (+doom-modeline--make-xpm
-             (face-background 'doom-modeline-eldoc-bar nil t)
-             +doom-modeline-height
-             +doom-modeline-bar-width))
-          text))
+(use-package eldoc-eval
+  :config
+  (defun +doom-modeline-eldoc (text)
+    (concat (when (display-graphic-p)
+              (+doom-modeline--make-xpm
+               (face-background 'doom-modeline-eldoc-bar nil t)
+               +doom-modeline-height
+               +doom-modeline-bar-width))
+            text))
 
-;; Show eldoc in the mode-line with `eval-expression'
-(defun +doom-modeline--show-eldoc (input)
-  "Display string STR in the mode-line next to minibuffer."
-  (with-current-buffer (eldoc-current-buffer)
-    (let* ((str              (and (stringp input) input))
-           (mode-line-format (or (and str (or (+doom-modeline-eldoc str) str))
-                                 mode-line-format))
-           mode-line-in-non-selected-windows)
-      (force-mode-line-update)
-      (sit-for eldoc-show-in-mode-line-delay)))
-
+  ;; Show eldoc in the mode-line with `eval-expression'
+  (defun +doom-modeline--show-eldoc (input)
+    "Display string STR in the mode-line next to minibuffer."
+    (with-current-buffer (eldoc-current-buffer)
+      (let* ((str              (and (stringp input) input))
+             (mode-line-format (or (and str (or (+doom-modeline-eldoc str) str))
+                                   mode-line-format))
+             mode-line-in-non-selected-windows)
+        (force-mode-line-update)
+        (sit-for eldoc-show-in-mode-line-delay))))
   (setq eldoc-in-minibuffer-show-fn #'+doom-modeline--show-eldoc)
+
   (eldoc-in-minibuffer-mode +1))
 
 ;; anzu and evil-anzu expose current/total state that can be displayed in the
 ;; mode-line.
-(setq anzu-cons-mode-line-p nil
-      anzu-minimum-input-length 1
-      anzu-search-threshold 250)
-
-;; Avoid anzu conflicts across buffers
-(mapc #'make-variable-buffer-local
-      '(anzu--total-matched anzu--current-position anzu--state
-                            anzu--cached-count anzu--cached-positions anzu--last-command
-                            anzu--last-isearch-string anzu--overflow-p))
-
-;; Ensure anzu state is cleared when searches & iedit are done
-(add-hook 'isearch-mode-end-hook #'anzu--reset-status t)
-(add-hook '+evil-esc-hook #'anzu--reset-status t)
-(add-hook 'iedit-mode-end-hook #'anzu--reset-status)
+(use-package evil-anzu
+  :requires evil
+  :init
+  (add-transient-hook! #'evil-ex-start-search (require 'evil-anzu))
+  (add-transient-hook! #'evil-ex-start-word-search (require 'evil-anzu))
+  :config
+  (setq anzu-cons-mode-line-p nil
+        anzu-minimum-input-length 1
+        anzu-search-threshold 250)
+  ;; Avoid anzu conflicts across buffers
+  (mapc #'make-variable-buffer-local
+        '(anzu--total-matched anzu--current-position anzu--state
+                              anzu--cached-count anzu--cached-positions anzu--last-command
+                              anzu--last-isearch-string anzu--overflow-p))
+  ;; Ensure anzu state is cleared when searches & iedit are done
+  (add-hook 'isearch-mode-end-hook #'anzu--reset-status t)
+  (add-hook '+evil-esc-hook #'anzu--reset-status t)
+  (add-hook 'iedit-mode-end-hook #'anzu--reset-status))
 
 
 ;; Keep `+doom-modeline-current-window' up-to-date
 (defvar +doom-modeline-current-window (frame-selected-window))
 (defun +doom-modeline|set-selected-window (&rest _)
   "Sets `+doom-modeline-current-window' appropriately"
-  (let ((win (frame-selected-window)))
-    (unless (minibuffer-window-active-p win)
-      (setq +doom-modeline-current-window win))))
+  (when-let* ((win (frame-selected-window)))
+             (unless (minibuffer-window-active-p win)
+               (setq +doom-modeline-current-window win))))
 
 (add-hook 'window-configuration-change-hook #'+doom-modeline|set-selected-window)
 (add-hook 'focus-in-hook #'+doom-modeline|set-selected-window)
@@ -186,6 +247,7 @@ DEFAULT is non-nil, set the default mode-line for all buffers."
 ;; fish-style modeline
 (use-package shrink-path
   :commands (shrink-path-prompt shrink-path-file-mixed))
+
 
 ;;
 ;; Variables
@@ -203,7 +265,6 @@ DEFAULT is non-nil, set the default mode-line for all buffers."
 
 (defvar +doom-modeline-buffer-file-name-style 'truncate-upto-project
   "Determines the style used by `+doom-modeline-buffer-file-name'.
-
 Given ~/Projects/FOSS/emacs/lisp/comint.el
 truncate-upto-project => ~/P/F/emacs/lisp/comint.el
 truncate-upto-root => ~/P/F/e/lisp/comint.el
@@ -299,7 +360,7 @@ active."
   (eq (selected-window) +doom-modeline-current-window))
 
 ;; Inspired from `powerline's `pl/make-xpm'.
-(defun +doom-modeline--make-xpm (color height width)
+(def-memoized! +doom-modeline--make-xpm (color height width)
   "Create an XPM bitmap."
   (propertize
    " " 'display
@@ -364,7 +425,7 @@ If TRUNCATE-TAIL is t also truncate the parent directory of the file."
 
 (defun +doom-modeline--buffer-file-name-relative (&optional include-project)
   "Propertized `buffer-file-name' showing directories relative to project's root only."
-  (let ((root (t/project-root))
+  (let ((root (doom-project-root))
         (active (active)))
     (if (null root)
         (propertize "%b" 'face (if active 'doom-modeline-buffer-file))
@@ -382,10 +443,9 @@ If TRUNCATE-TAIL is t also truncate the parent directory of the file."
   "Propertized `buffer-file-name'.
 If TRUNCATE-PROJECT-ROOT-PARENT is t space will be saved by truncating it down
 fish-shell style.
-
 Example:
 ~/Projects/FOSS/emacs/lisp/comint.el => ~/P/F/emacs/lisp/comint.el"
-  (let* ((project-root (t/project-root))
+  (let* ((project-root (doom-project-root))
          (file-name-split (shrink-path-file-mixed project-root
                                                   (file-name-directory buffer-file-truename)
                                                   buffer-file-truename))
@@ -750,8 +810,8 @@ Returns \"\" to not break --no-window-system."
 (add-hook 'doom-scratch-buffer-hook #'+doom-modeline|set-special-modeline)
 (add-hook '+doom-dashboard-mode-hook #'+doom-modeline|set-project-modeline)
 
-(add-hook 'org-src-mode-hook #'+doom-modeline|set-special-modeline)
 (add-hook 'image-mode-hook   #'+doom-modeline|set-media-modeline)
+(add-hook 'org-src-mode-hook #'+doom-modeline|set-special-modeline)
 (add-hook 'circe-mode-hook   #'+doom-modeline|set-special-modeline)
 
 (provide 'doom-modeline)
