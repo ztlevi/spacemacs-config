@@ -1,6 +1,6 @@
 ;;; layers.el --- ztlevi-ui layer packages file for Spacemacs. -*- lexical-binding: t -*-
 ;;
-;; Copyright (c) 2016-2017 ztlevi
+;; Copyright (c) 2016-2018 ztlevi
 ;;
 ;; Author: ztlevi <zhouting@umich.edu>
 ;; URL: https://github.com/ztlevi/spacemacs-config
