@@ -22,7 +22,7 @@
     lsp-ui
     (lsp-imenu :location built-in)
     lsp-javascript-typescript
-    ;; lsp-javascript-flow
+    ;; (lsp-javascript-flow :location built-in)
     js2-refactor
     js-doc
     import-js
@@ -379,6 +379,12 @@
     ;;                                       (spacemacs|add-company-backends
     ;;                                         :backends company-lsp
     ;;                                         :modes js2-mode)
+    ;;                                       (company-mode)
+    ;;                                       ))
+    ;; (add-hook 'rjsx-mode-local-vars-hook (lambda ()
+    ;;                                       (spacemacs|add-company-backends
+    ;;                                         :backends company-lsp
+    ;;                                         :modes rjsx-mode)
     ;;                                       (company-mode)
     ;;                                       ))
 
