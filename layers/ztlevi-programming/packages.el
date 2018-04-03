@@ -14,7 +14,6 @@
     company
     counsel-etags
     ;; eacl
-    (eldoc :location built-in)
     (cc-mode :location built-in)
     cmake-font-lock
     cmake-mode
@@ -243,9 +242,6 @@
 
     ;; customize flycheck temp file prefix
     (setq-default flycheck-temp-prefix ".flycheck")))
-
-(defun ztlevi-programming/post-init-eldoc ()
-  (setq eldoc-idle-delay 0.4))
 
 (defun ztlevi-programming/post-init-js2-refactor ()
   (progn
