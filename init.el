@@ -125,7 +125,8 @@ This function should only modify configuration layer settings."
      gpu
      yaml
      ;; php
-     (python :variables
+     (python :packages (not anaconda-mode company-anaconda)
+             :variables
              python-indent-offset 4
              python-backend 'lsp
              ;; python-enable-yapf-format-on-save t
