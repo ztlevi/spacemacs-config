@@ -35,6 +35,7 @@
  '(hybrid-mode-use-evil-search-module t)
  '(ibuffer-filter-group-name-face (quote link))
  '(imenu-auto-rescan t)
+ '(lsp-ui-sideline-enable nil)
  '(lua-documentation-url "http://www.lua.org/manual/5.3/manual.html")
  '(magit-diff-use-overlays nil)
  '(magit-log-arguments (quote ("-n256" "--graph" "--decorate" "--color")))
