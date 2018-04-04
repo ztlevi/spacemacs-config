@@ -7,3 +7,21 @@
   (yas-activate-extra-mode 'js-mode)
   ;; See https://github.com/syl20bnr/spacemacs/issues/8222
   (set (make-local-variable 'company-minimum-prefix-length) 2))
+
+(defun inside-string-q ()
+  "Returns non-nil if inside string, else nil.
+Result depends on syntax table's string quote character."
+  (let ((result (nth 3 (syntax-ppss))))
+    result))
+
+(defun inside-comment-q ()
+  "Returns non-nil if inside comment, else nil.
+Result depends on syntax table's comment character."
+  (let ((result (nth 4 (syntax-ppss))))
+    result))
+
+(defun inside-string-or-comment-q ()
+  "Return non-nil if point is inside string, documentation string or a comment.
+If optional argument P is present, test this instead of point."
+  (or (inside-string-q)
+      (inside-comment-q)))

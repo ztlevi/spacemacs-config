@@ -6,7 +6,6 @@
     evil-matchit
     flycheck
     js-doc
-    smartparens
     ))
 
 (defun rjsx/post-init-add-node-modules-path ()
@@ -22,7 +21,7 @@
            (re-search-forward "\\(^\\s-*import React\\|\\( from \\|require(\\)[\"']react\\)"
                               magic-mode-regexp-match-limit t)
            (progn (goto-char (match-beginning 1))
-                  (not (sp-point-in-string-or-comment)))))
+                  (not (inside-string-or-comment-q)))))
 
     (push (cons #'+javascript-jsx-file-p 'rjsx-mode) magic-mode-alist)
 
@@ -57,8 +56,3 @@
 (defun rjsx/post-init-js-doc ()
   (add-hook 'rjsx-mode-hook 'spacemacs/js-doc-require)
   (spacemacs/js-doc-set-key-bindings 'rjsx-mode))
-
-(defun rjsx/init-smartparens ()
-  (use-package smartparens
-    :commands sp-point-in-string-or-comment
-    :defer t))
