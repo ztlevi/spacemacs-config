@@ -114,7 +114,7 @@ version 2015-08-21"
   ;; xxx (e) { }
   (if (re-search-backward "^[ \t]*\\([A-Za-z_$][A-Za-z0-9_$]+\\)[ \t]*([a-zA-Z0-9, ]*) *\{ *$" nil t)
       (progn
-        (if (member (match-string 1) '("for" "if" "while"))
+        (if (member (match-string 1) '("for" "if" "while" "switch"))
             (js-exception-imenu-generic-expression-regexp)
           t))
     nil))
@@ -145,25 +145,18 @@ version 2015-08-21"
                                ("Watch" "[. \t]\$watch( *['\"]\\([^'\"]+\\)" 1)
 
                                ("Class" "^[ \t]*[0-9a-zA-Z_$ ]*[ \t]*class[ \t]*\\([a-zA-Z_$.]*\\)" 1)
-                               ("Class" "^[ \t]*var[ \t]*\\([0-9a-zA-Z_$.]+\\)[ \t]*=[ \t]*[a-zA-Z_$.]*.extend" 1)
-                               ("Class" "^[ \t]*let[ \t]*\\([0-9a-zA-Z_$.]+\\)[ \t]*=[ \t]*[a-zA-Z_$.]*.extend" 1)
-                               ("Class" "^[ \t]*const[ \t]*\\([0-9a-zA-Z_$.]+\\)[ \t]*=[ \t]*[a-zA-Z_$.]*.extend" 1)
+                               ("Class" "^[ \t]*\\(var\\|let\\|const\\)[ \t]*\\([0-9a-zA-Z_$.]+\\)[ \t]*=[ \t]*[a-zA-Z_$.]*.extend" 2)
                                ("Class" "^[ \t]*cc\.\\(.+\\)[ \t]*=[ \t]*cc\..+\.extend" 1)
 
                                ("Function" "function[ \t]+\\([a-zA-Z0-9_$.]+\\)[ \t]*(" 1) ;; function xxx (
                                ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*:[ \t]*function[ \t]*(" 1) ;; xxx : function (
-                               ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1) ;; xxx = function (
-                               ("Function" "^[ \t]*var[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1) ;; var xxx = function (
-                               ("Function" "^[ \t]*let[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1) ;; let xxx = function (
-                               ("Function" "^[ \t]*const[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1) ;; const xxx = function (
+                               ("Function" "^[ \t]*\\(export\\)?[ \t]*\\(var\\|let\\|const\\)?[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 3) ;; (export)? (var|let|const)? xxx = function (
 
                                ;; {{ es6 beginning
                                ("Function" js-exception-imenu-generic-expression-regexp 1) ;; xxx (e) { }
                                ("Function" "^[ \t]*\\([A-Za-z_$][A-Za-z0-9_$.]*\\)[ \t]*:[ \t]*(.*)[ \t]*=>" 1) ;; xxx : (e) =>
-                               ("Function" "^[ \t]*\\([A-Za-z_$][A-Za-z0-9_$.]*\\)[ \t]*=[ \t]*(.*)[ \t]*=>" 1) ;; xxx = (e) =>
-                               ("Function" "^[ \t]*let[ \t]*\\([A-Za-z_$][A-Za-z0-9_$.]*\\)[ \t]*=[ \t]*(.*)[ \t]*=>" 1) ;; let xxx = (e) =>
-                               ("Function" "^[ \t]*var[ \t]*\\([A-Za-z_$][A-Za-z0-9_$.]*\\)[ \t]*=[ \t]*(.*)[ \t]*=>" 1) ;; var xxx = (e) =>
-                               ("Function" "^[ \t]*const[ \t]*\\([A-Za-z_$][A-Za-z0-9_$.]*\\)[ \t]*=[ \t]*(.*)[ \t]*=>" 1) ;; const xxx = (e) =>
+                               ("Function" "^[ \t]*\\(export\\)?[ \t]*\\(var\\|let\\|const\\)?[ \t]*\\([A-Za-z_$][A-Za-z0-9_$.]*\\)[ \t]*=[ \t]*(" 3) ;; (export)? (var|let|const)? xxx = (
+                               ("Function" "^[ \t]*\\(export\\)?[ \t]*\\(var\\|let\\|const\\)?[ \t]*\\([A-Za-z_$][A-Za-z0-9_$.]*\\)[ \t]*=[ \t]*[A-Za-z_$][A-Za-z0-9_$.]*[ \t]*=>" 3) ;; (export)? (var|let|const)? xxx = e =>
                                ;; }}
 
                                ("Task" "[. \t]task([ \t]*['\"]\\([^'\"]+\\)" 1)))))
