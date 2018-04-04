@@ -177,7 +177,6 @@
 
     (add-hook 'racket-mode-hook #'(lambda () (lispy-mode 1)))
     (add-hook 'racket-repl-mode-hook #'(lambda () (lispy-mode t)))
-    ;; (add-hook 'racket-repl-mode-hook #'(lambda () (smartparens-mode t)))
     ))
 
 (defun ztlevi-programming/post-init-json-mode ()
@@ -315,7 +314,6 @@
 (defun ztlevi-programming/post-init-lua-mode ()
   (progn
     (add-hook 'lua-mode-hook 'evil-matchit-mode)
-    ;; (add-hook 'lua-mode-hook 'smartparens-mode)
     (setq lua-indent-level 2)
 
     ;; add lua language, basic, string and table keywords.

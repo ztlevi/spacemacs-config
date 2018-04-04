@@ -36,7 +36,7 @@ This function should only modify configuration layer settings."
    '(
      ;; ================== Spacemacs Layers ==================
      (spacemacs-completion :packages (not default-helm-config ido-vertical-mode))
-     (spacemacs-editing :packages (not lorem-ipsum clean-aindent-mode))
+     (spacemacs-editing :packages (not lorem-ipsum clean-aindent-mode smartparens))
      (spacemacs-editing-visual :packages (not volatile-highlights rainbow-delimiters highlight-indentation lorem-ipsum))
      (spacemacs-evil :packages (not evil-args evil-mc evil-ediff evil-exchange evil-unimpaired evil-indent-plus vi-tilde-fringe evil-lisp-state evil-cleverparens))
      ;; spacemacs-language
@@ -583,9 +583,6 @@ It should only modify the values of Spacemacs settings."
       (message "Microsoft Windows"))))
 
   ;; ======================== Others ===========================
-  ;; enable smartparens mode globally
-  (smartparens-global-mode)
-
   ;; enable flyspell in text-mode
   (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
 

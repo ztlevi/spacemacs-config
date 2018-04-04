@@ -54,9 +54,6 @@
 (dolist (hook '(css-mode-hook sass-mode-hook less-mode-hook))
   (add-hook hook 'rainbow-mode))
 
-;; spacemacs disables smartparens in web mode
-;; (add-hook 'web-mode-hook 'spacemacs/toggle-smartparens-on)
-
 (spacemacs|add-toggle iimage
   :status iimage-mode
   :on (iimage-mode)

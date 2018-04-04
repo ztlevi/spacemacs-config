@@ -92,7 +92,7 @@
  '(markdown-header-face-2 ((t (:inherit org-level-2))))
  '(markdown-header-face-3 ((t (:inherit org-level-3))))
  '(origami-fold-replacement-face ((t (:inherit (quote font-lock-keyword-face)))))
- '(sp-show-pair-match-face ((t (:background "light gray" :foreground "#e45649" :weight bold))))
+ '(show-paren-match ((t (:background "light gray"))))
  '(term-bold ((t (:inherit bold :family "Ubuntu Mono derivative Powerline" :height 1.1))))
  '(tooltip ((t (:background "#dfdfdf" :foreground "#383a42")))))
 ;; Do not write anything past this comment. This is where Emacs will

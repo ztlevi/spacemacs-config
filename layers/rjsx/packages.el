@@ -58,7 +58,7 @@
   (add-hook 'rjsx-mode-hook 'spacemacs/js-doc-require)
   (spacemacs/js-doc-set-key-bindings 'rjsx-mode))
 
-(defun rjsx/post-init-smartparens ()
-  (if dotspacemacs-smartparens-strict-mode
-      (add-hook 'rjsx-mode-hook #'smartparens-strict-mode)
-    (add-hook 'rjsx-mode-hook #'smartparens-mode)))
+(defun rjsx/init-smartparens ()
+  (use-package smartparens
+    :commands sp-point-in-string-or-comment
+    :defer t))
