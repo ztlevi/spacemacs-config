@@ -69,7 +69,7 @@
          #+END_SRC
        - npm
          #+BEGIN_SRC shell
-           npm install -g prettier live-server tern import-js
+           npm install -g prettier live-server import-js
          #+END_SRC
        - pip
          Make sure your ~python-shell-interpreter~ and pip is using the same environment (anaconda, python2 or python3). Check it with ~which -a pip ipython~

@@ -143,7 +143,7 @@ This function should only modify configuration layer settings."
            web-mode-attr-value-indent-offset 2)
      (java :packages (not eclim ensime company-emacs-eclim)
            :variables c-basic-offset 2)
-     (javascript :packages (not web-beautify livid-mode)
+     (javascript :packages (not web-beautify livid-mode company-tern tern)
                  :variables
                  node-add-modules-path t
                  js2-basic-offset 2 ; javascript indent

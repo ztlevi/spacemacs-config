@@ -2,13 +2,11 @@
   '(
     add-node-modules-path
     rjsx-mode
-    company-tern
     emmet-mode
     evil-matchit
     flycheck
     js-doc
     smartparens
-    tern
     ))
 
 (defun rjsx/post-init-add-node-modules-path ()
@@ -40,9 +38,6 @@
     (with-eval-after-load 'rjsx-mode
       (define-key rjsx-mode-map (kbd "C-d") nil))))
 
-(defun rjsx/post-init-company-tern ()
-  (spacemacs|add-company-backends :backends company-tern :modes rjsx-mode))
-
 (defun rjsx/post-init-emmet-mode ()
   (add-hook 'rjsx-mode-hook 'emmet-mode))
 
@@ -67,7 +62,3 @@
   (if dotspacemacs-smartparens-strict-mode
       (add-hook 'rjsx-mode-hook #'smartparens-strict-mode)
     (add-hook 'rjsx-mode-hook #'smartparens-mode)))
-
-(defun rjsx/post-init-tern ()
-  (add-hook 'rjsx-mode-hook 'tern-mode)
-  (spacemacs//set-tern-key-bindings 'rjsx-mode))

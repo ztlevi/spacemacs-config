@@ -25,7 +25,6 @@
     (define-key js2-mode-map "@" 'js-doc-insert-tag)
     (modify-syntax-entry ?_ "w")
 
-    (define-key js2-mode-map   (kbd "s-.") 'company-tern)
     (spacemacs/toggle-syntax-checking-on)
     (setq forward-sexp-function nil)
     (set (make-local-variable 'semantic-mode) nil)))

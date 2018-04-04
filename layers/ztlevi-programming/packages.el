@@ -12,6 +12,7 @@
 (defconst ztlevi-programming-packages
   '(
     company
+    company-lsp
     counsel-etags
     ;; eacl
     (cc-mode :location built-in)
@@ -282,6 +283,10 @@
     :defer t)
   )
 
+(defun ztlevi-programming/post-init-company-lsp ()
+  ;; https://github.com/tigersoldier/company-lsp/issues/30
+  (setq company-lsp-cache-candidates 'auto))
+
 (defun ztlevi-programming/init-lsp-javascript-typescript ()
   (use-package lsp-javascript-typescript
     :commands (lsp-javascript-typescript-enable)
@@ -368,8 +373,8 @@
 
 (defun ztlevi-programming/post-init-company ()
   (progn
-    ;; (spacemacs|add-company-backends :backends company-lsp :modes js2-mode)
-    ;; (spacemacs|add-company-backends :backends company-lsp :modes rjsx-mode)
+    (spacemacs|add-company-backends :backends company-lsp :modes js2-mode)
+    (spacemacs|add-company-backends :backends company-lsp :modes rjsx-mode)
     (spacemacs|add-company-backends :backends company-lsp :modes c-mode-common)
 
     ;; set the company minimum prefix length and idle delay
