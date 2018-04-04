@@ -302,8 +302,6 @@
     :defer t))
 
 (defun ztlevi-programming/post-init-js2-mode ()
-  (add-hook 'spacemacs-jump-handlers-js2-mode 'etags-select-find-tag-at-point)
-
   ;; js default variables
   ;; https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-javascript.el
   (setq-default js2-strict-inconsistent-return-warning nil ; return <=> return null
