@@ -15,6 +15,7 @@
     counsel-etags
     ;; eacl
     (cc-mode :location built-in)
+    cquery
     cmake-font-lock
     cmake-mode
     js2-mode
@@ -264,6 +265,8 @@
   (spacemacs//set-lsp-key-bindings 'python-mode)
   (spacemacs//set-lsp-key-bindings 'js2-mode)
   (spacemacs//set-lsp-key-bindings 'rjsx-mode)
+  (spacemacs//set-lsp-key-bindings 'c++-mode)
+  (spacemacs//set-lsp-key-bindings 'c-mode)
 
   (define-key evil-normal-state-map (kbd "gr") #'lsp-ui-peek-find-references)
 
@@ -333,6 +336,13 @@
 
     ))
 
+(defun ztlevi-programming/init-cquery ()
+  (use-package cquery
+    :defer t
+    :commands lsp-cquery-enable
+    :init (add-hook 'c-mode-common-hook #'lsp-cquery-enable)
+    ))
+
 (defun ztlevi-programming/post-init-cc-mode ()
   ;; http://stackoverflow.com/questions/23553881/emacs-indenting-of-c11-lambda-functions-cc-mode
   (defadvice c-lineup-arglist (around my activate)
@@ -368,21 +378,9 @@
 
 (defun ztlevi-programming/post-init-company ()
   (progn
-    ;; (spacemacs|add-company-backends
-    ;;   :backends company-lsp
-    ;;   :modes js2-mode)
-    ;; (add-hook 'js2-mode-local-vars-hook (lambda ()
-    ;;                                       (spacemacs|add-company-backends
-    ;;                                         :backends company-lsp
-    ;;                                         :modes js2-mode)
-    ;;                                       (company-mode)
-    ;;                                       ))
-    ;; (add-hook 'rjsx-mode-local-vars-hook (lambda ()
-    ;;                                       (spacemacs|add-company-backends
-    ;;                                         :backends company-lsp
-    ;;                                         :modes rjsx-mode)
-    ;;                                       (company-mode)
-    ;;                                       ))
+    ;; (spacemacs|add-company-backends :backends company-lsp :modes js2-mode)
+    ;; (spacemacs|add-company-backends :backends company-lsp :modes rjsx-mode)
+    (spacemacs|add-company-backends :backends company-lsp :modes c-mode-common)
 
     ;; set the company minimum prefix length and idle delay
     (defvar ztlevi/company-minimum-prefix-length 1

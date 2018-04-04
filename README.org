@@ -29,10 +29,10 @@
        #+END_QUOTE
 **** Install Emacs on Linux
      #+BEGIN_SRC shell
-      # Ubuntu
-      sudo apt-get insatll emacs
-      # Arch
-      sudo pacman -S emacs
+       # Ubuntu
+       sudo apt-get insatll emacs
+       # Arch
+       sudo pacman -S emacs
      #+END_SRC
 
 *** Step2: Install Spacemacs
@@ -49,7 +49,19 @@
          git clone https://github.com/ztlevi/spacemacs-config.git ~/.spacemacs.d
        #+END_SRC
     2. Install all-the-icons fonts by ~M-x all-the-icons-install-fonts~. I'm using /Operator Mono Lig/ font(supports ligatures), you could change it under ~dotspacemacs-default-font~.
-    3. Download and install DejaVu Sans Mono from [[https://sourceforge.net/projects/dejavu/files/dejavu/2.35/dejavu-fonts-ttf-2.35.tar.bz2/download][here]]. It's the best programming font supports unicode.
+    3. Language Server Protocol:
+       #+BEGIN_SRC shell
+         # cquery
+         brew tap twlz0ne/homebrew-cquery
+         brew install cquery
+
+         # Javascript
+         npm i -g javascript-typescript-langserver flow-language-server
+
+         # python
+         pip install python-language-server
+       #+END_SRC
+
     4. Dependencies needed
        - Install shellcheck, ispell, ripgrep, the_silver_searcher, the_platinum_searcher
          #+BEGIN_SRC shell
@@ -57,12 +69,12 @@
          #+END_SRC
        - npm
          #+BEGIN_SRC shell
-           npm install -g prettier live-server tern import-js javascript-typescript-langserver flow-language-server
+           npm install -g prettier live-server tern import-js
          #+END_SRC
        - pip
          Make sure your ~python-shell-interpreter~ and pip is using the same environment (anaconda, python2 or python3). Check it with ~which -a pip ipython~
          #+BEGIN_SRC shell
-           pip install yapf python-language-server importmagic epc
+           pip install yapf importmagic epc
          #+END_SRC
 
 ** Usage
@@ -73,20 +85,22 @@
       '(evil-escape-key-sequence "jk")
       #+END_SRC
 
-   2. Use ~counsel-etags-find-tag-at-point~ (~g f~) to choose the etags directory and find candidates.
+   2. Cquery Project setup [[https://github.com/cquery-project/cquery/wiki/compile_commands.json][compile_commands.json]] (Best). Remember to copy/symlink it to the project root.
 
-   3. Atomic Chrome is very useful to edit the textarea in Chrome. You will need to install the Chrome extension [[https://chrome.google.com/webstore/detail/atomic-chrome/lhaoghhllmiaaagaffababmkdllgfcmc][here]].
+   3. Use ~counsel-etags-find-tag-at-point~ (~g f~) to choose the etags directory and find candidates.
 
-   4. Prodigy is great to define your own services and fire up the service easily. Custom setting is under function *ztlevi-misc/post-init-prodigy*
+   4. Atomic Chrome is very useful to edit the textarea in Chrome. You will need to install the Chrome extension [[https://chrome.google.com/webstore/detail/atomic-chrome/lhaoghhllmiaaagaffababmkdllgfcmc][here]].
+
+   5. Prodigy is great to define your own services and fire up the service easily. Custom setting is under function *ztlevi-misc/post-init-prodigy*
 
       Note: If you are on a Mac, disable nap mode for Emacs, otherwise requests will be very slow when Emacs enters nap mode:
       #+BEGIN_SRC shell
         defaults write org.gnu.Emacs NSAppSleepDisabled -bool YES
       #+END_SRC
 
-   5. To change the home page banner, configure the setting in ~dotspacemacs-startup-banner '"~/.spacemacs.d/icons/banner.png"~.
+   6. To change the home page banner, configure the setting in ~dotspacemacs-startup-banner '"~/.spacemacs.d/icons/banner.png"~.
 
-   6. Encrypt org entries by using ~C-c C-c~ to set ~secret~ tag for the entry. Save the file and input the passcode. Then the entry will be encrypted. Decrypt the entry by using ~org-decrypt-entry~.
+   7. Encrypt org entries by using ~C-c C-c~ to set ~secret~ tag for the entry. Save the file and input the passcode. Then the entry will be encrypted. Decrypt the entry by using ~org-decrypt-entry~.
 
 ** What's the highlight of this configuration
    1. It's a highly customize optimized Spacemacs configuration, it's relied on the *develop* branch of the officially Spacemacs.
