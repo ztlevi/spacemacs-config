@@ -16,7 +16,7 @@
          brew tap railwaycat/emacsmacport
          brew install emacs-mac --with-spacemacs-icon --with-gnutls --with-natural-title-bar
          # create alias in /Applications
-         rm /Applications/Emacs
+         rm -r /Applications/Emacs.app
          brew linkapps emacs-mac
        #+END_SRC
 
