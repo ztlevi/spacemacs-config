@@ -56,7 +56,7 @@
          brew install cquery
 
          # Javascript
-         npm i -g javascript-typescript-langserver flow-language-server
+         npm i -g javascript-typescript-langserver flow-language-server typescript-language-server
 
          # python
          pip install python-language-server
