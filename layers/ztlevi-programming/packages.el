@@ -23,6 +23,8 @@
     lsp-ui
     (lsp-imenu :location built-in)
     lsp-javascript-typescript
+    (lsp-javascript-flow :location built-in)
+    (lsp-typescript :location built-in)
     js2-refactor
     js-doc
     import-js
@@ -288,13 +290,30 @@
 
 (defun ztlevi-programming/init-lsp-javascript-typescript ()
   (use-package lsp-javascript-typescript
-    :commands (lsp-javascript-typescript-enable)
+    :commands lsp-javascript-typescript-enable
     :init
+    (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
     (add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable) ;; for typescript support
-    (add-hook 'js2-mode-hook #'lsp-javascript-typescript-enable) ;; for js2-mode support
+    (add-hook 'js3-mode-hook #'lsp-javascript-typescript-enable) ;; for js3-mode support
     (add-hook 'rjsx-mode #'lsp-javascript-typescript-enable) ;; for rjsx-mode support
-    ;; (require 'lsp-javascript-flow)
-    ;; (add-hook 'js2-mode-hook #'lsp-javascript-flow-enable) ;; for js2-mode support
+    :defer t))
+
+(defun ztlevi-programming/init-lsp-javascript-flow ()
+  (use-package lsp-javascript-flow
+    :commands lsp-javascript-flow-enable
+    :init
+    (add-hook 'js-mode-hook #'lsp-javascript-flow-enable)
+    (add-hook 'js2-mode-hook #'lsp-javascript-flow-enable) ;; for js2-mode support
+    (add-hook 'rjsx-mode #'lsp-javascript-flow-enable) ;; for rjsx-mode support
+    :defer t))
+
+(defun ztlevi-programming/init-lsp-typescript ()
+  (use-package lsp-typescript
+    :commands lsp-typescript-enable
+    :init
+    (add-hook 'js-mode-hook #'lsp-typescript-enable)
+    (add-hook 'js2-mode-hook #'lsp-typescript-enable) ;; for js2-mode support
+    (add-hook 'rjsx-mode #'lsp-typescript-enable) ;; for rjsx-mode support
     :defer t))
 
 (defun ztlevi-programming/post-init-js2-mode ()
