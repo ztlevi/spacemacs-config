@@ -111,8 +111,8 @@ version 2015-08-21"
 ;; es6 js, e.g. ComponentDidMount(), render() function in React
 ;; https://emacs-china.org/t/topic/4538/7
 (defun js-exception-imenu-generic-expression-regexp ()
-  ;; xxx (e) { }
-  (if (re-search-backward "^[ \t]*\\([A-Za-z_$][A-Za-z0-9_$]+\\)[ \t]*([a-zA-Z0-9, ]*) *\{ *$" nil t)
+  ;; (async)? xxx (e) { }
+  (if (re-search-backward "^[ \t]*\\(async\\)?[ \t]*\\([A-Za-z_$][A-Za-z0-9_$]+\\)[ \t]*([a-zA-Z0-9, ]*) *\{ *$" nil t)
       (progn
         (if (member (match-string 1) '("for" "if" "while" "switch"))
             (js-exception-imenu-generic-expression-regexp)
@@ -148,15 +148,15 @@ version 2015-08-21"
                                ("Class" "^[ \t]*\\(var\\|let\\|const\\)[ \t]*\\([0-9a-zA-Z_$.]+\\)[ \t]*=[ \t]*[a-zA-Z_$.]*.extend" 2)
                                ("Class" "^[ \t]*cc\.\\(.+\\)[ \t]*=[ \t]*cc\..+\.extend" 1)
 
-                               ("Function" "function[ \t]+\\([a-zA-Z0-9_$.]+\\)[ \t]*(" 1) ;; function xxx (
-                               ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*:[ \t]*function[ \t]*(" 1) ;; xxx : function (
-                               ("Function" "^[ \t]*\\(export\\)?[ \t]*\\(var\\|let\\|const\\)?[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 3) ;; (export)? (var|let|const)? xxx = function (
+                               ("Function" "\\(async\\)?[ \t]*function[ \t]+\\([a-zA-Z0-9_$.]+\\)[ \t]*(" 2) ;; (async)? function xxx (
+                               ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*:[ \t]*\\(async\\)?[ \t]*function[ \t]*(" 1) ;; xxx : (async)? function (
+                               ("Function" "^[ \t]*\\(export\\)?[ \t]*\\(var\\|let\\|const\\)?[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*\\(async\\)?[ \t]*function[ \t]*(" 3) ;; (export)? (var|let|const)? xxx = (async)? function (
 
                                ;; {{ es6 beginning
-                               ("Function" js-exception-imenu-generic-expression-regexp 1) ;; xxx (e) { }
-                               ("Function" "^[ \t]*\\([A-Za-z_$][A-Za-z0-9_$.]*\\)[ \t]*:[ \t]*(.*)[ \t]*=>" 1) ;; xxx : (e) =>
-                               ("Function" "^[ \t]*\\(export\\)?[ \t]*\\(var\\|let\\|const\\)?[ \t]*\\([A-Za-z_$][A-Za-z0-9_$.]*\\)[ \t]*=[ \t]*(" 3) ;; (export)? (var|let|const)? xxx = (
-                               ("Function" "^[ \t]*\\(export\\)?[ \t]*\\(var\\|let\\|const\\)?[ \t]*\\([A-Za-z_$][A-Za-z0-9_$.]*\\)[ \t]*=[ \t]*[A-Za-z_$][A-Za-z0-9_$.]*[ \t]*=>" 3) ;; (export)? (var|let|const)? xxx = e =>
+                               ("Function" js-exception-imenu-generic-expression-regexp 2) ;; (async)? xxx (e) { }
+                               ("Function" "^[ \t]*\\([A-Za-z_$][A-Za-z0-9_$.]*\\)[ \t]*:[ \t]*\\(async\\)?[ \t]*(" 1) ;; xxx : (async)? (
+                               ("Function" "^[ \t]*\\(export\\)?[ \t]*\\(var\\|let\\|const\\)?[ \t]*\\([A-Za-z_$][A-Za-z0-9_$.]*\\)[ \t]*=[ \t]*\\(async\\)?[ \t]*(" 3) ;; (export)? (var|let|const)? xxx = (async)? (
+                               ("Function" "^[ \t]*\\(export\\)?[ \t]*\\(var\\|let\\|const\\)?[ \t]*\\([A-Za-z_$][A-Za-z0-9_$.]*\\)[ \t]*=[ \t]*\\(async\\)?[ \t]*[A-Za-z_$][A-Za-z0-9_$.]*[ \t]*=>" 3) ;; (export)? (var|let|const)? xxx = (async)? e =>
                                ;; }}
 
                                ("Task" "[. \t]task([ \t]*['\"]\\([^'\"]+\\)" 1)))))
