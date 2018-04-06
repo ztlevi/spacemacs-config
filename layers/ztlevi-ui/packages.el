@@ -13,7 +13,6 @@
   '(
     all-the-icons
     all-the-icons-dired
-    ;; moody
     ;; doom modeline needs all-the-icons, shrink-path, eldoc-eval
     (doom-modeline :location local)
     shrink-path
@@ -27,10 +26,6 @@
     doom-themes
     ;; To use local repo, update the packages to clean up the cache
     ;; (doom-themes :location "~/Developer/Github/emacs-doom-themes")
-    ;; hl-anything performance is very slow...
-    ;; hl-anything
-    ;; beacon
-    ;; evil-vimish-fold
     )
   )
 
@@ -70,22 +65,6 @@
 (defun ztlevi-ui/init-eldoc-eval ()
   (use-package eldoc-eval
     :defer t))
-
-(defun ztlevi-ui/init-moody ()
-  (use-package moody
-    :init
-    (let ((line (face-attribute 'mode-line :underline)))
-      (set-face-attribute 'mode-line          nil :overline   line)
-      (set-face-attribute 'mode-line-inactive nil :overline   line)
-      (set-face-attribute 'mode-line-inactive nil :underline  line)
-      (set-face-attribute 'mode-line          nil :box        nil)
-      (set-face-attribute 'mode-line-inactive nil :box        nil)
-      (set-face-attribute 'mode-line-inactive nil :background "#f9f2d9"))
-    :config
-    (setq x-underline-at-descent-line t)
-    (moody-replace-mode-line-buffer-identification)
-    (moody-replace-vc-mode)
-    ))
 
 (defun ztlevi-ui/init-all-the-icons-dired ()
   (use-package all-the-icons-dired
@@ -146,20 +125,6 @@ This segment overrides the modeline functionality of `org-mode-line-string'."
       (setq-default mode-line-format '("%e" (:eval (spaceline-ml-ztlevi))))
       )))
 
-(defun ztlevi-ui/init-beacon ()
-  (use-package beacon
-    :init
-    (progn
-      (spacemacs|add-toggle beacon
-        :status beacon-mode
-        :on (beacon-mode)
-        :off (beacon-mode -1)
-        :documentation "Enable point highlighting after scrolling"
-        :evil-leader "otb")
-
-      (spacemacs/toggle-beacon-on))
-    :config (spacemacs|hide-lighter beacon-mode)))
-
 (defun ztlevi-ui/init-ivy-posframe ()
   (use-package ivy-posframe
     :defer t
@@ -172,32 +137,6 @@ This segment overrides the modeline functionality of `org-mode-line-string'."
     (setq ivy-display-function #'ivy-posframe-display)
 
     (ivy-posframe-enable)))
-
-(defun ztlevi-ui/init-evil-vimish-fold ()
-  (use-package evil-vimish-fold
-    :init
-    (vimish-fold-global-mode 1)
-    :config
-    (progn
-      (define-key evil-normal-state-map (kbd "zf") 'vimish-fold)
-      (define-key evil-visual-state-map (kbd "zf") 'vimish-fold)
-      (define-key evil-normal-state-map (kbd "zd") 'vimish-fold-delete)
-      (define-key evil-normal-state-map (kbd "za") 'vimish-fold-toggle))))
-
-(defun ztlevi-ui/post-init-hl-anything ()
-  (progn
-    (defun my-inhibit-globalized-hl-highlight-mode ()
-      "Counter-act a globalized hl-highlight-mode."
-      (set (make-local-variable 'hl-highlight-mode) nil))
-
-    (add-hook 'org-agenda-mode-hook 'my-inhibit-globalized-hl-highlight-mode)
-    (hl-highlight-mode -1)
-    (spacemacs|add-toggle toggle-hl-anything
-      :status hl-highlight-mode
-      :on (hl-highlight-mode)
-      :off (hl-highlight-mode -1)
-      :documentation "Toggle highlight anything mode."
-      :evil-leader "ths")))
 
 (defun ztlevi-ui/post-init-pangu-spacing ()
   (progn

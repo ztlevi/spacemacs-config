@@ -14,7 +14,6 @@
     company
     company-lsp
     counsel-etags
-    ;; eacl
     (cc-mode :location built-in)
     cquery
     cmake-font-lock
@@ -252,13 +251,6 @@
     (spacemacs/set-leader-keys-for-major-mode 'js2-mode
       "r>" 'js2r-forward-slurp
       "r<" 'js2r-forward-barf)))
-
-(defun ztlevi-programming/init-eacl ()
-  (use-package eacl
-    :defer t
-    :config
-    ;; only for mac
-    (setq eacl-grep-program "ggrep")))
 
 (defun ztlevi-programming/post-init-lsp-ui ()
   ;; temporary fix for flycheck
