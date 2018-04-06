@@ -22,6 +22,7 @@
     ;; (ztlevi-mode-line :location built-in)
     ;; spaceline
     popwin
+    ivy-posframe
     (whitespace :location built-in)
     doom-themes
     ;; To use local repo, update the packages to clean up the cache
@@ -158,6 +159,19 @@ This segment overrides the modeline functionality of `org-mode-line-string'."
 
       (spacemacs/toggle-beacon-on))
     :config (spacemacs|hide-lighter beacon-mode)))
+
+(defun ztlevi-ui/init-ivy-posframe ()
+  (use-package ivy-posframe
+    :defer t
+    :init
+    (setq ivy-posframe-parameters
+          '((left-fringe . 10)
+            (right-fringe . 10)))
+
+    ;; https://github.com/tumashu/ivy-posframe#how-to-enable-ivy-posframe
+    (setq ivy-display-function #'ivy-posframe-display)
+
+    (ivy-posframe-enable)))
 
 (defun ztlevi-ui/init-evil-vimish-fold ()
   (use-package evil-vimish-fold
