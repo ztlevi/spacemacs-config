@@ -634,6 +634,21 @@ It should only modify the values of Spacemacs settings."
   ;; force horizontal split window
   (setq split-width-threshold 120)
 
+  ;; auto-mode-alist in config to make sure modes are added at top
+  (delete '("\\.component.html\\'" . ng2-html-mode) auto-mode-alist)
+  (dolist (m '(("Capstanfile\\'" . yaml-mode)
+               ("\\.mm\\'" . objc-mode)
+               ("\\.c\\'" . c++-mode)
+               ("\\.zsh\\'" . shell-script-mode)
+               ("\\.xtpl\\'" . web-mode)
+               ("\\.blade.php\\'" . web-mode)
+               ("\\.mak\\'" . makefile-bsdmake-mode)
+               ("\\.component.html\\'" . ng2-html-mode)
+               ("\\.module.ts\\'" . ng2-ts-mode)))
+    (add-to-list 'auto-mode-alist m))
+
+(add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt '("xml" "xsd" "rng" "xslt" "xsl") t) "\\'") 'nxml-mode))
+
   ;; diminish modes
   (spacemacs|diminish meghanada-mode " Ⓜ︎" " M")
   (spacemacs|diminish which-key-mode)

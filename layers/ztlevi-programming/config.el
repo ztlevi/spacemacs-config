@@ -107,20 +107,6 @@
 ;; (add-hook 'markdown-mode-hook 'flycheck-mode)
 ;; (add-hook 'gfm-mode-hook 'flycheck-mode)
 
-;; add to mode alist
-(dolist (m '(("Capstanfile\\'" . yaml-mode)
-             ("\\.mm\\'" . objc-mode)
-             ("\\.c\\'" . c++-mode)
-             ("\\.zsh\\'" . shell-script-mode)
-             ("\\.xtpl\\'" . web-mode)
-             ("\\.vue\\'" . web-mode)
-             ("\\.mak\\'" . makefile-bsdmake-mode)
-             ("\\.blade.php\\'" . web-mode)))
-  (add-to-list 'auto-mode-alist m))
-
-(add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt '("xml" "xsd" "rng" "xslt" "xsl") t) "\\'") 'nxml-mode))
-(setq nxml-slash-auto-complete-flag t)
-
 ;; variables are considered undeclared for purposes of highlighting
 (setq-default js2-additional-externs
               '("$"
