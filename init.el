@@ -570,18 +570,6 @@ It should only modify the values of Spacemacs settings."
   (setq warning-minimum-level :error))
 
 (defun dotspacemacs/user-config ()
-  ;; ================== Config for different system ==================
-  (cond
-   ((string-equal system-type "darwin") ; Mac OS X
-    (progn
-      (message "Mac OS X")))
-   ((string-equal system-type "gnu/linux") ; linux
-    (progn
-      (message "Linux")))
-   ((string-equal system-type "windows-nt") ; Microsoft Windows
-    (progn
-      (message "Microsoft Windows"))))
-
   ;; ======================== Others ===========================
   ;; enable flyspell in text-mode
   (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
@@ -647,7 +635,7 @@ It should only modify the values of Spacemacs settings."
                ("\\.module.ts\\'" . ng2-ts-mode)))
     (add-to-list 'auto-mode-alist m))
 
-(add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt '("xml" "xsd" "rng" "xslt" "xsl") t) "\\'") 'nxml-mode))
+  (add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt '("xml" "xsd" "rng" "xslt" "xsl") t) "\\'") 'nxml-mode))
 
   ;; diminish modes
   (spacemacs|diminish meghanada-mode " Ⓜ︎" " M")
