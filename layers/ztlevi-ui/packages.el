@@ -21,7 +21,7 @@
     ;; (ztlevi-mode-line :location built-in)
     ;; spaceline
     popwin
-    ivy-posframe
+    (ivy-posframe :toggle (version<= "26" emacs-version))
     (whitespace :location built-in)
     doom-themes
     ;; To use local repo, update the packages to clean up the cache
