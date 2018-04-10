@@ -9,6 +9,22 @@
 ;;
 ;;; License: GPLv3
 
+;; Make shell & ssh
+(defmacro make--shell (name &rest arglist)
+  `(defun ,(intern (format "%S-shell" name)) ,arglist
+     (interactive)
+     (let ((default-directory ,(format "/ssh:%S:" name))
+           (explicit-shell-file-name "/bin/bash"))
+       (shell (generate-new-buffer-name ,(format "*%S*" name))))))
+
+(defmacro make--ssh (name &rest arglist)
+  `(defun ,(intern (format "%S-ssh" name)) ,arglist
+     (interactive)
+     (find-file ,(format "/ssh:%S:" name))))
+
+(make--ssh centos)
+(make--shell centos)
+
 ;; refresh buffer
 (defun revert-buffer-no-confirm ()
   "Revert buffer without confirmation."
