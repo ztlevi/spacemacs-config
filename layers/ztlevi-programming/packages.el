@@ -12,7 +12,6 @@
 (defconst ztlevi-programming-packages
   '(
     company
-    company-lsp
     counsel-etags
     (cc-mode :location built-in)
     cquery
@@ -286,14 +285,20 @@
     :defer t)
   )
 
-(defun ztlevi-programming/post-init-company-lsp ()
-  ;; https://github.com/tigersoldier/company-lsp/issues/30
-  (setq company-lsp-cache-candidates 'auto))
-
 (defun ztlevi-programming/init-lsp-javascript-typescript ()
   (use-package lsp-javascript-typescript
     :commands lsp-javascript-typescript-enable
     :init
+    ;; fix lsp-javascript company prefix
+    ;; https://github.com/emacs-lsp/lsp-javascript/issues/9#issuecomment-379515379
+    (defun my-company-transformer (candidates)
+      (let ((completion-ignore-case t))
+        (all-completions (company-grab-symbol) candidates)))
+    (defun my-js-hook nil
+      (make-local-variable 'company-transformers)
+      (push 'my-company-transformer company-transformers))
+    (add-hook 'js2-mode-hook 'my-js-hook)
+
     (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
     (add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable) ;; for typescript support
     (add-hook 'js3-mode-hook #'lsp-javascript-typescript-enable) ;; for js3-mode support

@@ -33,8 +33,8 @@
 ;; c++ hook
 (add-hook 'c++-mode-hook
           (lambda ()
-              (add-hook 'write-contents-hooks
-                        'ztlevi/untabify-buffer nil t)))
+            (add-hook 'write-contents-hooks
+                      'ztlevi/untabify-buffer nil t)))
 
 ;; java hook
 (add-hook 'java-mode-hook
