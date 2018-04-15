@@ -16,40 +16,39 @@
 
 ;; js2 mode hook
 (defun my-js2-mode-hook ()
-  (progn
-    (setq imenu-create-index-function 'js2-imenu-make-index)
+  (setq imenu-create-index-function 'js2-imenu-make-index)
 
-    (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)
+  (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)
 
-    (define-key js2-mode-map "\C-ci" 'js-doc-insert-function-doc-snippet)
-    (define-key js2-mode-map "@" 'js-doc-insert-tag)
-    (modify-syntax-entry ?_ "w")
+  (define-key js2-mode-map "\C-ci" 'js-doc-insert-function-doc-snippet)
+  (define-key js2-mode-map "@" 'js-doc-insert-tag)
+  (modify-syntax-entry ?_ "w")
 
-    (spacemacs/toggle-syntax-checking-on)
-    (setq forward-sexp-function nil)
-    (set (make-local-variable 'semantic-mode) nil)))
+  (spacemacs/toggle-syntax-checking-on)
+  (setq forward-sexp-function nil)
+  (set (make-local-variable 'semantic-mode) nil))
 (add-hook 'js2-mode-hook 'my-js2-mode-hook)
 
 ;; c++ hook
-(add-hook 'c++-mode-hook
-          (lambda ()
-            (add-hook 'write-contents-hooks
-                      'ztlevi/untabify-buffer nil t)))
+(defun my-c++-mode-hook ()
+  (add-hook 'write-contents-hooks
+            'ztlevi/untabify-buffer nil t))
+(add-hook 'c++-mode-hook 'my-c++-mode-hook)
 
 ;; java hook
-(add-hook 'java-mode-hook
-          (lambda ()
-            ;; meghanada-mode on
-            ;; use code format
-            (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
+(defun my-java-mode-hook ()
+  ;; meghanada-mode on
+  ;; use code format
+  (add-hook 'before-save-hook 'meghanada-code-beautify-before-save))
+(add-hook 'java-mode-hook 'my-java-mode-hook)
 
 ;; term hook
 (add-hook 'term-mode-hook 'ztlevi/ash-term-hooks)
 
 ;; css mode
-(add-hook 'css-mode-hook
-          (lambda ()
-            (setq imenu-create-index-function 'css-imenu-make-index)))
+(defun my-css-mode-hook ()
+  (setq imenu-create-index-function 'css-imenu-make-index))
+(add-hook 'css-mode-hook 'my-css-mode-hook)
 
 (dolist (hook '(css-mode-hook sass-mode-hook less-mode-hook))
   (add-hook hook 'rainbow-mode))
