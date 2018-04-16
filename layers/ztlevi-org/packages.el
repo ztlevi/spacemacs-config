@@ -15,7 +15,8 @@
     ;; org-mac-link
     org-pomodoro
     deft
-    (blog-admin :location (recipe
+    (blog-admin :toggle (executable-find "hexo")
+                :location (recipe
                            :fetcher github
                            :repo "codefalling/blog-admin"))
     ox-reveal
