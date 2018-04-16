@@ -218,6 +218,7 @@
 (spacemacs/set-leader-keys "oR" 'ztlevi/browser-refresh--chrome-applescript)
 (spacemacs/set-leader-keys "oT" 'ztlevi/untabify-buffer)
 (spacemacs/set-leader-keys "op" 'prettier-js)
+(spacemacs/set-leader-keys (kbd "of") 'counsel-git)
 
 (spacemacs/set-leader-keys "rr" 'rjsx-mode)
 
@@ -245,12 +246,12 @@
 (spacemacs/set-leader-keys "oll" 'ztlevi/load-my-layout)
 (spacemacs/set-leader-keys "ols" 'ztlevi/save-my-layout)
 
-(global-set-key (kbd "s-p") 'counsel-git)
-(global-set-key (kbd "s-s") 'evil-write-all)
-(global-set-key (kbd "s-w") 'delete-window-or-frame)
-(global-set-key (kbd "C-s-o") 'other-frame)
-;; keybindings for linux and windows
-(when (or (spacemacs/system-is-linux) (spacemacs/system-is-mswindows))
+;; keybindings for linux and macOS
+(when (or (spacemacs/system-is-linux) (spacemacs/system-is-mac))
+  (global-set-key (kbd "s-p") 'counsel-git)
+  (global-set-key (kbd "s-s") 'evil-write-all)
+  (global-set-key (kbd "s-w") 'delete-window-or-frame)
+  (global-set-key (kbd "C-s-o") 'other-frame)
   (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
   (global-set-key (kbd "s--") 'spacemacs/scale-down-font)
   (global-set-key (kbd "s-0") 'spacemacs/reset-font-size)
@@ -261,7 +262,11 @@
   (global-set-key (kbd "s-x") 'kill-region)
   (global-set-key (kbd "s-n") 'make-frame)
   (global-set-key (kbd "s-z") 'undo-tree-undo)
-  (global-set-key (kbd "s-Z") 'undo-tree-redo))
-;; keybindings for macOS
-(when (spacemacs/system-is-mac)
+  (global-set-key (kbd "s-Z") 'undo-tree-redo)
   (spacemacs/set-leader-keys "o!" 'ztlevi/iterm-shell-command))
+;; keybindings for Windows
+(when (spacemacs/system-is-mswindows)
+  (global-set-key (kbd "C-s") 'evil-write-all)
+  (global-set-key (kbd "C-=") 'spacemacs/scale-up-font)
+  (global-set-key (kbd "C--") 'spacemacs/scale-down-font)
+  (global-set-key (kbd "C-0") 'spacemacs/reset-font-size))
