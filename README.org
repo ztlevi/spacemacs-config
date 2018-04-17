@@ -14,10 +14,10 @@
      - *Method 2*: Just brew, need compiling. (more customization)
        #+BEGIN_SRC shell
          brew tap railwaycat/emacsmacport
+         rm -r /Applications/Emacs.app
          brew install emacs-mac --with-spacemacs-icon --with-gnutls --with-natural-title-bar
          # create alias in /Applications
-         rm -r /Applications/Emacs.app
-         brew linkapps emacs-mac
+         ln -Fs `find /usr/local -name "Emacs.app"` /Applications/Emacs.app
        #+END_SRC
 
        #+BEGIN_QUOTE
