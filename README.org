@@ -59,7 +59,7 @@
          npm i -g javascript-typescript-langserver flow-language-server typescript-language-server
 
          # python
-         pip install python-language-server
+         pip install 'python-language-server[all]'
        #+END_SRC
 
     4. Dependencies needed
