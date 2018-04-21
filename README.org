@@ -59,7 +59,7 @@
          npm i -g typescript javascript-typescript-langserver flow-language-server typescript-language-server
 
          # python
-         pip install 'python-language-server[all]'
+         pip3 install 'python-language-server[all]'
        #+END_SRC
 
     4. Dependencies needed
@@ -74,12 +74,12 @@
        - pip
          Make sure your ~python-shell-interpreter~ and pip is using the same environment (anaconda, python2 or python3). Check it with ~which -a pip ipython~
          #+BEGIN_SRC shell
-           pip install yapf importmagic epc
+           pip3 install yapf importmagic epc
          #+END_SRC
 
          *Note*: (optional) If you are using Python 2.7 and want to enable multiprocessing:
          #+BEGIN_SRC shell
-           pip install futures
+           pip2 install futures
          #+END_SRC
 
 ** Usage
