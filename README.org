@@ -77,6 +77,11 @@
            pip install yapf importmagic epc
          #+END_SRC
 
+         *Note*: (optional) If you are using Python 2.7 and want to enable multiprocessing:
+         #+BEGIN_SRC shell
+           pip install futures
+         #+END_SRC
+
 ** Usage
    1. If you want to map *jk* as evil escape key, add the following line in ~customize.el~ -> ~custom-set-variables~ and delete ~evil-escape~ package in ~init.el~ -> ~dotspacemacs-excluded-packages~.
 

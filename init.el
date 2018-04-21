@@ -130,7 +130,7 @@ This function should only modify configuration layer settings."
              python-indent-offset 4
              python-backend 'lsp
              python-sort-imports-on-save t
-             ;; python-enable-yapf-format-on-save t
+             python-enable-yapf-format-on-save t
              python-test-runner '(nose pytest))
      ipython-notebook
      (html :packages (not impatient-mode)
