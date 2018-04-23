@@ -49,20 +49,8 @@
          git clone https://github.com/ztlevi/spacemacs-config.git ~/.spacemacs.d
        #+END_SRC
     2. Install all-the-icons fonts by ~M-x all-the-icons-install-fonts~. I'm using /Operator Mono Lig/ font(supports ligatures), you could change it under ~dotspacemacs-default-font~.
-    3. Language Server Protocol:
-       #+BEGIN_SRC shell
-         # cquery
-         brew tap twlz0ne/homebrew-cquery
-         brew install cquery
 
-         # Javascript
-         npm i -g typescript javascript-typescript-langserver flow-language-server typescript-language-server
-
-         # python
-         pip3 install 'python-language-server[all]'
-       #+END_SRC
-
-    4. Dependencies needed
+    3. Dependencies needed
        - Install shellcheck, ispell, ripgrep, the_silver_searcher, the_platinum_searcher
          #+BEGIN_SRC shell
            brew install shellcheck coreutils ispell watchman gpg2
@@ -81,6 +69,18 @@
          #+BEGIN_SRC shell
            pip2 install futures
          #+END_SRC
+    4. Language Server Protocol: Install the [[https://langserver.org/][lsp]] for your languages. A few examples are listed below.
+       #+BEGIN_SRC shell
+         # Javascript
+         npm i -g typescript javascript-typescript-langserver flow-language-server typescript-language-server
+
+         # python
+         pip3 install 'python-language-server[all]'
+
+         # cquery for c++
+         brew tap twlz0ne/homebrew-cquery
+         brew install cquery
+       #+END_SRC
 
 ** Usage
    1. If you want to map *jk* as evil escape key, add the following line in ~customize.el~ -> ~custom-set-variables~ and delete ~evil-escape~ package in ~init.el~ -> ~dotspacemacs-excluded-packages~.
