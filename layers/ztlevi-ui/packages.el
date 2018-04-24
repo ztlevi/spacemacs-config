@@ -13,10 +13,9 @@
   '(
     all-the-icons
     all-the-icons-dired
-    ;; doom modeline needs all-the-icons, shrink-path, eldoc-eval
+    ;; doom modeline needs all-the-icons, shrink-path
     (doom-modeline :location local)
     shrink-path
-    eldoc-eval
     ;; if you wnat to use spaceline, please comment out ztlevi-mode-line
     ;; (ztlevi-mode-line :location built-in)
     ;; spaceline
@@ -61,10 +60,6 @@
   (use-package shrink-path
     :defer t
     :commands (shrink-path-prompt shrink-path-file-mixed)))
-
-(defun ztlevi-ui/init-eldoc-eval ()
-  (use-package eldoc-eval
-    :defer t))
 
 (defun ztlevi-ui/init-all-the-icons-dired ()
   (use-package all-the-icons-dired
