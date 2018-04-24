@@ -25,6 +25,7 @@
     lsp-javascript-typescript
     (lsp-javascript-flow :location built-in)
     (lsp-typescript :location built-in)
+    lsp-vue
     js2-refactor
     js-doc
     import-js
@@ -275,6 +276,13 @@
 
 (defun ztlevi-programming/init-vue-mode ()
   (use-package vue-mode
+    :defer t))
+
+(defun ztlevi-programming/init-lsp-vue ()
+  (use-package lsp-vue
+    :commands lsp-vue-mmm-enable
+    :init
+    (add-hook 'vue-mode-hook #'lsp-vue-mmm-enable)
     :defer t))
 
 (defun ztlevi-programming/init-lsp-imenu ()
