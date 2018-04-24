@@ -297,7 +297,7 @@
     (defun my-js-hook nil
       (make-local-variable 'company-transformers)
       (push 'my-company-transformer company-transformers))
-    (add-hook 'js2-mode-hook 'my-js-hook)
+    (add-hook 'js-mode-hook 'my-js-hook)
 
     (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
     (add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable) ;; for typescript support
