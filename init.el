@@ -144,8 +144,7 @@ This function should only modify configuration layer settings."
            web-mode-attr-value-indent-offset 2)
      (java :packages (not eclim ensime company-emacs-eclim)
            :variables c-basic-offset 2)
-     (javascript :packages (not web-beautify livid-mode company-tern tern)
-                 :variables
+     (javascript :variables
                  node-add-modules-path t
                  js2-basic-offset 2 ; javascript indent
                  js-indent-level  2 ; json indent
@@ -184,8 +183,10 @@ This function should only modify configuration layer settings."
 
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages
-   '(evil-escape exec-path-from-shell holy-mode spacemacs-theme eyebrowse
-                 org-bullets)
+   '(eyebrowse evil-escape exec-path-from-shell holy-mode spacemacs-theme
+               org-bullets
+               ;; javascript excluded packages
+               web-beautify livid-mode company-tern tern)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
