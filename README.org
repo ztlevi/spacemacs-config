@@ -51,7 +51,7 @@
     2. Install all-the-icons fonts by ~M-x all-the-icons-install-fonts~. I'm using /Operator Mono Lig/ font(supports ligatures), you could change it under ~dotspacemacs-default-font~.
 
     3. Dependencies needed
-       - Install shellcheck, ispell, ripgrep, the_silver_searcher, the_platinum_searcher
+       - Install =shellcheck=, =ispell=, =ripgrep=, =the_silver_searcher=, =the_platinum_searcher=
          #+BEGIN_SRC shell
            brew install shellcheck coreutils ispell watchman gpg2
          #+END_SRC
@@ -60,17 +60,19 @@
            npm install -g prettier live-server import-js
          #+END_SRC
        - pip
-         Make sure your ~python-shell-interpreter~ and pip is using the same environment (anaconda, python2 or python3). Check it with ~which -a pip ipython~
-         #+BEGIN_SRC shell
-           pip3 install yapf
-           # For now, importmagic use hardcoded python which is python2.
+         - =yapf=
+           #+BEGIN_SRC shell
+             pip3 install yapf
+           #+END_SRC
+           *Note*: (optional) If you are using Python 2.7 (pip2) to install the =yapf= and want to enable multiprocessing:
+           #+BEGIN_SRC shell
+             pip2 install futures
+           #+END_SRC
+         - =importmagic=
+           For now, =importmagic= use hardcoded python (symbolic to python2 in most machines). In this case, pip2 should be used to install =importmagic=.
+           #+BEGIN_SRC shell
            pip2 importmagic epc
-         #+END_SRC
-
-         *Note*: (optional) If you are using Python 2.7 and want to enable multiprocessing:
-         #+BEGIN_SRC shell
-           pip2 install futures
-         #+END_SRC
+           #+END_SRC
     4. Language Server Protocol: Install the [[https://langserver.org/][lsp]] for your languages. A few examples are listed below.
        #+BEGIN_SRC shell
          # Javascript
