@@ -55,6 +55,7 @@
     ;; prettier js
     (spacemacs/add-to-hooks 'prettier-js-mode '(js2-mode-hook
                                                 typescript-mode-hook
+                                                typescript-tsx-mode-hook
                                                 rjsx-mode-hook
                                                 json-mode-hook
                                                 css-mode-hook
@@ -69,6 +70,7 @@
       ;; bind key
       (spacemacs/set-leader-keys-for-major-mode 'js2-mode "=" 'prettier-js)
       (spacemacs/set-leader-keys-for-major-mode 'typescript-mode "=" 'prettier-js)
+      (spacemacs/set-leader-keys-for-major-mode 'typescript-tsx-mode "=" 'prettier-js)
       (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode "=" 'prettier-js)
       (spacemacs/set-leader-keys-for-major-mode 'json-mode "=" 'prettier-js)
       (spacemacs/set-leader-keys-for-major-mode 'css-mode "=" 'prettier-js)
