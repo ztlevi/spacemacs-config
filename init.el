@@ -641,14 +641,6 @@ It should only modify the values of Spacemacs settings."
   ;; settings for transparent
   ;; (spacemacs/toggle-transparency)
 
-  ;; disable spaceline segments
-  ;; (spaceline-toggle-which-function-off)
-  ;; (spaceline-toggle-persp-name-off)
-  ;; (spaceline-toggle-line-column-off)
-  ;; (spaceline-toggle-buffer-encoding-abbrev-off)
-  ;; (spacemacs/toggle-mode-line-minor-modes-off)
-  ;; (spacemacs/toggle-mode-line-version-control-off)
-
   ;; disable apple powerline rgb
   (setq powerline-image-apple-rgb nil)
 
