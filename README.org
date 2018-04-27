@@ -62,7 +62,9 @@
        - pip
          Make sure your ~python-shell-interpreter~ and pip is using the same environment (anaconda, python2 or python3). Check it with ~which -a pip ipython~
          #+BEGIN_SRC shell
-           pip3 install yapf importmagic epc
+           pip3 install yapf
+           # For now, importmagic use hardcoded python which is python2.
+           pip2 importmagic epc
          #+END_SRC
 
          *Note*: (optional) If you are using Python 2.7 and want to enable multiprocessing:
