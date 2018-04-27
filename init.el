@@ -35,16 +35,15 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layers
    '(
      ;; ================== Spacemacs Layers ==================
-     (spacemacs-completion :packages (not default-helm-config ido-vertical-mode))
-     (spacemacs-editing :packages (not lorem-ipsum clean-aindent-mode smartparens))
-     (spacemacs-editing-visual :packages (not volatile-highlights rainbow-delimiters highlight-indentation lorem-ipsum))
-     (spacemacs-evil :packages (not evil-args evil-mc evil-ediff evil-exchange evil-unimpaired evil-indent-plus vi-tilde-fringe evil-lisp-state evil-cleverparens))
+     spacemacs-completion
+     spacemacs-editing
+     spacemacs-editing-visual
+     spacemacs-evil
      ;; spacemacs-language
      (spacemacs-layouts :variables layouts-enable-autosave nil)
-     (spacemacs-misc :packages (not dumb-jump))
-     ;; (spacemacs-modeline :packages (not spaceline-all-the-icons vim-powerline symon fancy-battery))
+     spacemacs-misc
      (spacemacs-modeline :packages (font-lock+))
-     (spacemacs-navigation :packages (not flx-ido smooth-scrolling))
+     spacemacs-navigation
      spacemacs-org
      spacemacs-project
      spacemacs-visual
@@ -53,7 +52,7 @@ This function should only modify configuration layer settings."
      (ranger :variables ranger-show-preview t)
      (vinegar :variables vinegar-reuse-dired-buffer t)
      (pandoc :variables org-pandoc-options '((standalone . t)))
-     (dash :packages (not counsel-dash helm-dash))
+     dash
      (better-defaults :variables
                       better-defaults-move-to-end-of-code-first t
                       better-defaults-move-to-beginning-of-code-first t)
@@ -65,26 +64,21 @@ This function should only modify configuration layer settings."
      ivy
      (syntax-checking :variables syntax-checking-enable-by-default t
                       syntax-checking-enable-tooltips nil)
-     (spell-checking :packages (not auto-dictionary flyspell-correct-helm)
-                     :variables spell-checking-enable-by-default nil)
-     (auto-completion :packages (not ac-ispell auto-complete helm-c-yasnippet company-quickhelp yasnippet-snippets)
-                      :variables
+     (spell-checking :variables spell-checking-enable-by-default nil)
+     (auto-completion :variables
                       auto-completion-enable-sort-by-usage t
                       auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'complete
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-idle-delay 0.2
                       auto-completion-private-snippets-directory "~/.spacemacs.d/snippets")
-     (git :packages (not magit-gitflow orgit smeargle)
-          :variables
+     (git :variables
           magit-push-always-verify nil
           magit-save-repository-buffers 'dontask
           magit-revert-buffers 'silent
           magit-refs-show-commit-count 'all
           magit-revision-show-gravatars nil)
-     (version-control :packages (not smerge-mode git-gutter git-gutter+
-                                     git-gutter-fringe git-gutter-fringe+)
-                      :variables version-control-diff-tool 'diff-hl
+     (version-control :variables version-control-diff-tool 'diff-hl
                       version-control-diff-side 'left)
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
      (osx :variables osx-dictionary-dictionary-choice "Simplified Chinese - English"
@@ -92,10 +86,10 @@ This function should only modify configuration layer settings."
      ;; restclient
      ;; (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      (shell :variables shell-default-shell 'ansi-term)
-     (shell-scripts :packages (not fish-mode flycheck-bashate))
+     shell-scripts
      ;; docker
      deft
-     (chrome :packages (not edit-server gmail-message-mode))
+     chrome
      imenu-list
      ;; neotree
      treemacs
@@ -114,9 +108,8 @@ This function should only modify configuration layer settings."
      (latex :variables
             latex-build-command "LatexMk" ;; latexmk -pdf --synctex=1 -interaction=nonstopmode  -file-line-error  filename.tex
             latex-enable-folding t)
-     (markdown :packages (not gh-md))
-     (org :packages (not org-projectile org-download org-present org-brain)
-          :variables
+     markdown
+     (org :variables
           org-startup-folded nil
           org-want-todo-bindings t
           org-enable-bootstrap-support t
@@ -125,37 +118,32 @@ This function should only modify configuration layer settings."
      gpu
      yaml
      ;; php
-     (python :packages (not anaconda-mode company-anaconda)
-             :variables
+     (python :variables
              python-indent-offset 4
              python-backend 'lsp
              python-sort-imports-on-save t
              python-enable-yapf-format-on-save t
              python-test-runner '(nose pytest))
      ipython-notebook
-     (html :packages (not impatient-mode)
-           :variables
+     (html :variables
            css-indent-offset 2
-           web-mode-markup-indent-offset 2      ; web-mode, html tag in html file
-           web-mode-css-indent-offset    2      ; web-mode, css in html file
-           web-mode-code-indent-offset   2      ; web-mode, js code in html file
-           web-mode-attr-indent-offset   2      ; web-mode
-           web-mode-sql-indent-offset    2      ; web-mode
+           web-mode-markup-indent-offset 2 ; web-mode, html tag in html file
+           web-mode-css-indent-offset    2 ; web-mode, css in html file
+           web-mode-code-indent-offset   2 ; web-mode, js code in html file
+           web-mode-attr-indent-offset   2 ; web-mode
+           web-mode-sql-indent-offset    2 ; web-mode
            web-mode-attr-value-indent-offset 2)
-     (java :packages (not eclim ensime company-emacs-eclim)
-           :variables c-basic-offset 2)
+     (java :variables c-basic-offset 2)
      (javascript :variables
                  node-add-modules-path t
-                 js2-basic-offset 2 ; javascript indent
-                 js-indent-level  2 ; json indent
+                 js2-basic-offset 2     ; javascript indent
+                 js-indent-level  2     ; json indent
                  )
-     (typescript :packages (not tide)
-                 :variables
+     (typescript :variables
                  typescript-indent-level 2)
-     (emacs-lisp :packages (not nameless overseer))
+     emacs-lisp
      (cmake :variables cmake-enable-cmake-ide-support t)
-     (c-c++ :packages (not realgud clang-format disaster rtags company-rtags flycheck-rtags ivy-rtags)
-            :variables
+     (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support t
             c-c++-enable-clang-format-on-save t
@@ -166,8 +154,7 @@ This function should only modify configuration layer settings."
      ;; ======================== Others ========================
      ztlevi
      (chinese :packages youdao-dictionary
-              :variables chinese-enable-youdao-dict t)
-     )
+              :variables chinese-enable-youdao-dict t))
 
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -183,10 +170,65 @@ This function should only modify configuration layer settings."
 
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages
-   '(eyebrowse evil-escape exec-path-from-shell holy-mode spacemacs-theme
-               org-bullets
-               ;; javascript excluded packages
-               web-beautify livid-mode company-tern tern)
+   '(
+     ;; ================== Spacemacs Layers ==================
+     ;; spacemacs-bootstrap
+     exec-path-from-shell spacemacs-theme holy-mode
+     ;; spacemacs-completion
+     default-helm-config ido-vertical-mode
+     ;; spacemacs-editing
+     lorem-ipsum clean-aindent-mode smartparens
+     ;; spacemacs-editing-visual
+     volatile-highlights rainbow-delimiters highlight-indentation lorem-ipsum
+     ;; spacemacs-evil
+     evil-args evil-mc evil-ediff evil-exchange evil-unimpaired evil-indent-plus vi-tilde-fringe evil-lisp-state evil-cleverparens evil-escape
+     ;; spacemacs-layouts
+     eyebrowse
+     ;; spacemacs-misc
+     dumb-jump
+     ;; spacemacs-modeline
+     spaceline-all-the-icons vim-powerline symon fancy-battery
+     ;; spacemacs-navigation
+     flx-ido smooth-scrolling
+     ;; spacemacs-org
+     org-bullets
+
+     ;; ======================== Misc ========================
+     ;; dash
+     counsel-dash helm-dash
+     ;; spell-checking
+     auto-dictionary flyspell-correct-helm
+     ;; auto-completion
+     ac-ispell auto-complete helm-c-yasnippet company-quickhelp yasnippet-snippets
+     ;; git
+     magit-gitflow orgit smeargle
+     ;; version-control
+     smerge-mode git-gutter git-gutter+ git-gutter-fringe git-gutter-fringe+
+     ;; shell-script
+     fish-mode flycheck-bashate
+     ;; chrome
+     edit-server gmail-message-mode
+
+     ;; ===================== Languages =====================
+     ;; markdown
+     gh-md
+     ;; org
+     org-projectile org-download org-present org-brain
+     ;; python
+     anaconda-mode company-anaconda
+     ;; html
+     impatient-mode
+     ;; java
+     eclim ensime company-emacs-eclim
+     ;; javascript
+     web-beautify livid-mode company-tern tern
+     ;; typescript
+     tide
+     ;; emacs-lisp
+     nameless overseer
+     ;; c-c++
+     realgud clang-format disaster rtags company-rtags flycheck-rtags ivy-rtags
+     )
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
