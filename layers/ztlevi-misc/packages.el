@@ -317,6 +317,10 @@
     ))
 
 (defun ztlevi-misc/post-init-evil-surround ()
+  ;; comment jsx region
+  (add-hook 'rjsx-mode-hook (lambda ()
+                              (push '(?/ . ("{/*" . "*/}")) evil-surround-pairs-alist)))
+
   (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
   (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
   (evil-define-key 'visual evil-surround-mode-map "Cs" 'evil-surround-change)
