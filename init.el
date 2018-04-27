@@ -150,7 +150,8 @@ This function should only modify configuration layer settings."
                  js2-basic-offset 2 ; javascript indent
                  js-indent-level  2 ; json indent
                  )
-     (typescript :variables
+     (typescript :packages (not tide)
+                 :variables
                  typescript-indent-level 2)
      (emacs-lisp :packages (not nameless overseer))
      (cmake :variables cmake-enable-cmake-ide-support t)
