@@ -124,7 +124,6 @@ This function should only modify configuration layer settings."
              python-sort-imports-on-save t
              python-enable-yapf-format-on-save t
              python-test-runner '(nose pytest))
-     ipython-notebook
      (html :variables
            css-indent-offset 2
            web-mode-markup-indent-offset 2 ; web-mode, html tag in html file
