@@ -212,7 +212,7 @@ This function should only modify configuration layer settings."
      ;; markdown
      gh-md
      ;; org
-     org-projectile org-download org-present org-brain
+     org-download org-present org-brain
      ;; python
      anaconda-mode company-anaconda
      ;; html
@@ -659,8 +659,8 @@ It should only modify the values of Spacemacs settings."
                         charset
                         (font-spec :family "Microsoft Yahei" :size 20))))
 
-  ;; force horizontal split window
-  (setq split-width-threshold 120)
+  ;; prevent dired window press o to split into three column
+  (setq-default split-width-threshold 200)
 
   ;; auto-mode-alist in config to make sure modes are added at top
   (delete '("\\.component.html\\'" . ng2-html-mode) auto-mode-alist)
