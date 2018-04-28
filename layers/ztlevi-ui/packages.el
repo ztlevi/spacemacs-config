@@ -39,7 +39,17 @@
     (doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
 
     ;; Corrects (and improves) org-mode's native fontification.
-    (doom-themes-org-config)))
+    (doom-themes-org-config)
+
+    ;; custom doom-one-light-theme
+    (with-eval-after-load 'doom-one-light-theme
+      (custom-set-faces
+       '(doom-modeline-error ((t (:background "#e45649" :foreground "#f0f0f0"))))
+       '(ivy-posframe ((t (:background "white smoke"))))
+       '(lsp-ui-doc-background ((t (:background "white smoke"))))
+       '(origami-fold-replacement-face ((t (:inherit (quote font-lock-keyword-face)))))
+       '(show-paren-match ((t (:background "light gray"))))
+       '(tooltip ((t (:background "#dfdfdf" :foreground "#383a42"))))))))
 
 (defun ztlevi-ui/init-doom-modeline ()
   (use-package doom-modeline
