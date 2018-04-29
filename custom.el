@@ -12,6 +12,7 @@
  '(company-statistics-auto-restore nil)
  '(compilation-message-face (quote default))
  '(counsel-fzf-cmd "fzf -f %s" t)
+ '(counsel-git-cmd "rg --files" t)
  '(counsel-grep-base-command
    "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
  '(counsel-rg-base-command
