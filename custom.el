@@ -18,6 +18,9 @@
  '(counsel-rg-base-command
    "rg -i -M 120 --no-heading --line-number --color never %s .")
  '(ctags-update-delay-seconds 1024)
+ '(custom-safe-themes
+   (quote
+    ("c5d320f0b5b354b2be511882fc90def1d32ac5d38cccc8c68eab60a62d1621f2" default)))
  '(display-buffer-reuse-frames t)
  '(ein:jupyter-server-args (quote ("--NotebookApp.iopub_data_rate_limit=10000000")))
  '(erc-nick "ztlevi")
