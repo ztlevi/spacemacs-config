@@ -54,9 +54,7 @@
        '(ivy-posframe ((t (:background "#f0f0f0"))))
        '(lsp-ui-doc-background ((t (:background "#f0f0f0"))))
        '(origami-fold-replacement-face ((t (:inherit (quote font-lock-keyword-face)))))
-       '(show-paren-match ((t (:background "#f0f0f0"))))
-       ;; company-complete
-       '(tooltip ((t (:background "#f0f0f0" :foreground "#383a42"))))))))
+       '(show-paren-match ((t (:background "#f0f0f0"))))))))
 
 (defun ztlevi-ui/init-doom-modeline ()
   (use-package doom-modeline
