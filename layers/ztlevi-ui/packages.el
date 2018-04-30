@@ -51,11 +51,12 @@
     (with-eval-after-load 'doom-one-light-theme
       (custom-set-faces
        '(doom-modeline-error ((t (:background "#e45649" :foreground "#f0f0f0"))))
-       '(ivy-posframe ((t (:background "white smoke"))))
-       '(lsp-ui-doc-background ((t (:background "white smoke"))))
+       '(ivy-posframe ((t (:background "#f0f0f0"))))
+       '(lsp-ui-doc-background ((t (:background "#f0f0f0"))))
        '(origami-fold-replacement-face ((t (:inherit (quote font-lock-keyword-face)))))
-       '(show-paren-match ((t (:background "light gray"))))
-       '(tooltip ((t (:background "#dfdfdf" :foreground "#383a42"))))))))
+       '(show-paren-match ((t (:background "#f0f0f0"))))
+       ;; company-complete
+       '(tooltip ((t (:background "#f0f0f0" :foreground "#383a42"))))))))
 
 (defun ztlevi-ui/init-doom-modeline ()
   (use-package doom-modeline
