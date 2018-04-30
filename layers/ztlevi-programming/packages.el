@@ -369,7 +369,13 @@
   (use-package cquery
     :defer t
     :commands lsp-cquery-enable
-    :init (add-hook 'c-mode-common-hook #'lsp-cquery-enable)
+    :init
+    (progn
+      (defun cquery//enable ()
+        (condition-case nil
+            (lsp-cquery-enable)
+          (user-error nil)))
+      (add-hook 'c-c++-mode-hooks #'cquery//enable))
     ))
 
 (defun ztlevi-programming/post-init-cc-mode ()
