@@ -36,10 +36,15 @@
     ;; (doom-themes-visual-bell-config)
 
     ;; Enable custom neotree theme
-    (doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
+    (doom-themes-neotree-config)        ; all-the-icons fonts must be installed!
 
     ;; Corrects (and improves) org-mode's native fontification.
     (doom-themes-org-config)
+
+    ;; custom doom-city-lights-theme
+    (with-eval-after-load 'doom-city-lights-theme
+      (custom-set-faces
+       '(font-lock-type-face ((t (:foreground "#4db5bd"))))))
 
     ;; custom doom-one-light-theme
     (with-eval-after-load 'doom-one-light-theme
