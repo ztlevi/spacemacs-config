@@ -1,6 +1,11 @@
 ;;; ui/doom-modeline/doom-core.el -*- lexical-binding: t; -*-
 
 ;; =========================================================
+;; Define some variables
+(defconst EMACS26+ (not (version< emacs-version "26")))
+(defconst EMACS27+ (not (version< emacs-version "27")))
+
+;; =========================================================
 ;; Replace doom-project-root calls with projectile-project-root.
 (defun t/project-root ()
   "Get project root without throwing"
