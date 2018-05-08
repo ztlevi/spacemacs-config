@@ -22,9 +22,6 @@
     vue-mode
     lsp-ui
     (lsp-imenu :location built-in)
-    lsp-javascript-typescript
-    (lsp-javascript-flow :location built-in)
-    (lsp-typescript :location built-in)
     lsp-vue
     js2-refactor
     js-doc
@@ -259,12 +256,8 @@
   (setq lsp-ui-flycheck-enable nil)
 
   ;; set spacemacs-jump-handlers-%S (gd)
-  (spacemacs//set-lsp-key-bindings 'python-mode)
-  (spacemacs//set-lsp-key-bindings 'js2-mode)
-  (spacemacs//set-lsp-key-bindings 'rjsx-mode)
-  (spacemacs//set-lsp-key-bindings 'typescript-mode)
-  (spacemacs//set-lsp-key-bindings 'c++-mode)
-  (spacemacs//set-lsp-key-bindings 'c-mode)
+  (spacemacs//setup-lsp-jump-handler 'c++-mode)
+  (spacemacs//setup-lsp-jump-handler 'c-mode)
 
   (define-key evil-normal-state-map (kbd "gr") #'lsp-ui-peek-find-references)
 
@@ -294,44 +287,6 @@
     (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
     :defer t)
   )
-
-(defun ztlevi-programming/init-lsp-javascript-typescript ()
-  (use-package lsp-javascript-typescript
-    :commands lsp-javascript-typescript-enable
-    :init
-    ;; fix lsp-javascript company prefix
-    ;; https://github.com/emacs-lsp/lsp-javascript/issues/9#issuecomment-379515379
-    (defun my-company-transformer (candidates)
-      (let ((completion-ignore-case t))
-        (all-completions (company-grab-symbol) candidates)))
-    (defun my-js-hook nil
-      (make-local-variable 'company-transformers)
-      (push 'my-company-transformer company-transformers))
-    (add-hook 'js-mode-hook 'my-js-hook)
-
-    (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
-    (add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable) ;; for typescript support
-    (add-hook 'js3-mode-hook #'lsp-javascript-typescript-enable) ;; for js3-mode support
-    (add-hook 'rjsx-mode #'lsp-javascript-typescript-enable) ;; for rjsx-mode support
-    :defer t))
-
-(defun ztlevi-programming/init-lsp-javascript-flow ()
-  (use-package lsp-javascript-flow
-    :commands lsp-javascript-flow-enable
-    :init
-    (add-hook 'js-mode-hook #'lsp-javascript-flow-enable)
-    (add-hook 'js2-mode-hook #'lsp-javascript-flow-enable) ;; for js2-mode support
-    (add-hook 'rjsx-mode #'lsp-javascript-flow-enable) ;; for rjsx-mode support
-    :defer t))
-
-(defun ztlevi-programming/init-lsp-typescript ()
-  (use-package lsp-typescript
-    :commands lsp-typescript-enable
-    :init
-    (add-hook 'js-mode-hook #'lsp-typescript-enable)
-    (add-hook 'js2-mode-hook #'lsp-typescript-enable) ;; for js2-mode support
-    (add-hook 'rjsx-mode #'lsp-typescript-enable) ;; for rjsx-mode support
-    :defer t))
 
 (defun ztlevi-programming/post-init-js2-mode ()
   ;; js default variables
@@ -413,9 +368,7 @@
 
 (defun ztlevi-programming/post-init-company ()
   (progn
-    (spacemacs|add-company-backends :backends company-lsp :modes js2-mode)
-    (spacemacs|add-company-backends :backends company-lsp :modes rjsx-mode)
-    (spacemacs|add-company-backends :backends company-lsp :modes c-mode-common)
+    (spacemacs|add-company-backends :backends company-lsp :modes c-c++-modes)
 
     ;; set the company minimum prefix length and idle delay
     (defvar ztlevi/company-minimum-prefix-length 1
