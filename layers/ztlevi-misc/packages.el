@@ -23,7 +23,6 @@
     visual-regexp-steroids
     command-log
     origami
-    tiny
     evil
     evil-surround
     discover-my-major
@@ -114,12 +113,6 @@
                       ('hi-yellow . 0)
                       ('hi-pink . 0)
                       ('hi-blue-b . 0))))))
-
-(defun ztlevi-misc/init-tiny ()
-  (use-package tiny
-    :defer t
-    :init
-    (spacemacs/set-leader-keys "oe" 'tiny-expand)))
 
 (defun ztlevi-misc/post-init-golden-ratio ()
   (with-eval-after-load 'golden-ratio
