@@ -96,7 +96,7 @@ This function should only modify configuration layer settings."
 
      ;; ===================== Frameworks =====================
      ;; ruby-on-rails
-     ;; react
+     react
 
      ;; ===================== Languages =====================
      ;; Language indent offset is defined in `spacemacs--indent-variable-alist`
@@ -135,10 +135,12 @@ This function should only modify configuration layer settings."
      (java :variables c-basic-offset 2)
      (javascript :variables
                  node-add-modules-path t
+                 javascript-backend 'lsp
                  js2-basic-offset 2     ; javascript indent
                  js-indent-level  2     ; json indent
                  )
      (typescript :variables
+                 typescript-backend 'lsp
                  typescript-indent-level 2)
      emacs-lisp
      (cmake :variables cmake-enable-cmake-ide-support t)
