@@ -14,6 +14,7 @@
     company
     counsel-etags
     (cc-mode :location built-in)
+    google-c-style
     cquery
     cmake-font-lock
     cmake-mode
@@ -221,6 +222,15 @@
        'minibuffer-setup-hook
        'conditionally-enable-lispy))))
 
+(defun ztlevi-programming/post-init-google-c-style ()
+  (progn
+    (when c-c++-enable-google-style
+      (remove-hook 'c-mode-common-hook 'google-set-c-style)
+      (add-hook 'c-c++-modes-hook 'google-set-c-style))
+    (when c-c++-enable-google-newline
+      (remove-hook 'c-mode-common-hook 'google-make-newline-indent)
+      (add-hook 'c-c++-modes-hook 'google-make-newline-indent))))
+
 (defun ztlevi-programming/init-cmake-font-lock ()
   (use-package cmake-font-lock
     :defer t))
@@ -330,7 +340,7 @@
         (condition-case nil
             (lsp-cquery-enable)
           (user-error nil)))
-      (add-hook 'c-c++-mode-hooks #'cquery//enable))
+      (add-hook 'c-c++-modes-hook #'cquery//enable))
     ))
 
 (defun ztlevi-programming/post-init-cc-mode ()
