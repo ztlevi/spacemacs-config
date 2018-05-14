@@ -94,14 +94,11 @@
  '(imenu-list-entry-face-1 ((t (:inherit font-lock-string-face))))
  '(imenu-list-entry-face-2 ((t (:inherit font-lock-preprocessor-face))))
  '(imenu-list-entry-face-3 ((t (:inherit font-lock-function-name-face))))
- '(ivy-posframe ((t (:background "white smoke"))))
- '(lsp-ui-doc-background ((t (:background "white smoke"))))
  '(markdown-header-face-1 ((t (:inherit org-level-1))))
  '(markdown-header-face-2 ((t (:inherit org-level-2))))
  '(markdown-header-face-3 ((t (:inherit org-level-3))))
  '(origami-fold-replacement-face ((t (:inherit (quote font-lock-keyword-face)))))
  '(show-paren-match ((t (:background "light gray"))))
- '(term-bold ((t (:inherit bold :family "Ubuntu Mono derivative Powerline" :height 1.1))))
- '(tooltip ((t (:background "#dfdfdf" :foreground "#383a42")))))
+ '(term-bold ((t (:inherit bold :family "Ubuntu Mono derivative Powerline" :height 1.1)))))
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
