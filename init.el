@@ -683,6 +683,7 @@ It should only modify the values of Spacemacs settings."
 
   ;; diminish modes
   (spacemacs|diminish meghanada-mode " Ⓜ︎" " M")
+  (spacemacs|diminish company-box-mode)
   (spacemacs|diminish which-key-mode)
   (spacemacs|diminish smartparens-mode)
   (spacemacs|diminish hybrid-mode)
