@@ -639,8 +639,6 @@ It should only modify the values of Spacemacs settings."
   (evilified-state-evilify-map special-mode-map :mode special-mode)
 
   ;; ======================== U I ==============================
-  ;; (load-theme 'doom-city-lights)
-
   ;; settings for transparent
   ;; (spacemacs/toggle-transparency)
 

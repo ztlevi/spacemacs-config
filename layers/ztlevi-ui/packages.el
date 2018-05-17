@@ -29,12 +29,11 @@
     )
   )
 
-(defun ztlevi-ui/init-doom-themes ()
+(defun ztlevi-ui/post-init-doom-themes ()
   (use-package doom-themes
-    :init
+    :config
     (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
           doom-themes-enable-italic t) ; if nil, italics is universally disabled
-    :config
     ;; Enable flashing mode-line on errors
     ;; (doom-themes-visual-bell-config)
 
