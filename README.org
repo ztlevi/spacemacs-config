@@ -48,12 +48,13 @@
        #+BEGIN_SRC shell
          git clone https://github.com/ztlevi/spacemacs-config.git ~/.spacemacs.d
        #+END_SRC
-    2. Install all-the-icons fonts by ~M-x all-the-icons-install-fonts~ and [[https://github.com/sebastiencs/icons-in-terminal/blob/master/build/icons-in-terminal.ttf][icons-in-terminal]]. I'm using /Operator Mono Lig/ font(supports ligatures), you could change it under ~dotspacemacs-default-font~.
+    2. Install all-the-icons fonts by ~M-x all-the-icons-install-fonts~. I'm using /Operator Mono Lig/ font(supports ligatures), you could change it under ~dotspacemacs-default-font~.
+       Download icons-in-terminal font with ~wget https://github.com/sebastiencs/icons-in-terminal/blob/master/build/icons-in-terminal.ttf~ and then manually install it to support =company-box=.
 
     3. Dependencies needed
-       - Install =shellcheck=, =ispell=, =ripgrep=, =the_silver_searcher=, =the_platinum_searcher=
+       - Install =shellcheck=, =ispell=, =ripgrep=
          #+BEGIN_SRC shell
-           brew install shellcheck coreutils ispell watchman gpg2
+           brew install shellcheck coreutils ispell watchman gpg2 ripgrep grep
          #+END_SRC
        - npm
          #+BEGIN_SRC shell
