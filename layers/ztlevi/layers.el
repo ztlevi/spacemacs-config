@@ -12,7 +12,6 @@
 (configuration-layer/declare-layers '(
                                       ztlevi-org
                                       ztlevi-misc
-                                      ;; rjsx
                                       ztlevi-programming
                                       ztlevi-ui
                                       ztlevi-better-defaults
