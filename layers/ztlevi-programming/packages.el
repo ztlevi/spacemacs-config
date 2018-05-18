@@ -149,7 +149,9 @@
     (progn
       (run-import-js)
       (spacemacs/set-leader-keys-for-major-mode 'js2-mode "i" 'import-js-import)
-      (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode "i" 'import-js-import))
+      (spacemacs/set-leader-keys-for-major-mode 'js2-mode "f" 'import-js-fix)
+      (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode "i" 'import-js-import)
+      (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode "f" 'import-js-fix))
     :defer t))
 
 (defun ztlevi-programming/post-init-js-doc ()
