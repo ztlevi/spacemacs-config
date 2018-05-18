@@ -221,8 +221,12 @@ This function should only modify configuration layer settings."
      impatient-mode
      ;; java
      eclim ensime company-emacs-eclim
+     ;; tern
+     company-tern tern
+     ;; web-beautify
+     web-beautify
      ;; javascript
-     web-beautify livid-mode company-tern tern
+     livid-mode
      ;; typescript
      tide
      ;; emacs-lisp
