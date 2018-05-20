@@ -70,8 +70,7 @@ This function should only modify configuration layer settings."
                       auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'complete
                       auto-completion-enable-snippets-in-popup t
-                      auto-completion-idle-delay 0.2
-                      auto-completion-private-snippets-directory "~/.spacemacs.d/snippets")
+                      auto-completion-idle-delay 0.2)
      (git :variables
           magit-push-always-verify nil
           magit-save-repository-buffers 'dontask
