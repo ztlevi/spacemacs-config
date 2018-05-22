@@ -655,8 +655,12 @@ It should only modify the values of Spacemacs settings."
 
   ;; Setting Chinese Font
   (when (and (spacemacs/system-is-mswindows) window-system)
+    ;; Git location
     (add-to-list 'exec-path "C:\Program Files\Git\bin")
+    ;; Aspell location
+    (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin")
     (setq ispell-program-name "aspell")
+
     (setq w32-pass-alt-to-system nil)
     (setq w32-apps-modifier 'super)
     (dolist (charset '(kana han symbol cjk-misc bopomofo))

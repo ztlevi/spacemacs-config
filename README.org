@@ -56,6 +56,8 @@
          #+BEGIN_SRC shell
            brew install shellcheck coreutils ispell watchman gpg2 ripgrep grep
          #+END_SRC
+
+         Note: for windows users, [[http://aspell.net/win32/][aspell]] is used instead. ripgrep can be installed via [[https://chocolatey.org/][choco]]
        - npm
          #+BEGIN_SRC shell
            npm install -g prettier live-server import-js
