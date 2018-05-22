@@ -563,7 +563,10 @@
     ))
 
 (defun ztlevi-misc/post-init-swiper ()
-  (define-key global-map (kbd "C-s") 'my-swiper-search))
+  (define-key global-map (kbd "C-s") 'my-swiper-search)
+
+  (when (spacemacs/system-is-mswindows)
+    (global-set-key (kbd "C-S-s") 'my-swiper-search)))
 
 (defun ztlevi-misc/post-init-magit ()
   (progn

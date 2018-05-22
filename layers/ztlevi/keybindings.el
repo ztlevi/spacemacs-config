@@ -66,9 +66,6 @@
 ;; comment
 (global-set-key (kbd "s-/") 'spacemacs/comment-or-uncomment-lines)
 
-;; hungry delete
-(global-set-key (kbd "s-<backspace>") 'hungry-delete-backward)
-
 ;; macro
 (global-set-key (kbd "s-m") 'call-last-kbd-macro)
 (spacemacs/set-leader-keys "om" 'kmacro-edit-macro)
@@ -251,7 +248,7 @@
   (global-set-key (kbd "s-p") 'counsel-git)
   (global-set-key (kbd "s-s") 'evil-write-all)
   (global-set-key (kbd "s-w") 'delete-window-or-frame)
-  (global-set-key (kbd "C-s-o") 'other-frame)
+  (global-set-key (kbd "C-S-o") 'other-frame)
   (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
   (global-set-key (kbd "s--") 'spacemacs/scale-down-font)
   (global-set-key (kbd "s-0") 'spacemacs/reset-font-size)
@@ -263,10 +260,26 @@
   (global-set-key (kbd "s-n") 'make-frame)
   (global-set-key (kbd "s-z") 'undo-tree-undo)
   (global-set-key (kbd "s-Z") 'undo-tree-redo)
+  ;; hungry delete
+  (global-set-key (kbd "s-<backspace>") 'hungry-delete-backward)
+  ;; iterm
   (spacemacs/set-leader-keys "o!" 'ztlevi/iterm-shell-command))
 ;; keybindings for Windows
 (when (spacemacs/system-is-mswindows)
-  (global-set-key (kbd "C-s") 'evil-write-all)
+  (global-set-key (kbd "C-S-p") 'counsel-git)
+  (global-set-key (kbd "C-S-s") 'evil-write-all)
+  (global-set-key (kbd "C-S-w") 'delete-window-or-frame)
+  (global-set-key (kbd "C-S-o") 'other-frame)
   (global-set-key (kbd "C-=") 'spacemacs/scale-up-font)
   (global-set-key (kbd "C--") 'spacemacs/scale-down-font)
-  (global-set-key (kbd "C-0") 'spacemacs/reset-font-size))
+  (global-set-key (kbd "C-0") 'spacemacs/reset-font-size)
+  (global-set-key (kbd "C-S-q") 'save-buffers-kill-terminal)
+  (global-set-key (kbd "C-v") 'yank)
+  (global-set-key (kbd "C-S-v") 'yank)
+  (global-set-key (kbd "C-S-c") 'evil-yank)
+  (global-set-key (kbd "C-S-a") 'mark-whole-buffer)
+  (global-set-key (kbd "C-S-x") 'kill-region)
+  (global-set-key (kbd "C-S-n") 'make-frame)
+  (global-set-key (kbd "C-S-z") 'undo-tree-undo)
+  ;; hungry delete
+  (global-set-key (kbd "C-<backspace>") 'hungry-delete-backward))
