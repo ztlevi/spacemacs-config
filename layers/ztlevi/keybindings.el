@@ -114,6 +114,9 @@
 (spacemacs/set-leader-keys-for-major-mode 'python-mode
   "i" 'importmagic-fix-symbol-at-point)
 
+;; mark all
+(spacemacs/set-leader-keys "aa" 'mark-whole-buffer)
+
 ;; ein jupyter
 (spacemacs/set-leader-keys "ays" 'ein:jupyter-server-start)
 (spacemacs/set-leader-keys-for-major-mode 'ein:notebook-multilang-mode "c" 'ein:worksheet-change-cell-type)
