@@ -74,7 +74,7 @@
          - =importmagic=
            For now, =importmagic= use hardcoded python (symbolic to python2 in most machines). In this case, pip2 should be used to install =importmagic=.
            #+BEGIN_SRC shell
-           pip2 importmagic epc
+           pip2 install importmagic epc
            #+END_SRC
     4. Language Server Protocol: Install the [[https://langserver.org/][lsp]] for your languages. A few examples are listed below.
        #+BEGIN_SRC shell
