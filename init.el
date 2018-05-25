@@ -350,7 +350,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Ubuntu Mono"
+   dotspacemacs-default-font '("Operator Mono Lig"
                                :size 30
                                :weight normal
                                :width normal)
@@ -656,7 +656,7 @@ It should only modify the values of Spacemacs settings."
   ;; Setting Chinese Font
   (when (and (spacemacs/system-is-mswindows) window-system)
     ;; Git location
-    (add-to-list 'exec-path "C:\Program Files\Git\bin")
+    (add-to-list 'exec-path "C:/Program Files/Git/bin")
     ;; Aspell location
     (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin")
     (setq ispell-program-name "aspell")
