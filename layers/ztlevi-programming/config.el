@@ -43,7 +43,10 @@
 (add-hook 'java-mode-hook 'my-java-mode-hook)
 
 ;; term hook
-(add-hook 'term-mode-hook 'ztlevi/ash-term-hooks)
+(defun my-term-mode-hook ()
+  (ztlevi/ash-term-hooks)
+  (spacemacs/toggle-truncate-lines-on))
+(add-hook 'term-mode-hook 'my-term-mode-hook)
 
 ;; css mode
 (defun my-css-mode-hook ()
