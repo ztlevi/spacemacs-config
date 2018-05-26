@@ -84,7 +84,9 @@ This function should only modify configuration layer settings."
           osx-command-as 'super)
      ;; restclient
      ;; (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
-     (shell :variables shell-default-shell 'ansi-term)
+     (shell :variables
+            shell-default-shell 'ansi-term
+            shell-default-term-shell "zsh")
      shell-scripts
      ;; docker
      deft
