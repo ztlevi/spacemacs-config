@@ -16,7 +16,7 @@
 ;; set initl screen size
 (setq initial-frame-alist
       '((width . 95)
-        (height . 50)))
+        (height . 60)))
 
 ;; enable ligatures support (emacs mac port only)
 ;; others here: https://github.com/tonsky/FiraCode/wiki/Emacs-instructions
