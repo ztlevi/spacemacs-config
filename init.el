@@ -85,6 +85,7 @@ This function should only modify configuration layer settings."
      ;; restclient
      ;; (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      (shell :variables
+            shell-default-full-span nil
             shell-default-shell 'ansi-term
             shell-default-term-shell "zsh")
      shell-scripts
@@ -612,7 +613,7 @@ It should only modify the values of Spacemacs settings."
   ;;         ("gnu-cn"   . "https://elpa.emacs-china.org/gnu/")))
 
   ;; add my npm global directory
-  (add-to-list 'exec-path "~/.npm-global/bin")
+  (add-to-list 'exec-path "~/.npm-global/bin" t)
 
   (setq ranger-override-dired t)
 
