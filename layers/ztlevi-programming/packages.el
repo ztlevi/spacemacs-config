@@ -267,6 +267,9 @@
   ;; temporary fix for flycheck
   (setq lsp-ui-flycheck-enable nil)
 
+  ;; disable sideline
+  (setq lsp-ui-sideline-enable nil)
+
   ;; set spacemacs-jump-handlers-%S (gd)
   (spacemacs//setup-lsp-jump-handler 'c++-mode)
   (spacemacs//setup-lsp-jump-handler 'c-mode)
