@@ -545,15 +545,7 @@ It should only modify the values of Spacemacs settings."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers '(:relative
-                               t
-                               :disabled-for-modes dired-mode
-                               doc-view-mode
-                               markdown-mode
-                               org-mode
-                               pdf-view-mode
-                               text-mode
-                               :size-limit-kb 1000)
+   dotspacemacs-line-numbers 't
 
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
@@ -680,6 +672,9 @@ in the dump."
 
   ;; disable apple powerline rgb
   (setq powerline-image-apple-rgb nil)
+
+  ;; set default line-number width
+  (setq-default display-line-numbers-width nil)
 
   ;; solve org table Chinese and English text align issue
   (when (configuration-layer/layer-usedp 'chinese)
