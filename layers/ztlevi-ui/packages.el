@@ -95,10 +95,6 @@
     ;; https://github.com/tumashu/ivy-posframe#how-to-enable-ivy-posframe
     (setq ivy-display-function #'ivy-posframe-display)
 
-    (with-eval-after-load 'ivy-posframe
-      (custom-set-faces
-       '(ivy-posframe-cursor ((t (:inherit default :background "#4078f2"))))))
-
     (ivy-posframe-enable)))
 
 (defun ztlevi-ui/init-icons-in-terminal ()
