@@ -256,6 +256,25 @@ It should only modify the values of Spacemacs settings."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
+   ;; If non-nil then enable support for the portable dumper. You'll need
+   ;; to compile Emacs 27 from source following the instructions in file
+   ;; EXPERIMENTAL.org at to root of the git repository.
+   ;; (default nil)
+   dotspacemacs-enable-emacs-pdumper nil
+
+   ;; File path pointing to emacs 27.1 executable compiled with support
+   ;; for the portable dumper (this is currently the branch pdumper).
+   ;; (default "emacs")
+   dotspacemacs-emacs-pdumper-executable-file "emacs"
+
+   ;; Name of the Spacemacs dump file. This is the file will be created by the
+   ;; portable dumper in the cache directory under dumps sub-directory.
+   ;; To load it when starting Emacs add the parameter `--dump-file'
+   ;; when invoking Emacs 27.1 executable on the command line, for instance:
+   ;;   ./emacs --dump-file=~/.emacs.d/.cache/dumps/spacemacs.pdmp
+   ;; (default spacemacs.pdmp)
+   dotspacemacs-emacs-dumper-dump-file "spacemacs.pdmp"
+
    ;; If non-nil ELPA repositories are contacted via HTTPS whenever it's
    ;; possible. Set it to nil if you have no way to use HTTPS in your
    ;; environment, otherwise it is strongly recommended to let it set to t.
@@ -555,7 +574,8 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-highlight-delimiters 'current
 
    ;; If non-nil, start an Emacs server if one is not already running.
-   dotspacemacs-enable-server t
+   ;; (default nil)
+   dotspacemacs-enable-server nil
 
    ;; If non-nil, advise quit functions to keep server open when quitting.
    ;; (default nil)
@@ -626,6 +646,13 @@ It should only modify the values of Spacemacs settings."
 
   (setq byte-compile-warnings '(not obsolete))
   (setq warning-minimum-level :error))
+
+(defun dotspacemacs/user-load ()
+  "Library to load while dumping.
+This function is called while dumping Spacemacs configuration. You can
+`require' or `load' the libraries of your choice that will be included
+in the dump."
+  )
 
 (defun dotspacemacs/user-config ()
   ;; ======================== Others ===========================
