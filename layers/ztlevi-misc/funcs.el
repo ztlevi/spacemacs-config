@@ -55,18 +55,19 @@
   ;; (flymd-delete-file-maybe (flymd-get-output-directory (current-buffer)))
   )
 
-(defun ztlevi/open-terminal-in-current-dir ()
+(defun ztlevi/open-terminal-in-project-root ()
   (interactive)
+  (setq-local projectile-project-root-path (if (ignore-errors (projectile-project-root))
+                                               (projectile-project-root) "."))
   (cond
-   ((string-equal system-type "darwin") (shell-command "open -a iTerm ."))
+   ((string-equal system-type "darwin") (shell-command (concat "open -a iTerm " projectile-project-root-path)))
    ((string-equal system-type "gnu/linux")
     (let (
           (process-connection-type nil)
           (openFileProgram (if (file-exists-p "/usr/bin/konsole")
                                "/usr/bin/konsole"
                              "/usr/bin/gnome-terminal")))
-      (start-process "" nil openFileProgram ".")))
-   ))
+      (start-process "" nil openFileProgram (projectile-project-root))))))
 
 (defun ztlevi/open-finder-in-current-dir ()
   "Show current file in desktop (OS's file manager).
