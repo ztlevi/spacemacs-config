@@ -9,7 +9,6 @@
  '(company-dabbrev-minimum-length 3)
  '(company-dabbrev-other-buffers nil)
  '(company-show-numbers t)
- '(company-statistics-auto-restore nil)
  '(compilation-message-face (quote default))
  '(counsel-fzf-cmd "fzf -f %s" t)
  '(counsel-git-cmd "rg --files" t)
