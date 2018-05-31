@@ -53,7 +53,7 @@
       (custom-set-faces
        '(doom-modeline-error ((t (:background "#e45649" :foreground "#f0f0f0"))))
        '(origami-fold-replacement-face ((t (:inherit (quote font-lock-keyword-face)))))
-       '(show-paren-match ((t (:background "#f0f0f0"))))))))
+       '(show-paren-match ((t (:background "#d7d7d7"))))))))
 
 (defun ztlevi-ui/init-doom-modeline ()
   (use-package doom-modeline
