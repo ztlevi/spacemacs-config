@@ -19,7 +19,6 @@
     cmake-font-lock
     cmake-mode
     js2-mode
-    ng2-mode
     vue-mode
     lsp-ui
     (lsp-imenu :location built-in)
@@ -279,10 +278,6 @@
   (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
   (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
   )
-
-(defun ztlevi-programming/init-ng2-mode ()
-  (use-package ng2-mode
-    :defer t))
 
 (defun ztlevi-programming/init-vue-mode ()
   (use-package vue-mode

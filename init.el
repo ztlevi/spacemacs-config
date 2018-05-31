@@ -700,16 +700,13 @@ in the dump."
   (setq-default split-width-threshold 200)
 
   ;; auto-mode-alist in config to make sure modes are added at top
-  (delete '("\\.component.html\\'" . ng2-html-mode) auto-mode-alist)
   (dolist (m '(("Capstanfile\\'" . yaml-mode)
                ("\\.mm\\'" . objc-mode)
                ("\\.c\\'" . c++-mode)
                ("\\.zsh\\'" . shell-script-mode)
                ("\\.xtpl\\'" . web-mode)
                ("\\.blade.php\\'" . web-mode)
-               ("\\.mak\\'" . makefile-bsdmake-mode)
-               ("\\.component.html\\'" . ng2-html-mode)
-               ("\\.module.ts\\'" . ng2-ts-mode)))
+               ("\\.mak\\'" . makefile-bsdmake-mode)))
     (add-to-list 'auto-mode-alist m))
 
   (add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt '("xml" "xsd" "rng" "xslt" "xsl") t) "\\'") 'nxml-mode))
