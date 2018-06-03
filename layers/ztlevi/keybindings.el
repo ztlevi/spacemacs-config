@@ -251,7 +251,7 @@
   (global-set-key (kbd "s-p") 'counsel-git)
   (global-set-key (kbd "s-s") 'evil-write-all)
   (global-set-key (kbd "s-w") 'delete-window-or-frame)
-  (global-set-key (kbd "C-S-o") 'other-frame)
+  (global-set-key (kbd "C-s-o") 'other-frame)
   (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
   (global-set-key (kbd "s--") 'spacemacs/scale-down-font)
   (global-set-key (kbd "s-0") 'spacemacs/reset-font-size)
