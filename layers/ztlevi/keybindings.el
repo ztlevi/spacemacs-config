@@ -249,6 +249,7 @@
 ;; keybindings for linux and macOS
 (when (or (spacemacs/system-is-linux) (spacemacs/system-is-mac))
   (global-set-key (kbd "s-p") 'counsel-git)
+  (global-set-key (kbd "s-f") 'spacemacs/search-project-auto)
   (global-set-key (kbd "s-s") 'evil-write-all)
   (global-set-key (kbd "s-w") 'delete-window-or-frame)
   (global-set-key (kbd "C-s-o") 'other-frame)
@@ -270,6 +271,7 @@
 ;; keybindings for Windows
 (when (spacemacs/system-is-mswindows)
   (global-set-key (kbd "C-S-p") 'counsel-git)
+  (global-set-key (kbd "C-S-f") 'spacemacs/search-project-auto)
   (global-set-key (kbd "C-S-s") 'evil-write-all)
   (global-set-key (kbd "C-S-w") 'delete-window-or-frame)
   (global-set-key (kbd "C-S-o") 'other-frame)
