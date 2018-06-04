@@ -61,7 +61,7 @@
     (use-package all-the-icons)
 
     ;; set doom-modeline height
-    (setq +doom-modeline-height 36)
+    (setq +doom-modeline-height 32)
 
     ;; file-name style
     (setq +doom-modeline-buffer-file-name-style 'relative-to-project)
