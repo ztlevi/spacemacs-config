@@ -14,9 +14,9 @@
                         '(emacs-lisp-mode-hook
                           text-mode-hook))
 
-(defun my-lsp-mode-hook ()
-  (setq lsp-highlight-symbol-at-point nil))
-(add-hook 'lsp-mode-hook #'my-lsp-mode-hook)
+;; (defun my-lsp-mode-hook ()
+;;   (setq lsp-highlight-symbol-at-point nil))
+;; (add-hook 'lsp-mode-hook #'my-lsp-mode-hook)
 
 ;; js2 mode hook
 (defun my-js2-mode-hook ()

@@ -93,6 +93,7 @@
  '(imenu-list-entry-face-2 ((t (:inherit font-lock-preprocessor-face))))
  '(imenu-list-entry-face-3 ((t (:inherit font-lock-function-name-face))))
  '(ivy-posframe-cursor ((t (:inherit default :background "#4078f2"))))
+ '(lsp-face-highlight-read ((t (:background "#f3b5af" :foreground "#1b2229" :weight bold))))
  '(markdown-header-face-1 ((t (:inherit org-level-1))))
  '(markdown-header-face-2 ((t (:inherit org-level-2))))
  '(markdown-header-face-3 ((t (:inherit org-level-3)))))
