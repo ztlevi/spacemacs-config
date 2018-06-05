@@ -108,7 +108,8 @@
 ;; buffer key
 (spacemacs/set-leader-keys "bf" 'ztlevi/open-finder-in-current-dir)
 (spacemacs/set-leader-keys "bt" 'ztlevi/open-terminal-in-project-root)
-(spacemacs/set-leader-keys "bT" 'ztlevi/open-markdown-in-typora)
+(spacemacs/set-leader-keys "bT" 'ztlevi/open-terminal-in-current-dir)
+(spacemacs/set-leader-keys "bM" 'ztlevi/open-markdown-in-typora)
 
 ;; importmagic
 (spacemacs/set-leader-keys-for-major-mode 'python-mode

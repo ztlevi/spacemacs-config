@@ -69,6 +69,18 @@
                              "/usr/bin/gnome-terminal")))
       (start-process "" nil openFileProgram (projectile-project-root))))))
 
+(defun ztlevi/open-terminal-in-current-dir ()
+  (interactive)
+  (cond
+   ((string-equal system-type "darwin") (shell-command (concat "open -a iTerm .")))
+   ((string-equal system-type "gnu/linux")
+    (let (
+          (process-connection-type nil)
+          (openFileProgram (if (file-exists-p "/usr/bin/konsole")
+                               "/usr/bin/konsole"
+                             "/usr/bin/gnome-terminal")))
+      (start-process "" nil openFileProgram ".")))))
+
 (defun ztlevi/open-finder-in-current-dir ()
   "Show current file in desktop (OS's file manager).
 URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'
