@@ -35,6 +35,7 @@
     edit-indirect
     ivy
     swiper
+    p4
     magit
     github-browse-file
     git-messenger
@@ -574,6 +575,11 @@
   (when (spacemacs/system-is-mswindows)
     (global-set-key (kbd "C-S-s") 'my-swiper-search)))
 
+(defun ztlevi-misc/post-init-p4 ()
+  (with-eval-after-load 'p4
+    (p4-set-p4-config "~/.p4config"))
+  )
+
 (defun ztlevi-misc/post-init-magit ()
   (progn
     (with-eval-after-load 'magit
@@ -583,8 +589,7 @@
       (add-to-list 'magit-no-confirm 'stage-all-changes)
       (setq magit-completing-read-function 'magit-builtin-completing-read)
 
-      (magit-define-popup-switch 'magit-push-popup ?u
-        "Set upstream" "--set-upstream"))
+      (magit-define-popup-switch 'magit-push-popup ?u "Set upstream" "--set-upstream"))
 
     ;; prefer two way ediff
     (setq magit-ediff-dwim-show-on-hunks t)
