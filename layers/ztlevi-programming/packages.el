@@ -28,7 +28,6 @@
     import-js
     prettier-js
     web-mode
-    ;; web-beautify
     (stylus-mode :location (recipe :fetcher github :repo "vladh/stylus-mode"))
     json-mode
     ;; racket-mode
@@ -191,10 +190,6 @@
   (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.fire\\'" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.fire.meta\\'" . json-mode)))
-
-;; (defun ztlevi-programming/post-init-web-beautify ()
-;;   (spacemacs/set-leader-keys-for-major-mode 'json-mode
-;;     "=" 'json-reformat-region-or-buffer))
 
 (defun ztlevi-programming/init-lispy ()
   (use-package lispy

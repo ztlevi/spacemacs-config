@@ -142,6 +142,7 @@ This function should only modify configuration layer settings."
                  js2-basic-offset 2     ; javascript indent
                  js-indent-level  2     ; json indent
                  )
+     (web-beautify :variables spacemacs--web-beautify-modes '((web-mode . web-beautify-html)))
      (typescript :variables
                  typescript-backend 'lsp
                  typescript-indent-level 2)
@@ -226,8 +227,6 @@ This function should only modify configuration layer settings."
      eclim ensime company-emacs-eclim
      ;; tern
      company-tern tern
-     ;; web-beautify
-     web-beautify
      ;; javascript
      livid-mode
      ;; typescript

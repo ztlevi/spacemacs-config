@@ -33,6 +33,12 @@
   (set (make-local-variable 'semantic-mode) nil))
 (add-hook 'js2-mode-hook 'my-js2-mode-hook)
 
+;; web mode hook
+(defun my-web-mode-hook ()
+  ;; (add-hook 'before-save-hook 'web-beautify-html-buffer t t)
+  )
+(add-hook 'web-mode-hook 'my-web-mode-hook)
+
 ;; c++ hook
 (defun my-c++-mode-hook ()
   (add-hook 'write-contents-hooks
