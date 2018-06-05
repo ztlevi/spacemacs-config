@@ -15,7 +15,7 @@
 
 ;; set initl screen size
 (setq initial-frame-alist
-      '((width . 95)
+      '((width . 110)
         (height . 65)))
 
 ;; enable ligatures support (emacs mac port only)
