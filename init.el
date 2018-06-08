@@ -719,6 +719,14 @@ in the dump."
 
   (add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt '("xml" "xsd" "rng" "xslt" "xsl") t) "\\'") 'nxml-mode))
 
+  ;; temp add lsp hook
+  (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
+  (require 'lsp-javascript-flow)
+  (add-hook 'js-mode-hook #'lsp-javascript-flow-enable)
+  (require 'lsp-typescript)
+  (add-hook 'js-mode-hook #'lsp-typescript-enable)
+  (add-hook 'rjsx-mode #'lsp-typescript-enable)
+
   ;; diminish modes
   (spacemacs|diminish meghanada-mode " Ⓜ︎" " M")
   (spacemacs|diminish company-box-mode)
