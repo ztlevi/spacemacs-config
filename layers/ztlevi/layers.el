@@ -15,4 +15,5 @@
                                       ztlevi-programming
                                       ztlevi-ui
                                       ztlevi-better-defaults
+                                      lsp-intellij
                                       ))

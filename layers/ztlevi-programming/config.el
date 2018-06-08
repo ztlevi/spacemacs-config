@@ -49,7 +49,8 @@
 (defun my-java-mode-hook ()
   ;; meghanada-mode on
   ;; use code format
-  (add-hook 'before-save-hook 'meghanada-code-beautify-before-save))
+  ;; (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)
+  (setq c-basic-offset 2))
 (add-hook 'java-mode-hook 'my-java-mode-hook)
 
 ;; term hook

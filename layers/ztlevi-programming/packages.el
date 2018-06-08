@@ -18,6 +18,7 @@
     cquery
     cmake-font-lock
     cmake-mode
+    lsp-intellij
     js2-mode
     vue-mode
     lsp-ui
@@ -76,6 +77,10 @@
 (defun ztlevi-programming/init-stylus-mode ()
   (use-package stylus-mode
     :defer t))
+
+(defun ztlevi-programming/post-init-lsp-intellij ()
+  (spacemacs|define-jump-handlers java-mode)
+  (spacemacs//setup-lsp-jump-handler 'java-mode))
 
 (defun ztlevi-programming/post-init-robe ()
   (progn

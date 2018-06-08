@@ -135,7 +135,7 @@ This function should only modify configuration layer settings."
            web-mode-attr-indent-offset   2 ; web-mode
            web-mode-sql-indent-offset    2 ; web-mode
            web-mode-attr-value-indent-offset 2)
-     (java :variables c-basic-offset 2)
+     ;; (java :variables c-basic-offset 2)
      (javascript :variables
                  node-add-modules-path t
                  javascript-backend 'lsp
