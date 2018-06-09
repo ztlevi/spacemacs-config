@@ -14,9 +14,24 @@
                         '(emacs-lisp-mode-hook
                           text-mode-hook))
 
-;; (defun my-lsp-mode-hook ()
-;;   (setq lsp-highlight-symbol-at-point nil))
-;; (add-hook 'lsp-mode-hook #'my-lsp-mode-hook)
+(defun toggle-lsp-ui-doc ()
+  (interactive)
+  (if lsp-ui-doc-mode
+      (progn
+        (lsp-ui-doc-mode -1)
+        (lsp-ui-doc--delete-frame))
+    (lsp-ui-doc-mode 1)))
+(defun my-lsp-mode-hook ()
+  ;; disable lsp-highlight-symbol
+  ;; (setq lsp-highlight-symbol-at-point nil)
+
+  ;; delete-lsp-ui-doc frame is exists, and disable lsp-ui-doc by default
+  (lsp-ui-doc--delete-frame)
+  (lsp-ui-doc-mode -1)
+
+  ;; overwrite s-j key for toggle-lsp-ui-doc
+  (global-set-key (kbd "s-j") #'toggle-lsp-ui-doc))
+(add-hook 'lsp-mode-hook #'my-lsp-mode-hook)
 
 ;; js2 mode hook
 (defun my-js2-mode-hook ()
