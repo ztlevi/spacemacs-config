@@ -269,6 +269,9 @@
   ;; disable sideline
   (setq lsp-ui-sideline-enable nil)
 
+  ;; set lsp-ui-doc position
+  (setq lsp-ui-doc-position 'at-point)
+
   ;; set spacemacs-jump-handlers-%S (gd)
   (spacemacs//setup-lsp-jump-handler 'c++-mode)
   (spacemacs//setup-lsp-jump-handler 'c-mode)
