@@ -449,7 +449,7 @@ e.g. Sunday, September 17, 2000."
   (interactive "r")
   (when (evil-visual-state-p)
     (evil-exit-visual-state)
-    (let ((selection (regexp-quote (buffer-substring-no-properties beg end))))
+    (let ((selection (replace-regexp-in-string "/" "\\/" (regexp-quote (buffer-substring-no-properties beg end)) t t)))
       (setq command-string (format "1,$s /%s/%s/g" selection selection))
       (minibuffer-with-setup-hook
           (lambda () (backward-char 2))
