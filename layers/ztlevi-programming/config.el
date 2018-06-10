@@ -20,7 +20,9 @@
       (progn
         (lsp-ui-doc-mode -1)
         (lsp-ui-doc--delete-frame))
-    (lsp-ui-doc-mode 1)))
+    (progn
+      (lsp-ui-doc-mode 1)
+      (lsp-ui-doc--make-request))))
 (defun my-lsp-mode-hook ()
   ;; disable lsp-highlight-symbol
   ;; (setq lsp-highlight-symbol-at-point nil)
