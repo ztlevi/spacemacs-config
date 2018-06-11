@@ -246,15 +246,16 @@
 
 (defun ztlevi-programming/post-init-flycheck ()
   (progn
-    ;; disable jshint since we prefer eslint checking
-    ;; disable json-jsonlist checking for json files
-    (setq-default flycheck-disabled-checkers
-                  (append flycheck-disabled-checkers
-                          '(javascript-jshint
-                            json-jsonlist)))
+    (with-eval-after-load 'flycheck
+      ;; disable jshint since we prefer eslint checking
+      ;; disable json-jsonlist checking for json files
+      (setq-default flycheck-disabled-checkers
+                    (append flycheck-disabled-checkers
+                            '(javascript-jshint
+                              json-jsonlist)))
 
-    ;; customize flycheck temp file prefix
-    (setq-default flycheck-temp-prefix ".flycheck")))
+      ;; customize flycheck temp file prefix
+      (setq-default flycheck-temp-prefix ".flycheck"))))
 
 (defun ztlevi-programming/post-init-js2-refactor ()
   (progn
@@ -278,8 +279,9 @@
 
   (define-key evil-normal-state-map (kbd "gr") #'lsp-ui-peek-find-references)
 
-  (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
-  (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
+  (with-eval-after-load 'lsp-ui
+    (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+    (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references))
   )
 
 (defun ztlevi-programming/init-vue-mode ()
