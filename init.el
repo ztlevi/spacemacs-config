@@ -184,7 +184,7 @@ This function should only modify configuration layer settings."
      ;; spacemacs-editing
      lorem-ipsum clean-aindent-mode smartparens
      ;; spacemacs-editing-visual
-     volatile-highlights rainbow-delimiters highlight-indentation lorem-ipsum
+     volatile-highlights highlight-indentation lorem-ipsum
      ;; spacemacs-evil
      evil-args evil-mc evil-ediff evil-exchange evil-unimpaired evil-indent-plus vi-tilde-fringe evil-lisp-state evil-cleverparens evil-escape evil-goggles
      ;; spacemacs-layouts
@@ -571,7 +571,7 @@ It should only modify the values of Spacemacs settings."
    ;; Select a scope to highlight delimiters. Possible values are `any',
    ;; `current', `all' or `nil'. Default is `all' (highlight any scope and
    ;; emphasis the current one). (default 'all)
-   dotspacemacs-highlight-delimiters 'current
+   dotspacemacs-highlight-delimiters 'all
 
    ;; If non-nil, start an Emacs server if one is not already running.
    ;; (default nil)
