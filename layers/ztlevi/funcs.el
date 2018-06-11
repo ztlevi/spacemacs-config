@@ -37,3 +37,16 @@
   (if (= 1 (length (window-list frame)))
       (delete-frame frame force)
     (spacemacs/delete-window)))
+
+;; override check-large-file funciton
+;; do not prompt message and use fundanmental-mode as default
+;; check when opening large files - literal file open
+(defun spacemacs/check-large-file ()
+  (let* ((filename (buffer-file-name))
+         (size (nth 7 (file-attributes filename))))
+    (when (and
+           (not (memq major-mode spacemacs-large-file-modes-list))
+           size (> size (* 1024 1024 dotspacemacs-large-file-size)))
+      (setq buffer-read-only t)
+      (buffer-disable-undo)
+      (fundamental-mode))))
