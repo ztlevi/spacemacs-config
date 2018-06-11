@@ -30,30 +30,16 @@
   )
 
 (defun ztlevi-ui/post-init-doom-themes ()
-  (use-package doom-themes
-    :config
-    (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-          doom-themes-enable-italic t) ; if nil, italics is universally disabled
-    ;; Enable flashing mode-line on errors
-    ;; (doom-themes-visual-bell-config)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  ;; Enable flashing mode-line on errors
+  ;; (doom-themes-visual-bell-config)
 
-    ;; Enable custom neotree theme
-    (doom-themes-neotree-config)        ; all-the-icons fonts must be installed!
+  ;; Enable custom neotree theme
+  (doom-themes-neotree-config)        ; all-the-icons fonts must be installed!
 
-    ;; Corrects (and improves) org-mode's native fontification.
-    (doom-themes-org-config)
-
-    ;; custom doom-city-lights-theme
-    (with-eval-after-load 'doom-city-lights-theme
-      (custom-set-faces
-       '(font-lock-type-face ((t (:foreground "#4db5bd"))))))
-
-    ;; custom doom-one-light-theme
-    (with-eval-after-load 'doom-one-light-theme
-      (custom-set-faces
-       '(doom-modeline-error ((t (:background "#e45649" :foreground "#f0f0f0"))))
-       '(origami-fold-replacement-face ((t (:inherit (quote font-lock-keyword-face)))))
-       '(show-paren-match ((t (:background "#d7d7d7"))))))))
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
 
 (defun ztlevi-ui/init-doom-modeline ()
   (use-package doom-modeline
