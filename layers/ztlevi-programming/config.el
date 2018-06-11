@@ -25,7 +25,7 @@
   ;; disable lsp-highlight-symbol
   ;; (setq lsp-highlight-symbol-at-point nil)
 
-  ;; delete-lsp-ui-doc frame is exists, and disable lsp-ui-doc by default
+  ;; hide lsp-ui-doc frame is exists, and disable lsp-ui-doc by default
   (lsp-ui-doc--hide-frame)
   (lsp-ui-doc-mode -1)
 
