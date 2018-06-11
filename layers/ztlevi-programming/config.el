@@ -19,16 +19,14 @@
   (if lsp-ui-doc-mode
       (progn
         (lsp-ui-doc-mode -1)
-        (lsp-ui-doc--delete-frame))
-    (progn
-      (lsp-ui-doc-mode 1)
-      (lsp-ui-doc--make-request))))
+        (lsp-ui-doc--hide-frame))
+    (lsp-ui-doc-mode 1)))
 (defun my-lsp-mode-hook ()
   ;; disable lsp-highlight-symbol
   ;; (setq lsp-highlight-symbol-at-point nil)
 
   ;; delete-lsp-ui-doc frame is exists, and disable lsp-ui-doc by default
-  (lsp-ui-doc--delete-frame)
+  (lsp-ui-doc--hide-frame)
   (lsp-ui-doc-mode -1)
 
   ;; overwrite s-j key for toggle-lsp-ui-doc
