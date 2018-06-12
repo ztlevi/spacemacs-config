@@ -285,12 +285,16 @@
 
     (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
 
-    ;;mimic "nzz" behaviou in vim
-    (defadvice evil-search-next (after advice-for-evil-search-next activate)
-      (evil-scroll-line-to-center (line-number-at-pos)))
+    ;; set search direction and flash delay
+    (setq isearch-forward t)
+    (setq evil-flash-delay 536870911)
 
-    (defadvice evil-search-previous (after advice-for-evil-search-previous activate)
-      (evil-scroll-line-to-center (line-number-at-pos)))
+    ;;mimic "nzz" behaviou in vim
+    ;; (defadvice evil-search-next (after advice-for-evil-search-next activate)
+    ;;   (evil-scroll-line-to-center (line-number-at-pos)))
+
+    ;; (defadvice evil-search-previous (after advice-for-evil-search-previous activate)
+    ;;   (evil-scroll-line-to-center (line-number-at-pos)))
 
     ;; bind [, ] functions
     (define-key evil-normal-state-map (kbd "[ SPC") (lambda () (interactive) (evil-insert-newline-above) (forward-line)))
