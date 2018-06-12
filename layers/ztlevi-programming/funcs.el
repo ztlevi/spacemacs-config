@@ -114,7 +114,7 @@ version 2015-08-21"
   ;; (async)? xxx (e) { }
   (if (re-search-backward "^[ \t]*\\(async\\)?[ \t]*\\([A-Za-z_$][A-Za-z0-9_$]+\\)[ \t]*([a-zA-Z0-9, ]*) *\{ *$" nil t)
       (progn
-        (if (member (match-string 2) '("for" "if" "while" "switch"))
+        (if (member (match-string 2) '("for" "if" "while" "switch" "function"))
             (js-exception-imenu-generic-expression-regexp)
           t))
     nil))
