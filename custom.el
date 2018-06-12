@@ -92,6 +92,7 @@
  '(imenu-list-entry-face-1 ((t (:inherit font-lock-string-face))))
  '(imenu-list-entry-face-2 ((t (:inherit font-lock-preprocessor-face))))
  '(imenu-list-entry-face-3 ((t (:inherit font-lock-function-name-face))))
+ '(lsp-intellij-face-code-lens-run ((t (:background "honeydew"))))
  '(markdown-header-face-1 ((t (:inherit org-level-1))))
  '(markdown-header-face-2 ((t (:inherit org-level-2))))
  '(markdown-header-face-3 ((t (:inherit org-level-3))))
