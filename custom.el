@@ -97,6 +97,7 @@
  '(markdown-header-face-2 ((t (:inherit org-level-2))))
  '(markdown-header-face-3 ((t (:inherit org-level-3))))
  '(origami-fold-replacement-face ((t (:inherit (quote font-lock-keyword-face)))))
- '(show-paren-match ((t (:background "#d7d7d7" :foreground "#e45649" :weight ultra-bold)))))
+ '(show-paren-match ((t (:background "#d7d7d7" :foreground "#e45649" :weight ultra-bold))))
+ '(term-bold ((t (:weight bold :height 1.1 :family "Ubuntu Mono derivative Powerline")))))
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
