@@ -52,9 +52,9 @@
        Download icons-in-terminal font with ~https://raw.githubusercontent.com/sebastiencs/icons-in-terminal/master/build/icons-in-terminal.ttf~ and then manually install it to support =company-box=.
 
     3. Dependencies needed
-       - Install =shellcheck=, =ispell=, =ripgrep=
+       - Install =shellcheck=, =ispell=, =ripgrep=, =hadolint=
          #+BEGIN_SRC shell
-           brew install shellcheck coreutils ispell watchman gpg2 ripgrep grep
+           brew install shellcheck coreutils ispell watchman gpg2 ripgrep grep hadolint
          #+END_SRC
 
          Note: for windows users, [[http://aspell.net/win32/][aspell]] is used instead. ripgrep can be installed via [[https://chocolatey.org/][choco]]
