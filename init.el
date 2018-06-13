@@ -178,7 +178,7 @@ This function should only modify configuration layer settings."
    '(
      ;; ================== Spacemacs Layers ==================
      ;; spacemacs-bootstrap
-     exec-path-from-shell spacemacs-theme holy-mode
+     spacemacs-theme holy-mode
      ;; spacemacs-completion
      default-helm-config ido-vertical-mode
      ;; spacemacs-editing
