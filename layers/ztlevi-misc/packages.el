@@ -34,7 +34,6 @@
     (live-server :location local)
     edit-indirect
     ivy
-    swiper
     p4
     magit
     github-browse-file
@@ -573,11 +572,7 @@
     (define-key ivy-minibuffer-map (kbd "C-c C-e") 'spacemacs//counsel-edit)
     ))
 
-(defun ztlevi-misc/post-init-swiper ()
-  (define-key global-map (kbd "C-s") 'my-swiper-search)
 
-  (when (spacemacs/system-is-mswindows)
-    (global-set-key (kbd "C-S-s") 'my-swiper-search)))
 
 (defun ztlevi-misc/post-init-p4 ()
   (with-eval-after-load 'p4
