@@ -79,7 +79,8 @@
             (right-fringe . 10)))
 
     ;; https://github.com/tumashu/ivy-posframe#how-to-enable-ivy-posframe
-    (setq ivy-display-function #'ivy-posframe-display)
+    ;; (setq ivy-display-function #'ivy-posframe-display)
+    (setq ivy-display-function #'ivy-posframe-display-at-frame-center)
 
     (ivy-posframe-enable)))
 
