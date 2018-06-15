@@ -25,6 +25,7 @@
     origami
     evil
     evil-surround
+    evil-search-highlight-persist
     discover-my-major
     ;; 4clojure
     persp-mode
@@ -275,6 +276,34 @@
 
       (ad-activate 'elfeed-show-yank))))
 
+(defun ztlevi-misc/init-evil-search-highlight-persist ()
+  (use-package evil-search-highlight-persist
+    :init
+    (progn
+
+      ;; evil-search-highlight-persist
+      (defun spacemacs/evil-persist-search-clear-highlight ()
+        "Clear evil-search or evil-ex-search persistent highlights."
+        (interactive)
+        (evil-search-highlight-persist-remove-all) ; `C-s' highlights
+        (evil-ex-nohighlight))                     ; `/' highlights
+
+      (defun spacemacs//adaptive-evil-highlight-persist-face ()
+        (set-face-attribute 'evil-search-highlight-persist-highlight-face nil
+                            :inherit 'lazy-highlight
+                            :background nil
+                            :foreground nil))
+
+      (global-evil-search-highlight-persist)
+      ;; (set-face-attribute )
+      (define-key evil-search-highlight-persist-map
+        (kbd "C-x SPC") 'rectangle-mark-mode)
+      (spacemacs/set-leader-keys "sc" 'spacemacs/evil-persist-search-clear-highlight)
+      (evil-ex-define-cmd "nohlsearch" 'spacemacs/evil-persist-search-clear-highlight)
+      (spacemacs//adaptive-evil-highlight-persist-face)
+      (add-hook 'spacemacs-post-theme-change-hook
+                'spacemacs//adaptive-evil-highlight-persist-face))))
+
 (defun ztlevi-misc/post-init-evil ()
   (progn
     (push "TAGS" spacemacs-useless-buffers-regexp)
@@ -284,16 +313,15 @@
 
     (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
 
-    ;; set search direction and flash delay
+    ;; set search direction
     (setq isearch-forward t)
-    (setq evil-flash-delay 536870911)
 
     ;;mimic "nzz" behaviou in vim
-    ;; (defadvice evil-search-next (after advice-for-evil-search-next activate)
-    ;;   (evil-scroll-line-to-center (line-number-at-pos)))
+    (defadvice evil-search-next (after advice-for-evil-search-next activate)
+      (evil-scroll-line-to-center (line-number-at-pos)))
 
-    ;; (defadvice evil-search-previous (after advice-for-evil-search-previous activate)
-    ;;   (evil-scroll-line-to-center (line-number-at-pos)))
+    (defadvice evil-search-previous (after advice-for-evil-search-previous activate)
+      (evil-scroll-line-to-center (line-number-at-pos)))
 
     ;; bind [, ] functions
     (define-key evil-normal-state-map (kbd "[ SPC") (lambda () (interactive) (evil-insert-newline-above) (forward-line)))
