@@ -569,10 +569,9 @@
     (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-call)
     (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial-or-done)
     (define-key ivy-minibuffer-map (kbd "C-<return>") 'ivy-immediate-done)
-    (define-key ivy-minibuffer-map (kbd "C-c C-e") 'spacemacs//counsel-edit)
+
+    (evil-set-initial-state 'ivy-occur-grep-mode 'normal)
     ))
-
-
 
 (defun ztlevi-misc/post-init-p4 ()
   (with-eval-after-load 'p4
