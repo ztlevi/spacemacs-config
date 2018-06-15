@@ -128,7 +128,7 @@
              (figwheel-sidecar.repl-api/cljs-repl)")
       (cider-repl-return)))
 
-  (global-set-key (kbd "C-c C-f") #'ztlevi/cider-figwheel-repl))
+  (bind-key* "C-c C-f" #'ztlevi/cider-figwheel-repl))
 
 (defun ztlevi-programming/post-init-graphviz-dot-mode ()
   (with-eval-after-load 'graphviz-dot-mode
@@ -213,8 +213,6 @@
       (push '(cider-repl-mode . ("[`'~@]+" "#" "#\\?@?")) lispy-parens-preceding-syntax-alist)
 
       (spacemacs|hide-lighter lispy-mode)
-      (define-key lispy-mode-map (kbd "s-j") 'lispy-splice)
-      (define-key lispy-mode-map (kbd "s-k") 'paredit-splice-sexp-killing-backward)
 
       (with-eval-after-load 'cider-repl
         (define-key cider-repl-mode-map (kbd "C-s-j") 'cider-repl-newline-and-indent))

@@ -49,7 +49,7 @@
 
 ;; stack exchange
 (define-prefix-command 'launcher-map)
-(global-set-key (kbd "s-l") 'launcher-map)
+(bind-key* "s-l" #'launcher-map)
 (define-key launcher-map "q" #'sx-tab-all-questions)
 (define-key launcher-map "i" #'sx-inbox)
 (define-key launcher-map "o" #'sx-open-link)
@@ -61,25 +61,25 @@
 (spacemacs/set-leader-keys "bi" #'imenu-list-smart-toggle)
 
 ;; company complete
-(global-set-key (kbd "C-SPC") 'company-complete)
+(bind-key* "C-SPC" #'company-complete)
 
 ;; comment
-(global-set-key (kbd "s-/") 'spacemacs/comment-or-uncomment-lines)
+(bind-key* "s-/" #'spacemacs/comment-or-uncomment-lines)
 
 ;; macro
-(global-set-key (kbd "s-m") 'call-last-kbd-macro)
+(bind-key* "s-m" #'call-last-kbd-macro)
 (spacemacs/set-leader-keys "om" 'kmacro-edit-macro)
 
 ;; expand region
-(global-set-key (kbd "C-s-.") 'er/expand-region)
-(global-set-key (kbd "C-s-,") 'er/contract-region)
+(bind-key* "C-s-." #'er/expand-region)
+(bind-key* "C-s-," #'er/contract-region)
 
 ;; prettier js
 (spacemacs/set-leader-keys "tp" 'prettier-js-mode)
 
 ;; redefine C-i and S-tab
-(global-set-key (kbd "<C-i>") 'evil-shift-right-line)
-(global-set-key (kbd "<S-tab>") 'evil-shift-left-line)
+(bind-key* "<C-i>" #'evil-shift-right-line)
+(bind-key* "<S-tab>" #'evil-shift-left-line)
 
 ;; helm bookmark keybindings
 (spacemacs/set-leader-keys (kbd "fb") 'helm-filtered-bookmarks)
@@ -136,8 +136,8 @@
 
 ;; remap C-h with delte, C-M-h with help-command
 ;; (define-key evil-hybrid-state-map (kbd "C-h") 'delete-backward-char)
-;; (global-set-key (kbd "C-M-h") 'help-command)
-(global-set-key (kbd "C-h h") nil)
+;; (bind-key* "C-M-h" #'help-command)
+(bind-key* "C-h h" nil)
 
 ;; A complementary binding to the apropos-command (C-h a)
 (define-key 'help-command "A" 'apropos)
@@ -147,49 +147,12 @@
 (define-key 'help-command (kbd "C-l") 'find-library)
 (define-key 'help-command (kbd "C-i") 'info-display-manual)
 
-(global-set-key [(shift return)] 'ztlevi/smart-open-line)
-(global-set-key (kbd "C-c a") 'org-agenda)
-(define-key global-map (kbd "C-c y") 'youdao-dictionary-search-at-point+)
-(define-key global-map (kbd "<f9>") 'org-capture)
-(define-key global-map (kbd "C-c t") 'org-capture)
-(define-key global-map (kbd "<f8>") 'ztlevi/show-current-buffer-major-mode)
-
-(global-set-key (kbd "C-c b") 'org-iswitchb)
-(global-set-key (kbd "C-c i e") 'spacemacs/auto-yasnippet-expand)
-
-(global-set-key [remap fill-paragraph] #'endless/fill-or-unfill)
-
-(global-set-key (kbd "s-g") 'goto-line)
-(global-set-key (kbd "C-`") 'toggle-input-method)
-(bind-key* "s-r" 'mc/reverse-regions)
-(global-set-key (kbd "<f5>") 'ztlevi/run-current-file)
-
-;; "http://endlessparentheses.com/transposing-keybinds-in-emacs.html?source=rss"
-;; (global-set-key "\C-t" #'transpose-lines)
-;; (define-key ctl-x-map "\C-t" #'transpose-chars)
-
 (spacemacs|add-toggle toggle-shadowsocks-proxy-mode
   :status shadowsocks-proxy-mode
   :on (global-shadowsocks-proxy-mode)
   :off (global-shadowsocks-proxy-mode -1)
   :documentation "Toggle shadowsocks proxy mode."
   :evil-leader "ots")
-
-;; (bind-key* "s-k" 'scroll-other-window-down)
-;; (bind-key* "s-j"  'scroll-other-window)
-(bind-key* "s-j" 'ivy-yasnippet)
-(bind-key* "C-c /" 'company-files)
-;; (bind-key* "s-r" 'ztlevi/browser-refresh--chrome-applescript)
-(bind-key* "s-;" 'ztlevi/insert-semicolon-at-the-end-of-this-line)
-(bind-key* "C-s-;" 'ztlevi/delete-semicolon-at-the-end-of-this-line)
-(bind-key* "s-," 'ztlevi/insert-comma-at-the-end-of-this-line)
-;; (bind-key* "C-s-," 'ztlevi/delete-comma-at-the-end-of-this-line)
-(bind-key* "C-c l" 'ztlevi/insert-chrome-current-tab-url)
-;; (bind-key* "M-s o" 'occur-dwim)
-(bind-key* "M--" 'ztlevi/goto-match-paren)
-(bind-key* "C-c k" 'which-key-show-top-level)
-(bind-key* "s-y" 'aya-expand)
-;; (bind-key* "C-l" 'recenter)
 
 ;; (spacemacs/set-leader-keys "op" 'ztlevi/org-save-and-export)
 (spacemacs/set-leader-keys "fR" 'ztlevi/rename-file-and-buffer)
@@ -204,7 +167,6 @@
 (spacemacs/set-leader-keys "Bb" 'bookmark-bmenu-list)
 
 ;; custom key
-(global-set-key (kbd "<f1>") 'ztlevi/helm-hotspots)
 (spacemacs/declare-prefix "ot" "Toggle")
 (spacemacs/set-leader-keys "otf" 'focus-mode)
 (spacemacs/set-leader-keys "oo" 'ztlevi/helm-hotspots)
@@ -221,8 +183,6 @@
 (spacemacs/set-leader-keys "oT" 'ztlevi/untabify-buffer)
 (spacemacs/set-leader-keys "op" 'prettier-js)
 (spacemacs/set-leader-keys (kbd "of") 'counsel-git)
-
-(spacemacs/set-leader-keys "rr" 'rjsx-mode)
 
 ;; resume
 (spacemacs/set-leader-keys "rh" 'helm-resume)
@@ -248,47 +208,71 @@
 (spacemacs/set-leader-keys "oll" 'ztlevi/load-my-layout)
 (spacemacs/set-leader-keys "ols" 'ztlevi/save-my-layout)
 
+;; global key binding
+(bind-key* "<f1>"  #'ztlevi/helm-hotspots)
+(bind-key* "<f5>"  #'ztlevi/run-current-file)
+(bind-key* "<f8>"  #'ztlevi/show-current-buffer-major-mode)
+(bind-key* "<f9>"  #'org-capture)
+(bind-key* "C-`"   #'toggle-input-method)
+(bind-key* "C-c /" #'company-files)
+(bind-key* "C-c a" #'org-agenda)
+(bind-key* "C-c b" #'org-iswitchb)
+(bind-key* "C-c k" #'which-key-show-top-level)
+(bind-key* "C-c l" #'ztlevi/insert-chrome-current-tab-url)
+(bind-key* "C-c t" #'org-capture)
+(bind-key* "C-c y" #'youdao-dictionary-search-at-point+)
+(bind-key* "C-s-;" #'ztlevi/delete-semicolon-at-the-end-of-this-line)
+(bind-key* "M--"   #'ztlevi/goto-match-paren)
+(bind-key* "s-,"   #'ztlevi/insert-comma-at-the-end-of-this-line)
+(bind-key* "s-;"   #'ztlevi/insert-semicolon-at-the-end-of-this-line)
+(bind-key* "s-g"   #'goto-line)
+(bind-key* "s-j"   #'ivy-yasnippet)
+(bind-key* "s-r"   #'mc/reverse-regions)
+(bind-key* "s-y"   #'aya-expand)
+(global-set-key [(shift return)] #'ztlevi/smart-open-line)
+(global-set-key [remap fill-paragraph] #'endless/fill-or-unfill)
+
 ;; keybindings for linux and macOS
 (when (or (spacemacs/system-is-linux) (spacemacs/system-is-mac))
-  (global-set-key (kbd "s-p")   'counsel-git)
-  (global-set-key (kbd "s-f")   'my-swiper-search)
-  (global-set-key (kbd "s-F")   'spacemacs/search-project-auto)
-  (global-set-key (kbd "s-s")   'evil-write-all)
-  (global-set-key (kbd "s-w")   'delete-window-or-frame)
-  (global-set-key (kbd "C-s-o") 'other-frame)
-  (global-set-key (kbd "s-=")   'spacemacs/scale-up-font)
-  (global-set-key (kbd "s--")   'spacemacs/scale-down-font)
-  (global-set-key (kbd "s-0")   'spacemacs/reset-font-size)
-  (global-set-key (kbd "s-q")   'save-buffers-kill-terminal)
-  (global-set-key (kbd "s-v")   'yank)
-  (global-set-key (kbd "s-c")   'evil-yank)
-  (global-set-key (kbd "s-a")   'mark-whole-buffer)
-  (global-set-key (kbd "s-x")   'kill-region)
-  (global-set-key (kbd "s-n")   'make-frame)
-  (global-set-key (kbd "s-z")   'undo-tree-undo)
-  (global-set-key (kbd "s-Z")   'undo-tree-redo)
+  (bind-key* "s-p"   #'counsel-git)
+  (bind-key* "s-f"   #'my-swiper-search)
+  (bind-key* "s-F"   #'spacemacs/search-project-auto)
+  (bind-key* "s-s"   #'evil-write-all)
+  (bind-key* "s-w"   #'delete-window-or-frame)
+  (bind-key* "C-s-o" #'other-frame)
+  (bind-key* "s-="   #'spacemacs/scale-up-font)
+  (bind-key* "s--"   #'spacemacs/scale-down-font)
+  (bind-key* "s-0"   #'spacemacs/reset-font-size)
+  (bind-key* "s-q"   #'save-buffers-kill-terminal)
+  (bind-key* "s-v"   #'yank)
+  (bind-key* "s-c"   #'evil-yank)
+  (bind-key* "s-a"   #'mark-whole-buffer)
+  (bind-key* "s-x"   #'kill-region)
+  (bind-key* "s-n"   #'make-frame)
+  (bind-key* "s-z"   #'undo-tree-undo)
+  (bind-key* "s-Z"   #'undo-tree-redo)
   ;; hungry delete
-  (global-set-key (kbd "s-<backspace>") 'hungry-delete-backward)
+  (bind-key* "s-<backspace>" #'hungry-delete-backward)
   ;; iterm
   (spacemacs/set-leader-keys "o!" 'ztlevi/iterm-shell-command))
 ;; keybindings for Windows
 (when (spacemacs/system-is-mswindows)
-  (global-set-key (kbd "C-S-p") 'counsel-git)
-  (global-set-key (kbd "C-f")   'my-swiper-search)
-  (global-set-key (kbd "C-S-f") 'spacemacs/search-project-auto)
-  (global-set-key (kbd "C-S-s") 'evil-write-all)
-  (global-set-key (kbd "C-S-w") 'delete-window-or-frame)
-  (global-set-key (kbd "C-S-o") 'other-frame)
-  (global-set-key (kbd "C-=")   'spacemacs/scale-up-font)
-  (global-set-key (kbd "C--")   'spacemacs/scale-down-font)
-  (global-set-key (kbd "C-0")   'spacemacs/reset-font-size)
-  (global-set-key (kbd "C-S-q") 'save-buffers-kill-terminal)
-  (global-set-key (kbd "C-v")   'yank)
-  (global-set-key (kbd "C-S-v") 'yank)
-  (global-set-key (kbd "C-S-c") 'evil-yank)
-  (global-set-key (kbd "C-S-a") 'mark-whole-buffer)
-  (global-set-key (kbd "C-S-x") 'kill-region)
-  (global-set-key (kbd "C-S-n") 'make-frame)
-  (global-set-key (kbd "C-S-z") 'undo-tree-undo)
+  (bind-key* "C-S-p" #'counsel-git)
+  (bind-key* "C-f"   #'my-swiper-search)
+  (bind-key* "C-S-f" #'spacemacs/search-project-auto)
+  (bind-key* "C-S-s" #'evil-write-all)
+  (bind-key* "C-S-w" #'delete-window-or-frame)
+  (bind-key* "C-S-o" #'other-frame)
+  (bind-key* "C-="   #'spacemacs/scale-up-font)
+  (bind-key* "C--"   #'spacemacs/scale-down-font)
+  (bind-key* "C-0"   #'spacemacs/reset-font-size)
+  (bind-key* "C-S-q" #'save-buffers-kill-terminal)
+  (bind-key* "C-v"   #'yank)
+  (bind-key* "C-S-v" #'yank)
+  (bind-key* "C-S-c" #'evil-yank)
+  (bind-key* "C-S-a" #'mark-whole-buffer)
+  (bind-key* "C-S-x" #'kill-region)
+  (bind-key* "C-S-n" #'make-frame)
+  (bind-key* "C-S-z" #'undo-tree-undo)
   ;; hungry delete
-  (global-set-key (kbd "C-<backspace>") 'hungry-delete-backward))
+  (bind-key* "C-<backspace>" #'hungry-delete-backward))

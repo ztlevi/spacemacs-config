@@ -34,7 +34,7 @@
   (define-key evil-visual-state-map (kbd "gd") 'lsp-ui-peek-find-definitions)
 
   ;; overwrite C-j key for toggle-lsp-ui-doc
-  (bind-key* "C-j" #'toggle-lsp-ui-doc))
+  (global-set-key (kbd "C-j") #'toggle-lsp-ui-doc))
 (add-hook 'lsp-mode-hook #'my-lsp-mode-hook)
 
 ;; js2 mode hook

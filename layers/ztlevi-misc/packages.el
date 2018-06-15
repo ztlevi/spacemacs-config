@@ -171,11 +171,9 @@
       ("g" customize-apropos-groups "groups")
       ("o" customize-apropos-options "options"))
 
-    (define-key global-map (kbd "<f1>") 'hydra-hotspots/body)
+    (bind-key* "<f1>" #'hydra-hotspots/body)
     (spacemacs/set-leader-keys "oo" 'hydra-hotspots/body)
-    ;; (bind-key*  "<f4>" 'hydra-apropos/body)
     (spacemacs/set-leader-keys "oh" 'hydra-apropos/body)
-
     ))
 
 (defun ztlevi-misc/post-init-origami ()
@@ -230,7 +228,7 @@
 (defun ztlevi-misc/post-init-elfeed ()
   (use-package elfeed
     :init
-    (global-set-key (kbd "C-x w") 'elfeed)
+    (bind-key* "C-x w" #'elfeed)
     :defer t
     :config
     (progn
@@ -366,24 +364,24 @@
     :commands (vr/select-replace vr/select-query-replace)
     :init
     (progn
-      (define-key global-map (kbd "C-c r") 'vr/replace)
-      (define-key global-map (kbd "C-c q") 'vr/query-replace))))
+      (bind-key* "C-c r" #'vr/replace)
+      (bind-key* "C-c q" #'vr/query-replace))))
 
 (defun ztlevi-misc/init-multiple-cursors ()
   (use-package multiple-cursors
     :defer t
     :init
     (progn
-      (bind-key* "C-s-l" 'mc/edit-lines)
-      (bind-key* "C-s-g" 'mc/mark-all-like-this)
-      (bind-key* "C->" 'mc/mark-next-like-this)
-      (bind-key* "C-<" 'mc/mark-previous-like-this)
-      (bind-key* "s->" 'mc/unmark-next-like-this)
-      (bind-key* "s-<" 'mc/unmark-previous-like-this)
+      (bind-key* "C-s-l" #'mc/edit-lines)
+      (bind-key* "C-s-g" #'mc/mark-all-like-this)
+      (bind-key* "C->"   #'mc/mark-next-like-this)
+      (bind-key* "C-<"   #'mc/mark-previous-like-this)
+      (bind-key* "s->"   #'mc/unmark-next-like-this)
+      (bind-key* "s-<"   #'mc/unmark-previous-like-this)
 
       ;; add mouse click
-      (global-unset-key (kbd "M-<down-mouse-1>"))
-      (global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
+      (bind-key* "M-<down-mouse-1>" nil)
+      (bind-key* "M-<mouse-1>" #'mc/add-cursor-on-click)
 
       ;; http://endlessparentheses.com/multiple-cursors-keybinds.html?source=rss
       (define-prefix-command 'endless/mc-map)
@@ -422,7 +420,7 @@
 
 (defun ztlevi-misc/post-init-chinese-wbim ()
   (progn
-    (bind-key* ";" 'chinese-wbim-insert-ascii)
+    (bind-key* ";" #'chinese-wbim-insert-ascii)
     (setq chinese-wbim-punc-translate-p nil)
     (spacemacs/declare-prefix "ot" "Toggle")
     (spacemacs/set-leader-keys
