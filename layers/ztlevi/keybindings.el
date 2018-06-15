@@ -177,6 +177,7 @@
 
 ;; (bind-key* "s-k" 'scroll-other-window-down)
 ;; (bind-key* "s-j"  'scroll-other-window)
+(bind-key* "s-j" 'ivy-yasnippet)
 (bind-key* "C-c /" 'company-files)
 ;; (bind-key* "s-r" 'ztlevi/browser-refresh--chrome-applescript)
 (bind-key* "s-;" 'ztlevi/insert-semicolon-at-the-end-of-this-line)
