@@ -13,19 +13,24 @@
   '(
     all-the-icons
     all-the-icons-dired
-    ;; doom modeline needs all-the-icons, shrink-path
-    (doom-modeline :location local)
-    shrink-path
-    ;; (ztlevi-modeline :location local)
+    spaceline-all-the-icons
     popwin
+    (whitespace :location built-in)
     (ivy-posframe :toggle (version<= "26" emacs-version))
+
     ;; company-box needs icons-in-terminal
     (icons-in-terminal :location local)
     (company-box :toggle (version<= "26" emacs-version))
-    (whitespace :location built-in)
+
     doom-themes
     ;; To use local repo, update the packages to clean up the cache
     ;; (doom-themes :location "~/Developer/Github/emacs-doom-themes")
+
+    ;; doom modeline needs all-the-icons, shrink-path
+    ;; (doom-modeline :location local)
+    ;; shrink-path
+
+    ;; (ztlevi-modeline :location local)
     )
   )
 
@@ -63,12 +68,17 @@
   (use-package all-the-icons-dired
     :defer t
     :init
-    (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
-    ))
+    (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)))
 
 (defun ztlevi-ui/init-all-the-icons ()
   (use-package all-the-icons
     :defer t))
+
+(defun ztlevi-ui/post-init-spaceline-all-the-icons ()
+  (setq spaceline-all-the-icons-clock-always-visible nil)
+  (setq spaceline-all-the-icons-flycheck-alternate t)
+  (setq spaceline-all-the-icons-hide-long-buffer-path t)
+  (setq spaceline-all-the-icons-highlight-file-name t))
 
 (defun ztlevi-ui/init-ivy-posframe ()
   (use-package ivy-posframe

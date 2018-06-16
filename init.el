@@ -42,7 +42,7 @@ This function should only modify configuration layer settings."
      ;; spacemacs-language
      (spacemacs-layouts :variables layouts-enable-autosave nil)
      spacemacs-misc
-     (spacemacs-modeline :packages (font-lock+))
+     spacemacs-modeline
      spacemacs-navigation
      spacemacs-org
      spacemacs-project
@@ -193,7 +193,7 @@ This function should only modify configuration layer settings."
      ;; spacemacs-misc
      dumb-jump
      ;; spacemacs-modeline
-     spaceline-all-the-icons vim-powerline symon fancy-battery
+     vim-powerline symon fancy-battery
      ;; spacemacs-navigation
      flx-ido smooth-scrolling
      ;; spacemacs-org
@@ -365,7 +365,7 @@ It should only modify the values of Spacemacs settings."
    ;; to create your own spaceline theme. Value can be a symbol or list with\
    ;; additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator slant :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(all-the-icons :separator slant)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
