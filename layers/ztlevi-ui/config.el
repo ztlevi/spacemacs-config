@@ -19,7 +19,6 @@
         (height . 65)))
 
 ;; set evil cursors colors
-;; #4078f2
 (setq spacemacs-evil-cursors '(("normal"       "#4078f2" box)
                                ("insert"       "#BFD641" (bar . 2))
                                ("emacs"        "#a0bcf8" box)
@@ -31,6 +30,45 @@
                                ("lisp"         "#6B5B95" box)
                                ("iedit"        "#E94B3C" box)
                                ("iedit-insert" "#E94B3C" (bar . 2))))
+
+;; set faces after doom-one-light
+(if (eq spacemacs--cur-theme 'doom-one-light)
+    (custom-set-faces
+     ;; set spaceline faces
+     '(mode-line ((t (:background "grey90" :box nil))))
+     '(mode-line-inactive ((t (:background "grey85" :foreground "#a190a7" :box nil))))
+     '(powerline-active1 ((t (:inherit mode-line :background "grey90" :foreground "grey17"))))
+     '(powerline-active2 ((t (:inherit mode-line :background "grey85" :foreground "grey40"))))
+     '(powerline-inactive1 ((t (:inherit mode-line-inactive :background "grey90" :foreground "grey17"))))
+     '(powerline-inactive2 ((t (:inherit mode-line-inactive :background "grey85" :foreground "grey40"))))
+     ;; others
+     '(show-paren-match ((t (:background "#d7d7d7" :foreground "#e45649" :weight ultra-bold))))))
+
+;; set faces for others
+(custom-set-faces
+ '(origami-fold-replacement-face ((t (:inherit (quote font-lock-keyword-face)))))
+ '(term-bold ((t (:weight bold :height 1.1 :family "Ubuntu Mono derivative Powerline")))))
+
+;; faces set after doom-modeline
+;; (custom-set-faces
+;;  '(doom-modeline-error ((t (:background "#e45649" :foreground "#f0f0f0")))))
+
+;; set markdown faces
+(custom-set-faces
+ '(markdown-header-face-1 ((t (:inherit org-level-1))))
+ '(markdown-header-face-2 ((t (:inherit org-level-2))))
+ '(markdown-header-face-3 ((t (:inherit org-level-3)))))
+
+;; set lsp-intellij face
+(custom-set-faces
+ '(lsp-intellij-face-code-lens-run ((t (:background "honeydew")))))
+
+;; set imenu faces
+(custom-set-faces
+ '(imenu-list-entry-face-0 ((t (:inherit font-lock-keyword-face))))
+ '(imenu-list-entry-face-1 ((t (:inherit font-lock-string-face))))
+ '(imenu-list-entry-face-2 ((t (:inherit font-lock-preprocessor-face))))
+ '(imenu-list-entry-face-3 ((t (:inherit font-lock-function-name-face)))))
 
 ;; enable ligatures support (emacs mac port only)
 ;; others here: https://github.com/tonsky/FiraCode/wiki/Emacs-instructions

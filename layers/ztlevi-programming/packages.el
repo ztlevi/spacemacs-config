@@ -298,8 +298,7 @@
     :init
     (spacemacs/set-leader-keys "bl" 'lsp-ui-imenu)
     (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
-    :defer t)
-  )
+    :defer t))
 
 (defun ztlevi-programming/post-init-js2-mode ()
   ;; js default variables

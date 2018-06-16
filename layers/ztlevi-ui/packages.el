@@ -35,13 +35,13 @@
   )
 
 (defun ztlevi-ui/post-init-doom-themes ()
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (setq doom-themes-enable-bold t      ; if nil, bold is universally disabled
+        doom-themes-enable-italic t)   ; if nil, italics is universally disabled
   ;; Enable flashing mode-line on errors
   ;; (doom-themes-visual-bell-config)
 
   ;; Enable custom neotree theme
-  (doom-themes-neotree-config)        ; all-the-icons fonts must be installed!
+  (doom-themes-neotree-config)          ; all-the-icons fonts must be installed!
 
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
@@ -78,7 +78,9 @@
   (setq spaceline-all-the-icons-clock-always-visible nil)
   (setq spaceline-all-the-icons-flycheck-alternate t)
   (setq spaceline-all-the-icons-hide-long-buffer-path t)
-  (setq spaceline-all-the-icons-highlight-file-name t))
+  (setq spaceline-all-the-icons-highlight-file-name t)
+
+  (setq spaceline-all-the-icons-icon-set-git-ahead (quote commit)))
 
 (defun ztlevi-ui/init-ivy-posframe ()
   (use-package ivy-posframe

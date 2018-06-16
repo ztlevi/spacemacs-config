@@ -86,8 +86,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(doom-modeline-error ((t (:background "#e45649" :foreground "#f0f0f0"))))
- '(header-line ((t (:inherit font-lock-preprocessor-face))))
  '(imenu-list-entry-face-0 ((t (:inherit font-lock-keyword-face))))
  '(imenu-list-entry-face-1 ((t (:inherit font-lock-string-face))))
  '(imenu-list-entry-face-2 ((t (:inherit font-lock-preprocessor-face))))
@@ -96,7 +94,13 @@
  '(markdown-header-face-1 ((t (:inherit org-level-1))))
  '(markdown-header-face-2 ((t (:inherit org-level-2))))
  '(markdown-header-face-3 ((t (:inherit org-level-3))))
+ '(mode-line ((t (:background "grey90" :box nil))))
+ '(mode-line-inactive ((t (:background "grey85" :foreground "#a190a7" :box nil))))
  '(origami-fold-replacement-face ((t (:inherit (quote font-lock-keyword-face)))))
+ '(powerline-active1 ((t (:inherit mode-line :background "grey90" :foreground "grey17"))))
+ '(powerline-active2 ((t (:inherit mode-line :background "grey85" :foreground "grey40"))))
+ '(powerline-inactive1 ((t (:inherit mode-line-inactive :background "grey90" :foreground "grey17"))))
+ '(powerline-inactive2 ((t (:inherit mode-line-inactive :background "grey85" :foreground "grey40"))))
  '(show-paren-match ((t (:background "#d7d7d7" :foreground "#e45649" :weight ultra-bold))))
  '(term-bold ((t (:weight bold :height 1.1 :family "Ubuntu Mono derivative Powerline")))))
 ;; Do not write anything past this comment. This is where Emacs will

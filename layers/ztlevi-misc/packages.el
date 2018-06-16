@@ -648,47 +648,43 @@
     :commands (live-server-preview)))
 
 (defun ztlevi-misc/post-init-markdown-mode ()
-  (progn
-    (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 
-    (setq markdown-italic-underscore t)
+  (setq markdown-italic-underscore t)
 
-    ;; set markdown inline iamge max size
-    (setq markdown-max-image-size '(800 . 800))
+  ;; set markdown inline iamge max size
+  (setq markdown-max-image-size '(800 . 800))
 
-    ;; define markdown keys
-    (with-eval-after-load 'markdown-mode
-      (progn
-        ;; (when (configuration-layer/package-usedp 'company)
-        ;;   (spacemacs|add-company-hook markdown-mode))
-        (dolist (mode markdown--key-bindings-modes)
-          (spacemacs/set-leader-keys-for-major-mode mode
-            "o" 'markdown-follow-link-at-point)
-          (spacemacs/set-leader-keys-for-major-mode mode
-            "D" 'my-flymd-delete-tmp-file)
-          (spacemacs/set-leader-keys-for-major-mode mode
-            "H" 'markdown-hide-body)
-          (spacemacs/set-leader-keys-for-major-mode mode
-            "S" 'markdown-show-all)
-          (spacemacs/set-leader-keys-for-major-mode mode
-            "dd" 'org-deadline)
-          (spacemacs/set-leader-keys-for-major-mode mode
-            "ds" 'org-schedule)
-          (spacemacs/set-leader-keys-for-major-mode mode
-            "dt" 'org-time-stamp)
-          (spacemacs/set-leader-keys-for-major-mode mode
-            "dT" 'org-time-stamp-inactive))
+  ;; define markdown keys
+  (with-eval-after-load 'markdown-mode
+    ;; (when (configuration-layer/package-usedp 'company)
+    ;;   (spacemacs|add-company-hook markdown-mode))
+    (dolist (mode markdown--key-bindings-modes)
+      (spacemacs/set-leader-keys-for-major-mode mode
+        "o" 'markdown-follow-link-at-point)
+      (spacemacs/set-leader-keys-for-major-mode mode
+        "D" 'my-flymd-delete-tmp-file)
+      (spacemacs/set-leader-keys-for-major-mode mode
+        "H" 'markdown-hide-body)
+      (spacemacs/set-leader-keys-for-major-mode mode
+        "S" 'markdown-show-all)
+      (spacemacs/set-leader-keys-for-major-mode mode
+        "dd" 'org-deadline)
+      (spacemacs/set-leader-keys-for-major-mode mode
+        "ds" 'org-schedule)
+      (spacemacs/set-leader-keys-for-major-mode mode
+        "dt" 'org-time-stamp)
+      (spacemacs/set-leader-keys-for-major-mode mode
+        "dT" 'org-time-stamp-inactive))
 
-        (evil-define-key 'normal markdown-mode-map (kbd "TAB") 'markdown-cycle)
-        (evil-define-key 'normal gfm-mode-map (kbd "TAB") 'markdown-cycle)
+    (evil-define-key 'normal markdown-mode-map (kbd "TAB") 'markdown-cycle)
+    (evil-define-key 'normal gfm-mode-map (kbd "TAB") 'markdown-cycle)
 
-        (spacemacs//evil-org-mode)
-        (evil-define-key 'normal markdown-mode-map (kbd "o") 'evil-org-open-below)
-        (evil-define-key 'normal gfm-mode-map (kbd "o") 'evil-org-open-below)
-        (evil-define-key 'normal markdown-mode-map (kbd "O") 'evil-org-open-above)
-        (evil-define-key 'normal gfm-mode-map (kbd "O") 'evil-org-open-above)
+    (spacemacs//evil-org-mode)
+    (evil-define-key 'normal markdown-mode-map (kbd "o") 'evil-org-open-below)
+    (evil-define-key 'normal gfm-mode-map (kbd "o") 'evil-org-open-below)
+    (evil-define-key 'normal markdown-mode-map (kbd "O") 'evil-org-open-above)
+    (evil-define-key 'normal gfm-mode-map (kbd "O") 'evil-org-open-above)
 
-        ;; bind key for edit code block
-        (define-key markdown-mode-map (kbd "C-c '") 'markdown-edit-code-block)
-        ))
-    ))
+    ;; bind key for edit code block
+    (define-key markdown-mode-map (kbd "C-c '") 'markdown-edit-code-block)))
