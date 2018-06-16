@@ -18,10 +18,24 @@
       '((width . 110)
         (height . 65)))
 
+;; set evil cursors colors
+;; #4078f2
+(setq spacemacs-evil-cursors '(("normal"       "#4078f2" box)
+                               ("insert"       "#BFD641" (bar . 2))
+                               ("emacs"        "#a0bcf8" box)
+                               ("hybrid"       "#ff007f" (bar . 2))
+                               ("replace"      "#F7786B" (hbar . 2))
+                               ("evilified"    "#F6D155" box)
+                               ("visual"       "gray"    (hbar . 2))
+                               ("motion"       "#B565A7" box)
+                               ("lisp"         "#6B5B95" box)
+                               ("iedit"        "#E94B3C" box)
+                               ("iedit-insert" "#E94B3C" (bar . 2))))
+
 ;; enable ligatures support (emacs mac port only)
 ;; others here: https://github.com/tonsky/FiraCode/wiki/Emacs-instructions
 (cond
- ((string-equal system-type "darwin") ; Mac OS X
+ ((string-equal system-type "darwin")   ; Mac OS X
   (mac-auto-operator-composition-mode))
  ((string-equal system-type "gnu/linux") ; linux
   (progn
