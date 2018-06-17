@@ -68,18 +68,13 @@
            npm install -g prettier js-beautify live-server import-js
          #+END_SRC
        - pip
-         - =yapf=
+         - =yapf=, =importmagic=
            #+BEGIN_SRC shell
-             pip3 install yapf
+             pip3 install yapf importmagic epc
            #+END_SRC
            *Note*: (optional) If you are using Python 2.7 (pip2) to install the =yapf= and want to enable multiprocessing:
            #+BEGIN_SRC shell
              pip2 install futures
-           #+END_SRC
-         - =importmagic=
-           For now, =importmagic= use hardcoded python (symbolic to python2 in most machines). In this case, pip2 should be used to install =importmagic=.
-           #+BEGIN_SRC shell
-           pip2 install importmagic epc
            #+END_SRC
     4. Language Server Protocol: Install the [[https://langserver.org/][lsp]] for your languages. A few examples are listed below.
        #+BEGIN_SRC shell

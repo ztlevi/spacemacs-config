@@ -140,6 +140,11 @@
 
 (defun ztlevi-programming/post-init-python ()
   (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+
+  ;; set python interpreters
+  (setq importmagic-python-interpreter "python3")
+  (setq pippel-python-command "python3")
+
   ;; if you use pyton2, then you could comment the following 3 lines
   ;; (setq python-shell-interpreter "python2")
   ;; (setq python-shell-interpreter-args "-i")
