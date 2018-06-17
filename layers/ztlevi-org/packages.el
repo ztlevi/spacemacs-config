@@ -197,8 +197,8 @@
       ;; (add-hook 'org-after-todo-state-change-hook 'org-subtask-reset)
 
       (setq org-plantuml-jar-path
-            (expand-file-name "~/.spacemacs.d/plantuml.jar"))
-      (setq org-ditaa-jar-path "~/.spacemacs.d/ditaa.jar")
+            (expand-file-name (concat dotspacemacs-directory "lib/plantuml.jar")))
+      (setq org-ditaa-jar-path (concat dotspacemacs-directory "lib/ditaa.jar"))
 
       (org-babel-do-load-languages
        'org-babel-load-languages
