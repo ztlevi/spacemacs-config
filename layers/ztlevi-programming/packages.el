@@ -20,6 +20,7 @@
     cmake-mode
     lsp-intellij
     js2-mode
+    rjsx-mode
     vue-mode
     lsp-ui
     (lsp-imenu :location built-in)
@@ -73,6 +74,13 @@
       (spacemacs/set-leader-keys-for-major-mode 'css-mode "=" 'prettier-js)
       (spacemacs/set-leader-keys-for-major-mode 'markdown-mode "=" 'prettier-js)
       (spacemacs/set-leader-keys-for-major-mode 'gfm-mode "=" 'prettier-js))))
+
+(defun ztlevi-programming/post-init-rjsx-mode ()
+    ;; comment jsx region
+    (add-hook 'rjsx-mode-hook (lambda ()
+                                (with-eval-after-load 'evil-surround
+                                  (push '(?/ . ("{/*" . "*/}")) evil-surround-pairs-alist))))
+  )
 
 (defun ztlevi-programming/init-stylus-mode ()
   (use-package stylus-mode
