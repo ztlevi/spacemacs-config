@@ -49,7 +49,7 @@
  '(origami-fold-replacement-face ((t (:inherit (quote font-lock-keyword-face)))))
  '(term-bold ((t (:weight bold :height 1.1 :family "Ubuntu Mono derivative Powerline")))))
 
-;; faces set after doom-modeline
+;; faces set after doom-themes
 ;; (custom-set-faces
 ;;  '(doom-modeline-error ((t (:background "#e45649" :foreground "#f0f0f0")))))
 
