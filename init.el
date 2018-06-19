@@ -87,7 +87,6 @@ This function should only modify configuration layer settings."
      ;; restclient
      ;; (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      (shell :variables
-            shell-default-full-span nil
             shell-default-shell 'ansi-term
             shell-default-term-shell "zsh")
      shell-scripts
