@@ -10,8 +10,8 @@
 ;;; License: GPLv3
 
 ;; flyspell
-(add-hook 'org-mode-hook 'flyspell-mode)
-(add-hook 'markdown-mode-hook 'flyspell-mode)
+(spacemacs/add-to-hooks #'flyspell-mode '(org-mode-hook
+                                          markdown-mode-hook))
 
 ;; customize helm
 (with-eval-after-load 'helm-make
@@ -25,7 +25,6 @@
     (push "\\.emlx$" helm-boring-file-regexp-list)))
 
 (define-abbrev-table 'global-abbrev-table '(
-
                                             ;; math/unicode symbols
                                             ("8in" "∈")
                                             ("8nin" "∉")
@@ -35,6 +34,7 @@
                                             ("8en" "@~english")
                                             ("8zh" "@~chinese")
                                             ("8sp" "spacemacs")
+
                                             ;; email
                                             ("8me" "zhouting@umich.com")
 
@@ -47,10 +47,9 @@
                                             ("8win" "Windows")
                                             ("8ie" "Internet Explorer")
                                             ("8ahk" "AutoHotkey")
-                                            ("82dx" "Cocos2D-X")
 
                                             ;; signature
-                                            ("8zl" "ztlevi")
+                                            ("8zt" "ztlevi")
                                             ;; emacs regex
                                             ("8d" "\\([0-9]+?\\)")
                                             ("8str" "\\([^\"]+?\\)\"")))
