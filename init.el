@@ -712,13 +712,15 @@ in the dump."
 
   (add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt '("xml" "xsd" "rng" "xslt" "xsl") t) "\\'") 'nxml-mode))
 
-  ;; temp add lsp hook
-  (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
-  (require 'lsp-javascript-flow)
-  (add-hook 'js-mode-hook #'lsp-javascript-flow-enable)
-  (require 'lsp-typescript)
-  (add-hook 'js-mode-hook #'lsp-typescript-enable)
-  (add-hook 'rjsx-mode #'lsp-typescript-enable)
+  ;; Use GNU ls as `gls' from `coreutils' if available.  Add `(setq
+  ;; dired-use-ls-dired nil)' to your config to suppress the Dired warning when
+  ;; not using GNU ls.  We must look for `gls' after `exec-path-from-shell' was
+  ;; initialized to make sure that `gls' is in `exec-path'
+  (when (spacemacs/system-is-mac)
+    (let ((gls (executable-find "gls")))
+      (when gls
+        (setq insert-directory-program gls
+              dired-listing-switches "-aBhl --group-directories-first"))))
 
   ;; diminish modes
   (spacemacs|diminish meghanada-mode " Ⓜ︎" " M")
