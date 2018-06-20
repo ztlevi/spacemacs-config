@@ -59,7 +59,7 @@
            # utils
            brew install watchman gpg2 coreutils
            # linter
-           brew install shellcheck ispell hadolint
+           brew install shellcheck aspell hadolint
          #+END_SRC
 
          Note: for windows users, [[http://aspell.net/win32/][aspell]] is used instead. ripgrep can be installed via [[https://chocolatey.org/][choco]]
