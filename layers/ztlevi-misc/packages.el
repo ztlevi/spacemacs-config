@@ -35,6 +35,7 @@
     (live-server :location local)
     edit-indirect
     ivy
+    ibuffer
     p4
     magit
     github-browse-file
@@ -301,6 +302,23 @@
       (spacemacs//adaptive-evil-highlight-persist-face)
       (add-hook 'spacemacs-post-theme-change-hook
                 'spacemacs//adaptive-evil-highlight-persist-face))))
+
+(defun ztlevi-misc/post-init-ibuffer ()
+  (with-eval-after-load 'ibuffer
+    ;; set ibuffer name column width
+    (define-ibuffer-column size-h
+      (:name "Size" :inline t)
+      (cond
+       ((> (buffer-size) 1000000) (format "%7.1fM" (/ (buffer-size) 1000000.0)))
+       ((> (buffer-size) 1000) (format "%7.1fk" (/ (buffer-size) 1000.0)))
+       (t (format "%8d" (buffer-size)))))
+
+    (setq ibuffer-formats
+          '((mark modified read-only " "
+                  (name 50 50 :left :nil) " "
+                  (size-h 9 -1 :right) " "
+                  (mode 16 16 :left :elide) " "
+                  filename-and-process)))))
 
 (defun ztlevi-misc/post-init-evil ()
   (progn
