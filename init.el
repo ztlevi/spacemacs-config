@@ -64,7 +64,7 @@ This function should only modify configuration layer settings."
      ivy
      (syntax-checking :variables syntax-checking-enable-by-default t
                       syntax-checking-enable-tooltips nil)
-     (spell-checking :variables spell-checking-enable-by-default nil)
+     (spell-checking :variables spell-checking-enable-by-default t)
      (auto-completion :variables
                       auto-completion-enable-sort-by-usage t
                       auto-completion-return-key-behavior 'complete
