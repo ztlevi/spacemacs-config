@@ -652,8 +652,8 @@ in the dump."
   ;; enable flyspell in text-mode
   (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
 
-  ;; enable visual line mode in org mode, markdown mode has font-lock error
-  (add-hook 'org-mode-hook 'visual-line-mode)
+  ;; enable visual line mode in text-mode
+  (add-hook 'text-mode-hook 'visual-line-mode)
 
   ;; flymd open browser
   (setq flymd-browser-open-function 'my-flymd-browser-function)
