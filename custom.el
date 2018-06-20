@@ -85,6 +85,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(flycheck-error ((t (:underline "#e45649"))))
+ '(flycheck-info ((t (:underline "#50a14f"))))
+ '(flycheck-warning ((t (:underline "#986801"))))
  '(imenu-list-entry-face-0 ((t (:inherit font-lock-keyword-face))))
  '(imenu-list-entry-face-1 ((t (:inherit font-lock-string-face))))
  '(imenu-list-entry-face-2 ((t (:inherit font-lock-preprocessor-face))))

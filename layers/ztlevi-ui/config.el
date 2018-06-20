@@ -49,9 +49,15 @@
  '(origami-fold-replacement-face ((t (:inherit (quote font-lock-keyword-face)))))
  '(term-bold ((t (:weight bold :height 1.1 :family "Ubuntu Mono derivative Powerline")))))
 
-;; faces set after doom-themes
+;; set faces after doom-themes
 ;; (custom-set-faces
 ;;  '(doom-modeline-error ((t (:background "#e45649" :foreground "#f0f0f0")))))
+
+;; set flycheck faces underline style
+(custom-set-faces
+ '(flycheck-error ((t (:underline "#e45649"))))
+ '(flycheck-info ((t (:underline "#50a14f"))))
+ '(flycheck-warning ((t (:underline "#986801")))))
 
 ;; set markdown faces
 (custom-set-faces
