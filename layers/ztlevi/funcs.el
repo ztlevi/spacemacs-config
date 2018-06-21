@@ -38,8 +38,8 @@
       (delete-frame frame force)
     (spacemacs/delete-window)))
 
-;; override check-large-file funciton
-;; do not prompt message and use fundanmental-mode as default
+;; override check-large-file function
+;; do not prompt message and use fundamental-mode as default
 ;; check when opening large files - literal file open
 (defun spacemacs/check-large-file ()
   (let* ((filename (buffer-file-name))
@@ -50,3 +50,9 @@
       (setq buffer-read-only t)
       (buffer-disable-undo)
       (fundamental-mode))))
+
+;; evil switch to insert before ivy-yasnippet
+(defun my-ivy-yasnippet ()
+  (interactive)
+  (evil-insert-state)
+  (ivy-yasnippet))

@@ -228,7 +228,7 @@
 (bind-key* "s-,"   #'ztlevi/insert-comma-at-the-end-of-this-line)
 (bind-key* "s-;"   #'ztlevi/insert-semicolon-at-the-end-of-this-line)
 (bind-key* "s-g"   #'goto-line)
-(bind-key* "s-i"   #'ivy-yasnippet)
+(bind-key* "s-i"   #'my-ivy-yasnippet)
 (bind-key* "s-r"   #'mc/reverse-regions)
 (bind-key* "s-y"   #'aya-expand)
 (global-set-key [(shift return)] #'ztlevi/smart-open-line)
