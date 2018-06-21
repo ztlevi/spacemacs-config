@@ -38,6 +38,7 @@
     ibuffer
     p4
     magit
+    magithub
     github-browse-file
     git-messenger
     browse-at-remote
@@ -636,6 +637,23 @@
     (setq magit-push-always-verify nil)
 
     (setq magit-process-popup-time 10)))
+
+(defun ztlevi-misc/init-magithub ()
+  (use-package magithub
+    :after magit
+    :init
+    (setq magithub-dir (concat spacemacs-cache-directory "magithub/"))
+    :config
+    (progn
+      (setq magithub-clone-default-directory "~/Developer/Github")
+      (magithub-feature-autoinject '(commit-browse
+                                     completion
+                                     ;; PR and issue section features are kind of slow
+                                     ;; issues-section
+                                     ;; pull-request-merge
+                                     ;; pull-requests-section
+                                     status-checks-header))
+      (define-key magit-status-mode-map "@" #'magithub-dispatch-popup))))
 
 (defun ztlevi-misc/post-init-browse-at-remote ()
   (with-eval-after-load 'browse-at-remote

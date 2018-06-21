@@ -57,7 +57,7 @@
            # search tool
            brew install ripgrep grep
            # utils
-           brew install watchman gpg2 coreutils
+           brew install hub watchman gpg2 coreutils
            # linter
            brew install shellcheck aspell hadolint
          #+END_SRC

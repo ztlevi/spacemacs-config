@@ -77,6 +77,7 @@ This function should only modify configuration layer settings."
           magit-revert-buffers 'silent
           magit-refs-show-commit-count 'all
           magit-revision-show-gravatars nil)
+     (github :packages (not magithub))
      docker
      perforce
      (version-control :variables version-control-diff-tool 'diff-hl
