@@ -646,6 +646,7 @@
     :config
     (progn
       (setq magithub-clone-default-directory "~/Developer/Github")
+
       (magithub-feature-autoinject '(commit-browse
                                      completion
                                      ;; PR and issue section features are kind of slow
@@ -653,7 +654,13 @@
                                      ;; pull-request-merge
                                      ;; pull-requests-section
                                      status-checks-header))
-      (define-key magit-status-mode-map "@" #'magithub-dispatch-popup))))
+      (define-key magit-status-mode-map "@" #'magithub-dispatch-popup)
+
+      ;; define some popup options
+      (magit-define-popup-action 'magithub-dispatch-popup
+        ?P "Browse pull requests" #'magithub-pull-browse)
+      (magit-define-popup-action 'magithub-dispatch-popup
+        ?I "Browse issues" #'magithub-issue-browse))))
 
 (defun ztlevi-misc/post-init-browse-at-remote ()
   (with-eval-after-load 'browse-at-remote
