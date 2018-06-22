@@ -92,7 +92,9 @@
 
     ;; https://github.com/tumashu/ivy-posframe#how-to-enable-ivy-posframe
     ;; (setq ivy-display-function #'ivy-posframe-display)
-    (setq ivy-display-function #'ivy-posframe-display-at-frame-center)
+    (defun ivy-posframe-display-at-frame-top-center (str)
+      (ivy-posframe--display str #'posframe-poshandler-frame-top-center))
+    (setq ivy-display-function #'ivy-posframe-display-at-frame-top-center)
 
     (ivy-posframe-enable)))
 

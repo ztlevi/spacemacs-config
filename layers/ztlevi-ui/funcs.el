@@ -59,3 +59,18 @@
     (if (string-match "\\(dos\\|unix\\|mac\\)" buf-coding)
         (match-string 1 buf-coding)
       buf-coding)))
+
+(defun posframe-poshandler-frame-top-center (info)
+  "Posframe's position handler.
+
+Get a position which let posframe stay onto its
+parent-frame's top center.  The structure of INFO can
+be found in docstring of `posframe-show'."
+  (let* ((posframe (plist-get info :posframe))
+         (parent-frame (plist-get info :parent-frame))
+         (window (plist-get info :parent-window))
+         (window-top (window-pixel-top window)))
+    (cons (/ (- (frame-pixel-width parent-frame)
+                (frame-pixel-width posframe))
+             2)
+          (+ 20 window-top))))
