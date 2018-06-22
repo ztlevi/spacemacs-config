@@ -67,10 +67,8 @@ Get a position which let posframe stay onto its
 parent-frame's top center.  The structure of INFO can
 be found in docstring of `posframe-show'."
   (let* ((posframe (plist-get info :posframe))
-         (parent-frame (plist-get info :parent-frame))
-         (window (plist-get info :parent-window))
-         (window-top (window-pixel-top window)))
+         (parent-frame (plist-get info :parent-frame)))
     (cons (/ (- (frame-pixel-width parent-frame)
                 (frame-pixel-width posframe))
              2)
-          (+ 20 window-top))))
+          10)))
