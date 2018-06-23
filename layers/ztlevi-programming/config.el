@@ -29,10 +29,6 @@
   (lsp-ui-doc--hide-frame)
   (lsp-ui-doc-mode -1)
 
-  ;; overwrite default gd
-  (define-key evil-normal-state-map (kbd "gd") 'lsp-ui-peek-find-definitions)
-  (define-key evil-visual-state-map (kbd "gd") 'lsp-ui-peek-find-definitions)
-
   ;; overwrite s-j key for toggle-lsp-ui-doc
   (global-set-key (kbd "s-j") #'toggle-lsp-ui-doc))
 (add-hook 'lsp-mode-hook #'my-lsp-mode-hook)
