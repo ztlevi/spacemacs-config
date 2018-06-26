@@ -74,9 +74,6 @@
 (bind-key* "C-s-." #'er/expand-region)
 (bind-key* "C-s-," #'er/contract-region)
 
-;; prettier js
-(spacemacs/set-leader-keys "tp" 'prettier-js-mode)
-
 ;; redefine C-i and S-tab
 (bind-key* "<C-i>" #'evil-shift-right-line)
 (bind-key* "<S-tab>" #'evil-shift-left-line)
@@ -181,7 +178,6 @@
 (spacemacs/set-leader-keys "or" 'revert-buffer-no-confirm)
 (spacemacs/set-leader-keys "oR" 'ztlevi/browser-refresh--chrome-applescript)
 (spacemacs/set-leader-keys "oT" 'ztlevi/untabify-buffer)
-(spacemacs/set-leader-keys "op" 'prettier-js)
 (spacemacs/set-leader-keys (kbd "of") 'counsel-git)
 
 ;; resume

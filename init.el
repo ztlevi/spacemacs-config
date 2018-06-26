@@ -126,7 +126,6 @@ This function should only modify configuration layer settings."
              python-indent-offset 4
              python-backend 'lsp
              python-sort-imports-on-save t
-             python-enable-yapf-format-on-save t
              python-test-runner '(nose pytest))
      (html :variables
            css-indent-offset 2
@@ -152,7 +151,6 @@ This function should only modify configuration layer settings."
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support t
-            c-c++-enable-clang-format-on-save t
             c-c++-enable-google-style t
             c-c++-enable-google-newline t
             c-c++-enable-c++11 t)
@@ -221,7 +219,7 @@ This function should only modify configuration layer settings."
      ;; org
      org-download org-present org-brain
      ;; python
-     anaconda-mode company-anaconda
+     anaconda-mode company-anaconda yapfify
      ;; html
      impatient-mode
      ;; java
