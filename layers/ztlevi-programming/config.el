@@ -14,13 +14,6 @@
                         '(emacs-lisp-mode-hook
                           text-mode-hook))
 
-(defun toggle-lsp-ui-doc ()
-  (interactive)
-  (if lsp-ui-doc-mode
-      (progn
-        (lsp-ui-doc-mode -1)
-        (lsp-ui-doc--hide-frame))
-    (lsp-ui-doc-mode 1)))
 (defun my-lsp-mode-hook ()
   ;; disable lsp-highlight-symbol
   ;; (setq lsp-highlight-symbol-at-point nil)

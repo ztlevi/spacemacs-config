@@ -94,18 +94,13 @@ version 2015-08-21"
     (setq new-buffer-name (concat "cmake-" parent-dir))
     (rename-buffer new-buffer-name t)))
 
-;; reformat json
-(defun json-reformat-region-or-buffer ()
+(defun toggle-lsp-ui-doc ()
   (interactive)
-  (save-excursion
-    (if (region-active-p)
-        (progn
-          (json-reformat-region (region-beginning) (region-end))
-          (message "Reformated selected region."))
+  (if lsp-ui-doc-mode
       (progn
-        (json-reformat-region (point-min) (point-max))
-        (message "Reformated json file.")))
-    (whitespace-cleanup)))
+        (lsp-ui-doc-mode -1)
+        (lsp-ui-doc--hide-frame))
+    (lsp-ui-doc-mode 1)))
 
 ;; this imenu generic expression aims to exclude for, while, if when aims to match functions in
 ;; es6 js, e.g. ComponentDidMount(), render() function in React
