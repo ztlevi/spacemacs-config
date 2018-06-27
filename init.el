@@ -680,8 +680,8 @@ in the dump."
                         charset
                         (font-spec :family "Microsoft Yahei" :size 20))))
 
-  ;; prevent dired window press o to split into three column
-  (setq-default split-width-threshold 200)
+  ;; prevent ivy, counsel, dired to split window horizontally
+  (setq-default split-width-threshold nil)
 
   ;; auto-mode-alist in config to make sure modes are added at top
   (dolist (m '(("Capstanfile\\'" . yaml-mode)
