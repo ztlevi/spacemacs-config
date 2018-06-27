@@ -79,8 +79,10 @@
   (setq imenu-create-index-function 'css-imenu-make-index))
 (add-hook 'css-mode-hook 'my-css-mode-hook)
 
-(dolist (hook '(css-mode-hook sass-mode-hook less-mode-hook))
-  (add-hook hook 'rainbow-mode))
+;; enable rainbow-mode
+(spacemacs/add-to-hooks #'rainbow-mode '(css-mode-hook
+                                         sass-mode-hook
+                                         less-mode-hook))
 
 (spacemacs|add-toggle iimage
   :status iimage-mode
