@@ -31,7 +31,8 @@
     web-mode
     (stylus-mode :location (recipe :fetcher github :repo "vladh/stylus-mode"))
     json-mode
-    format-all
+    ;; format-all
+    prettier-js
     ;; racket-mode
     flycheck
     ;; lua-mode
@@ -49,6 +50,37 @@
     :defer t
     :commands format-all-buffer
     :init (add-hook 'before-save-hook #'format-all-buffer)))
+
+;; configuration scheme
+;; https://prettier.io/docs/en/configuration.html#configuration-schema
+(defun ztlevi-programming/init-prettier-js ()
+  (use-package prettier-js
+    :defer t
+    :init
+    ;; prettier js
+    (spacemacs/add-to-hooks 'prettier-js-mode '(js2-mode-hook
+                                                typescript-mode-hook
+                                                typescript-tsx-mode-hook
+                                                rjsx-mode-hook
+                                                json-mode-hook
+                                                css-mode-hook
+                                                markdown-mode-hook
+                                                gfm-mode-hook))
+    :config
+    (progn
+      (setq prettier-js-show-errors (quote echo))
+
+      (spacemacs|diminish prettier-js-mode " Ⓟ" " P")
+
+      ;; bind key
+      (spacemacs/set-leader-keys-for-major-mode 'js2-mode "=" 'prettier-js)
+      (spacemacs/set-leader-keys-for-major-mode 'typescript-mode "=" 'prettier-js)
+      (spacemacs/set-leader-keys-for-major-mode 'typescript-tsx-mode "=" 'prettier-js)
+      (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode "=" 'prettier-js)
+      (spacemacs/set-leader-keys-for-major-mode 'json-mode "=" 'prettier-js)
+      (spacemacs/set-leader-keys-for-major-mode 'css-mode "=" 'prettier-js)
+      (spacemacs/set-leader-keys-for-major-mode 'markdown-mode "=" 'prettier-js)
+      (spacemacs/set-leader-keys-for-major-mode 'gfm-mode "=" 'prettier-js))))
 
 (defun ztlevi-programming/post-init-rjsx-mode ()
   ;; comment jsx region
