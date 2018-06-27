@@ -219,7 +219,7 @@ This function should only modify configuration layer settings."
      ;; org
      org-download org-present org-brain
      ;; python
-     anaconda-mode company-anaconda yapfify
+     anaconda-mode company-anaconda yapfify cython
      ;; html
      impatient-mode
      ;; java
