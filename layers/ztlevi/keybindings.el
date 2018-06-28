@@ -246,7 +246,7 @@
   (bind-key* "s-c"   #'evil-yank)
   (bind-key* "s-a"   #'mark-whole-buffer)
   (bind-key* "s-x"   #'kill-region)
-  (bind-key* "s-n"   #'make-frame)
+  (bind-key* "s-n"   #'switch-to-buffer-other-frame)
   (bind-key* "s-z"   #'undo-tree-undo)
   (bind-key* "s-Z"   #'undo-tree-redo)
   ;; hungry delete
@@ -270,7 +270,7 @@
   (bind-key* "C-S-c" #'evil-yank)
   (bind-key* "C-S-a" #'mark-whole-buffer)
   (bind-key* "C-S-x" #'kill-region)
-  (bind-key* "C-S-n" #'make-frame)
+  (bind-key* "C-S-n" #'switch-to-buffer-other-frame)
   (bind-key* "C-S-z" #'undo-tree-undo)
   ;; hungry delete
   (bind-key* "C-<backspace>" #'hungry-delete-backward))
