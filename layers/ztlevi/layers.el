@@ -12,8 +12,8 @@
 (configuration-layer/declare-layers '(
                                       ztlevi-org
                                       ztlevi-misc
-                                      ztlevi-programming
+                                      ztlevi-prog
                                       ztlevi-ui
-                                      ztlevi-better-defaults
+                                      ztlevi-defaults
                                       lsp-intellij
                                       ))

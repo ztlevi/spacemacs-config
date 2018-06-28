@@ -182,7 +182,7 @@ version 2015-08-21"
                "")))
     (string-match-p REGEX dir)))
 
-(defun ztlevi-programming/post-init-js-doc ()
+(defun ztlevi-prog/post-init-js-doc ()
   (setq js-doc-mail-address "ztlevi1993@gmail.com"
         js-doc-author (format "Ting Zhou <%s>" js-doc-mail-address)
         js-doc-url "http://ztlevi.wordpress.com"

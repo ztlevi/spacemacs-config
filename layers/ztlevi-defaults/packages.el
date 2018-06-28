@@ -9,7 +9,7 @@
 ;;
 ;;; License: GPLv3
 
-(defconst ztlevi-better-defaults-packages
+(defconst ztlevi-defaults-packages
   '(
     ;; (auto-save :location local)
     ranger
@@ -17,7 +17,7 @@
     (recentf :location built-in)
     ))
 
-(defun ztlevi-better-defaults/post-init-ranger ()
+(defun ztlevi-defaults/post-init-ranger ()
   ;; ranger and deer
   (spacemacs/set-leader-keys "fj" 'deer)
   (with-eval-after-load 'ranger
@@ -34,13 +34,13 @@
   (setq ranger-max-preview-size 10)
 )
 
-(defun ztlevi-better-defaults/init-auto-save ()
+(defun ztlevi-defaults/init-auto-save ()
   (use-package auto-save
     :config
     (auto-save-enable)
     (setq auto-save-slient t)))
 
-(defun ztlevi-better-defaults/post-init-recentf ()
+(defun ztlevi-defaults/post-init-recentf ()
   (progn
     (setq recentf-exclude
           '("COMMIT_MSG"
@@ -63,7 +63,7 @@
             ".*png$"))
     (setq recentf-max-saved-items 2048)))
 
-(defun ztlevi-better-defaults/init-profiler ()
+(defun ztlevi-defaults/init-profiler ()
   (use-package profiler
     :defer t
     :init

@@ -9,7 +9,7 @@
 ;;
 ;;; License: GPLv3
 
-(defconst ztlevi-programming-packages
+(defconst ztlevi-prog-packages
   '(
     company
     counsel-etags
@@ -45,7 +45,7 @@
     )
   )
 
-(defun ztlevi-programming/init-format-all ()
+(defun ztlevi-prog/init-format-all ()
   (use-package format-all
     :defer t
     :commands format-all-buffer
@@ -53,7 +53,7 @@
 
 ;; configuration scheme
 ;; https://prettier.io/docs/en/configuration.html#configuration-schema
-(defun ztlevi-programming/init-prettier-js ()
+(defun ztlevi-prog/init-prettier-js ()
   (use-package prettier-js
     :defer t
     :init
@@ -82,21 +82,21 @@
       (spacemacs/set-leader-keys-for-major-mode 'markdown-mode "=" 'prettier-js)
       (spacemacs/set-leader-keys-for-major-mode 'gfm-mode "=" 'prettier-js))))
 
-(defun ztlevi-programming/post-init-rjsx-mode ()
+(defun ztlevi-prog/post-init-rjsx-mode ()
   ;; comment jsx region
   (add-hook 'rjsx-mode-hook (lambda ()
                               (with-eval-after-load 'evil-surround
                                 (push '(?/ . ("{/*" . "*/}")) evil-surround-pairs-alist)))))
 
-(defun ztlevi-programming/init-stylus-mode ()
+(defun ztlevi-prog/init-stylus-mode ()
   (use-package stylus-mode
     :defer t))
 
-(defun ztlevi-programming/post-init-lsp-intellij ()
+(defun ztlevi-prog/post-init-lsp-intellij ()
   (spacemacs|define-jump-handlers java-mode)
   (spacemacs//setup-lsp-jump-handler 'java-mode))
 
-(defun ztlevi-programming/post-init-robe ()
+(defun ztlevi-prog/post-init-robe ()
   (progn
     (add-hook 'inf-ruby-mode-hook 'spacemacs/toggle-auto-completion-on)
     (defun ztlevi/ruby-send-current-line (&optional print)
@@ -126,7 +126,7 @@
         "sL" 'ztlevi/ruby-send-current-line-and-go
         "sI" 'ztlevi/start-inf-ruby-and-robe))))
 
-(defun ztlevi-programming/post-init-cider ()
+(defun ztlevi-prog/post-init-cider ()
   (setq cider-cljs-lein-repl
         "(do (require 'figwheel-sidecar.repl-api)
            (figwheel-sidecar.repl-api/start-figwheel!)
@@ -144,15 +144,15 @@
 
   (bind-key* "C-c C-f" #'ztlevi/cider-figwheel-repl))
 
-(defun ztlevi-programming/post-init-graphviz-dot-mode ()
+(defun ztlevi-prog/post-init-graphviz-dot-mode ()
   (with-eval-after-load 'graphviz-dot-mode
     (require 'company-keywords)
     (push '(graphviz-dot-mode  "digraph" "node" "shape" "subgraph" "label" "edge" "bgcolor" "style" "record") company-keywords-alist)))
 
-(defun ztlevi-programming/post-init-emacs-lisp ()
+(defun ztlevi-prog/post-init-emacs-lisp ()
   (remove-hook 'emacs-lisp-mode-hook 'auto-compile-mode))
 
-(defun ztlevi-programming/post-init-python ()
+(defun ztlevi-prog/post-init-python ()
   (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
   ;; set python interpreters
@@ -165,7 +165,7 @@
   ;; (setq flycheck-python-pylint-executable "/usr/local/bin/pylint")
   )
 
-(defun ztlevi-programming/init-import-js ()
+(defun ztlevi-prog/init-import-js ()
   (use-package import-js
     :init
     (progn
@@ -176,13 +176,13 @@
       (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode "f" 'import-js-fix))
     :defer t))
 
-(defun ztlevi-programming/post-init-js-doc ()
+(defun ztlevi-prog/post-init-js-doc ()
   (setq js-doc-mail-address "zhouting@umich.edu"
         js-doc-author (format "Ting Zhou <%s>" js-doc-mail-address)
         js-doc-url "http://ztlevi.github.io"
         js-doc-license "MIT"))
 
-(defun ztlevi-programming/post-init-web-mode ()
+(defun ztlevi-prog/post-init-web-mode ()
   (with-eval-after-load 'web-mode
     ;; for react mode html indentation
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
@@ -195,7 +195,7 @@
     ;; live server
     (spacemacs/set-leader-keys-for-major-mode 'web-mode "l" 'live-server-preview)))
 
-(defun ztlevi-programming/post-init-racket-mode ()
+(defun ztlevi-prog/post-init-racket-mode ()
   (progn
     (eval-after-load 'racket-repl-mode
       '(progn
@@ -206,7 +206,7 @@
     (add-hook 'racket-repl-mode-hook #'(lambda () (lispy-mode t)))
     ))
 
-(defun ztlevi-programming/post-init-json-mode ()
+(defun ztlevi-prog/post-init-json-mode ()
   ;; set indent for json mode
   (setq js-indent-level 2)
   ;; set indent for json-reformat-region
@@ -215,7 +215,7 @@
   (add-to-list 'auto-mode-alist '("\\.fire\\'" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.fire.meta\\'" . json-mode)))
 
-(defun ztlevi-programming/init-lispy ()
+(defun ztlevi-prog/init-lispy ()
   (use-package lispy
     :defer t
     :init
@@ -240,7 +240,7 @@
        'minibuffer-setup-hook
        'conditionally-enable-lispy))))
 
-(defun ztlevi-programming/post-init-google-c-style ()
+(defun ztlevi-prog/post-init-google-c-style ()
   (progn
     (when c-c++-enable-google-style
       (remove-hook 'c-mode-common-hook 'google-set-c-style)
@@ -249,11 +249,11 @@
       (remove-hook 'c-mode-common-hook 'google-make-newline-indent)
       (add-hook 'c-c++-modes-hook 'google-make-newline-indent))))
 
-(defun ztlevi-programming/init-cmake-font-lock ()
+(defun ztlevi-prog/init-cmake-font-lock ()
   (use-package cmake-font-lock
     :defer t))
 
-(defun ztlevi-programming/post-init-cmake-mode ()
+(defun ztlevi-prog/post-init-cmake-mode ()
   (progn
     (spacemacs/declare-prefix-for-mode 'cmake-mode
       "mh" "docs")
@@ -261,7 +261,7 @@
       "hd" 'cmake-help)
     (add-hook 'cmake-mode-hook (function cmake-rename-buffer))))
 
-(defun ztlevi-programming/post-init-flycheck ()
+(defun ztlevi-prog/post-init-flycheck ()
   (progn
     (with-eval-after-load 'flycheck
       ;; disable jshint since we prefer eslint checking
@@ -274,13 +274,13 @@
       ;; customize flycheck temp file prefix
       (setq-default flycheck-temp-prefix ".flycheck"))))
 
-(defun ztlevi-programming/post-init-js2-refactor ()
+(defun ztlevi-prog/post-init-js2-refactor ()
   (progn
     (spacemacs/set-leader-keys-for-major-mode 'js2-mode
       "r>" 'js2r-forward-slurp
       "r<" 'js2r-forward-barf)))
 
-(defun ztlevi-programming/post-init-lsp-ui ()
+(defun ztlevi-prog/post-init-lsp-ui ()
   ;; temporary fix for flycheck
   (setq lsp-ui-flycheck-enable nil)
 
@@ -301,25 +301,25 @@
     (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references))
   )
 
-(defun ztlevi-programming/init-vue-mode ()
+(defun ztlevi-prog/init-vue-mode ()
   (use-package vue-mode
     :defer t))
 
-(defun ztlevi-programming/init-lsp-vue ()
+(defun ztlevi-prog/init-lsp-vue ()
   (use-package lsp-vue
     :commands lsp-vue-mmm-enable
     :init
     (add-hook 'vue-mode-hook #'lsp-vue-mmm-enable)
     :defer t))
 
-(defun ztlevi-programming/init-lsp-imenu ()
+(defun ztlevi-prog/init-lsp-imenu ()
   (use-package lsp-imenu
     :init
     (spacemacs/set-leader-keys "bl" 'lsp-ui-imenu)
     (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
     :defer t))
 
-(defun ztlevi-programming/post-init-js2-mode ()
+(defun ztlevi-prog/post-init-js2-mode ()
   ;; js default variables
   ;; https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-javascript.el
   (setq-default js2-strict-inconsistent-return-warning nil ; return <=> return null
@@ -333,7 +333,7 @@
 
   (evilified-state-evilify js2-error-buffer-mode js2-error-buffer-mode-map))
 
-(defun ztlevi-programming/post-init-lua-mode ()
+(defun ztlevi-prog/post-init-lua-mode ()
   (progn
     (add-hook 'lua-mode-hook 'evil-matchit-mode)
     (setq lua-indent-level 2)
@@ -351,7 +351,7 @@
 
     ))
 
-(defun ztlevi-programming/init-cquery ()
+(defun ztlevi-prog/init-cquery ()
   (use-package cquery
     :defer t
     :commands lsp-cquery-enable
@@ -364,7 +364,7 @@
       (add-hook 'c-c++-modes-hook #'cquery//enable))
     ))
 
-(defun ztlevi-programming/post-init-cc-mode ()
+(defun ztlevi-prog/post-init-cc-mode ()
   ;; http://stackoverflow.com/questions/23553881/emacs-indenting-of-c11-lambda-functions-cc-mode
   (defadvice c-lineup-arglist (around my activate)
     "Improve indentation of continued C++11 lambda function opened as argument."
@@ -383,7 +383,7 @@
   (setq c-basic-offset 4)
   (c-set-offset 'substatement-open 0))
 
-(defun ztlevi-programming/init-counsel-etags ()
+(defun ztlevi-prog/init-counsel-etags ()
   (use-package counsel-etags
     :defer t
     :config
@@ -397,7 +397,7 @@
                 (add-hook 'after-save-hook
                           'counsel-etags-virtual-update-tags 'append 'local)))))
 
-(defun ztlevi-programming/post-init-company ()
+(defun ztlevi-prog/post-init-company ()
   (progn
     (spacemacs|add-company-backends :backends company-lsp :modes c-c++-modes)
 
@@ -417,7 +417,7 @@
         (bb/define-key company-active-map (kbd "C-j") 'company-show-location)))
     ))
 
-(defun ztlevi-programming/post-init-company-c-headers ()
+(defun ztlevi-prog/post-init-company-c-headers ()
   (progn
     (setq company-c-headers-path-system
           (quote
