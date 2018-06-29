@@ -100,7 +100,8 @@ version 2015-08-21"
       (progn
         (lsp-ui-doc-mode -1)
         (lsp-ui-doc--hide-frame))
-    (lsp-ui-doc-mode 1)))
+    (lsp-ui-doc-mode 1))
+  (setq-local eldoc-documentation-function 'ignore))
 
 ;; this imenu generic expression aims to exclude for, while, if when aims to match functions in
 ;; es6 js, e.g. ComponentDidMount(), render() function in React
