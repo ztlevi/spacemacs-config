@@ -18,9 +18,8 @@
   ;; disable lsp-highlight-symbol
   ;; (setq lsp-highlight-symbol-at-point nil)
 
-  ;; hide lsp-ui-doc frame is exists, and disable lsp-ui-doc by default
-  (lsp-ui-doc--hide-frame)
-  (lsp-ui-doc-mode -1)
+  ;; toggle off lsp-ui-doc by default
+  (toggle-lsp-ui-doc)
 
   ;; overwrite s-j key for toggle-lsp-ui-doc
   (global-set-key (kbd "s-j") #'toggle-lsp-ui-doc))
