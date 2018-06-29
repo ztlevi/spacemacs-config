@@ -233,6 +233,7 @@
 ;; keybindings for linux and macOS
 (when (or (spacemacs/system-is-linux) (spacemacs/system-is-mac))
   (bind-key* "s-p"   #'counsel-git)
+  (bind-key* "C-s"   #'my-swiper-search)
   (bind-key* "s-f"   #'my-swiper-search)
   (bind-key* "s-F"   #'spacemacs/search-project-auto)
   (bind-key* "s-s"   #'evil-write-all)
