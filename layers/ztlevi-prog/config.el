@@ -76,6 +76,11 @@
                                          sass-mode-hook
                                          less-mode-hook))
 
+;; nxml mode
+(defun my-nxml-mode-hook ()
+  (setq nxml-child-indent 4 nxml-attribute-indent 4))
+(add-hook 'nxml-mode-hook 'my-nxml-mode-hook)
+
 (spacemacs|add-toggle iimage
   :status iimage-mode
   :on (iimage-mode)
