@@ -332,7 +332,8 @@ BUFFER is the buffer where the request has been made."
 (defun ztlevi-prog/init-lsp-imenu ()
   (use-package lsp-imenu
     :init
-    (spacemacs/set-leader-keys "bl" 'lsp-ui-imenu)
+    (with-eval-after-load 'lsp-imenu
+      (define-key evil-normal-state-local-map "<space>bi" 'lsp-ui-imenu))
     (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
     :defer t))
 
