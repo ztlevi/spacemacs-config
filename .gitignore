@@ -1,2 +1,2 @@
 !*.jar
-/spacemacs.env
+*spacemacs.env
