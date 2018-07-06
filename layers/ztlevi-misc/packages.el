@@ -25,6 +25,7 @@
     origami
     evil
     evil-surround
+    evil-string-inflection
     evil-search-highlight-persist
     discover-my-major
     ;; 4clojure
@@ -275,6 +276,10 @@
         (kill-new (x-get-selection)))
 
       (ad-activate 'elfeed-show-yank))))
+
+(defun ztlevi-misc/init-evil-string-inflection ()
+  (use-package evil-string-inflection
+    :after evil))
 
 (defun ztlevi-misc/init-evil-search-highlight-persist ()
   (use-package evil-search-highlight-persist
