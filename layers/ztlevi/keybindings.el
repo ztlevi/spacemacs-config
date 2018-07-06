@@ -57,9 +57,6 @@
 (define-key launcher-map "a" #'sx-ask)
 (define-key launcher-map "s" #'sx-search)
 
-;; imenu list
-(spacemacs/set-leader-keys "bi" #'imenu-list-smart-toggle)
-
 ;; company complete
 (bind-key* "C-SPC" #'company-complete)
 

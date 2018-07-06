@@ -331,11 +331,11 @@ BUFFER is the buffer where the request has been made."
 
 (defun ztlevi-prog/init-lsp-imenu ()
   (use-package lsp-imenu
+    :defer t
     :init
-    (with-eval-after-load 'lsp-imenu
-      (define-key evil-normal-state-local-map "<space>bi" 'lsp-ui-imenu))
     (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
-    :defer t))
+    :config
+    (spacemacs/set-leader-keys (kbd "bi") 'lsp-ui-imenu)))
 
 (defun ztlevi-prog/post-init-js2-mode ()
   ;; js default variables
