@@ -73,4 +73,4 @@
 (defun my-ivy-yasnippet ()
   (interactive)
   (evil-insert-state)
-  (ivy-yasnippet))
+  (spacemacs/ivy-yas))
