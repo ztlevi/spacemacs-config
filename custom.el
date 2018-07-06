@@ -64,6 +64,10 @@
  '(org-fontify-whole-heading-line t)
  '(org-html-html5-fancy t)
  '(org-log-into-drawer t)
+ '(org-pandoc-options-for-revealjs
+   (quote
+    ((standalone . t)
+     (variable . "revealjs-url=http://lab.hakim.se/reveal-js"))))
  '(org-pomodoro-play-sounds nil)
  '(org-reverse-note-order t)
  '(org-twbs-creator-string "")
