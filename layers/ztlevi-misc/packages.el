@@ -17,7 +17,6 @@
     atomic-chrome
     projectile
     prodigy
-    find-file-in-project
     multiple-cursors
     visual-regexp
     visual-regexp-steroids
@@ -453,37 +452,6 @@
                   (define-key map "-" 'chinese-wbim-previous-page)
                   (define-key map "=" 'chinese-wbim-next-page))))
     ))
-
-(defun ztlevi-misc/init-find-file-in-project ()
-  (use-package find-file-in-project
-    :defer t
-    :config
-    (progn
-      ;; If you use other VCS (subversion, for example), enable the following option
-      ;;(setq ffip-project-file ".svn")
-      ;; in MacOS X, the search file command is CMD+p
-      ;; for this project, I'm only interested certain types of files
-      (setq-default ffip-patterns '("*.html" "*.js" "*.css" "*.java" "*.xml" "*.cpp" "*.h" "*.c" "*.mm" "*.m" "*.el"))
-      ;; if the full path of current file is under SUBPROJECT1 or SUBPROJECT2
-      ;; OR if I'm reading my personal issue track document,
-      (defadvice find-file-in-project (before my-find-file-in-project activate compile)
-        (when (ffip-current-full-filename-match-pattern-p "\\(/fireball\\)")
-          ;; set the root directory into "~/projs/PROJECT_DIR"
-          (setq-local ffip-project-root "~/Github/fireball")
-          ;; well, I'm not interested in concatenated BIG js file or file in dist/
-          (setq-local ffip-find-options "-not -size +64k -not -iwholename '*/bin/*'")
-          ;; do NOT search files in below directories, the default value is better.
-          (dolist (item '("*/docs/html/*" "*.meta" "*/cocos2d-x/*" "*.asset" "*/visual-tests/res/*"))
-            (push item  ffip-prune-patterns)))
-        (when (ffip-current-full-filename-match-pattern-p "\\(/cocos2d-x\\)")
-          ;; set the root directory into "~/projs/PROJECT_DIR"
-          (setq-local ffip-project-root "~/cocos2d-x")
-          ;; well, I'm not interested in concatenated BIG js file or file in dist/
-          (setq-local ffip-find-options "-not -size +64k -not -iwholename '*/bin/*'")
-          ;; do NOT search files in below directories, the default value is better.
-          ;; (setq-default ffip-prune-patterns '(".git" ".hg" "*.svn" "node_modules" "bower_components" "obj"))
-          ))
-      (ad-activate 'find-file-in-project))))
 
 (defun ztlevi-misc/post-init-projectile ()
   (progn
