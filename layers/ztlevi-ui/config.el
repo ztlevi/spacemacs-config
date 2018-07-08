@@ -132,7 +132,6 @@
    #b00000000
    #b00000000
    #b00000000])
-
 (define-fringe-bitmap 'left-curly-arrow
   [#b00000000
    #b00000000
@@ -151,3 +150,4 @@
    #b00000000
    #b00000000
    #b00000000])
+(setq visual-line-fringe-indicators (quote (left-curly-arrow right-curly-arrow)))

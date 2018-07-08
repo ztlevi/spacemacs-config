@@ -580,6 +580,7 @@
     (setq ivy-initial-inputs-alist nil)
     (setq ivy-wrap t)
     (setq confirm-nonexistent-file-or-buffer t)
+    (setq ivy-format-function (quote ivy-format-function-arrow))
 
     (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-call)
     (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial-or-done)
@@ -608,6 +609,12 @@
     (setq magit-ediff-dwim-show-on-hunks t)
 
     (setq magit-push-always-verify nil)
+
+    (setq magit-diff-use-overlays nil)
+    (setq magit-use-overlays nil)
+
+    ;; colorize magit log
+    (setq magit-log-arguments (quote ("-n256" "--graph" "--decorate" "--color")))
 
     (setq magit-process-popup-time 10)))
 

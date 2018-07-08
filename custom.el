@@ -40,9 +40,6 @@
  '(ibuffer-filter-group-name-face (quote link))
  '(imenu-auto-rescan t)
  '(lua-documentation-url "http://www.lua.org/manual/5.3/manual.html")
- '(magit-diff-use-overlays nil)
- '(magit-log-arguments (quote ("-n256" "--graph" "--decorate" "--color")))
- '(magit-use-overlays nil)
  '(max-mini-window-height 2)
  '(nxml-slash-auto-complete-flag t)
  '(only-global-abbrevs t)
@@ -82,8 +79,7 @@
  '(tags-revert-without-query t)
  '(use-package-verbose t)
  '(vc-annotate-background-mode nil)
- '(vc-follow-symlinks t)
- '(visual-line-fringe-indicators (quote (left-curly-arrow right-curly-arrow))))
+ '(vc-follow-symlinks t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
