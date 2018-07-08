@@ -61,7 +61,7 @@ This function should only modify configuration layer settings."
      prodigy
      search-engine
      ;; graphviz
-     (ivy :variables ivy-enable-advanced-buffer-information nil)
+     (ivy :variables ivy-enable-advanced-buffer-information t)
      (syntax-checking :variables syntax-checking-enable-by-default t
                       syntax-checking-enable-tooltips nil)
      (spell-checking :variables spell-checking-enable-by-default t)
