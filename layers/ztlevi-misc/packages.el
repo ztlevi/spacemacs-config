@@ -576,23 +576,19 @@
 
 (defun ztlevi-misc/post-init-ivy ()
   (progn
+    (setq ivy-wrap t)
     (setq ivy-display-style 'fancy)
     (setq ivy-initial-inputs-alist nil)
-    (setq ivy-wrap t)
-    (setq confirm-nonexistent-file-or-buffer t)
     (setq ivy-format-function (quote ivy-format-function-arrow))
+    (setq confirm-nonexistent-file-or-buffer t)
 
     (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-call)
     (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial-or-done)
-    (define-key ivy-minibuffer-map (kbd "C-<return>") 'ivy-immediate-done)
-
-    (evil-set-initial-state 'ivy-occur-grep-mode 'normal)
-    ))
+    (define-key ivy-minibuffer-map (kbd "C-<return>") 'ivy-immediate-done)))
 
 (defun ztlevi-misc/post-init-p4 ()
   (with-eval-after-load 'p4
-    (p4-set-p4-config "~/.p4config"))
-  )
+    (p4-set-p4-config "~/.p4config")))
 
 (defun ztlevi-misc/post-init-magit ()
   (progn
