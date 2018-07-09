@@ -13,6 +13,9 @@
 (spacemacs/add-to-hooks #'flyspell-mode '(org-mode-hook
                                           markdown-mode-hook))
 
+;; confirmation is requested before visiting a new file or buffer.
+(setq confirm-nonexistent-file-or-buffer t)
+
 ;; customize helm
 (with-eval-after-load 'helm-make
   (progn

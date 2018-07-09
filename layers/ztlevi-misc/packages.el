@@ -580,7 +580,6 @@
     (setq ivy-display-style 'fancy)
     (setq ivy-initial-inputs-alist nil)
     (setq ivy-format-function (quote ivy-format-function-arrow))
-    (setq confirm-nonexistent-file-or-buffer t)
 
     (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-call)
     (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial-or-done)
