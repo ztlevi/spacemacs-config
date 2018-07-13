@@ -35,12 +35,10 @@
 (if (eq spacemacs--cur-theme 'doom-one-light)
     (custom-set-faces
      ;; set spaceline faces
-     '(mode-line ((t (:background "grey90" :box nil))))
-     '(mode-line-inactive ((t (:background "grey85" :foreground "#a190a7" :box nil))))
-     '(powerline-active1 ((t (:inherit mode-line :background "grey90" :foreground "grey17"))))
-     '(powerline-active2 ((t (:inherit mode-line :background "grey85" :foreground "grey40"))))
-     '(powerline-inactive1 ((t (:inherit mode-line-inactive :background "grey90" :foreground "grey17"))))
-     '(powerline-inactive2 ((t (:inherit mode-line-inactive :background "grey85" :foreground "grey40"))))
+     '(powerline-active1 ((t (:inherit mode-line :background "#e7e7e7"))))
+     '(powerline-active2 ((t (:inherit mode-line :background "#c8c8c8"))))
+     '(powerline-inactive1 ((t (:inherit mode-line-inactive :background "#e1e1e1"))))
+     '(powerline-inactive2 ((t (:inherit mode-line-inactive :background "#e3e3e3"))))
      ;; others
      '(show-paren-match ((t (:background "#d7d7d7" :foreground "#e45649" :weight ultra-bold))))))
 
