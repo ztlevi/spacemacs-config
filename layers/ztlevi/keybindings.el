@@ -23,6 +23,10 @@
 (define-key evil-hybrid-state-map (kbd "C-r") 'evil-paste-from-register)
 (define-key evil-hybrid-state-map (kbd "C-z") 'evil-emacs-state)
 
+;; jump-to-definitions
+(define-key evil-normal-state-map (kbd "gd") #'xref-find-definitions)
+(define-key evil-normal-state-map (kbd "gD") #'xref-find-definitions-other-window)
+
 ;; ex completion
 (define-key evil-ex-completion-map (kbd "C-d") 'delete-forward-char)
 
