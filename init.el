@@ -69,7 +69,7 @@ This function should only modify configuration layer settings."
                       auto-completion-enable-sort-by-usage t
                       auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'complete
-                      auto-completion-enable-snippets-in-popup nil
+                      auto-completion-enable-snippets-in-popup t
                       auto-completion-idle-delay 0.2)
      (git :variables
           magit-push-always-verify nil
