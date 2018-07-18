@@ -75,10 +75,11 @@
     :defer t))
 
 (defun ztlevi-ui/post-init-spaceline-all-the-icons ()
-  (setq spaceline-all-the-icons-clock-always-visible nil)
-  (setq spaceline-all-the-icons-flycheck-alternate t)
-  (setq spaceline-all-the-icons-hide-long-buffer-path t)
-  (setq spaceline-all-the-icons-highlight-file-name t)
+  (setq spaceline-all-the-icons-clock-always-visible nil
+        spaceline-all-the-icons-window-number-always-visible t
+        spaceline-all-the-icons-flycheck-alternate t
+        spaceline-all-the-icons-hide-long-buffer-path t
+        spaceline-all-the-icons-highlight-file-name t)
 
   (setq spaceline-all-the-icons-icon-set-git-ahead (quote commit)))
 
