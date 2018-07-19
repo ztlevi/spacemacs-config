@@ -628,7 +628,8 @@
                                      ;; issues-section
                                      ;; pull-request-merge
                                      ;; pull-requests-section
-                                     status-checks-header))
+                                     ;; status-checks-header
+                                     ))
       (define-key magit-status-mode-map "@" #'magithub-dispatch-popup)
 
       ;; define some popup options
