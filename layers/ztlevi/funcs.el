@@ -66,7 +66,8 @@
   (and
    (not (member (file-name-extension (buffer-file-name))
                 '("org" "md" "markdown" "txt" "rtf")))
-   (> (spacemacs/get-nth-line-length 1) 500)))
+   (member t (cl-loop for i from 1 to 20
+                        collect (> (spacemacs/get-nth-line-length i) 1000)))))
 (add-to-list 'magic-mode-alist (cons #'spacemacs/check-minified-file 'fundamental-mode))
 
 ;; evil switch to insert before ivy-yasnippet
