@@ -58,7 +58,8 @@
     (goto-char (point-min))
     (if (zerop (forward-line (1- n)))
         (- (line-end-position)
-           (line-beginning-position)))))
+           (line-beginning-position))
+      0)))
 
 ;; check if the file has been minified
 ;; disable for text-mode files
@@ -66,8 +67,10 @@
   (and
    (not (member (file-name-extension (buffer-file-name))
                 '("org" "md" "markdown" "txt" "rtf")))
-   (member t (cl-loop for i from 1 to 20
-                        collect (> (spacemacs/get-nth-line-length i) 1000)))))
+   (cl-loop for i from 1 to 30
+            if (> (spacemacs/get-nth-line-length i) 1000)
+            return t
+            finally return nil)))
 (add-to-list 'magic-mode-alist (cons #'spacemacs/check-minified-file 'fundamental-mode))
 
 ;; evil switch to insert before ivy-yasnippet
