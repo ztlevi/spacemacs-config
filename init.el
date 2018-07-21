@@ -91,7 +91,6 @@ This function should only modify configuration layer settings."
             shell-default-shell 'ansi-term
             shell-default-term-shell "zsh")
      shell-scripts
-     ;; docker
      deft
      chrome
      imenu-list
