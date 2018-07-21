@@ -68,9 +68,9 @@
            npm install -g prettier js-beautify live-server import-js
          #+END_SRC
        - pip
-         - =yapf=, =importmagic=
+         - =yapf=, =importmagic=, =ipython=
            #+BEGIN_SRC shell
-             pip3 install yapf importmagic epc
+             pip3 install ipython yapf importmagic epc
            #+END_SRC
            *Note*: (optional) If you are using Python 2.7 (pip2) to install the =yapf= and want to enable multiprocessing:
            #+BEGIN_SRC shell
