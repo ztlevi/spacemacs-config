@@ -91,6 +91,12 @@
          brew tap twlz0ne/homebrew-cquery
          brew install cquery
        #+END_SRC
+    5. According to the discussion [h[https://emacs-china.org/t/topic/6453/6][here]], the following codes will speed up Emacs GUI startup time.
+       #+BEGIN_SRC bash
+         defaults write org.gnu.Emacs Emacs.ToolBar -string no
+         defaults write org.gnu.Emacs Emacs.ScrollBar -string no
+         defaults write org.gnu.Emacs Emacs.MenuBar -string no
+       #+END_SRC
 
 ** Usage
    1. If you want to map *jk* as evil escape key, add the following line in ~customize.el~ -> ~custom-set-variables~ and delete ~evil-escape~ package in ~init.el~ -> ~dotspacemacs-excluded-packages~.
