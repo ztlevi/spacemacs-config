@@ -607,9 +607,6 @@ It should only modify the values of Spacemacs settings."
   ;;         ("org-cn"   . "https://elpa.emacs-china.org/org/")
   ;;         ("gnu-cn"   . "https://elpa.emacs-china.org/gnu/")))
 
-  ;; add my npm global directory
-  (add-to-list 'exec-path "~/.npm-global/bin" t)
-
   (setq ranger-override-dired t)
 
   ;; https://github.com/syl20bnr/spacemacs/blob/develop/doc/FAQ.org#why-is-spacemacs-hanging-on-startup
