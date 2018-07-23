@@ -30,7 +30,6 @@
  '(exec-path-from-shell-arguments (quote ("-l")))
  '(expand-region-exclude-text-mode-expansions (quote (html-mode nxml-mode web-mode)))
  '(flycheck-display-errors-function (quote ignore))
- '(flymd-close-buffer-delete-temp-files t)
  '(global-command-log-mode nil)
  '(helm-buffer-max-length 56)
  '(helm-move-to-line-cycle-in-source t)

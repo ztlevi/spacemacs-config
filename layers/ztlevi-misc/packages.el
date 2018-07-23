@@ -32,6 +32,7 @@
     focus
     flyspell-correct
     markdown-mode
+    flymd
     (live-server :location local)
     edit-indirect
     ivy
@@ -641,6 +642,12 @@
 (defun ztlevi-misc/post-init-browse-at-remote ()
   (with-eval-after-load 'browse-at-remote
     (add-to-list 'browse-at-remote-remote-type-domains '("isl-122-ubuntu" . "gitlab"))))
+
+(defun ztlevi-misc/post-init-flymd ()
+  (setq flymd-close-buffer-delete-temp-files t)
+
+  ;; flymd open browser
+  (setq flymd-browser-open-function 'my-flymd-browser-function))
 
 (defun ztlevi-misc/post-init-git-messenger ()
   (use-package git-messenger
