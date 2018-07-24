@@ -37,6 +37,7 @@
     flycheck
     ;; lua-mode
     (python :location built-in)
+    py-autopep8
     (emacs-lisp :location built-in)
     lispy
     ;; graphviz-dot-mode
@@ -164,6 +165,14 @@
   ;; (setq python-shell-interpreter-args "-i")
   ;; (setq flycheck-python-pylint-executable "/usr/local/bin/pylint")
   )
+
+(defun ztlevi-prog/init-py-autopep8 ()
+  (use-package py-autopep8
+    :defer t
+    :init
+    (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+    :config
+    (spacemacs/set-leader-keys-for-major-mode 'python-mode "=" 'py-autopep8-buffer)))
 
 (defun ztlevi-prog/init-import-js ()
   (use-package import-js

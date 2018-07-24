@@ -68,13 +68,9 @@
            npm install -g prettier js-beautify live-server import-js
          #+END_SRC
        - pip
-         - =yapf=, =importmagic=, =ipython=
+         - =autopep8=, =importmagic=, =ipython=
            #+BEGIN_SRC shell
-             pip3 install ipython yapf importmagic epc
-           #+END_SRC
-           *Note*: (optional) If you are using Python 2.7 (pip2) to install the =yapf= and want to enable multiprocessing:
-           #+BEGIN_SRC shell
-             pip2 install futures
+             pip3 install ipython autopep8 importmagic epc
            #+END_SRC
     4. Language Server Protocol: Install the [[https://langserver.org/][lsp]] for your languages. A few examples are listed below.
        #+BEGIN_SRC shell
@@ -85,7 +81,7 @@
          npm install vue-language-server -g
 
          # python
-         pip3 install 'python-language-server[all]'
+         pip3 install 'python-language-server[all]' pyls-isort pyls-mypy
 
          # cquery for c++
          brew tap twlz0ne/homebrew-cquery
