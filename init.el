@@ -656,7 +656,9 @@ in the dump."
   ;; solve org table Chinese and English text align issue
   (when (configuration-layer/layer-usedp 'chinese)
     (when (and (spacemacs/system-is-mac) window-system)
-      (spacemacs//set-monospaced-font "Operator Mono Lig" "Hiragino Sans GB" 18 20)))
+      (progn
+        (spacemacs//set-monospaced-font "Operator Mono Lig" "Hiragino Sans GB" 16 18)
+        (set-fontset-font t 'symbol (font-spec :family "Apple Color Emoji" :size 12)))))
 
   ;; Setting Chinese Font
   (when (and (spacemacs/system-is-mswindows) window-system)
@@ -671,7 +673,7 @@ in the dump."
     (dolist (charset '(kana han symbol cjk-misc bopomofo))
       (set-fontset-font (frame-parameter nil 'font)
                         charset
-                        (font-spec :family "Microsoft Yahei" :size 20))))
+                        (font-spec :family "Microsoft Yahei" :size 18))))
 
   ;; prevent ivy, counsel, dired to split window horizontally
   (setq-default split-width-threshold nil)
