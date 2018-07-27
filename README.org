@@ -72,6 +72,20 @@
            #+BEGIN_SRC shell
              pip3 install ipython autopep8 importmagic epc
            #+END_SRC
+       - go TODO
+         #+BEGIN_SRC shell
+           brew install go
+           go get -u -v github.com/nsf/gocode
+           go get -u -v github.com/rogpeppe/godef
+           go get -u -v golang.org/x/tools/cmd/guru
+           go get -u -v golang.org/x/tools/cmd/gorename
+           go get -u -v golang.org/x/tools/cmd/goimports
+           go get -u -v github.com/zmb3/gogetdoc
+           go get -u -v github.com/cweill/gotests/...
+           go get -u github.com/haya14busa/gopkgs/cmd/gopkgs
+           go get -u -v github.com/davidrjenni/reftools/cmd/fillstruct
+           go get -u github.com/josharian/impl
+         #+END_SRC
     4. Language Server Protocol: Install the [[https://langserver.org/][lsp]] for your languages. A few examples are listed below.
        #+BEGIN_SRC shell
          # Javascript

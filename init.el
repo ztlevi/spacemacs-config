@@ -126,6 +126,7 @@ This function should only modify configuration layer settings."
              python-backend 'lsp
              python-sort-imports-on-save t
              python-test-runner '(nose pytest))
+     (go :variables go-tab-width 4)
      (html :variables
            css-indent-offset 2
            web-mode-markup-indent-offset 2 ; web-mode, html tag in html file
