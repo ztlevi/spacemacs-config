@@ -95,7 +95,8 @@
          npm install vue-language-server -g
 
          # python
-         pip3 install 'python-language-server[all]' pyls-isort pyls-mypy
+         # pyls-mypy is a type integration for Python
+         pip3 install 'python-language-server[all]' pyls-isort
 
          # cquery for c++
          brew tap twlz0ne/homebrew-cquery
