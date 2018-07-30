@@ -156,9 +156,10 @@ Single Capitals as you type."
 
 (show-paren-mode t)
 
-(add-hook 'minibuffer-inactive-mode-hook
-          #'(lambda() (set (make-local-variable 'semantic-mode) nil)
-              (set (make-local-variable 'electric-pair-mode) nil)))
+(defun my-minibuffer-inactive-mode-hook ()
+  (set (make-local-variable 'semantic-mode) nil)
+  (set (make-local-variable 'electric-pair-mode) nil))
+(add-hook 'minibuffer-inactive-mode-hook #'my-minibuffer-inactive-mode-hook)
 
 
 ;; http://trey-jackson.blogspot.com/2010/04/emacs-tip-36-abort-minibuffer-when.html
