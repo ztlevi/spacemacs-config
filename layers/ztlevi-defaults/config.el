@@ -100,13 +100,13 @@
 ;; cleanup whitespace when save
 ;; (add-hook 'before-save-hook 'whitespace-cleanup)
 
-(add-hook 'before-save-hook
-          (lambda ()
-            (when buffer-file-name
-              (let ((dir (file-name-directory buffer-file-name)))
-                (when (and (not (file-exists-p dir))
-                           (y-or-n-p (format "Directory %s does not exist. Create it?" dir)))
-                  (make-directory dir t))))))
+(defun create-dir-if-not-exist ()
+  (when buffer-file-name
+    (let ((dir (file-name-directory buffer-file-name)))
+      (when (and (not (file-exists-p dir))
+                 (y-or-n-p (format "Directory %s does not exist. Create it?" dir)))
+        (make-directory dir t)))))
+(add-hook 'before-save-hook #'create-dir-if-not-exist)
 
 ;; http://emacs.stackexchange.com/questions/13970/fixing-double-capitals-as-i-type
 (defun dcaps-to-scaps ()
