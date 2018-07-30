@@ -21,6 +21,7 @@
     (call-interactively 'ffap)))
 
 (when (spacemacs/window-system-is-mac)
+  (osx/use-gls-when-available)
   (setq ns-pop-up-frames nil))
 
 (setq-default fill-column 80)
