@@ -692,7 +692,7 @@ in the dump."
   (add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt '("xml" "xsd" "rng" "xslt" "xsl") t) "\\'") 'nxml-mode))
 
   ;; diminish modes
-  (spacemacs|diminish meghanada-mode " Ⓜ︎" " M")
+  (spacemacs|diminish meghanada-mode " ⓜ" " M")
   (spacemacs|diminish company-box-mode)
   (spacemacs|diminish which-key-mode)
   (spacemacs|diminish smartparens-mode)
