@@ -16,8 +16,6 @@
 (define-key evil-normal-state-map (kbd "C-w s") 'split-window-below-and-focus)
 (define-key evil-visual-state-map (kbd "C-w v") 'split-window-right-and-focus)
 (define-key evil-visual-state-map (kbd "C-w s") 'split-window-below-and-focus)
-(define-key evil-normal-state-map (kbd "<RET>") 'ivy-switch-buffer)
-(define-key evil-visual-state-map (kbd "<RET>") 'ivy-switch-buffer)
 
 ;; evil hybrid
 (define-key evil-hybrid-state-map (kbd "C-r") 'evil-paste-from-register)
@@ -231,6 +229,7 @@
 ;; keybindings for linux and macOS
 (when (or (spacemacs/system-is-linux) (spacemacs/system-is-mac))
   (bind-key* "s-p"   #'counsel-git)
+  (bind-key* "s-e"   #'ivy-switch-buffer)
   (bind-key* "C-s"   #'my-swiper-search)
   (bind-key* "s-f"   #'my-swiper-search)
   (bind-key* "s-F"   #'spacemacs/search-project-auto)
@@ -255,6 +254,7 @@
 ;; keybindings for Windows
 (when (spacemacs/system-is-mswindows)
   (bind-key* "C-S-p" #'counsel-git)
+  (bind-key* "C-S-e" #'ivy-switch-buffer)
   (bind-key* "C-f"   #'my-swiper-search)
   (bind-key* "C-S-f" #'spacemacs/search-project-auto)
   (bind-key* "C-S-s" #'evil-write-all)
