@@ -39,6 +39,7 @@
     ibuffer
     p4
     magit
+    magit-todos
     magithub
     github-browse-file
     git-messenger
@@ -613,6 +614,15 @@
     (setq magit-log-arguments (quote ("-n256" "--graph" "--decorate" "--color")))
 
     (setq magit-process-popup-time 10)))
+
+(defun ztlevi-misc/init-magit-todos ()
+  (use-package magit-todos
+    :defer t
+    :init
+    (add-hook 'magit-status-mode-hook (apply-partially #'magit-todos-mode 1))
+    :config
+    ;; disable magit-todos-section-map, conflict wiht j key
+    (setq magit-todos-section-map nil)))
 
 (defun ztlevi-misc/init-magithub ()
   (use-package magithub
