@@ -428,7 +428,7 @@ BUFFER is the buffer where the request has been made."
   (progn
     (spacemacs|add-company-backends :backends company-lsp :modes c-c++-modes)
 
-    ;; set the company minimum prefix length and idle delay
+    ;; set the company minimum prefix length
     (defvar ztlevi/company-minimum-prefix-length 1
       "my own variable for company-minimum-prefix-length")
     (add-hook 'company-mode-hook #'ztlevi/company-init)
