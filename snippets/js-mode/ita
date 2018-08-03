@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 #name : it asynchronous
-#key : ita->
+#key : ita
 # --
 it('${1:description}', function(done) {
     ${0:// body...}

@@ -1,5 +1,5 @@
 # name: defmacro
-# key: defm->
+# key: defm
 # --
 (defmacro $1
   "$2"$>

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-#key: inc->
+#key: inc
 # name : #include <...>
 # key  : incs
 # --

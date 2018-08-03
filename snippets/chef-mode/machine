@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: machine
-# key: machine->
+# key: machine
 # --
 machine "${1:name}" do
   role '${2:web}'

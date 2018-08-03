@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: configurePhase
-# key: cp->
+# key: cp
 # --
 configurePhase= ''
 $1

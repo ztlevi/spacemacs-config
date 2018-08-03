@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: help
-# key: h->
+# key: h
 # --
 help $0

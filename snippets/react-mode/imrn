@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: Import React-native element
-# key: imrn->
+# key: imrn
 # group: react
 # --
 import { $1 } from 'react-native'

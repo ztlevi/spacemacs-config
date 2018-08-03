@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: case
-# key: case->
+# key: case
 # --
 case $1 do
   $0

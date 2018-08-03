@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: tryw
-# key: tryw->
+# key: tryw
 # --
 try {
     `(or yas/selected-text (car kill-ring))`

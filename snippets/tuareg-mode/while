@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: while
-# key: wh->
+# key: wh
 # --
 while ${1:cond} do
       $0

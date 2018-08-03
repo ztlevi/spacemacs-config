@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name : switch (...) { case : ... default: ...}
-# key: switch->
+# key: switch
 # --
 switch (${1:expr}) {
 case ${2:constexpr}:${3: \{}

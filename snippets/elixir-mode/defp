@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: defp
-# key: defp->
+# key: defp
 # --
 defp $1 do
   $0

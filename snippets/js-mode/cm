@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: Comment block
-# key: cm->
+# key: cm
 # --
 /**
  * ${1:comment}

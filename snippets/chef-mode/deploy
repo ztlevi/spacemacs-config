@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: deploy
-# key: deploy->
+# key: deploy
 # --
 deploy "/my/deploy/dir" do
   repo "git@github.com/whoami/provideroject"

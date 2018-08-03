@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: outdir
-# key: $->
+# key: $
 # --
 $OUTDIR

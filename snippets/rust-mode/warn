@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: #[warn(lint)]
-# key: warn->
+# key: warn
 # --
 #[warn(${1:lint})]

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: omnet
-# key: omnet->
+# key: omnet
 # --
 #include <omnetpp.h>

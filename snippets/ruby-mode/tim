@@ -1,5 +1,5 @@
 #name : times { |n| ... }
-#key: tim->
+#key: tim
 #group : control structure
 # --
 times { |${n}| $0 }

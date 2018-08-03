@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: bench
-# key: bench->
+# key: bench
 # --
 require "benchmark"
 

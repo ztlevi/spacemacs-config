@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: Up | Home Links
-# key: up_home->
+# key: up_home
 # --
 #+BEGIN_EXPORT html
 <div id="org-div-home-and-up" style="text-align:right">

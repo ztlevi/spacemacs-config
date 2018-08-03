@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: all_of
-# key: alo->
+# key: alo
 # --
 if (std::all_of(std::begin(${1:container}), std::end($1), []($2) {
   $3

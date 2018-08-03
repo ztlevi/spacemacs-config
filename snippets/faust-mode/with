@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: with
-# key: wi->
+# key: wi
 # --
 with {
   ${1:expression}

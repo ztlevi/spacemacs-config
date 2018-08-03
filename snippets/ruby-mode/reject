@@ -1,5 +1,5 @@
 #name : reject { |...| ... }
-#key: reject->
+#key: reject
 #group : collections
 # --
 reject { |${1:element}| $0 }

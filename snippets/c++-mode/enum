@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: enum
-# key: enum->
+# key: enum
 # --
 enum ${1:NAME}{
 $0

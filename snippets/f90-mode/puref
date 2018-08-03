@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: Jonas Kalderstam <jonas@kalderstam.se>
 # name: pure function ... end function ...
-# key: pure func->
+# key: pure func
 # --
 pure function ${1:name} (${2:arg})
   ${3:real} :: $1

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name : createDocumentFragment
-#key : cdf->
+#key : cdf
 # --
 ${1:document}.createDocumentFragment()

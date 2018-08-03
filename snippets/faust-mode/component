@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: component
-# key: co->
+# key: co
 # --
 component("$1.dsp")$0

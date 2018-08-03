@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: user
-# key: user->
+# key: user
 # --
 user "${1:random}" do
   action :create

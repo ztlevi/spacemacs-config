@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: trycatch
-# key: trycatch->
+# key: trycatch
 # --
 do {
     try $1

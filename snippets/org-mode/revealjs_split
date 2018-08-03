@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: Reveal.js split
-# key: rvs->
+# key: rvs
 # --
 #+REVEAL: split
 $0

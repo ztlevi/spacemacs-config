@@ -1,5 +1,5 @@
 #name : -ifndef(...). ... -endif.
-#key: ifndef->
+#key: ifndef
 # --
 -ifndef($1).
 $0

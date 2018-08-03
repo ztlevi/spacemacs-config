@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: componentWillUpdate
-# key: cwu->
+# key: cwu
 # group: react
 # --
 componentWillUpdate(${1:nextProps}, ${2:nextState}) {

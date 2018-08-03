@@ -1,5 +1,5 @@
 #name : Highlight
-#key: highlight->
+#key: highlight
 #contributor: nguyenvinhlinh <nguyenvinhlinh93@gmail.com>
 # --
 {% highlight ${1:language} %}

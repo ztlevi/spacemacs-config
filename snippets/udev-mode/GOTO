@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: GOTO
-# key: goto->
+# key: goto
 # --
 GOTO="$1"
 $0

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: Redux Pure Function Const
-# key: rpc->
+# key: rpc
 # group: react
 # --
 export const $1 = '$1'

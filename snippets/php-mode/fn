@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: USAMI Kenta <tadsan@zonu.me>
 # name: function expr (closure)
-# key: fn->
+# key: fn
 # group: definitions
 # --
 function (${2:$arg, ...}) ${3:use ($var) }{

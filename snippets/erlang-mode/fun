@@ -1,4 +1,4 @@
 #name : fun (...) -> ... end
-#key: fun->
+#key: fun
 # --
 fun ($1) -> $0 end

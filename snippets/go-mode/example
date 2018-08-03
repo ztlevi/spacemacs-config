@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: example
-# key: example->
+# key: example
 # contributor : @atotto
 # --
 func Example$1() {

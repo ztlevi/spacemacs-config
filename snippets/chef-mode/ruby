@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: ruby
-# key: ruby->
+# key: ruby
 # --
 ruby_block "${1:reload client config}" do
   block do

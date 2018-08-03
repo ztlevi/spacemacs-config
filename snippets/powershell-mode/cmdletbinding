@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: cmdletbinding
-# key: cmd->
+# key: cmd
 # --
 [cmdletbinding()]
 Param (

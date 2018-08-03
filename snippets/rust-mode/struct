@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: struct TypeName { .. }
-# key: struct->
+# key: struct
 # --
 struct ${1:TypeName} {
        $0

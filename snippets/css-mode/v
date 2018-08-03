@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # name: -vendor-prefix
 # contributor: Prateek Saxena
-# key: -v->
+# key: -v
 # --
 $1: $2;
 -webkit-$1: $2;

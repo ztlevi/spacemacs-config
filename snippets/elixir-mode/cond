@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: cond
-# key: cond->
+# key: cond
 # --
 cond do
   $0

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: componentWillMount
-# key: cwm->
+# key: cwm
 # group: react
 # --
 componentWillMount () {

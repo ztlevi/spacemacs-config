@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: dispatchAsync
-# key: dispatchAsync->
+# key: dispatchAsync
 # --
 DispatchQueue.global(qos: .default).async {
     $1

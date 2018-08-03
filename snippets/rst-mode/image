@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: image
-# key: img->
+# key: img
 # --
 .. image:: ${1:path}
    :height: ${2:100}

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: ifelse
-# key: if->
+# key: if
 # --
 if(${1:cond})
         $2

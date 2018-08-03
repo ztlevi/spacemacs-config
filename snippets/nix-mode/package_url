@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: package url
-# key: pu->
+# key: pu
 # --
 { stdenv, fetchurl$1}:
 

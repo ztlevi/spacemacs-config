@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: role
-# key: role->
+# key: role
 # --
 name "${1:role name}"
   description "${2:Description for the role}"

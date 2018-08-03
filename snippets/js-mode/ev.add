@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-#key: ev.add->
+#key: ev.add
 #name : addEvent
 # --
 addEvent('${1:event}', function($2) {

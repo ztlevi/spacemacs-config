@@ -1,5 +1,5 @@
 #name : deep_copy(...)
-#key: dee->
+#key: dee
 #group : general
 # --
 Marshal.load(Marshal.dump($0))

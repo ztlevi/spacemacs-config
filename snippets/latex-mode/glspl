@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: glspl
-# key: gp->
+# key: gp
 # --
 \glspl{${1:label}}

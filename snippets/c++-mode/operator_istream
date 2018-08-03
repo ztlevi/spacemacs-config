@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: operator>>
-# key: >>->
+# key: >>
 # group: operator overloading
 # --
 std::istream& operator>>(std::istream& is, const ${1:Class}& ${2:c})

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: init_docstring
-# key: id->
+# key: id
 # group : definitions
 # --
 def __init__(self$1):

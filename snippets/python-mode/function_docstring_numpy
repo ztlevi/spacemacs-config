@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: Egor Panfilov <egor.v.panfilov[at]gmail[dot]com>
 # name: function_docstring_numpy
-# key: fdn->
+# key: fdn
 # group: definitions
 # --
 def ${1:name}($2):

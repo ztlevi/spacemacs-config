@@ -1,5 +1,5 @@
 #name : -include_lib("...").
-#key: inc.lib->
+#key: inc.lib
 # --
 -include_lib("$1").
 $0

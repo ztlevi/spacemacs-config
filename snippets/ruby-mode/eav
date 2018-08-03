@@ -1,5 +1,5 @@
 #name : each_value { |val| ... }
-#key: eav->
+#key: eav
 #group : collections
 # --
 each_value { |${val}| $0 }

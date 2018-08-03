@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: inc
-# key: inc->
+# key: inc
 # --
 include_recipe "${1:example::recipe}"

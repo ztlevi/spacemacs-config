@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: shouldComponentUpdate
-# key: scu->
+# key: scu
 # group: react
 # --
 shouldComponentUpdate(${1:nextProps}, ${2:nextState}) {

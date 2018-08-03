@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: syntax
-# key: syn->
+# key: syn
 # --
 syntax = "${1:proto3}";

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: package github
-# key: pg->
+# key: pg
 # --
 { stdenv, fetchFromGitHub$1 }:
 stdenv.mkDerivation rec {

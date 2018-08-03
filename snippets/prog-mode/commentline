@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: sh-ow <sh-ow@users.noreply.github.com>
 # name: commentline
-# key: col->
+# key: col
 # --
 `(yas-trimmed-comment-start)` ${1:comment} ${1:$(let* ((start (yas-trimmed-comment-start))
                                                        (lastcom (aref start (1- (length start))))

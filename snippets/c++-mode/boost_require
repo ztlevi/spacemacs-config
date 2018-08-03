@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: boost_require
-# key: req->
+# key: req
 # group: boost
 # --
 BOOST_REQUIRE( ${1:condition} );

@@ -1,5 +1,5 @@
 # name: doseq
-# key: doseq->
+# key: doseq
 # --
 (doseq [$1 $2]
   $3)$>

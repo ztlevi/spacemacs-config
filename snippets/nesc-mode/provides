@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: provides
-# key: provides->
+# key: provides
 # --
 provides interface ${1:Interface};

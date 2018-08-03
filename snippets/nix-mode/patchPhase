@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: patchPhase
-# key: pp->
+# key: pp
 # --
 patchPhase = ''
   $1

@@ -1,5 +1,5 @@
 #name : Ordered List
-#key: ol->
+#key: ol
 #contributor: Peng Deng <dengpeng@gmail.com>
 # --
 ${1:1}. ${2:Text}

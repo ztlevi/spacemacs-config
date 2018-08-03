@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: getter
-# key: get->
+# key: get
 # group: es6
 # --
 get ${1:prop}() {

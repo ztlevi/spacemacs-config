@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: uicollectionViewDataSource
-# key: uicollectionViewDataSource->
+# key: uicollectionViewDataSource
 # --
 // MARK: UICollectionViewDataSource
 

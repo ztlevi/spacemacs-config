@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: cookbook_file
-# key: cookbook_file->
+# key: cookbook_file
 # --
 cookbook_file "${1:/tmp/file}" do
   owner "${2:root}"

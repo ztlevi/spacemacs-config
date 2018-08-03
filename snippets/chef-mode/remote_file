@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: remote_file
-# key: remote_file->
+# key: remote_file
 # --
 remote_file "${1:/tmp/remote_file}" do
   owner "${2:root}"

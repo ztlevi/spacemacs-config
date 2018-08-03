@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: submodules
-# key: sub->
+# key: sub
 # --
 submodules:
    $0

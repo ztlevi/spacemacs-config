@@ -1,5 +1,5 @@
 #name : -compile(...).
-#key: compile->
+#key: compile
 # --
 -compile([${1:export_all}]).
 $0

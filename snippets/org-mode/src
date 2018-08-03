@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 #name : src
-# key: src->
+# key: src
 # --
 #+BEGIN_SRC ${1:language}
 $0

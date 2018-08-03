@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: python
-# key: python->
+# key: python
 # --
 python "${1:install something}" do
   user "${2:root}"

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: function description template
-# key: tem->
+# key: tem
 # --
 """
 type: $1

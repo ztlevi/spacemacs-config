@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 #name : anonymous function
-#key : afn->
+#key : afn
 # --
 function(${1:arguments}) {
     ${0:// body...}

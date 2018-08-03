@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 #name : console.groupCollapsed
-#key : cgc->
+#key : cgc
 # --
 console.groupCollapsed(${1:obj})
 $0

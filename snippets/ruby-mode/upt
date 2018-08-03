@@ -1,5 +1,5 @@
 #name : upto(...) { |n| ... }
-#key: upt->
+#key: upt
 #group : control structure
 # --
 upto(${n}) { |${i}|

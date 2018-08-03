@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: header
-# key: he->
+# key: he
 # --
 declare name "$1";
 declare version "${2:0.1}";

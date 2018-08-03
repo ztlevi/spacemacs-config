@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: directoryf
-# key: directoryf->
+# key: directoryf
 # --
 directory "${1:name}" do
   owner "$create{2:root}"

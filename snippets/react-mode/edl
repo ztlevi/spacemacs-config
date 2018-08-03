@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: Eslint disable line
-# key: edl->
+# key: edl
 # group: react
 # --
 // eslint-disable-line

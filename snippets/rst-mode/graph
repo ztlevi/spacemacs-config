@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: graph
-# key: graph->
+# key: graph
 # --
 .. graph:: $1
 

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: movie
-# key: movie->
+# key: movie
 # --
 \begin{center}
 \includemovie[

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name : classList.add
-#key : ca->
+#key : ca
 # --
 ${1:document}.classList.add('${2:class}')

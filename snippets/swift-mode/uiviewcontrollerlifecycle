@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: uiViewControllerLifecycle
-# key: uiViewControllerLifecycle->
+# key: uiViewControllerLifecycle
 # --
 // MARK: UIViewController lifecycle
 

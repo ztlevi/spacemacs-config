@@ -1,5 +1,5 @@
 #name : Strong
-#key: __->
+#key: __
 #contributor: Peng Deng <dengpeng@gmail.com>
 # --
 **${1:Text}** $0

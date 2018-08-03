@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: USAMI Kenta <tadsan@zonu.me>
 # name: Doc comment (one-line)
-# key: *->
+# key: *
 # group: annotation
 # --
 /** ${1:Summary} */

@@ -1,5 +1,5 @@
 # name: for ... in ... : ...
-# key: for->
+# key: for
 # group : control structure
 # --
 for ${var} in ${collection}:

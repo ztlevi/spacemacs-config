@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: full template of moderncv class
-# key: moderncv->
+# key: moderncv
 # --
 \documentclass[${1:options}]{moderncv}
 

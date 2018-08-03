@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: <lit> elements
-# key: l->
+# key: l
 # condition: (progn (backward-char 1) (dix-transfer-enclosing-allows "lit"))
 # binding: direct-keybinding
 # --

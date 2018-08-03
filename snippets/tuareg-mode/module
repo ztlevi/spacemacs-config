@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: module
-# key: mod->
+# key: mod
 # --
 module ${1:A} =
        struct

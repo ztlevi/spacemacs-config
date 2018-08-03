@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: servicep
-# key: servicep->
+# key: servicep
 # --
 service "${1:name}" do
   pattern "${2:pattern}"

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 #name : describe
-#key : desc->
+#key : desc
 # --
 describe('${1:description}', function() {
     ${0:// body...}

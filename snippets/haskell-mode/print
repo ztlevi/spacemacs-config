@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: print
-# key: pr->
+# key: pr
 # --
 print $0

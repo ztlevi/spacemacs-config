@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: network
-# key: net->
+# key: net
 # --
 network ${1:Name}
 {

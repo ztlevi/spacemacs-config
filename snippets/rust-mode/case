@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: pattern => expression,
-# key: case->
+# key: case
 # --
 ${1:pattern} => ${2:expression},

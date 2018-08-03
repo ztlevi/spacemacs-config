@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: testClass
-# key: tc->
+# key: tc
 # --
 import junit.framework.*;
 import junit.textui.*;

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: filef
-# key: filef->
+# key: filef
 # --
 file "${1:name}" do
   path "${3:path}"

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # name: ns
-# key: ns->
+# key: ns
 # --
 (ns `(cl-flet ((try-src-prefix
 		(path src-pfx)

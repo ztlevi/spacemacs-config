@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: str
-# key: str->
+# key: str
 # --
 #include <string>

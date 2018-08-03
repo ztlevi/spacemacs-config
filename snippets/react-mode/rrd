@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: Redux Reducer
-# key: rrd->
+# key: rrd
 # group: react
 # --
 export default (state = $1, action) => {

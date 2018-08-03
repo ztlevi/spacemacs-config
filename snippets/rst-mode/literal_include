@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: literatal include
-# key: inc->
+# key: inc
 # --
 .. literalinclude:: ${1:path}

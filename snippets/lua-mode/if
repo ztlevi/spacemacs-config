@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: if
-# key: if->
+# key: if
 # --
 if $1 then
 	$0

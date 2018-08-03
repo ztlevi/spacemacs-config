@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: impl Type { ... }
-# key: impl->
+# key: impl
 # --
 impl ${1:Type} {
      $0

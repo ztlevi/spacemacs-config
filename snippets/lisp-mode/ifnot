@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: ifnot (...) (...)  ...
-# key: ifnot->
+# key: ifnot
 # --
 
 (unless (${1:condition})

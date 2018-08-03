@@ -1,5 +1,5 @@
 #name : all? { |...| ... }
-#key: all->
+#key: all
 #group : collections
 # --
 all? { |${e}| $0 }

@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: <clip> elements
-# key: c->
+# key: c
 # condition: (progn (backward-char 1) (dix-transfer-enclosing-allows "clip"))
 # binding: direct-keybinding
 # --

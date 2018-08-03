@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: USAMI Kenta <tadsan@zonu.me>
 # name: function :type
-# key: function:->
+# key: function:
 # group : control structure
 # --
 ${4:public }function ${1:name}(${2:$arg, ...}): ${3:type}

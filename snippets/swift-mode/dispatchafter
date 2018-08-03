@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: dispatchAfter
-# key: dispatchAfter->
+# key: dispatchAfter
 # --
 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds($1)) {
     $0

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: TOSSIM
-# key: tossim->
+# key: tossim
 # --
 #ifndef TOSSIM
         $0

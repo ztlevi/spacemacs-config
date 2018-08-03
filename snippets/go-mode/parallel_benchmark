@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: parallel_benchmark
-# key: parbench->
+# key: parbench
 # contributor : @kostya-sh
 # --
 func Benchmark$1(b *testing.B) {

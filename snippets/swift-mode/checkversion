@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: checkversion
-# key: checkversion->
+# key: checkversion
 # --
 #if swift(>=3.0)
     $0

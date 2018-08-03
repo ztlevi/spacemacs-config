@@ -1,5 +1,5 @@
 #name : loop(...) -> receive _ -> loop(...) end.
-#key: loop->
+#key: loop
 # --
 ${1:loop}($2) ->
     receive

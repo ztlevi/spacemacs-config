@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name : assert.equal
-#key : ase->
+#key : ase
 # --
 assert.equal(${1:actual}, ${2:expected})

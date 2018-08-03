@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name : removeAttribute
-#key : ra->
+#key : ra
 # --
 ${1:document}.removeAttribute('${2:attr}')

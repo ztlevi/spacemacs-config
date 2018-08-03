@@ -1,6 +1,6 @@
 #contributor : Jostein Kjønigsen <jostein@kjonigsen.net>
 #name : foreach { ... }
-# key: fore->
+# key: fore
 # --
 foreach (${1:var} ${2:item} in ${3:list})
 {

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name : classList.remove
-#key : cr->
+#key : cr
 # --
 ${1:document}.classList.remove('${2:class}')

@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: function
-# key: f->
+# key: f
 # --
 function ${1:name}(${2:arg}) {
   $0

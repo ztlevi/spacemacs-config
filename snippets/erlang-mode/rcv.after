@@ -1,5 +1,5 @@
 #name : receive after ... -> ... end
-#key: rcv.after->
+#key: rcv.after
 # --
 receive
 after

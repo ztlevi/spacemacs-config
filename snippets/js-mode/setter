@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: setter
-# key: set->
+# key: set
 # group: es6
 # --
 set ${1:prop}(${2:value}) {

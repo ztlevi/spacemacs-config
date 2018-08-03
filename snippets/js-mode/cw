@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name : console.warn
-#key : cw->
+#key : cw
 # --
 console.warn(${1:obj})

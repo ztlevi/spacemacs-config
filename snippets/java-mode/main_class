@@ -1,6 +1,6 @@
 # contributor: L. Guruprasad <lgp171188@gmail.com>
 # name: main_class
-# key: main_class->
+# key: main_class
 # --
 class `(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`
 {

@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: USAMI Kenta <tadsan@zonu.me>
 # name: __call()
-# key: __call->
+# key: __call
 # group: Magic Methods
 # --
 public function __call($name, $args)

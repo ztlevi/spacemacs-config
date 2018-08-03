@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: React.createClass
-# key: cc->
+# key: cc
 # group: react
 # --
 React.createClass({

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: render
-# key: r->
+# key: r
 # group: react
 # --
 render() {

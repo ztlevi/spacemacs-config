@@ -1,5 +1,5 @@
 #name : -module().
-#key: mod->
+#key: mod
 #contributor : hitesh <hitesh.jasani@gmail.com>
 # --
 -module(${1:`(file-name-nondirectory

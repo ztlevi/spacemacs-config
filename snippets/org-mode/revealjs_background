@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: Reveal.js single slide background
-# key: rvb->
+# key: rvb
 # --
 *** Single Image Background
     :PROPERTIES:

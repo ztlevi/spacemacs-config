@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name : getAttribute
-#key : ga->
+#key : ga
 # --
 ${1:document}.getAttribute('${2:attr}')

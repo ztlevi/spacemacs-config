@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: documentDirectory
-# key: documentDirectory->
+# key: documentDirectory
 # --
 if let path =
     NSSearchPathForDirectoriesInDomains(

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: meta
-# key: meta->
+# key: meta
 # --
 maintainer       "${1:YOUR_COMPANY_NAME}"
 maintainer_email "${2:YOUR_EMAIL}"

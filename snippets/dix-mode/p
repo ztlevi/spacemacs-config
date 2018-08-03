@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: <p> element
-# key: p->
+# key: p
 # condition: (progn (backward-char 1) (equal (dix-enclosing-elt 'noerror) "e"))
 # binding: direct-keybinding
 # --

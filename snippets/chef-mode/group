@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: group
-# key: group->
+# key: group
 # --
 group "${1:name}" do
   gid ${2:999}

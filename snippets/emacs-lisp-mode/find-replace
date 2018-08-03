@@ -1,5 +1,5 @@
 #name : find and replace on region
-#key: find-replace->
+#key: find-replace
 #contributor : Xah Lee
 # --
 (defun replace-html-chars-region (start end)

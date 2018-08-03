@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: packed
-# key: packed->
+# key: packed
 # --
 __attribute__((__packed__))$0

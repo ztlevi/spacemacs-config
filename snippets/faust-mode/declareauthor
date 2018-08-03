@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: declare author
-# key: da->
+# key: da
 # --
 declare author "$1";
 $0

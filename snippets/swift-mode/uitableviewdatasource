@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: uitableViewDataSource
-# key: uitableViewDataSource->
+# key: uitableViewDataSource
 # --
 // MARK: UITableViewDataSource
 

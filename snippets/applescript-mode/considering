@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-#key: considering->
+#key: considering
 # name: considering
 # --
 considering $1

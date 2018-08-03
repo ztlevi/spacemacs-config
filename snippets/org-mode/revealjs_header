@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: Reveal.js header
-# key: rvh->
+# key: rvh
 # --
 #+REVEAL_THEME: white
 #+REVEAL_MAX_SCALE: 0.8

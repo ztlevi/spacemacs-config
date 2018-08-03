@@ -1,5 +1,5 @@
 #name : each { |...| ... }
-#key: ea->
+#key: ea
 #group : collections
 # --
 each { |${e}| $0 }

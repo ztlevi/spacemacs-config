@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: uiTableViewDelegate
-# key: uitableViewDelegate->
+# key: uitableViewDelegate
 # --
 // MARK: UITableViewDelegate
 

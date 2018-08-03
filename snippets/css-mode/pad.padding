@@ -1,5 +1,5 @@
 #contributor : rejeep <johan.rejeep@gmail.com>
-#key: pad.padding->
+#key: pad.padding
 #name : padding: top right bottom left
 # --
 padding: ${top} ${right} ${bottom} ${left};

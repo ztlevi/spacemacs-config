@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: ife
-# key: ife->
+# key: ife
 # group : control structure
 # --
 if $1:

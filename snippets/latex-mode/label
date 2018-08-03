@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: label
-# key: lab->
+# key: lab
 # --
 \label{$0}

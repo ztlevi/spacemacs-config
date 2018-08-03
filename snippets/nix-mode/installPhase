@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: installPhase
-# key: ip->
+# key: ip
 # --
 installPhase= ''
 ${1:    mkdir -p \$out/bin

@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: <otherwise> elements
-# key: o->
+# key: o
 # condition: (progn (backward-char 1) (dix-transfer-enclosing-allows "otherwise"))
 # binding: direct-keybinding
 # --

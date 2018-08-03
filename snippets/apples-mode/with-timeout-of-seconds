@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-#key: with-timeout-of-seconds->
+#key: with-timeout-of-seconds
 # name: with-timeout-of-seconds
 # --
 with timeout of $1 seconds

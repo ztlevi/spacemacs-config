@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 #name : src.out
-# key: src.out->
+# key: src.out
 # --
 #+BEGIN_SRC ${1:language} :results output
 $0

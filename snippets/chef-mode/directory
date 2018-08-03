@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: directory
-# key: directory->
+# key: directory
 # --
 directory "${1:name}" do
   owner "root"

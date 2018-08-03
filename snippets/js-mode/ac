@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name : appendChild
-#key : ac->
+#key : ac
 # --
 ${1:document}.appendChild(${2:elem})

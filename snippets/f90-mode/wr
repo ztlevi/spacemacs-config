@@ -1,5 +1,5 @@
 #contributor: Li Zhu <http://www.zhuli.name>
-#key: wr->
+#key: wr
 #name : write (*,*)
 # --
 write (${1:*},${2:*}) $0

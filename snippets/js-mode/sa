@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name : setAttribute
-#key : sa->
+#key : sa
 # --
 ${1:document}.setAttribute('${2:attr}', ${3:value})

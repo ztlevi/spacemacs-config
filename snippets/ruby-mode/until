@@ -1,5 +1,5 @@
 #name : until ... end
-#key: until->
+#key: until
 #group: control structure
 # --
 until ${condition}

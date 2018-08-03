@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: img
-# key: img->
+# key: img
 # --
 #+CAPTION: $1
 #+ATTR_HTML: :alt ${2:alt} :style width:100%

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-#key: tell-application->
+#key: tell-application
 # name: tell-application
 # --
 tell application "$1"

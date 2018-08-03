@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: slot
-# key: slot->
+# key: slot
 # --
 (${1:name} :initarg :${1:$(yas/substr yas-text "[^: ]*")}
            :initform (error ":${1:$(yas/substr yas-text "[^: ]*")} must be specified")

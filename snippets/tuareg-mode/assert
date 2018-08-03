@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: assert
-# key: as->
+# key: as
 # --
 assert $0;;

@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: USAMI Kenta <tadsan@zonu.me>
 # name: try
-# key: try->
+# key: try
 # group : control structure
 # --
 try {

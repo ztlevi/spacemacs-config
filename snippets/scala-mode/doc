@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 #Author : Anders Bach Nielsen <andersbach.nielsen@epfl.ch>
 #name : /** ... */
-# key: doc->
+# key: doc
 # --
 /**
  * ${1:description}

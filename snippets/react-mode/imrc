@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: Import react component
-# key: imrc->
+# key: imrc
 # group: react
 # --
 import React, { Component } from 'react'

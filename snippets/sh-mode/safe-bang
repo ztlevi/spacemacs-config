@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: safer bash settings for scripts
-# key: s!->
+# key: s!
 # --
 #!/usr/bin/env bash
 set -euo pipefail

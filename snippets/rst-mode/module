@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: module
-# key: mod->
+# key: mod
 # --
 :mod: \`$0\`

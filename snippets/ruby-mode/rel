@@ -1,5 +1,5 @@
 #name : require_relative
-#key: rel->
+#key: rel
 #group : general
 # --
 require_relative '$0'

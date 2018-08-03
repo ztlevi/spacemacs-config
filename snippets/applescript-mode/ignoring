@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-#key: ignoring->
+#key: ignoring
 # name: ignoring
 # --
 ignoring $1

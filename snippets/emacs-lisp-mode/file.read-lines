@@ -1,5 +1,5 @@
 #name : read lines of a file
-#key: file.read-lines->
+#key: file.read-lines
 #contributor : Xah Lee
 # --
 (defun read-lines (filePath)

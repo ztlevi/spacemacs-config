@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-#key: on->
+#key: on
 # name: on
 # --
 on $1

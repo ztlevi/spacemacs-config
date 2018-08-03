@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: http_requestp
-# key: http_requestp->
+# key: http_requestp
 # --
 http_request "${1:posting data}" do
   action :post

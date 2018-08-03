@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: Comment big block
-# key: cmmb->
+# key: cmmb
 # --
 /**
 |--------------------------------------------------

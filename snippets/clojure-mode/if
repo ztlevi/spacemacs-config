@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # name: if
-# key: if->
+# key: if
 # --
 (if $1
   $2$>

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: doctest
-# key: doc->
+# key: doc
 # group: testing
 # --
 >>> ${1:function calls}

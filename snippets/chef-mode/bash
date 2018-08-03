@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: bash
-# key: bash->
+# key: bash
 # --
 bash "${1:install something}" do
   user "${2:root}"

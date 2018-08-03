@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: call
-# key: call->
+# key: call
 # --
 GenServer.call(${1:__MODULE__}, $0)

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: let mut pattern: type = expression;
-# key: lettm->
+# key: lettm
 # --
 let mut ${1:pattern}: ${2:type} = ${3:expression};

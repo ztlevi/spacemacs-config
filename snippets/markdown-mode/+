@@ -1,5 +1,5 @@
 #name : Unordered List
-#key: +->
+#key: +
 #contributor: Peng Deng <dengpeng@gmail.com>
 # --
 + ${1:Text}

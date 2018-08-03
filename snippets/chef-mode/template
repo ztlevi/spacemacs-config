@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: template
-# key: template->
+# key: template
 # --
 template "${1:name}" do
   source "${2:source}.erb"

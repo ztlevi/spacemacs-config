@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: cron
-# key: cron->
+# key: cron
 # --
 cron "${1:name}" do
   hour "${2:5}"

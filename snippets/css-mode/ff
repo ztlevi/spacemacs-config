@@ -1,5 +1,5 @@
 #contributor : rejeep <johan.rejeep@gmail.com>
-#key: ff->
+#key: ff
 #name : font-family: ...
 # --
 font-family: $1;

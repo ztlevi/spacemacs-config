@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: prop-getset
-# key: prop-getset->
+# key: prop-getset
 # --
 var $1: $2 {
     get {$3}

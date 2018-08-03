@@ -1,5 +1,5 @@
 #name : grab buffer substring
-#key: grabstring->
+#key: grabstring
 #contributor : Xah Lee
 # --
 (setq $0 (buffer-substring-no-properties myStartPos myEndPos))

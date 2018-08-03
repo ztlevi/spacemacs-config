@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 #name : test time
-#key : time->
+#key : time
 # --
 var start = new Date().getTime()
 $0

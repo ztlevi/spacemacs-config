@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: USAMI Kenta <tadsan@zonu.me>
 # name: __callStatic()
-# key: __callStatic->
+# key: __callStatic
 # group: Magic Methods
 # --
 public function __callStatic($name, $args)

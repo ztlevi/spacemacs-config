@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: defpackage
-# key: defp->
+# key: defp
 # --
 (defpackage #:${1:name}
    (:nicknames #:${2:nick})

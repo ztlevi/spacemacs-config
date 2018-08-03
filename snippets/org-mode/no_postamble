@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: No HTML postamble
-# key: nopostamble->
+# key: nopostamble
 # --
 #+OPTIONS: html-postamble:nil

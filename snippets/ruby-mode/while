@@ -1,5 +1,5 @@
 #name : while ... end
-#key: while->
+#key: while
 #group : control structure
 # --
 while ${condition}

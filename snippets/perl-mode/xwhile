@@ -1,4 +1,4 @@
 # name: ... while ...
-# key: xwhile->
+# key: xwhile
 # --
 ${1:expression} while ${2:condition};

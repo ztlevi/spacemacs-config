@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: cin
-# key: sti->
+# key: sti
 # --
 std::cin >>
 $0

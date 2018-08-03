@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name : classList.toggle
-#key : ct->
+#key : ct
 # --
 ${1:document}.classList.toggle('${2:class}')

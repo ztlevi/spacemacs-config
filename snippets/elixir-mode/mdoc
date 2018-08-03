@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: moduledoc
-# key: mdoc->
+# key: mdoc
 # --
 @moduledoc """
 $0

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: git
-# key: git->
+# key: git
 # --
 git "${1:/home/user/deployment}" do
   repository "${2:git@github.com:gitsite/deploymentployment.git}"

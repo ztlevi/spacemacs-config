@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name:args
-# key: args->
+# key: args
 # --
 if [ $# -lt ${1:2} ]
    then $0

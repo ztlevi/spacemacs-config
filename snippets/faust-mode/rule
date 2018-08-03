@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: rule
-# key: ru->
+# key: ru
 # --
   (${1:pattern}) => ${2:expression};
 $0

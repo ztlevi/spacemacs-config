@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: buildPhase
-# key: bp->
+# key: bp
 # --
 buildPhase= ''
 $1

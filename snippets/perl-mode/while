@@ -1,5 +1,5 @@
 # name: while (...) { ... }
-# key: while->
+# key: while
 # --
 while ($1) {
     $0

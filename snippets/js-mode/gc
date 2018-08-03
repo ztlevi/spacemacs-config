@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name : getElementsByClassName
-#key : gc->
+#key : gc
 # --
 ${1:document}.getElementsByClassName('${2:class}')

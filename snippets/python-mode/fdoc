@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: fdoc
-# key: fdoc->
+# key: fdoc
 # --
 """${1:Example function with types documented in the docstring.}
 

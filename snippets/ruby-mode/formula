@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: formula
-# key: form->
+# key: form
 # --
 require 'formula'
 

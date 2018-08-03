@@ -1,5 +1,5 @@
 #name : include Comparable; def <=> ... end
-#key: Comp->
+#key: Comp
 #group : definitions
 # --
 include Comparable

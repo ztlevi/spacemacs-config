@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: test module
-# key: testmod->
+# key: testmod
 # --
 #[cfg(test)]
 mod ${1:tests} {

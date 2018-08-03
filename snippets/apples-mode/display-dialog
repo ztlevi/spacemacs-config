@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-#key: display-dialog->
+#key: display-dialog
 # name: display-dialog
 # --
 display dialog "$0"

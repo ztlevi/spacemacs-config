@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-#key: req.json->
+#key: req.json
 #name : json
 # --
 new Request.JSON({

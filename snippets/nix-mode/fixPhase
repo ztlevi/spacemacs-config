@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: fixPhase
-# key: fp->
+# key: fp
 # --
 fixPhase= ''
 $1

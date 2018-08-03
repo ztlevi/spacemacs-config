@@ -1,5 +1,5 @@
 #name : require "..."
-#key: req->
+#key: req
 #group : general
 # --
 require '$0'

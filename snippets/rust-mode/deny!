@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: #![deny(lint)]
-# key: deny!->
+# key: deny!
 # --
 #![deny(${1:lint})]

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: Export default Component Class
-# key: edccs->
+# key: edccs
 # group: react
 # --
 export default class $1 extends Component {

@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 #cotributor: Henrique Jung <henriquenj@gmail.com>
 #name: Function description
-#key: \brief->
+#key: \brief
 #group: doxygen
 # --
 /**

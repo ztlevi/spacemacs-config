@@ -2,7 +2,7 @@
 # name: clean
 # contributor: gbalats
 # expand-env: ((yas-indent-line 'fixed))
-# key: cl->
+# key: cl
 # --
 clean:
 	${1:rm -r ${2:\$(${3:OUTDIR})}}

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: message
-# key: msg->
+# key: msg
 # --
 message(${1:STATUS }"$0")

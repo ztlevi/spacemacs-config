@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name : Options
-# key: opt->
+# key: opt
 # --
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil

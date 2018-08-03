@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: rotate_copy
-# key: rtc->
+# key: rtc
 # --
 std::rotate_copy(std::begin(${1:container}), std::begin($2), std::end($1),
   std::begin($3));

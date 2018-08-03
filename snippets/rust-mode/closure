@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: closure
-# key: ||->
+# key: ||
 # --
 |${1:arguments}| {
        $0

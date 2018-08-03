@@ -1,5 +1,5 @@
 #contributor : Vikrant Rathore <vikrant@vyomtech.com>
-#key: link.import->
+#key: link.import
 #name : <link rel="import" />
 # --
 <link rel="import" href="${1:url}" />

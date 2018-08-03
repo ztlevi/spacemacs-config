@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: import
-# key: im->
+# key: im
 # --
 import("$1.lib");$0

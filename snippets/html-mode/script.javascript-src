@@ -1,5 +1,5 @@
 #contributor : Jimmy Wu <frozenthrone88@gmail.com>
-#key: script.javascript-src->
+#key: script.javascript-src
 #name :<script type="text/javascript" src="..."></script> 
 # --
 <script type="text/javascript" src="$1"></script>

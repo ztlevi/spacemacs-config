@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: checkPhase
-# key: ch->
+# key: ch
 # --
 checkPhase= ''
 $1

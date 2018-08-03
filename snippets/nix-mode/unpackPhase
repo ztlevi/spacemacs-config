@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: unpackPhase
-# key: up->
+# key: up
 # --
 unpackPhase = ''
   $1

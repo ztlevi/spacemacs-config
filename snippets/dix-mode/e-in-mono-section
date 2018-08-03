@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: <e> in monodix section
-# key: <e->
+# key: <e
 # condition: (dix-enclosing-is-mono-section)
 # binding: direct-keybinding
 #TODO: remove suffix from <i> after leaving <par>

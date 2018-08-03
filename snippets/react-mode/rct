@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: Redux constant
-# key: rct->
+# key: rct
 # group: react
 # --
 export const $1 = '$1'

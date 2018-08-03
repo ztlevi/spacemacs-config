@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name : use strict
-#key : us->
+#key : us
 # --
 'use strict'

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: class
-# key: cls->
+# key: cls
 # --
 (defclass ${1:name} (${2:inherits})
    (${4:slot})

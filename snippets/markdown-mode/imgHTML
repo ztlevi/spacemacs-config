@@ -1,6 +1,6 @@
 #name : Image HTML
 #contributor: zhouting@umich.edu
-#key : imgHTML->
+#key : imgHTML
 # --
 <figure style="width:100%;text-align:center;">
 <img src="$1" alt="$2"/>

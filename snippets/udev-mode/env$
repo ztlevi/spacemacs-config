@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: env$
-# key: $->
+# key: $
 # --
 $env{$1} $0

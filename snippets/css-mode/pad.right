@@ -1,5 +1,5 @@
 #contributor : rejeep <johan.rejeep@gmail.com>
-#key: pad.right->
+#key: pad.right
 #name : padding-right: ...
 # --
 padding-right: $1;

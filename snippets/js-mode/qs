@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name : querySelector
-#key : qs->
+#key : qs
 # --
 ${1:document}.querySelector('${2:selector}')

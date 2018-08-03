@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: executef
-# key: executef->
+# key: executef
 # --
 execute "${1:name}" do
   command "${2:ls -la}"

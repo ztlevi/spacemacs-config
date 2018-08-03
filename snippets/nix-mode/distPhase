@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: distPhase
-# key: dp->
+# key: dp
 # --
 distPhase= ''
 $1

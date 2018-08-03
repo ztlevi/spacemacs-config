@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: USAMI Kenta <tadsan@zonu.me>
 # name: PHPDoc (multi-line)
-# key: /**->
+# key: /**
 # group: annotation
 # --
 /**

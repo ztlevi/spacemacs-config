@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: pak
-# key: pak->
+# key: pak
 # --
 package "${1:name}" do
   action :${2:install}

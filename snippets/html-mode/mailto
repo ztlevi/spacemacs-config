@@ -1,5 +1,5 @@
 #contributor : Jimmy Wu <frozenthrone88@gmail.com>
-#key: mailto->
+#key: mailto
 #name : <a href="mailto:...@...">...</a>
 # --
 <a href="mailto:$1@$2">$0</a>

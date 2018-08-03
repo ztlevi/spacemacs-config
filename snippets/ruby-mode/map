@@ -1,5 +1,5 @@
 #name : map { |...| ... }
-#key: map->
+#key: map
 #group : collections
 # --
 map { |${e}| $0 }

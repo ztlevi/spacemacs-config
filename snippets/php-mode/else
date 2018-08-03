@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: USAMI Kenta <tadsan@zonu.me>
 # name: else
-# key: else->
+# key: else
 # group: control structure
 # --
 else {

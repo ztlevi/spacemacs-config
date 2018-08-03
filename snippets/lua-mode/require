@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: require
-# key: require->
+# key: require
 # --
 local $1 = require "$2"

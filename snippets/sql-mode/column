@@ -1,5 +1,5 @@
 #contributor : Alejandro Espinoza Esparza <aespinoza@structum.com.mx>
-#key: column->
+#key: column
 #name : , ColumnName ColumnType NOT NULL...
 # --
 	,	${1:Name}		${2:Type}			${3:NOT NULL}

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: uialertController
-# key: uialertController->
+# key: uialertController
 # --
 let alert =
     UIAlertController(title: $1,

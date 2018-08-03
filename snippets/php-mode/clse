@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: USAMI Kenta <tadsan@zonu.me>
 # name: class extends
-# key: clse->
+# key: clse
 # group: definitions
 # --
 class ${1:`(yas-php-get-class-name-by-file-name)`} extends ${2:ParentClass}

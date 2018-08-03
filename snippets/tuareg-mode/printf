@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: printf
-# key: pr->
+# key: pr
 # --
 Printf.printf "${1:string}" ${2:vals};;

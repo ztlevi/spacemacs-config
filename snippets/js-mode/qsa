@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name : querySelectorAll
-#key : qsa->
+#key : qsa
 # --
 ${1:document}.querySelectorAll('${2:selector}')

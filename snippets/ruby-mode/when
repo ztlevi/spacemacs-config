@@ -1,5 +1,5 @@
 #name : when ... end
-#key: when->
+#key: when
 #group : control structure
 # --
 when ${condition}

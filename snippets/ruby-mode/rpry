@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: binding.pry_remote
-# key: rpry->
+# key: rpry
 # --
 require 'pry-remote'; binding.remote_pry

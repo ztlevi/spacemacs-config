@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: export default
-# key: ed->
+# key: ed
 # --
 export default $1
 $0

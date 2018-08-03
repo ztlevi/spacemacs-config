@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: <call-macro>
-# key: m->
+# key: m
 # condition: (progn (backward-char 1) (dix-transfer-enclosing-allows "call-macro"))
 # binding: direct-keybinding
 # --

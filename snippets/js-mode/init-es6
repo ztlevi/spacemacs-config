@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: init-es6
-# key: init->
+# key: init
 # group: es6
 # --
 constructor(${1:arg}) {

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: subscribes
-# key: subscribes->
+# key: subscribes
 # --
 subscribes :${1:restart}, "${2:template}[${3:name}]"

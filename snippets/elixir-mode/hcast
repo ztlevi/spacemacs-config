@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: hcast
-# key: hcast->
+# key: hcast
 # --
 def handle_cast($1, state) do
   $0

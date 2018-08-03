@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: <pardef> element
-# key: <p->
+# key: <p
 # condition: (progn (backward-char 2) (not (equal (dix-enclosing-elt 'noerror) "e")))
 # binding: direct-keybinding
 # --

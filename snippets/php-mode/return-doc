@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: USAMI Kenta <tadsan@zonu.me>
 # name: PHPDoc @return
-# key: *return->
+# key: *return
 # group: annotation
 # --
 * @return ${1:type} ${2:description}

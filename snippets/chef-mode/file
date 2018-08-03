@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: file
-# key: file->
+# key: file
 # --
 file "${1:name}" do
   owner "root"

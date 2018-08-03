@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: USAMI Kenta <tadsan@zonu.me>
 # name: elseif
-# key: elseif->
+# key: elseif
 # group : control structure
 # --
 elseif (${1:condition}) {

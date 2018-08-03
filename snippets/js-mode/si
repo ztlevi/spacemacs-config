@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 #name : setInterval
-#key : si->
+#key : si
 # --
 setInterval(function() {
     ${0:// body...}

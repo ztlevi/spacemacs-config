@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name : getElementsByTagName
-#key : gt->
+#key : gt
 # --
 ${1:document}.getElementsByTagName('${2:tag}')

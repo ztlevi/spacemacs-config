@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: all
-# key: all->
+# key: all
 # --
 all:
         $0

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: declare license
-# key: dl->
+# key: dl
 # --
 declare license "${1:$$
   (yas-choose-value '(

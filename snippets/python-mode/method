@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: method
-# key: m->
+# key: m
 # group: object oriented
 # --
 def ${1:method}(self${2:, $3}):

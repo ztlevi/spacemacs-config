@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: PHONY
-# key: phony->
+# key: phony
 # --
 .PHONY: $0

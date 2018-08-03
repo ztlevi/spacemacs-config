@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: button
-# key: bu->
+# key: bu
 # --
 button("$1")$0

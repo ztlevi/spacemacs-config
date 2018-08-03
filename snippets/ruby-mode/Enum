@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: include Enumerable
-# key: Enum->
+# key: Enum
 # group: collections
 # --
 include Enumerable

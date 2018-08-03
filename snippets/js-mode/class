@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-#key: class->
+#key: class
 #name : Class
 # --
 var ${1:name} = new Class({

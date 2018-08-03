@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: USAMI Kenta <tadsan@zonu.me>
 # name: class implements
-# key: clsi->
+# key: clsi
 # group: definitions
 # --
 class ${1:`(yas-php-get-class-name-by-file-name)`} implements ${interface}

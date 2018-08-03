@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name : confirm
-#key : co->
+#key : co
 # --
 confirm('${1:msg}')

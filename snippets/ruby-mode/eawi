@@ -1,5 +1,5 @@
 #name : each_with_index { |e, i| ... }
-#key: eawi->
+#key: eawi
 #group : collections
 # --
 each_with_index { |${e}, ${i}| $0 }

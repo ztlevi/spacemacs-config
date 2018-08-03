@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 #name : End region
-#key : er->
+#key : er
 # --
 //endregion
 $0

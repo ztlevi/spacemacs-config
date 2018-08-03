@@ -1,5 +1,5 @@
 #name : class << self ... end
-#key: cla->
+#key: cla
 #group : definitions
 # --
 class << ${self}

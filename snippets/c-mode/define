@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: define
-# key: d->
+# key: d
 # --
 #define $0

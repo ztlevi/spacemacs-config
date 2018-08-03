@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: math
-# key: math->
+# key: math
 # --
 #include <cmath>

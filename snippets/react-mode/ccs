@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: Component Class
-# key: ccs->
+# key: ccs
 # group: react
 # --
 class $1 extends Component {

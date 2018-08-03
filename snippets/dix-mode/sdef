@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: <sdef> element
-# key: <s->
+# key: <s
 # condition: (progn (backward-char 2) (equal (dix-enclosing-elt 'noerror) "sdefs"))
 # binding: direct-keybinding
 # --

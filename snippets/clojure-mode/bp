@@ -1,4 +1,4 @@
 # name: bp
-# key: bp->
+# key: bp
 # --
 (swank.core/break)
