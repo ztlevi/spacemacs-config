@@ -413,16 +413,17 @@ BUFFER is the buffer where the request has been made."
 (defun ztlevi-prog/init-counsel-etags ()
   (use-package counsel-etags
     :defer t
+    :init
+    ;; Setup auto update now
+    (defun update-etags-hook ()
+      (add-hook 'after-save-hook
+                'counsel-etags-virtual-update-tags 'append 'local))
+    (add-hook 'prog-mode-hook #'update-etags-hook)
     :config
     ;; Don't ask before rereading the TAGS files if they have changed
     (setq tags-revert-without-query t)
     ;; Don't warn when TAGS files are large
-    (setq large-file-warning-threshold nil)
-    ;; Setup auto update now
-    (add-hook 'prog-mode-hook
-              (lambda ()
-                (add-hook 'after-save-hook
-                          'counsel-etags-virtual-update-tags 'append 'local)))))
+    (setq large-file-warning-threshold nil)))
 
 (defun ztlevi-prog/post-init-company ()
   (progn

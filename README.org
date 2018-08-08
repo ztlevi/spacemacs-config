@@ -57,7 +57,7 @@
            # search tool
            brew install ripgrep grep
            # utils
-           brew install hub watchman gpg2 coreutils
+           brew install hub watchman gpg2 coreutils ctags
            # linter
            brew install shellcheck aspell hadolint
          #+END_SRC
@@ -121,7 +121,7 @@
 
    3. Cquery Project setup [[https://github.com/cquery-project/cquery/wiki/compile_commands.json][compile_commands.json]] (Best). Remember to copy/symlink it to the project root.
 
-   4. Use ~counsel-etags-find-tag-at-point~ (~g f~) to choose the etags directory and find candidates.
+   4. Use ~counsel-etags-find-tag-at-point~ (~g F~) to choose the etags directory and find candidates.
 
    5. Atomic Chrome is very useful to edit the textarea in Chrome. You will need to install the Chrome extension [[https://chrome.google.com/webstore/detail/atomic-chrome/lhaoghhllmiaaagaffababmkdllgfcmc][here]].
 
