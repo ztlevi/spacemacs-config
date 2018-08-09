@@ -95,7 +95,8 @@ This function should only modify configuration layer settings."
      chrome
      imenu-list
      ;; neotree
-     treemacs
+     (treemacs :variables treemacs-use-follow-mode t
+               treemacs-use-filewatch-mode t)
 
      ;; ===================== Frameworks =====================
      ;; ruby-on-rails
