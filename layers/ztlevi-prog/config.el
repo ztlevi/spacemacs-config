@@ -27,8 +27,6 @@
 
 ;; js2 mode hook
 (defun my-js2-mode-hook ()
-  (setq imenu-create-index-function 'js2-imenu-make-index)
-
   (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)
 
   (define-key js2-mode-map "\C-ci" 'js-doc-insert-function-doc-snippet)
