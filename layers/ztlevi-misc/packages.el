@@ -457,6 +457,7 @@
 
 (defun ztlevi-misc/post-init-projectile ()
   (progn
+    (setq projectile-keymap-prefix (kbd "C-c C-p"))
     (with-eval-after-load 'projectile
       (progn
         (setq projectile-completion-system 'ivy)
