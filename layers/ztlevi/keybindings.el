@@ -69,6 +69,10 @@
 (bind-key* "s-m" #'call-last-kbd-macro)
 (spacemacs/set-leader-keys "om" 'kmacro-edit-macro)
 
+;; git
+(spacemacs/set-leader-keys "gT" 'my-git-timemachine)
+(spacemacs/set-leader-keys "gR" 'magit-list-repositories)
+
 ;; expand region
 (bind-key* "C-s-." #'er/expand-region)
 (bind-key* "C-s-," #'er/contract-region)
@@ -166,7 +170,6 @@
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 (spacemacs/set-leader-keys "ok" 'helm-show-kill-ring)
 (spacemacs/set-leader-keys "o(" 'ielm)
-(spacemacs/set-leader-keys "og" 'my-git-timemachine)
 (spacemacs/set-leader-keys "oc" 'eacl-complete-tag)
 (spacemacs/set-leader-keys "od" 'occur-dwim)
 (spacemacs/set-leader-keys "on" 'occur-non-ascii)

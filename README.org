@@ -119,22 +119,24 @@
 
    2. ~SPC f g (rgrep)~ can help to search and apply the file masks (~*.py~).
 
-   3. Cquery Project setup [[https://github.com/cquery-project/cquery/wiki/compile_commands.json][compile_commands.json]] (Best). Remember to copy/symlink it to the project root.
+   3. You can use the universal argument ~SPC u~ with ~M-x spacemacs/git-link (SPC g l l)~ to select a remote repository.
 
-   4. Use ~counsel-etags-find-tag-at-point~ (~g F~) to choose the etags directory and find candidates.
+   4. Cquery Project setup [[https://github.com/cquery-project/cquery/wiki/compile_commands.json][compile_commands.json]] (Best). Remember to copy/symlink it to the project root.
 
-   5. Atomic Chrome is very useful to edit the textarea in Chrome. You will need to install the Chrome extension [[https://chrome.google.com/webstore/detail/atomic-chrome/lhaoghhllmiaaagaffababmkdllgfcmc][here]].
+   5. Use ~counsel-etags-find-tag-at-point~ (~g F~) to choose the etags directory and find candidates.
 
-   6. Prodigy is great to define your own services and fire up the service easily. Custom setting is under function *ztlevi-misc/post-init-prodigy*
+   6. Atomic Chrome is very useful to edit the textarea in Chrome. You will need to install the Chrome extension [[https://chrome.google.com/webstore/detail/atomic-chrome/lhaoghhllmiaaagaffababmkdllgfcmc][here]].
+
+   7. Prodigy is great to define your own services and fire up the service easily. Custom setting is under function *ztlevi-misc/post-init-prodigy*
 
       Note: If you are on a Mac, disable nap mode for Emacs, otherwise requests will be very slow when Emacs enters nap mode:
       #+BEGIN_SRC shell
         defaults write org.gnu.Emacs NSAppSleepDisabled -bool YES
       #+END_SRC
 
-   7. To change the home page banner, configure the setting in ~dotspacemacs-startup-banner '"~/.spacemacs.d/icons/banner.png"~.
+   8. To change the home page banner, configure the setting in ~dotspacemacs-startup-banner '"~/.spacemacs.d/icons/banner.png"~.
 
-   8. Encrypt org entries by using ~C-c C-c~ to set ~secret~ tag for the entry. Save the file and input the passcode. Then the entry will be encrypted. Decrypt the entry by using ~org-decrypt-entry~.
+   9. Encrypt org entries by using ~C-c C-c~ to set ~secret~ tag for the entry. Save the file and input the passcode. Then the entry will be encrypted. Decrypt the entry by using ~org-decrypt-entry~.
 
 ** What's the highlight of this configuration
    1. It's a highly customize optimized Spacemacs configuration, it's relied on the *develop* branch of the officially Spacemacs.

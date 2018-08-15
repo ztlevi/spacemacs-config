@@ -43,7 +43,7 @@
     magithub
     github-browse-file
     git-messenger
-    browse-at-remote
+    git-link
     hydra
     wrap-region
     golden-ratio
@@ -650,9 +650,13 @@
       (magit-define-popup-action 'magithub-dispatch-popup
         ?I "Browse issues" #'magithub-issue-browse))))
 
-(defun ztlevi-misc/post-init-browse-at-remote ()
-  (with-eval-after-load 'browse-at-remote
-    (add-to-list 'browse-at-remote-remote-type-domains '("isl-122-ubuntu" . "gitlab"))))
+(defun ztlevi-misc/post-init-git-link ()
+  (eval-after-load 'git-link
+    '(progn
+       (add-to-list 'git-link-remote-alist
+                    '("isl-122-ubuntu" git-link-gitlab))
+       (add-to-list 'git-link-commit-remote-alist
+                    '("isl-122-ubuntu" git-link-commit-gitlab)))))
 
 (defun ztlevi-misc/post-init-flymd ()
   (setq flymd-close-buffer-delete-temp-files t)

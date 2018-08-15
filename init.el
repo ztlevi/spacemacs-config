@@ -72,6 +72,7 @@ This function should only modify configuration layer settings."
                       auto-completion-enable-snippets-in-popup nil
                       auto-completion-idle-delay 0.2)
      (git :variables
+          magit-repository-directories '(("~/Developer/" . 2))
           magit-push-always-verify nil
           magit-save-repository-buffers 'dontask
           magit-revert-buffers 'silent
