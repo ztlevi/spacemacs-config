@@ -119,7 +119,11 @@
 
    2. ~SPC f g (rgrep)~ can help to search and apply the file masks (~*.py~).
 
-   3. You can use the universal argument ~SPC u~ with ~M-x spacemacs/git-link (SPC g l l)~ to select a remote repository.
+   3. Git-Link: You can use the universal argument ~SPC u~ with ~M-x spacemacs/git-link (SPC g l l)~ to select a remote repository.
+      Local settings are managed via the repository's git configuration. They can be set via: ~git config --local --add git-link.remote upstream~
+      Local settings have precedence over global settings.
+      ~git-link.remote~: Name of the remote to link to.
+      ~git-link.branch~: Name of the remote branch to link to.
 
    4. Cquery Project setup [[https://github.com/cquery-project/cquery/wiki/compile_commands.json][compile_commands.json]] (Best). Remember to copy/symlink it to the project root.
 
