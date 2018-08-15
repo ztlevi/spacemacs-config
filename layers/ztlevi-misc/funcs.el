@@ -587,13 +587,31 @@ With PREFIX, cd to project root."
   (interactive)
   (describe-variable 'major-mode))
 
-(defun ztlevi/github-browse-commit ()
-  "Show the GitHub page for the current commit."
+(defun my-git-link-commit ()
+  "Copy from git-link-commit, open with git-messenger's last commit id"
+
   (interactive)
-  (let* ((commit git-messenger:last-commit-id)
-         (url (concat "https://github.com/"
-                      (github-browse-file--relative-url)
-                      "/commit/"
-                      commit)))
-    (github-browse--save-and-view url)
+  (require 'git-link)
+  (let ((current-prefix-arg '(4)))
+    (setq-local remote (git-link--select-remote))
+    (let* (commit handler remote-info (remote-url (git-link--remote-url remote)))
+      (if (null remote-url)
+          (message "Remote `%s' not found" remote)
+
+        (setq remote-info (git-link--parse-remote remote-url)
+              commit git-messenger:last-commit-id
+              handler (git-link--handler git-link-commit-remote-alist (car remote-info)))
+
+        (cond ((null (car remote-info))
+               (message "Remote `%s' contains an unsupported URL" remote))
+              ((not (string-match-p "[a-fA-F0-9]\\{7,40\\}" (or commit "")))
+               (message "Point is not on a commit hash"))
+              ((not (functionp handler))
+               (message "No handler for %s" (car remote-info)))
+              ;; null ret val
+              ((git-link--new
+                (funcall handler
+                         (car remote-info)
+                         (cadr remote-info)
+                         (substring-no-properties commit)))))))
     (git-messenger:popup-close)))

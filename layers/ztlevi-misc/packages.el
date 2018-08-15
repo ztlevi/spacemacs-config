@@ -668,8 +668,8 @@
   (use-package git-messenger
     :defer t
     :config
-    (define-key git-messenger-map (kbd "o") 'ztlevi/github-browse-commit)
-    (setq git-messenger:func-prompt (cons '(ztlevi/github-browse-commit . "Browse online") git-messenger:func-prompt ))))
+    (define-key git-messenger-map (kbd "o") 'my-git-link-commit)
+    (setq git-messenger:func-prompt (cons '(my-git-link-commit . "Browse Remote") git-messenger:func-prompt ))))
 
 (defun ztlevi-misc/init-github-browse-file ()
   (use-package github-browse-file
