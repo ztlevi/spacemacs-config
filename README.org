@@ -67,14 +67,17 @@
          #+BEGIN_SRC shell
            npm install -g prettier js-beautify live-server import-js
          #+END_SRC
-       - pip
-         - =autopep8=, =importmagic=, =ipython=
-           #+BEGIN_SRC shell
-             pip3 install ipython autopep8 importmagic epc
-           #+END_SRC
-       - go TODO
+       - pip: =autopep8=, =importmagic=, =ipython=
+         #+BEGIN_SRC shell
+           pip3 install ipython autopep8 importmagic epc
+         #+END_SRC
+       - go: =go-langserver=, =gocode=, =gogetdoc=, =godef=, =godoctor=
          #+BEGIN_SRC shell
            brew install go
+
+           # lsp
+           go get -u github.com/sourcegraph/go-langserver
+
            go get -u -v github.com/nsf/gocode
            go get -u -v github.com/rogpeppe/godef
            go get -u -v golang.org/x/tools/cmd/guru
