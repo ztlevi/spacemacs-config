@@ -26,10 +26,7 @@
     ;; To use local repo, update the packages to clean up the cache
     ;; (doom-themes :location "~/Developer/Github/emacs-doom-themes")
 
-    ;; doom modeline needs all-the-icons, shrink-path
-    ;; (doom-modeline :location local)
-    ;; shrink-path
-
+    ;; doom-modeline
     ;; (ztlevi-modeline :location local)
     )
   )
@@ -48,21 +45,12 @@
 
 (defun ztlevi-ui/init-doom-modeline ()
   (use-package doom-modeline
-    :init
-    (use-package all-the-icons)
-
-    ;; set doom-modeline height
-    (setq +doom-modeline-height 32)
-
-    ;; file-name style
-    (setq +doom-modeline-buffer-file-name-style 'relative-to-project)
-
-    (add-hook 'after-init-hook #'+doom-modeline|init)))
-
-(defun ztlevi-ui/init-shrink-path ()
-  (use-package shrink-path
+    :ensure t
     :defer t
-    :commands (shrink-path-prompt shrink-path-file-mixed)))
+    :init
+    ;; file-name style
+    (setq doom-modeline-buffer-file-name-style 'relative-to-project)
+    :hook (after-init . doom-modeline-init)))
 
 (defun ztlevi-ui/init-all-the-icons-dired ()
   (use-package all-the-icons-dired
