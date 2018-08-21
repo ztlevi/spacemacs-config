@@ -75,6 +75,9 @@
              (zerop (call-process "lsof" nil nil nil "-i" ":64292")))
             ((executable-find "netstat") ; Windows
              (zerop (call-process-shell-command "netstat -aon | grep 64292")))))
+    :hook
+    (atomic-chrome-edit-mode . ztlevi-atomic-chrome-mode-setup)
+    (atomic-chrome-edit-done . (lambda () (shell-command "open -a \"/Applications/Google Chrome.app\"")))
     :config
     (progn
       (spacemacs|diminish atomic-chrome-edit-mode " Ⓐ" " A")
@@ -95,9 +98,6 @@
               (substitute-command-keys
                "Edit Chrome text area.  Finish \
 `\\[atomic-chrome-close-current-buffer]'.")))
-
-      (add-hook 'atomic-chrome-edit-mode-hook #'ztlevi-atomic-chrome-mode-setup)
-      (add-hook 'atomic-chrome-edit-done-hook (lambda () (shell-command "open -a \"/Applications/Google Chrome.app\"")))
 
       (if (ztlevi-atomic-chrome-server-running-p)
           (message "Can't start atomic-chrome server, because port 64292 is already used")

@@ -12,7 +12,6 @@
 (defconst ztlevi-org-packages
   '(
     (org :location built-in)
-    ;; org-mac-link
     org-pomodoro
     deft
     (blog-admin :toggle (executable-find "hexo")
@@ -31,23 +30,19 @@
   (use-package blog-admin
     :defer t
     :commands blog-admin-start
+    :hook (blog-admin-backend-after-new-post . find-file)
     :init
-    (progn
-      ;; do your configuration here
-      (setq blog-admin-backend-type 'hexo
-            blog-admin-backend-path blog-admin-dir
-            blog-admin-backend-new-post-with-same-name-dir nil
-            blog-admin-backend-hexo-config-file "_config.yml"
-            )
-      (add-hook 'blog-admin-backend-after-new-post-hook 'find-file)
-      )))
+    ;; do your configuration here
+    (setq blog-admin-backend-type 'hexo
+          blog-admin-backend-path blog-admin-dir
+          blog-admin-backend-new-post-with-same-name-dir nil
+          blog-admin-backend-hexo-config-file "_config.yml")))
 
 (defun ztlevi-org/post-init-org-pomodoro ()
   (progn
     (add-hook 'org-pomodoro-finished-hook '(lambda () (ztlevi/growl-notification "Pomodoro Finished" "☕️ Have a break!" t)))
     (add-hook 'org-pomodoro-short-break-finished-hook '(lambda () (ztlevi/growl-notification "Short Break" "🐝 Ready to Go?" t)))
-    (add-hook 'org-pomodoro-long-break-finished-hook '(lambda () (ztlevi/growl-notification "Long Break" " 💪 Ready to Go?" t)))
-    ))
+    (add-hook 'org-pomodoro-long-break-finished-hook '(lambda () (ztlevi/growl-notification "Long Break" " 💪 Ready to Go?" t)))))
 
 ;;In order to export pdf to support Chinese, I should install Latex at here: https://www.tug.org/mactex/
 ;; http://freizl.github.io/posts/2012-04-06-export-orgmode-file-in-Chinese.html
@@ -62,11 +57,16 @@
 
       ;; (spacemacs|disable-company org-mode)
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
+        "g" 'org-mac-grab-link)
+      (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "eg" 'org-pandoc-export-to-gfm-and-open)
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "p" 'org-priority)
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "tl" 'org-toggle-link-display)
+      ;; keybinding for inserting code blocks
+      (spacemacs/set-leader-keys-for-major-mode 'org-mode
+        "ic" 'ztlevi/org-insert-src-block)
       (define-key evil-normal-state-map (kbd "C-c C-w") 'org-refile)
 
       (require 'org-compat)
@@ -123,11 +123,6 @@
 
       (setq org-tags-match-list-sublevels nil)
 
-      (add-hook 'org-mode-hook '(lambda ()
-                                  ;; keybinding for editing source code blocks
-                                  ;; keybinding for inserting code blocks
-                                  (local-set-key (kbd "C-c i s")
-                                                 'ztlevi/org-insert-src-block)))
       (require 'ox-publish)
       (add-to-list 'org-latex-classes '("ctexart" "\\documentclass[11pt]{ctexart}
                                         [NO-DEFAULT-PACKAGES]
@@ -410,16 +405,6 @@ holding contextual information."
 
       )))
 
-(defun ztlevi-org/init-org-mac-link ()
-  (use-package org-mac-link
-    :defer t
-    :commands org-mac-grab-link
-    :init
-    (progn
-      (add-hook 'org-mode-hook
-                (lambda ()
-                  (define-key org-mode-map (kbd "C-c g") 'org-mac-grab-link))))))
-
 (defun ztlevi-org/post-init-ox-reveal ()
   (progn
     ;; (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")
@@ -445,8 +430,7 @@ holding contextual information."
 (defun ztlevi-org/init-worf ()
   (use-package worf
     :defer t
-    :init
-    (add-hook 'org-mode-hook 'worf-mode)))
+    :hook (org-mode . worf-mode)))
 
 (defun ztlevi-org/post-init-deft ()
   (progn

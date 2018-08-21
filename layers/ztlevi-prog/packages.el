@@ -50,7 +50,7 @@
   (use-package format-all
     :defer t
     :commands format-all-buffer
-    :init (add-hook 'before-save-hook #'format-all-buffer)))
+    :hook (before-save . format-all-buffer)))
 
 ;; configuration scheme
 ;; https://prettier.io/docs/en/configuration.html#configuration-schema
@@ -169,8 +169,7 @@
 (defun ztlevi-prog/init-py-autopep8 ()
   (use-package py-autopep8
     :defer t
-    :init
-    (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+    :hook (python-mode . py-autopep8-enable-on-save)
     :config
     (spacemacs/set-leader-keys-for-major-mode 'python-mode "=" 'py-autopep8-buffer)))
 
@@ -334,15 +333,13 @@ BUFFER is the buffer where the request has been made."
 (defun ztlevi-prog/init-lsp-vue ()
   (use-package lsp-vue
     :commands lsp-vue-mmm-enable
-    :init
-    (add-hook 'vue-mode-hook #'lsp-vue-mmm-enable)
+    :hook (vue-mode . lsp-vue-mmm-enable)
     :defer t))
 
 (defun ztlevi-prog/init-lsp-imenu ()
   (use-package lsp-imenu
     :defer t
-    :init
-    (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
+    :hook (lsp-after-open . lsp-enable-imenu)
     :config
     (spacemacs/set-leader-keys (kbd "bi") 'lsp-ui-imenu)))
 
