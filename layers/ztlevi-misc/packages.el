@@ -625,30 +625,16 @@
     ;; disable magit-todos-section-map, conflict wiht j key
     (setq magit-todos-section-map nil)))
 
-(defun ztlevi-misc/init-magithub ()
-  (use-package magithub
-    :after magit
-    :init
-    (setq magithub-dir (concat spacemacs-cache-directory "magithub/"))
-    :config
-    (progn
-      (setq magithub-clone-default-directory "~/Developer/Github")
+(defun ztlevi-misc/post-init-magithub ()
+  (progn
+    (setq magithub-clone-default-directory "~/Developer/Github")
 
-      (magithub-feature-autoinject '(commit-browse
-                                     completion
-                                     ;; PR and issue section features are kind of slow
-                                     ;; issues-section
-                                     ;; pull-request-merge
-                                     ;; pull-requests-section
-                                     ;; status-checks-header
-                                     ))
-      (define-key magit-status-mode-map "@" #'magithub-dispatch-popup)
-
+    (with-eval-after-load 'magit
       ;; define some popup options
       (magit-define-popup-action 'magithub-dispatch-popup
-        ?P "Browse pull requests" #'magithub-pull-browse)
+                                 ?P "Browse pull requests" #'magithub-pull-browse)
       (magit-define-popup-action 'magithub-dispatch-popup
-        ?I "Browse issues" #'magithub-issue-browse))))
+                                 ?I "Browse issues" #'magithub-issue-browse))))
 
 (defun ztlevi-misc/post-init-git-link ()
   (eval-after-load 'git-link
