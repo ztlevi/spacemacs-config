@@ -52,36 +52,24 @@
     :commands format-all-buffer
     :hook (before-save . format-all-buffer)))
 
+(defun ztlevi-prog/pre-init-prettier-js ()
+  (spacemacs|use-package-add-hook prettier-js
+    :post-init
+    (progn
+      (spacemacs/add-to-hooks 'prettier-js-mode '(js2-mode-hook
+                                                  typescript-mode-hook
+                                                  typescript-tsx-mode-hook
+                                                  rjsx-mode-hook
+                                                  json-mode-hook
+                                                  css-mode-hook
+                                                  markdown-mode-hook
+                                                  gfm-mode-hook)))))
+
 ;; configuration scheme
 ;; https://prettier.io/docs/en/configuration.html#configuration-schema
-(defun ztlevi-prog/init-prettier-js ()
-  (use-package prettier-js
-    :defer t
-    :init
-    ;; prettier js
-    (spacemacs/add-to-hooks 'prettier-js-mode '(js2-mode-hook
-                                                typescript-mode-hook
-                                                typescript-tsx-mode-hook
-                                                rjsx-mode-hook
-                                                json-mode-hook
-                                                css-mode-hook
-                                                markdown-mode-hook
-                                                gfm-mode-hook))
-    :config
-    (progn
-      (setq prettier-js-show-errors (quote echo))
-
-      (spacemacs|diminish prettier-js-mode " Ⓟ" " P")
-
-      ;; bind key
-      (spacemacs/set-leader-keys-for-major-mode 'js2-mode "=" 'prettier-js)
-      (spacemacs/set-leader-keys-for-major-mode 'typescript-mode "=" 'prettier-js)
-      (spacemacs/set-leader-keys-for-major-mode 'typescript-tsx-mode "=" 'prettier-js)
-      (spacemacs/set-leader-keys-for-major-mode 'rjsx-mode "=" 'prettier-js)
-      (spacemacs/set-leader-keys-for-major-mode 'json-mode "=" 'prettier-js)
-      (spacemacs/set-leader-keys-for-major-mode 'css-mode "=" 'prettier-js)
-      (spacemacs/set-leader-keys-for-major-mode 'markdown-mode "=" 'prettier-js)
-      (spacemacs/set-leader-keys-for-major-mode 'gfm-mode "=" 'prettier-js))))
+(defun ztlevi-prog/post-init-prettier-js ()
+  (setq prettier-js-show-errors (quote echo))
+  (spacemacs|diminish prettier-js-mode " Ⓟ" " P"))
 
 (defun ztlevi-prog/post-init-rjsx-mode ()
   ;; comment jsx region

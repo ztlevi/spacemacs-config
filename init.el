@@ -133,6 +133,7 @@ This function should only modify configuration layer settings."
          go-backend 'lsp
          go-format-before-save t)
      (html :variables
+           web-fmt-tool 'prettier
            css-indent-offset 2
            web-mode-markup-indent-offset 2 ; web-mode, html tag in html file
            web-mode-css-indent-offset    2 ; web-mode, css in html file
@@ -143,13 +144,15 @@ This function should only modify configuration layer settings."
      ;; (java :variables c-basic-offset 2)
      (javascript :variables
                  node-add-modules-path t
+                 javascript-fmt-tool 'prettier
                  javascript-backend 'lsp
                  js2-basic-offset 2     ; javascript indent
                  js-indent-level  2     ; json indent
                  )
-     (web-beautify :variables spacemacs--web-beautify-modes '((web-mode . web-beautify-html)))
+     (json :variables json-fmt-tool 'prettier)
      (typescript :variables
                  typescript-backend 'lsp
+                 typescript-fmt-tool 'prettier
                  typescript-indent-level 2)
      emacs-lisp
      (cmake :variables cmake-enable-cmake-ide-support t)
