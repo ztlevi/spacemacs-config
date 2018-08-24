@@ -277,28 +277,8 @@
       "r<" 'js2r-forward-barf)))
 
 (defun ztlevi-prog/post-init-lsp-ui ()
-  ;; add eldoc to the lsp-ui-frame by overwriting lsp-ui-doc--callback
-  (with-eval-after-load 'lsp-ui-doc
-    (defun lsp-ui-doc--callback (hover bounds buffer)
-      "Process the received documentation.
-HOVER is the doc returned by the LS.
-BOUNDS are points of the symbol that have been requested.
-BUFFER is the buffer where the request has been made."
-      (if (and hover
-               (lsp--point-is-within-bounds-p (car bounds) (cdr bounds))
-               (equal buffer (current-buffer)))
-          (let ((doc (lsp-ui-doc--extract (gethash "contents" hover))))
-            (setq lsp-ui-doc--bounds bounds)
-            (lsp-ui-doc--display (thing-at-point 'symbol t)
-                                 (concat (concat lsp-ui-doc--string-eldoc "\n\n") doc)))
-        (setq lsp-ui-doc--string-eldoc nil)
-        (lsp-ui-doc--hide-frame))))
-
   ;; temporary fix for flycheck
   (setq lsp-ui-flycheck-enable nil)
-
-  ;; disable sideline
-  (setq lsp-ui-sideline-enable nil)
 
   ;; set lsp-ui-doc position
   (setq lsp-ui-doc-position 'at-point)
@@ -307,12 +287,7 @@ BUFFER is the buffer where the request has been made."
   (spacemacs//setup-lsp-jump-handler 'c++-mode)
   (spacemacs//setup-lsp-jump-handler 'c-mode)
 
-  (define-key evil-normal-state-map (kbd "gr") #'lsp-ui-peek-find-references)
-
-  (with-eval-after-load 'lsp-ui
-    (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
-    (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references))
-  )
+  (define-key evil-normal-state-map (kbd "gr") #'lsp-ui-peek-find-references))
 
 (defun ztlevi-prog/init-vue-mode ()
   (use-package vue-mode

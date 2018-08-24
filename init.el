@@ -109,7 +109,10 @@ This function should only modify configuration layer settings."
      ;; (ruby :variables ruby-version-manager 'chruby)
      ;; racket
      ;; lua
-     lsp
+     (lsp :variables
+          lsp-ui-sideline-enable nil
+          lsp-ui-doc-include-signature t
+          lsp-ui-remap-xref-keybindings t)
      (latex :variables
             latex-build-command "LatexMk" ;; latexmk -pdf --synctex=1 -interaction=nonstopmode  -file-line-error  filename.tex
             latex-enable-folding t)
