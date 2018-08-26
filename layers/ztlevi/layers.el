@@ -10,10 +10,10 @@
 ;;; License: GPLv3
 
 (configuration-layer/declare-layers '(
+                                      ztlevi-ui
+                                      ztlevi-defaults
                                       ztlevi-org
                                       ztlevi-misc
                                       ztlevi-prog
-                                      ztlevi-ui
-                                      ztlevi-defaults
                                       lsp-intellij
                                       ))
