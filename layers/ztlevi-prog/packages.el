@@ -23,7 +23,6 @@
     rjsx-mode
     vue-mode
     lsp-ui
-    (lsp-imenu :location built-in)
     lsp-vue
     js2-refactor
     js-doc
@@ -298,13 +297,6 @@
     :commands lsp-vue-mmm-enable
     :hook (vue-mode . lsp-vue-mmm-enable)
     :defer t))
-
-(defun ztlevi-prog/init-lsp-imenu ()
-  (use-package lsp-imenu
-    :defer t
-    :hook (lsp-after-open . lsp-enable-imenu)
-    :config
-    (spacemacs/set-leader-keys (kbd "bi") 'lsp-ui-imenu)))
 
 (defun ztlevi-prog/post-init-js2-mode ()
   ;; js default variables
