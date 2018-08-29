@@ -101,11 +101,7 @@
                         '+ivy-display-at-frame-center-near-bottom))
         (push (cons fn '(:cleanup ivy-posframe-cleanup)) ivy-display-functions-props)))
     ;; default to posframe display function
-    (setf (alist-get t ivy-display-functions-alist) #'+ivy-display-at-frame-center-near-bottom)
-
-    ;; posframe doesn't work well with async sources
-    (dolist (fn '(swiper counsel-ag counsel-grep counsel-git-grep))
-      (setf (alist-get fn ivy-display-functions-alist) #'ivy-display-function-fallback))))
+    (setf (alist-get t ivy-display-functions-alist) #'+ivy-display-at-frame-center-near-bottom)))
 
 (defun ztlevi-ui/init-icons-in-terminal ()
   (use-package icons-in-terminal
