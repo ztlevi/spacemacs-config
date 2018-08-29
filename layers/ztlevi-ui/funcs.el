@@ -60,15 +60,13 @@
         (match-string 1 buf-coding)
       buf-coding)))
 
-(defun posframe-poshandler-frame-top-center (info)
-  "Posframe's position handler.
+;;;###autoload
+(defun +ivy-display-at-frame-center-near-bottom (str)
+  (ivy-posframe--display str #'+ivy-poshandler-frame-center-near-bottom))
 
-Get a position which let posframe stay onto its
-parent-frame's top center.  The structure of INFO can
-be found in docstring of `posframe-show'."
-  (let* ((posframe (plist-get info :posframe))
-         (parent-frame (plist-get info :parent-frame)))
-    (cons (/ (- (frame-pixel-width parent-frame)
-                (frame-pixel-width posframe))
-             2)
-          10)))
+;;;###autoload
+(defun +ivy-poshandler-frame-center-near-bottom (info)
+  (let ((parent-frame (plist-get info :parent-frame))
+        (pos (posframe-poshandler-frame-center info)))
+    (cons (car pos)
+          (truncate (/ (frame-pixel-height parent-frame) 2)))))

@@ -106,7 +106,7 @@
      (evil-define-key 'hybrid emmet-mode-keymap (kbd "<tab>") nil)))
 
 ;; buffer key
-(spacemacs/set-leader-keys "bi" 'lsp-ui-imenu)
+(spacemacs/set-leader-keys "bl" 'lsp-ui-imenu)
 (spacemacs/set-leader-keys "bf" 'ztlevi/open-finder-in-current-dir)
 (spacemacs/set-leader-keys "bt" 'ztlevi/open-terminal-in-project-root)
 (spacemacs/set-leader-keys "bT" 'ztlevi/open-terminal-in-current-dir)

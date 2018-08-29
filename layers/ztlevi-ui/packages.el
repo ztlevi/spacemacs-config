@@ -70,21 +70,42 @@
 
   (setq spaceline-all-the-icons-icon-set-git-ahead (quote commit)))
 
+;; copy from doom-emacs ivy-posframe
+;; https://github.com/hlissner/doom-emacs/blob/develop/modules/completion/ivy/config.el#L175
 (defun ztlevi-ui/init-ivy-posframe ()
   (use-package ivy-posframe
     :defer t
+    :preface
+    ;; This function searches the entire `obarray' just to populate
+    ;; `ivy-display-functions-props'. There are 15k entries in mine! This is
+    ;; wasteful, so...
+    (advice-add #'ivy-posframe-setup :override #'ignore)
     :init
-    (setq ivy-posframe-parameters
-          '((left-fringe . 10)
-            (right-fringe . 10)))
+    (ivy-posframe-enable)
+    :config
+    (setq ivy-fixed-height-minibuffer nil
+          ivy-posframe-parameters
+          `((min-width . 90)
+            (min-height . ,ivy-height)
+            (internal-border-width . 10)))
 
-    ;; https://github.com/tumashu/ivy-posframe#how-to-enable-ivy-posframe
-    ;; (setq ivy-display-function #'ivy-posframe-display)
-    (defun ivy-posframe-display-at-frame-top-center (str)
-      (ivy-posframe--display str #'posframe-poshandler-frame-top-center))
-    (setq ivy-display-function #'ivy-posframe-display-at-frame-top-center)
+    ;; ... let's do it manually instead
+    (unless (assq 'ivy-posframe-display-at-frame-bottom-left ivy-display-functions-props)
+      (dolist (fn (list 'ivy-posframe-display-at-frame-bottom-left
+                        'ivy-posframe-display-at-frame-center
+                        'ivy-posframe-display-at-point
+                        'ivy-posframe-display-at-frame-bottom-window-center
+                        'ivy-posframe-display
+                        'ivy-posframe-display-at-window-bottom-left
+                        'ivy-posframe-display-at-window-center
+                        '+ivy-display-at-frame-center-near-bottom))
+        (push (cons fn '(:cleanup ivy-posframe-cleanup)) ivy-display-functions-props)))
+    ;; default to posframe display function
+    (setf (alist-get t ivy-display-functions-alist) #'+ivy-display-at-frame-center-near-bottom)
 
-    (ivy-posframe-enable)))
+    ;; posframe doesn't work well with async sources
+    (dolist (fn '(swiper counsel-ag counsel-grep counsel-git-grep))
+      (setf (alist-get fn ivy-display-functions-alist) #'ivy-display-function-fallback))))
 
 (defun ztlevi-ui/init-icons-in-terminal ()
   (use-package icons-in-terminal
