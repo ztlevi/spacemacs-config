@@ -36,7 +36,6 @@
     (live-server :location local)
     edit-indirect
     ivy
-    flx
     ibuffer
     p4
     magit
@@ -577,23 +576,15 @@
       (keyfreq-mode t)
       (keyfreq-autosave-mode 1))))
 
-;; ivy/counsel providing correct highlighting in the search results
-(defun ztlevi-misc/post-init-flx ()
-  (setq ivy-re-builders-alist
-        '((counsel-ag . ivy--regex-plus)
-          (counsel-rg . ivy--regex-plus)
-          (counsel-ack . ivy--regex-plus)
-          (counsel-grep . ivy--regex-plus)
-          (swiper . ivy--regex-plus)
-          (t . spacemacs/ivy--regex-plus)
-          (t . ivy--regex-fuzzy))
-        ivy-initial-inputs-alist nil))
-
 (defun ztlevi-misc/post-init-ivy ()
   (progn
     (setq ivy-wrap t)
     (setq ivy-display-style 'fancy)
     (setq ivy-initial-inputs-alist nil)
+    ;; ivy/counsel providing correct highlighting in the search results
+    (setq ivy-re-builders-alist
+          '((spacemacs/counsel-search . spacemacs/ivy--regex-plus)
+            (t . ivy--regex-ignore-order)))
     (setq ivy-format-function (quote ivy-format-function-arrow))
 
     (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-call)
