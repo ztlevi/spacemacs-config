@@ -578,10 +578,12 @@
       (keyfreq-mode t)
       (keyfreq-autosave-mode 1))))
 
-;; providing correct highlighting in the search results
+;; ivy/counsel providing correct highlighting in the search results
 (defun ztlevi-misc/post-init-flx ()
   (setq ivy-re-builders-alist
         '((counsel-ag . ivy--regex-plus)
+          (counsel-rg . ivy--regex-plus)
+          (counsel-ack . ivy--regex-plus)
           (counsel-grep . ivy--regex-plus)
           (swiper . ivy--regex-plus)
           (t . spacemacs/ivy--regex-plus)
