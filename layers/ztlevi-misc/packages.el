@@ -581,10 +581,6 @@
     (setq ivy-wrap t)
     (setq ivy-display-style 'fancy)
     (setq ivy-initial-inputs-alist nil)
-    ;; ivy/counsel providing correct highlighting in the search results
-    (setq ivy-re-builders-alist
-          '((spacemacs/counsel-search . spacemacs/ivy--regex-plus)
-            (t . ivy--regex-ignore-order)))
     (setq ivy-format-function (quote ivy-format-function-arrow))
 
     (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-call)
