@@ -279,6 +279,9 @@
   ;; temporary fix for flycheck
   (setq lsp-ui-flycheck-enable nil)
 
+  ;; disable lsp eldoc
+  (setq lsp-enable-eldoc nil)
+
   ;; set lsp-ui-doc position
   (setq lsp-ui-doc-position 'at-point)
 
