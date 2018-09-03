@@ -179,7 +179,7 @@
 (spacemacs/set-leader-keys "or" 'revert-buffer-no-confirm)
 (spacemacs/set-leader-keys "oR" 'ztlevi/browser-refresh--chrome-applescript)
 (spacemacs/set-leader-keys "oT" 'ztlevi/untabify-buffer)
-(spacemacs/set-leader-keys (kbd "of") 'counsel-git)
+(spacemacs/set-leader-keys "of" 'counsel-git)
 
 ;; resume
 (spacemacs/set-leader-keys "rh" 'helm-resume)
