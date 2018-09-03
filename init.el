@@ -122,6 +122,7 @@ This function should only modify configuration layer settings."
           org-want-todo-bindings t
           org-enable-bootstrap-support t
           org-enable-github-support t
+          org-enable-trello-support t
           org-enable-reveal-js-support t)
      gpu
      yaml
