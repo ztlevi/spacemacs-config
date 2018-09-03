@@ -27,3 +27,6 @@
 
 (add-hook 'markdown-mode-hook #'ztlevi/markdown-ispell)
 (add-hook 'gfm-mode-hook #'ztlevi/markdown-ispell)
+
+;; set org-trello prefix
+(setq org-trello-current-prefix-keybinding "C-c o")

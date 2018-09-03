@@ -66,7 +66,6 @@
      (variable . "revealjs-url=http://lab.hakim.se/reveal-js"))))
  '(org-pomodoro-play-sounds nil)
  '(org-reverse-note-order t)
- '(org-trello-current-prefix-keybinding "C-c o")
  '(org-twbs-creator-string "")
  '(origami-fold-replacement "  ")
  '(package-selected-packages
