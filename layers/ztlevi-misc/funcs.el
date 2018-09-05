@@ -55,6 +55,24 @@
   ;; (flymd-delete-file-maybe (flymd-get-output-directory (current-buffer)))
   )
 
+(defun ztlevi/open-vscode-in-project-root ()
+  (interactive)
+  (setq-local projectile-project-root-path (if (ignore-errors (projectile-project-root))
+                                               (projectile-project-root) "."))
+  (cond
+   ((or
+     (string-equal system-type "darwin")
+     (string-equal system-type "gnu/linux"))
+    (shell-command (concat "code " projectile-project-root-path)))))
+
+(defun ztlevi/open-current-file-in-vscode ()
+  (interactive)
+  (cond
+   ((or
+     (string-equal system-type "darwin")
+     (string-equal system-type "gnu/linux"))
+    (shell-command (concat "code " (buffer-file-name))))))
+
 (defun ztlevi/open-terminal-in-project-root ()
   (interactive)
   (setq-local projectile-project-root-path (if (ignore-errors (projectile-project-root))
