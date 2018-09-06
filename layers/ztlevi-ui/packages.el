@@ -26,7 +26,6 @@
     ;; To use local repo, update the packages to clean up the cache
     ;; (doom-themes :location "~/Developer/Github/emacs-doom-themes")
 
-    ;; doom-modeline
     ;; (ztlevi-modeline :location local)
     )
   )
@@ -42,15 +41,6 @@
 
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
-
-(defun ztlevi-ui/init-doom-modeline ()
-  (use-package doom-modeline
-    :ensure t
-    :defer t
-    :init
-    ;; file-name style
-    (setq doom-modeline-buffer-file-name-style 'relative-to-project)
-    :hook (after-init . doom-modeline-init)))
 
 (defun ztlevi-ui/init-all-the-icons-dired ()
   (use-package all-the-icons-dired
