@@ -191,7 +191,6 @@
 ;; flycheck & flyspell
 (spacemacs/set-leader-keys "en" 'flycheck-next-error)
 (spacemacs/set-leader-keys "ep" 'flycheck-previous-error)
-(spacemacs/set-leader-keys "oi" 'ispell-kill-ispell)
 (spacemacs/set-leader-keys "os" 'flyspell-buffer)
 
 (spacemacs/set-leader-keys "gL" 'magit-log-buffer-file)
