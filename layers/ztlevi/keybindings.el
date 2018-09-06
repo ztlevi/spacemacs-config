@@ -240,6 +240,7 @@
   (bind-key* "s-F"   #'spacemacs/search-project-auto)
   (bind-key* "s-s"   #'evil-write-all)
   (bind-key* "s-w"   #'delete-window-or-frame)
+  (bind-key* "s-o"   #'spacemacs/jump-to-last-layout)
   (bind-key* "C-s-o" #'other-frame)
   (bind-key* "s-="   #'spacemacs/scale-up-font)
   (bind-key* "s--"   #'spacemacs/scale-down-font)
