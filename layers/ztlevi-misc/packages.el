@@ -35,6 +35,7 @@
     flymd
     (live-server :location local)
     edit-indirect
+    wucuo
     ivy
     ibuffer
     p4
@@ -50,6 +51,13 @@
     (highlight-global :location (recipe :fetcher github :repo "glen-dai/highlight-global"))
     )
   )
+
+(defun ztlevi-misc/init-wucuo ()
+  (use-package wucuo
+    :defer t
+    :hook
+    (prog-mode . wucuo-start)
+    (js2-mode . wucuo-start)))
 
 (defun ztlevi-misc/init-sx ()
   (use-package sx
