@@ -15,7 +15,6 @@
     all-the-icons-dired
     spaceline-all-the-icons
     popwin
-    (whitespace :location built-in)
     (ivy-posframe :toggle (version<= "26" emacs-version))
 
     ;; company-box needs icons-in-terminal
@@ -161,33 +160,6 @@
   (progn
     (push "*ztlevi/run-current-file output*" popwin:special-display-config)
     (delete "*Async Shell Command*" popwin:special-display-config)))
-
-(defun ztlevi-ui/post-init-whitespace ()
-  (progn
-    ;; ;; http://emacsredux.com/blog/2013/05/31/highlight-lines-that-exceed-a-certain-length-limit/
-    (setq whitespace-line-column fill-column) ;; limit line length
-    ;;https://www.reddit.com/r/emacs/comments/2keh6u/show_tabs_and_trailing_whitespaces_only/
-    ;; (setq whitespace-style '(face lines-tail))
-    ;; show tab;  use untabify to convert tab to whitespace
-    (setq spacemacs-show-trailing-whitespace nil)
-
-    (setq-default tab-width 4)
-    ;; set-buffer-file-coding-system -> utf8 to convert dos to utf8
-    ;; (setq inhibit-eol-conversion t)
-    ;; (add-hook 'prog-mode-hook 'whitespace-mode)
-
-    ;; (global-whitespace-mode +1)
-
-    (with-eval-after-load 'whitespace
-      (progn
-        (set-face-attribute 'whitespace-trailing nil
-                            :inherit font-lock-keyword-face
-                            :underline t)
-        (set-face-attribute 'whitespace-tab nil
-                            :inherit font-lock-string-face
-                            :underline t
-                            :weight 'bold)))
-    (diminish 'whitespace-mode)))
 
 (defun ztlevi-ui/init-ztlevi-modeline ()
   (use-package ztlevi-modeline))
