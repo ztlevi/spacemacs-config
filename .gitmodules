@@ -1,0 +1,3 @@
+[submodule "layers/lsp-intellij"]
+	path = layers/lsp-intellij
+	url = https://github.com/Ruin0x11/lsp-intellij-spacemacs.git
