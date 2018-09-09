@@ -69,7 +69,7 @@
          #+END_SRC
        - pip: =autopep8=, =importmagic=, =ipython=
          #+BEGIN_SRC shell
-           pip3 install ipython autopep8 importmagic epc
+           pip3 install ipython pylint autopep8 importmagic epc
          #+END_SRC
        - go: =go-langserver=, =gocode=, =gogetdoc=, =godef=, =godoctor=
          #+BEGIN_SRC shell
