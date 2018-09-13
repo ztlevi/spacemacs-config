@@ -10,7 +10,9 @@
 ;;; License: GPLv3
 
 ;; Flyckeck disable and enable
-(spacemacs/add-to-hooks (lambda () (flycheck-mode -1))
+(defun disable-flycheck-mode ()
+  (flycheck-mode -1))
+(spacemacs/add-to-hooks 'disable-flycheck-mode
                         '(emacs-lisp-mode-hook
                           text-mode-hook))
 

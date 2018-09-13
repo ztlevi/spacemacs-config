@@ -55,6 +55,7 @@
 (defun ztlevi-misc/init-wucuo ()
   (use-package wucuo
     :defer t
+    :init (remove-hook 'prog-mode-hook 'flyspell-prog-mode)
     :hook
     (prog-mode . wucuo-start)
     (js2-mode . wucuo-start)))

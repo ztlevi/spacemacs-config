@@ -64,7 +64,7 @@ This function should only modify configuration layer settings."
      (ivy :variables ivy-enable-advanced-buffer-information t)
      (syntax-checking :variables syntax-checking-enable-by-default t
                       syntax-checking-enable-tooltips nil)
-     (spell-checking :variables spell-checking-enable-by-default nil)
+     (spell-checking :variables spell-checking-enable-by-default t)
      (auto-completion :variables
                       auto-completion-enable-sort-by-usage t
                       auto-completion-return-key-behavior 'complete
@@ -651,12 +651,6 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   ;; ======================== Others ===========================
-  ;; enable flyspell in text-mode
-  (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
-
-  ;; enable visual line mode in text-mode
-  (add-hook 'text-mode-hook 'visual-line-mode)
-
   ;; disable enter visual mode automatically yank
   (fset 'evil-visual-update-x-selection 'ignore)
 
