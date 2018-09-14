@@ -239,7 +239,7 @@ This function should only modify configuration layer settings."
      ;; tern
      company-tern tern
      ;; javascript
-     livid-mode
+     livid-mode skewer-mode
      ;; typescript
      tide
      ;; emacs-lisp
