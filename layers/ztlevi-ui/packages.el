@@ -21,25 +21,12 @@
     (icons-in-terminal :location local)
     (company-box :toggle (version<= "26" emacs-version))
 
-    doom-themes
     ;; To use local repo, update the packages to clean up the cache
     ;; (doom-themes :location "~/Developer/Github/emacs-doom-themes")
 
     ;; (ztlevi-modeline :location local)
     )
   )
-
-(defun ztlevi-ui/post-init-doom-themes ()
-  (setq doom-themes-enable-bold t      ; if nil, bold is universally disabled
-        doom-themes-enable-italic t)   ; if nil, italics is universally disabled
-  ;; Enable flashing mode-line on errors
-  ;; (doom-themes-visual-bell-config)
-
-  ;; Enable custom neotree theme
-  (doom-themes-neotree-config)          ; all-the-icons fonts must be installed!
-
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config))
 
 (defun ztlevi-ui/init-all-the-icons-dired ()
   (use-package all-the-icons-dired

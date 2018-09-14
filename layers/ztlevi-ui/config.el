@@ -9,6 +9,14 @@
 ;;
 ;;; License: GPLv3
 
+;; =============== doom-themes post init ===============
+;; Enable flashing mode-line on errors
+;; (doom-themes-visual-bell-config)
+
+;; Corrects (and improves) org-mode's native fontification.
+(with-eval-after-load 'org
+  (doom-themes-org-config))
+
 ;; set scrolling speed
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 1) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
