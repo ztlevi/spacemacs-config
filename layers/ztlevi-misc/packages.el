@@ -491,24 +491,6 @@
              ("LC_ALL" "en_US.UTF-8")))
     ;; define service
     (prodigy-define-service
-      :name "Start result simulator"
-      :command "gulp"
-      :args '("dev")
-      :cwd "~/CepheidPerforce/perforce.workspace/swEngDepot/products/resultsimulator/build"
-      :tags '(work)
-      :kill-signal 'sigkill
-      :kill-process-buffer-on-stop t)
-
-    (prodigy-define-service
-      :name "Start assayxpert"
-      :command "gulp"
-      :args '("dev")
-      :cwd "~/CepheidPerforce/perforce.workspace/swEngDepot/products/assayxpert/build"
-      :tags '(work)
-      :kill-signal 'sigkill
-      :kill-process-buffer-on-stop t)
-
-    (prodigy-define-service
       :name "Leetcode Solution Website"
       :command "python"
       :args '("-m" "SimpleHTTPServer" "6005")
