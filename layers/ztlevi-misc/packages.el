@@ -15,6 +15,7 @@
     ;; sos
     helm-github-stars
     atomic-chrome
+    treemacs
     projectile
     prodigy
     multiple-cursors
@@ -124,6 +125,27 @@
                       ('hi-yellow . 0)
                       ('hi-pink . 0)
                       ('hi-blue-b . 0))))))
+
+(defun ztlevi-misc/post-init-treemacs ()
+  (with-eval-after-load 'treemacs
+    (define-key treemacs-mode-map (kbd "ov") 'treemacs-visit-node-horizontal-split)
+    (define-key treemacs-mode-map (kbd "os") 'treemacs-visit-node-vertical-split)
+    (define-key evil-treemacs-state-map (kbd "f") 'counsel-find-file)
+    (define-key evil-treemacs-state-map (kbd "+") 'make-directory))
+
+  ;; improve treemacs theme
+  (doom-themes-treemacs-config)
+  (setq doom-treemacs-enable-variable-pitch t))
+
+(defun ztlevi-misc/post-init-neotreemacs ()
+  (with-eval-after-load 'neotree
+    (define-key neotree-mode-map (kbd "f") 'counsel-find-file)
+    (define-key neotree-mode-map (kbd "+") 'make-directory))
+
+  (doom-themes-neotree-config)
+  (setq doom-neotree-enable-variable-pitch t
+        doom-neotree-file-icons 'simple
+        doom-neotree-line-spacing 2))
 
 (defun ztlevi-misc/post-init-golden-ratio ()
   (with-eval-after-load 'golden-ratio
