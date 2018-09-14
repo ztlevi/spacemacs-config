@@ -88,6 +88,11 @@
            go get -u github.com/haya14busa/gopkgs/cmd/gopkgs
            go get -u -v github.com/davidrjenni/reftools/cmd/fillstruct
            go get -u github.com/josharian/impl
+
+           go get -u -v github.com/alecthomas/gometalinter
+           gometalinter --install --update
+
+           go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
          #+END_SRC
     4. Language Server Protocol: Install the [[https://langserver.org/][lsp]] for your languages. A few examples are listed below.
        #+BEGIN_SRC shell

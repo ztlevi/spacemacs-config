@@ -133,8 +133,10 @@ This function should only modify configuration layer settings."
              python-sort-imports-on-save t
              python-test-runner '(nose pytest))
      (go :variables
-         go-tab-width 4
+         go-tab-width 2
          go-backend 'lsp
+         go-use-gometalinter t
+         go-use-golangci-lint t
          go-format-before-save t)
      (html :variables
            web-fmt-tool 'prettier
