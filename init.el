@@ -66,6 +66,7 @@ This function should only modify configuration layer settings."
                       syntax-checking-enable-tooltips nil)
      (spell-checking :variables spell-checking-enable-by-default t)
      (auto-completion :variables
+                      auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t
                       auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'complete
@@ -217,7 +218,7 @@ This function should only modify configuration layer settings."
      ;; spell-checking
      auto-dictionary flyspell-correct-helm
      ;; auto-completion
-     ac-ispell auto-complete helm-c-yasnippet company-quickhelp yasnippet-snippets
+     ac-ispell auto-complete yasnippet-snippets
      ;; git
      magit-gitflow orgit smeargle
      ;; version-control
