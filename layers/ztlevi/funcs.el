@@ -9,6 +9,10 @@
 ;;
 ;;; License: GPLv3
 
+(defun configuration-layer/update-packages-no-confirm ()
+  (interactive)
+  (configuration-layer/update-packages t))
+
 ;; Utility functions
 (defun bb/define-key (keymap &rest bindings)
   (declare (indent 1))
