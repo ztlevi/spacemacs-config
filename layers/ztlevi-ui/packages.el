@@ -88,45 +88,54 @@
     :defer t
     :hook (company-mode . company-box-mode)
     :config
-    (require 'icons-in-terminal)
-    (progn
-      (setq company-box-backends-colors nil
-            company-box-max-candidates 50)
+    (setq company-box-backends-colors nil
+          company-box-max-candidates 50
+          company-box-icons-yasnippet (all-the-icons-material "short_text" :height 0.8 :face 'all-the-icons-green)
+          company-box-icons-unknown (all-the-icons-material "find_in_page" :height 0.8 :face 'all-the-icons-purple)
+          company-box-icons-elisp
+          (list (all-the-icons-material "functions"                        :height 0.8 :face 'all-the-icons-red)
+                (all-the-icons-material "check_circle"                     :height 0.8 :face 'all-the-icons-blue)
+                (all-the-icons-material "stars"                            :height 0.8 :face 'all-the-icons-orange)
+                (all-the-icons-material "format_paint"                     :height 0.8 :face 'all-the-icons-pink))
+          company-box-icons-lsp
+          `((1  . ,(all-the-icons-material "text_fields"              :height 0.8 :face 'all-the-icons-green)) ; text
+            (2  . ,(all-the-icons-material "functions"                :height 0.8 :face 'all-the-icons-red))   ; method
+            (3  . ,(all-the-icons-material "functions"                :height 0.8 :face 'all-the-icons-red))   ; function
+            (4  . ,(all-the-icons-material "functions"                :height 0.8 :face 'all-the-icons-red))   ; constructor
+            (5  . ,(all-the-icons-material "functions"                :height 0.8 :face 'all-the-icons-red))   ; field
+            (6  . ,(all-the-icons-material "adjust"                   :height 0.8 :face 'all-the-icons-blue))  ; variable
+            (7  . ,(all-the-icons-material "class"                    :height 0.8 :face 'all-the-icons-red))   ; class
+            (8  . ,(all-the-icons-material "settings_input_component" :height 0.8 :face 'all-the-icons-red))   ; interface
+            (9  . ,(all-the-icons-material "view_module"              :height 0.8 :face 'all-the-icons-red))   ; module
+            (10 . ,(all-the-icons-material "settings"                 :height 0.8 :face 'all-the-icons-red))   ; property
+            (11 . ,(all-the-icons-material "straighten"               :height 0.8 :face 'all-the-icons-red))   ; unit
+            (12 . ,(all-the-icons-material "filter_1"                 :height 0.8 :face 'all-the-icons-red))   ; value
+            (13 . ,(all-the-icons-material "plus_one"                 :height 0.8 :face 'all-the-icons-red))   ; enum
+            (14 . ,(all-the-icons-material "filter_center_focus"      :height 0.8 :face 'all-the-icons-red))   ; keyword
+            (15 . ,(all-the-icons-material "short_text"               :height 0.8 :face 'all-the-icons-red))   ; snippet
+            (16 . ,(all-the-icons-material "color_lens"               :height 0.8 :face 'all-the-icons-red))   ; color
+            (17 . ,(all-the-icons-material "insert_drive_file"        :height 0.8 :face 'all-the-icons-red))   ; file
+            (18 . ,(all-the-icons-material "collections_bookmark"     :height 0.8 :face 'all-the-icons-red))   ; reference
+            (19 . ,(all-the-icons-material "folder"                   :height 0.8 :face 'all-the-icons-red))   ; folder
+            (20 . ,(all-the-icons-material "people"                   :height 0.8 :face 'all-the-icons-red))   ; enumMember
+            (21 . ,(all-the-icons-material "pause_circle_filled"      :height 0.8 :face 'all-the-icons-red))   ; constant
+            (22 . ,(all-the-icons-material "streetview"               :height 0.8 :face 'all-the-icons-red))   ; struct
+            (23 . ,(all-the-icons-material "event"                    :height 0.8 :face 'all-the-icons-red))   ; event
+            (24 . ,(all-the-icons-material "control_point"            :height 0.8 :face 'all-the-icons-red))   ; operator
+            (25 . ,(all-the-icons-material "class"                    :height 0.8 :face 'all-the-icons-red))))
 
-      (setq company-box-icons-unknown 'fa_question_circle)
-      (setq company-box-icons-elisp
-            '((fa_tag :face font-lock-function-name-face) ;; Function
-              (fa_cog :face font-lock-variable-name-face) ;; Variable
-              (fa_cube :face font-lock-constant-face) ;; Feature
-              (md_color_lens :face font-lock-doc-face))) ;; Face
-      (setq company-box-icons-yasnippet 'fa_bookmark)
-      (setq company-box-icons-lsp
-            '((1 . fa_text_height) ;; Text
-              (2 . (fa_tags :face font-lock-function-name-face)) ;; Method
-              (3 . (fa_tag :face font-lock-function-name-face)) ;; Function
-              (4 . (fa_tag :face font-lock-function-name-face)) ;; Constructor
-              (5 . (fa_cog :foreground "#FF9800")) ;; Field
-              (6 . (fa_cog :foreground "#FF9800")) ;; Variable
-              (7 . (fa_cube :foreground "#7C4DFF")) ;; Class
-              (8 . (fa_cube :foreground "#7C4DFF")) ;; Interface
-              (9 . (fa_cube :foreground "#7C4DFF")) ;; Module
-              (10 . (fa_cog :foreground "#FF9800")) ;; Property
-              (11 . md_settings_system_daydream) ;; Unit
-              (12 . (fa_cog :foreground "#FF9800")) ;; Value
-              (13 . (md_storage :face font-lock-type-face)) ;; Enum
-              (14 . (md_closed_caption :foreground "#009688")) ;; Keyword
-              (15 . md_closed_caption) ;; Snippet
-              (16 . (md_color_lens :face font-lock-doc-face)) ;; Color
-              (17 . fa_file_text_o) ;; File
-              (18 . md_refresh) ;; Reference
-              (19 . fa_folder_open) ;; Folder
-              (20 . (md_closed_caption :foreground "#009688")) ;; EnumMember
-              (21 . (fa_square :face font-lock-constant-face)) ;; Constant
-              (22 . (fa_cube :face font-lock-type-face)) ;; Struct
-              (23 . fa_calendar) ;; Event
-              (24 . fa_square_o) ;; Operator
-              (25 . fa_arrows)) ;; TypeParameter
-            ))))
+    ;; Until sebastiencs/company-box#40 is merged
+    (defun +company*box-frontend-even-if-single (command)
+      (cond ((eq command 'hide)
+             (company-box-hide))
+            ((equal company-candidates-length 0)
+             (company-box-hide))
+            ((eq command 'update)
+             (company-box-show))
+            ((eq command 'post-command)
+             (company-box--post-command))))
+    (advice-add #'company-box-frontend :override #'+company*box-frontend-even-if-single)
+    ))
 
 (defun ztlevi-ui/post-init-pangu-spacing ()
   (progn
