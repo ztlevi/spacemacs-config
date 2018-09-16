@@ -231,6 +231,7 @@
   (bind-key* "s-w"   #'delete-window-or-frame)
   (bind-key* "s-o"   #'spacemacs/jump-to-last-layout)
   (bind-key* "C-s-o" #'other-frame)
+  (bind-key* "<C-s-268632079>" #'other-frame)
   (bind-key* "s-="   #'spacemacs/scale-up-font)
   (bind-key* "s--"   #'spacemacs/scale-down-font)
   (bind-key* "s-0"   #'spacemacs/reset-font-size)
