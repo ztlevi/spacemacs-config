@@ -9,6 +9,18 @@
 ;;
 ;;; License: GPLv3
 
+;; increase profiler column width
+(setq profiler-report-cpu-line-format
+      '((150 left)
+        (24 right
+            ((19 right)
+             (5 right)))))
+(setq profiler-report-memory-line-format
+      '((155 left)
+        (19 right
+            ((14 right profiler-format-number)
+             (5 right)))))
+
 (setq auto-coding-regexp-alist
       (delete (rassoc 'utf-16be-with-signature auto-coding-regexp-alist)
               (delete (rassoc 'utf-16le-with-signature auto-coding-regexp-alist)
