@@ -172,6 +172,9 @@
 (spacemacs/set-leader-keys "oT" 'ztlevi/untabify-buffer)
 (spacemacs/set-leader-keys "of" 'counsel-git)
 
+;; rjsx-mode
+(spacemacs/set-leader-keys "rr" 'rjsx-mode)
+
 ;; resume
 (spacemacs/set-leader-keys "rh" 'helm-resume)
 (spacemacs/set-leader-keys "ri" 'ivy-resume)
