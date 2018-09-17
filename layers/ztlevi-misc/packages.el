@@ -49,7 +49,6 @@
     hydra
     wrap-region
     golden-ratio
-    (highlight-global :location (recipe :fetcher github :repo "glen-dai/highlight-global"))
     )
   )
 
@@ -112,19 +111,6 @@
       (if (ztlevi-atomic-chrome-server-running-p)
           (message "Can't start atomic-chrome server, because port 64292 is already used")
         (atomic-chrome-start-server)))))
-
-(defun ztlevi-misc/init-highlight-global ()
-  (use-package highlight-global
-    :defer t
-    :init
-    (progn
-      (spacemacs/set-leader-keys "hh" 'highlight-frame-toggle)
-      (spacemacs/set-leader-keys "hc" 'clear-highlight-frame)
-      (setq-default highlight-faces
-                    '(('hi-red-b . 0)
-                      ('hi-yellow . 0)
-                      ('hi-pink . 0)
-                      ('hi-blue-b . 0))))))
 
 (defun ztlevi-misc/post-init-treemacs ()
   (with-eval-after-load 'treemacs
