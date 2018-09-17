@@ -91,18 +91,18 @@
     (setq company-box-backends-colors nil
           company-box-max-candidates 50
           company-box-icons-yasnippet (all-the-icons-material "short_text" :height 0.8 :face 'all-the-icons-green)
-          company-box-icons-unknown (all-the-icons-material "find_in_page" :height 0.8 :face 'all-the-icons-purple)
+          company-box-icons-unknown (all-the-icons-material "find_in_page" :height 0.8 :face 'all-the-icons-cyan)
           company-box-icons-elisp
-          (list (all-the-icons-material "functions"                        :height 0.8 :face 'all-the-icons-red)
-                (all-the-icons-material "check_circle"                     :height 0.8 :face 'all-the-icons-blue)
-                (all-the-icons-material "stars"                            :height 0.8 :face 'all-the-icons-orange)
-                (all-the-icons-material "format_paint"                     :height 0.8 :face 'all-the-icons-pink))
+          (list (all-the-icons-material "code"         :height 0.8 :face 'all-the-icons-red)    ;method
+                (all-the-icons-material "check_circle" :height 0.8 :face 'all-the-icons-blue)   ;field
+                (all-the-icons-material "stars"        :height 0.8 :face 'all-the-icons-orange) ;class
+                (all-the-icons-material "format_paint" :height 0.8 :face 'all-the-icons-pink))  ;color palette
           company-box-icons-lsp
           `((1  . ,(all-the-icons-material "text_fields"              :height 0.8 :face 'all-the-icons-green)) ; text
-            (2  . ,(all-the-icons-material "functions"                :height 0.8 :face 'all-the-icons-red))   ; method
-            (3  . ,(all-the-icons-material "functions"                :height 0.8 :face 'all-the-icons-red))   ; function
-            (4  . ,(all-the-icons-material "functions"                :height 0.8 :face 'all-the-icons-red))   ; constructor
-            (5  . ,(all-the-icons-material "functions"                :height 0.8 :face 'all-the-icons-red))   ; field
+            (2  . ,(all-the-icons-material "code"                     :height 0.8 :face 'all-the-icons-red))   ; method
+            (3  . ,(all-the-icons-material "code"                     :height 0.8 :face 'all-the-icons-red))   ; function
+            (4  . ,(all-the-icons-material "code"                     :height 0.8 :face 'all-the-icons-red))   ; constructor
+            (5  . ,(all-the-icons-material "code"                     :height 0.8 :face 'all-the-icons-red))   ; field
             (6  . ,(all-the-icons-material "adjust"                   :height 0.8 :face 'all-the-icons-blue))  ; variable
             (7  . ,(all-the-icons-material "class"                    :height 0.8 :face 'all-the-icons-red))   ; class
             (8  . ,(all-the-icons-material "settings_input_component" :height 0.8 :face 'all-the-icons-red))   ; interface
