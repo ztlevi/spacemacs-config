@@ -13,6 +13,7 @@
   '(
     ;; (auto-save :location local)
     ranger
+    helpful
     (profiler :location built-in)
     (recentf :location built-in)
     ))
@@ -33,6 +34,27 @@
   (setq ranger-deer-show-details nil)
   (setq ranger-max-preview-size 10)
 )
+
+(defun ztlevi-defaults/init-helpful ()
+  (use-package helpful
+    :defer t
+    :init
+    (global-set-key (kbd "C-h f") #'helpful-callable)
+    (global-set-key (kbd "C-h C") #'helpful-command)
+    (global-set-key (kbd "C-h v") #'helpful-variable)
+    (global-set-key (kbd "C-h k") #'helpful-key)
+
+    (spacemacs/declare-prefix "hh" "helpful")
+    (spacemacs/set-leader-keys
+      "hhh" #'helpful-at-point
+      "hhc" #'helpful-command
+      "hhf" #'helpful-callable
+      "hhk" #'helpful-key
+      "hhm" #'helpful-macro
+      "hhv" #'helpful-variable)
+    :config
+    (evil-set-initial-state 'helpful-mode 'normal)
+    (evil-make-overriding-map helpful-mode-map 'normal)))
 
 (defun ztlevi-defaults/init-auto-save ()
   (use-package auto-save
