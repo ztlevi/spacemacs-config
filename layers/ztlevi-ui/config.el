@@ -84,8 +84,9 @@
 
 ;; enable natural title bar for emacs-plus
 (if (is-emacs-plus)
-    (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-  (add-to-list 'default-frame-alist '(ns-appearance . light)))
+    (progn
+      (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+      (add-to-list 'default-frame-alist '(ns-appearance . light))))
 
 ;; enable ligatures support
 ;; details here: https://github.com/tonsky/FiraCode/wiki/Emacs-instructions
