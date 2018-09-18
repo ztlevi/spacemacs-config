@@ -16,6 +16,43 @@
                         '(emacs-lisp-mode-hook
                           text-mode-hook))
 
+;; ===================== tide start =====================
+(setq company-tooltip-align-annotations t)
+
+(defun setup-tide-mode ()
+  (tide-setup)
+  (unless (tide-current-server)
+    (tide-restart-server))
+
+  (flycheck-mode +1)
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  (company-mode +1)
+
+  (define-key tide-mode-map [remap xref-find-definitions] #'tide-jump-to-definition))
+(dolist (hook (list 'js2-mode-hook 'rjsx-mode-hook))
+  (add-hook hook 'setup-tide-mode))
+
+(defun spacemacs//javascript-setup-tide-company ()
+  "Setup tide auto-completion."
+  (spacemacs|add-company-backends
+    :backends company-tide
+    :modes js2-mode rjsx-mode
+    :variables
+    company-minimum-prefix-length 2)
+  (company-mode))
+(spacemacs/add-to-hooks #'spacemacs//javascript-setup-tide-company '(js2-mode-local-vars-hook rjsx-mode-local-vars-hook))
+
+;; copy from doom, fix project root
+(defun +javascript*tide-project-root ()
+  "Resolve to `doom-project-root' if `tide-project-root' fails."
+  (or tide-project-root
+      (or (locate-dominating-file default-directory "tsconfig.json")
+          (locate-dominating-file default-directory "jsconfig.json"))
+      (projectile-project-root)))
+(advice-add #'tide-project-root :override #'+javascript*tide-project-root)
+;; ===================== tide end =====================
+
 (defun my-lsp-mode-hook ()
   ;; disable lsp-highlight-symbol
   ;; (setq lsp-highlight-symbol-at-point nil)

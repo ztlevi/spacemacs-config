@@ -101,6 +101,7 @@
  '(powerline-inactive1 ((t (:inherit mode-line-inactive :background "#e1e1e1"))))
  '(powerline-inactive2 ((t (:inherit mode-line-inactive :background "#e3e3e3"))))
  '(show-paren-match ((t (:background "#d7d7d7" :foreground "#e45649" :weight ultra-bold))))
- '(term-bold ((t (:weight bold :height 1.1 :family "Ubuntu Mono derivative Powerline")))))
+ '(term-bold ((t (:weight bold :height 1.1 :family "Ubuntu Mono derivative Powerline"))))
+ '(tide-hl-identifier-face ((t (:inherit lsp-face-highlight-read)))))
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

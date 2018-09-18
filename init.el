@@ -152,13 +152,13 @@ This function should only modify configuration layer settings."
      (javascript :variables
                  node-add-modules-path t
                  javascript-fmt-tool 'prettier
-                 javascript-backend 'lsp
+                 javascript-backend nil
                  js2-basic-offset 2     ; javascript indent
                  js-indent-level  2     ; json indent
                  )
      (json :variables json-fmt-tool 'prettier)
      (typescript :variables
-                 typescript-backend 'lsp
+                 typescript-backend 'tide
                  typescript-fmt-tool 'prettier
                  typescript-indent-level 2)
      emacs-lisp
@@ -244,7 +244,6 @@ This function should only modify configuration layer settings."
      ;; javascript
      livid-mode skewer-mode
      ;; typescript
-     tide
      ;; emacs-lisp
      nameless overseer
      ;; c-c++
