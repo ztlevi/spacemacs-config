@@ -262,9 +262,9 @@
       ;; disable jshint since we prefer eslint checking
       ;; disable json-jsonlist checking for json files
       (setq-default flycheck-disabled-checkers
-                    (append flycheck-disabled-checkers
-                            '(javascript-jshint
-                              json-jsonlist)))
+                    '(javascript-jshint
+                      json-jsonlist
+                      jsx-tide))
 
       ;; customize flycheck temp file prefix
       (setq-default flycheck-temp-prefix ".flycheck"))))
