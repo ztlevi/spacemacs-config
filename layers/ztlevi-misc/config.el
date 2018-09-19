@@ -13,6 +13,9 @@
 (spacemacs/add-to-hooks #'flyspell-mode '(org-mode-hook
                                           markdown-mode-hook))
 
+;; disable spacemacs clean table, using prettier instead
+(remove-hook 'markdown-mode-hook 'spacemacs//cleanup-org-tables-on-save)
+
 ;; confirmation is requested before visiting a new file or buffer.
 (setq confirm-nonexistent-file-or-buffer t)
 
