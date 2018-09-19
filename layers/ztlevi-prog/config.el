@@ -17,7 +17,14 @@
                           text-mode-hook))
 
 ;; ===================== tide start =====================
-(setq company-tooltip-align-annotations t)
+;; copy from doom, fix project root
+(defun +javascript*tide-project-root ()
+  "Resolve to `doom-project-root' if `tide-project-root' fails."
+  (or tide-project-root
+      (or (locate-dominating-file default-directory "tsconfig.json")
+          (locate-dominating-file default-directory "jsconfig.json"))
+      (projectile-project-root)))
+(advice-add #'tide-project-root :override #'+javascript*tide-project-root)
 
 (defun setup-tide-mode ()
   (tide-setup)
@@ -27,13 +34,17 @@
   (flycheck-mode +1)
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
-  (company-mode +1)
-
-  (define-key tide-mode-map [remap xref-find-definitions] #'tide-jump-to-definition)
-  (define-key tide-mode-map [remap xref-find-references] #'tide-references))
+  (company-mode +1))
 (dolist (hook (list 'js2-mode-hook 'rjsx-mode-hook))
   (add-hook hook 'setup-tide-mode))
 
+(with-eval-after-load 'tide
+  (define-key tide-mode-map [remap xref-find-definitions] #'tide-jump-to-definition)
+  (define-key tide-mode-map [remap xref-find-references] #'tide-references))
+
+(setq tide-completion-detailed t
+      tide-always-show-documentation t)
+(setq company-tooltip-align-annotations t)
 (defun spacemacs//javascript-setup-tide-company ()
   "Setup tide auto-completion."
   (spacemacs|add-company-backends
@@ -43,15 +54,6 @@
     company-minimum-prefix-length 2)
   (company-mode))
 (spacemacs/add-to-hooks #'spacemacs//javascript-setup-tide-company '(js2-mode-local-vars-hook rjsx-mode-local-vars-hook))
-
-;; copy from doom, fix project root
-(defun +javascript*tide-project-root ()
-  "Resolve to `doom-project-root' if `tide-project-root' fails."
-  (or tide-project-root
-      (or (locate-dominating-file default-directory "tsconfig.json")
-          (locate-dominating-file default-directory "jsconfig.json"))
-      (projectile-project-root)))
-(advice-add #'tide-project-root :override #'+javascript*tide-project-root)
 ;; ===================== tide end =====================
 
 (defun my-lsp-mode-hook ()
