@@ -22,6 +22,7 @@
     js2-mode
     rjsx-mode
     vue-mode
+    lsp-mode
     lsp-ui
     lsp-vue
     js2-refactor
@@ -276,22 +277,23 @@
       "r>" 'js2r-forward-slurp
       "r<" 'js2r-forward-barf)))
 
-(defun ztlevi-prog/post-init-lsp-ui ()
-  ;; temporary fix for flycheck
-  (setq lsp-ui-flycheck-enable nil)
-
+(defun ztlevi-prog/post-init-lsp-mode ()
   ;; disable lsp eldoc
   (setq lsp-enable-eldoc nil)
 
   ;; avoid popup warning buffer if lsp can't found root directory (such as edit simple *.py file)
   (setq lsp-message-project-root-warning t)
 
-  ;; set lsp-ui-doc position
-  (setq lsp-ui-doc-position 'at-point)
-
   ;; set spacemacs-jump-handlers-%S (gd)
   (spacemacs//setup-lsp-jump-handler 'c++-mode)
   (spacemacs//setup-lsp-jump-handler 'c-mode))
+
+(defun ztlevi-prog/post-init-lsp-ui ()
+  ;; temporary fix for flycheck
+  (setq lsp-ui-flycheck-enable nil)
+
+  ;; set lsp-ui-doc position
+  (setq lsp-ui-doc-position 'at-point))
 
 (defun ztlevi-prog/init-vue-mode ()
   (use-package vue-mode
