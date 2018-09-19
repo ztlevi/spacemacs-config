@@ -10,12 +10,6 @@
  '(company-dabbrev-other-buffers nil)
  '(company-show-numbers t)
  '(compilation-message-face (quote default))
- '(counsel-fzf-cmd "fzf -f %s" t)
- '(counsel-git-cmd "rg --files" t)
- '(counsel-grep-base-command
-   "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
- '(counsel-rg-base-command
-   "rg -i -M 120 --no-heading --line-number --color never %s .")
  '(ctags-update-delay-seconds 1024)
  '(custom-safe-themes
    (quote
