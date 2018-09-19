@@ -29,7 +29,8 @@
   (tide-hl-identifier-mode +1)
   (company-mode +1)
 
-  (define-key tide-mode-map [remap xref-find-definitions] #'tide-jump-to-definition))
+  (define-key tide-mode-map [remap xref-find-definitions] #'tide-jump-to-definition)
+  (define-key tide-mode-map [remap xref-find-references] #'tide-references))
 (dolist (hook (list 'js2-mode-hook 'rjsx-mode-hook))
   (add-hook hook 'setup-tide-mode))
 

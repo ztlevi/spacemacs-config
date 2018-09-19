@@ -287,9 +287,7 @@
 
   ;; set spacemacs-jump-handlers-%S (gd)
   (spacemacs//setup-lsp-jump-handler 'c++-mode)
-  (spacemacs//setup-lsp-jump-handler 'c-mode)
-
-  (define-key evil-normal-state-map (kbd "gr") #'lsp-ui-peek-find-references))
+  (spacemacs//setup-lsp-jump-handler 'c-mode))
 
 (defun ztlevi-prog/init-vue-mode ()
   (use-package vue-mode

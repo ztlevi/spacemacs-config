@@ -24,6 +24,13 @@
 ;; jump-to-definitions
 (define-key evil-normal-state-map (kbd "gd") #'xref-find-definitions)
 (define-key evil-normal-state-map (kbd "gD") #'xref-find-definitions-other-window)
+(define-key evil-normal-state-map (kbd "gr") #'xref-find-references)
+(define-key evil-normal-state-map (kbd "gb") 'pop-tag-mark)
+
+;; counsel etags
+(define-key evil-normal-state-map (kbd "gF") 'counsel-etags-find-tag-at-point)
+(define-key evil-normal-state-map (kbd "gR") 'counsel-etags-recent-tag)
+(spacemacs/set-leader-keys "ou" 'counsel-etags-update-tags-force)
 
 ;; ex completion
 (define-key evil-ex-completion-map (kbd "C-d") 'delete-forward-char)
@@ -42,12 +49,6 @@
   "[s" (lambda (n) (interactive "p") (dotimes (c n nil) (insert " ")))
   "]s" (lambda (n) (interactive "p")
          (forward-char) (dotimes (c n nil) (insert " ")) (backward-char (1+ n))))
-
-;; counsel etags
-(define-key evil-normal-state-map (kbd "gF") 'counsel-etags-find-tag-at-point)
-(define-key evil-normal-state-map (kbd "gb") 'pop-tag-mark)
-(define-key evil-normal-state-map (kbd "gR") 'counsel-etags-recent-tag)
-(spacemacs/set-leader-keys "ou" 'counsel-etags-update-tags-force)
 
 ;; stack exchange
 (define-prefix-command 'launcher-map)
