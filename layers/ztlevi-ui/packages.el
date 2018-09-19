@@ -58,6 +58,9 @@
     (advice-add #'ivy-posframe-setup :override #'ignore)
     :init
     (ivy-posframe-enable)
+    (defun set-ivy-posframe-width ()
+      (setq ivy-posframe-width (round (* 0.75 (frame-width)))))
+    (add-hook 'minibuffer-inactive-mode-hook 'set-ivy-posframe-width)
     :config
     (setq ivy-fixed-height-minibuffer nil
           ivy-posframe-parameters
