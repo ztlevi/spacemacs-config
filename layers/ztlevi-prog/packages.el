@@ -282,6 +282,9 @@
   ;; disable lsp eldoc
   (setq lsp-enable-eldoc nil)
 
+  ;; avoid popup warning buffer if lsp can't found root directory (such as edit simple *.py file)
+  (setq lsp-message-project-root-warning t)
+
   ;; set lsp-ui-doc position
   (setq lsp-ui-doc-position 'at-point)
 
