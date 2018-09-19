@@ -54,6 +54,23 @@
     company-minimum-prefix-length 2)
   (company-mode))
 (spacemacs/add-to-hooks #'spacemacs//javascript-setup-tide-company '(js2-mode-local-vars-hook rjsx-mode-local-vars-hook))
+
+(defun +javascript|cleanup-tide-processes ()
+  "Clean up dangling tsserver processes if there are no more buffers with
+`tide-mode' active that belong to that server's project."
+  (when tide-mode
+    (unless (cl-loop with project-name = (tide-project-name)
+                     for buf in (delq (current-buffer) (buffer-list))
+                     if (and (buffer-local-value 'tide-mode buf)
+                             (with-current-buffer buf
+                               (string= (tide-project-name) project-name)))
+                     return buf)
+      (kill-process (tide-current-server)))))
+(defun kill-tide-hook ()
+  (add-hook 'kill-buffer-hook #'+javascript|cleanup-tide-processes nil t))
+;; cleanup tsserver when no tide buffers are left
+(add-hook 'tide-mode-hook 'kill-tide-hook)
+
 ;; ===================== tide end =====================
 
 (defun my-lsp-mode-hook ()
