@@ -50,6 +50,10 @@
   "]s" (lambda (n) (interactive "p")
          (forward-char) (dotimes (c n nil) (insert " ")) (backward-char (1+ n))))
 
+;; search
+(spacemacs/set-leader-keys "fg" 'rg-project)
+(spacemacs/set-leader-keys "fG" 'rg)
+
 ;; stack exchange
 (define-prefix-command 'launcher-map)
 (bind-key* "s-l" #'launcher-map)

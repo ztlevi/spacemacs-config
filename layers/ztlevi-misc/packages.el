@@ -39,6 +39,8 @@
     wucuo
     ivy
     counsel
+    wgrep-ag
+    rg
     ibuffer
     p4
     magit
@@ -624,9 +626,22 @@
         ;; Add smart-casing and compressed archive searching (-zS) to default
         ;; command arguments:
         counsel-grep-base-command
-          "rg -zS -M 120 --no-heading --line-number --color never '%s' %s"
+        "rg -zS -M 120 --no-heading --line-number --color never '%s' %s"
         counsel-rg-base-command
-          "rg -zS -M 120 --no-heading --line-number --color never %s ."))
+        "rg -zS -M 120 --no-heading --line-number --color never %s ."))
+
+(defun ztlevi-misc/init-wgrep-ag ()
+  (use-package wgrep-ag
+    :defer t))
+
+(defun ztlevi-misc/init-rg ()
+  (use-package rg
+    :defer t
+    :hook (rg-mode . wgrep-ag-setup)
+    :config
+    (setq rg-group-result t)
+    (evil-set-initial-state 'rg-mode 'normal)
+    (evil-make-overriding-map rg-mode-map 'normal)))
 
 (defun ztlevi-misc/init-magit-todos ()
   (use-package magit-todos
