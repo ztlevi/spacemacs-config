@@ -75,13 +75,6 @@
 (custom-set-faces
  '(lsp-intellij-face-code-lens-run ((t (:background "honeydew")))))
 
-;; set imenu faces
-(custom-set-faces
- '(imenu-list-entry-face-0 ((t (:inherit font-lock-keyword-face))))
- '(imenu-list-entry-face-1 ((t (:inherit font-lock-string-face))))
- '(imenu-list-entry-face-2 ((t (:inherit font-lock-preprocessor-face))))
- '(imenu-list-entry-face-3 ((t (:inherit font-lock-function-name-face)))))
-
 ;; enable natural title bar for emacs-plus
 (if (is-emacs-plus)
     (progn
