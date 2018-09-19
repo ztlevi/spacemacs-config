@@ -306,16 +306,18 @@
     :defer t))
 
 (defun ztlevi-prog/post-init-js2-mode ()
-  ;; js default variables
-  ;; https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-javascript.el
-  (setq-default js2-strict-inconsistent-return-warning nil ; return <=> return null
-                js2-skip-preprocessor-directives t
-                js2-bounce-indent-p t
-                ;; Let flycheck handle parse errors
-                js2-strict-trailing-comma-warning nil
-                js2-mode-show-parse-errors nil
-                js2-mode-show-strict-warnings nil
-                js2-highlight-external-variables t)
+  (setq js2-skip-preprocessor-directives t
+        js-chain-indent t
+        ;; let flycheck handle this
+        js2-mode-show-parse-errors nil
+        js2-mode-show-strict-warnings nil
+        ;; Flycheck provides these features, so disable them: conflicting with
+        ;; the eslint settings.
+        js2-strict-trailing-comma-warning nil
+        js2-strict-missing-semi-warning nil
+        ;; maximum fontification
+        js2-highlight-level 3
+        js2-highlight-external-variables t)
 
   (evilified-state-evilify js2-error-buffer-mode js2-error-buffer-mode-map))
 
