@@ -264,6 +264,7 @@
       (setq-default flycheck-disabled-checkers
                     '(javascript-jshint
                       json-jsonlist
+                      typescript-tide
                       jsx-tide))
 
       ;; customize flycheck temp file prefix
