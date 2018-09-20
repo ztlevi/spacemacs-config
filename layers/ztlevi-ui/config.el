@@ -43,12 +43,13 @@
 (if (eq spacemacs--cur-theme 'doom-one-light)
     (custom-set-faces
      ;; set spaceline faces
-     '(powerline-active1 ((t (:inherit mode-line :background "#e7e7e7"))))
-     '(powerline-active2 ((t (:inherit mode-line :background "#c8c8c8"))))
-     '(powerline-inactive1 ((t (:inherit mode-line-inactive :background "#e1e1e1"))))
-     '(powerline-inactive2 ((t (:inherit mode-line-inactive :background "#e3e3e3"))))
+     `(powerline-active1 ((t (:inherit mode-line :background ,(doom-color 'base1)))))
+     `(powerline-active2 ((t (:inherit mode-line :background ,(doom-color 'base3)))))
+     `(powerline-inactive1 ((t (:inherit mode-line-inactive :background ,(doom-color 'base2)))))
+     `(powerline-inactive2 ((t (:inherit mode-line-inactive :background ,(doom-color 'base2)))))
      ;; others
-     '(show-paren-match ((t (:background "#d7d7d7" :foreground "#e45649" :weight ultra-bold))))))
+     '(tide-hl-identifier-face ((t (:inherit lsp-face-highlight-read))))
+     `(show-paren-match ((t (:background ,(doom-color 'base2) :foreground ,(doom-color 'red) :weight ultra-bold))))))
 
 ;; set faces for others
 (custom-set-faces
@@ -61,9 +62,9 @@
 
 ;; set flycheck faces underline style
 (custom-set-faces
- '(flycheck-error ((t (:underline "#e45649"))))
- '(flycheck-info ((t (:underline "#50a14f"))))
- '(flycheck-warning ((t (:underline "#986801")))))
+ `(flycheck-error ((t (:underline ,(doom-color 'red)))))
+ `(flycheck-info ((t (:underline ,(doom-color 'green)))))
+ `(flycheck-warning ((t (:underline ,(doom-color 'yellow))))))
 
 ;; set markdown faces
 (custom-set-faces
