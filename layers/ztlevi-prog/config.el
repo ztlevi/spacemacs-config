@@ -23,7 +23,8 @@
   (or tide-project-root
       (or (locate-dominating-file default-directory "tsconfig.json")
           (locate-dominating-file default-directory "jsconfig.json"))
-      (projectile-project-root)))
+      (projectile-project-root)
+      "."))
 (advice-add #'tide-project-root :override #'+javascript*tide-project-root)
 
 (defun setup-tide-mode ()
