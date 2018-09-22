@@ -39,32 +39,33 @@
                                ("iedit"        "#E94B3C" box)
                                ("iedit-insert" "#E94B3C" (bar . 2))))
 
-;; set faces after doom-one-light
-(if (eq spacemacs--cur-theme 'doom-one-light)
-    (custom-set-faces
-     ;; set spaceline faces
-     `(powerline-active1 ((t (:inherit mode-line :background ,(doom-color 'base1)))))
-     `(powerline-active2 ((t (:inherit mode-line :background ,(doom-color 'base3)))))
-     `(powerline-inactive1 ((t (:inherit mode-line-inactive :background ,(doom-color 'base2)))))
-     `(powerline-inactive2 ((t (:inherit mode-line-inactive :background ,(doom-color 'base2)))))
-     ;; others
-     '(tide-hl-identifier-face ((t (:inherit lsp-face-highlight-read))))
-     `(show-paren-match ((t (:background ,(doom-color 'base2) :foreground ,(doom-color 'red) :weight ultra-bold))))))
+(with-eval-after-load 'doom-themes
+  ;; set faces after doom-one-light
+  (if (eq spacemacs--cur-theme 'doom-one-light)
+      (custom-set-faces
+       ;; set spaceline faces
+       `(powerline-active1 ((t (:inherit mode-line :background ,(doom-color 'base1)))))
+       `(powerline-active2 ((t (:inherit mode-line :background ,(doom-color 'base3)))))
+       `(powerline-inactive1 ((t (:inherit mode-line-inactive :background ,(doom-color 'base2)))))
+       `(powerline-inactive2 ((t (:inherit mode-line-inactive :background ,(doom-color 'base2)))))
+       ;; others
+       '(tide-hl-identifier-face ((t (:inherit lsp-face-highlight-read))))
+       `(show-paren-match ((t (:background ,(doom-color 'base2) :foreground ,(doom-color 'red) :weight ultra-bold))))))
+
+  ;; set faces after doom-themes
+  ;; (custom-set-faces
+  ;;  '(doom-modeline-error ((t (:background "#e45649" :foreground "#f0f0f0")))))
+
+  ;; set flycheck faces underline style
+  (custom-set-faces
+   `(flycheck-error ((t (:underline ,(doom-color 'red)))))
+   `(flycheck-info ((t (:underline ,(doom-color 'green)))))
+   `(flycheck-warning ((t (:underline ,(doom-color 'yellow)))))))
 
 ;; set faces for others
 (custom-set-faces
  '(origami-fold-replacement-face ((t (:inherit (quote font-lock-keyword-face)))))
  '(term-bold ((t (:weight bold :height 1.1 :family "Ubuntu Mono derivative Powerline")))))
-
-;; set faces after doom-themes
-;; (custom-set-faces
-;;  '(doom-modeline-error ((t (:background "#e45649" :foreground "#f0f0f0")))))
-
-;; set flycheck faces underline style
-(custom-set-faces
- `(flycheck-error ((t (:underline ,(doom-color 'red)))))
- `(flycheck-info ((t (:underline ,(doom-color 'green)))))
- `(flycheck-warning ((t (:underline ,(doom-color 'yellow))))))
 
 ;; set markdown faces
 (custom-set-faces
