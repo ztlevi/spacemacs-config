@@ -16,9 +16,6 @@
     spaceline-all-the-icons
     popwin
     (ivy-posframe :toggle (version<= "26" emacs-version))
-
-    ;; company-box needs icons-in-terminal
-    (icons-in-terminal :location local)
     (company-box :toggle (version<= "26" emacs-version))
 
     ;; To use local repo, update the packages to clean up the cache
