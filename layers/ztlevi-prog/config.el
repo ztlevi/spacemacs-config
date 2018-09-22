@@ -41,7 +41,13 @@
 
 (with-eval-after-load 'tide
   (define-key tide-mode-map [remap xref-find-definitions] #'tide-jump-to-definition)
-  (define-key tide-mode-map [remap xref-find-references] #'tide-references))
+  (define-key tide-mode-map [remap xref-find-references] #'tide-references)
+
+  ;; map keys for tide-references-mode-map
+  (define-key tide-references-mode-map "h" nil)
+  (evil-set-initial-state 'tide-references-mode 'normal)
+  (evil-make-overriding-map tide-references-mode-map 'normal))
+
 
 (setq tide-completion-detailed t
       tide-always-show-documentation t)
@@ -55,11 +61,6 @@
     company-minimum-prefix-length 2)
   (company-mode))
 (spacemacs/add-to-hooks #'spacemacs//javascript-setup-tide-company '(js2-mode-local-vars-hook rjsx-mode-local-vars-hook))
-
-;; map keys for tide-references-mode-map
-(define-key tide-references-mode-map "h" nil)
-(evil-set-initial-state 'tide-references-mode 'normal)
-(evil-make-overriding-map tide-references-mode-map 'normal)
 
 (defun +javascript|cleanup-tide-processes ()
   "Clean up dangling tsserver processes if there are no more buffers with

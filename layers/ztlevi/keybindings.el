@@ -78,6 +78,10 @@
 (spacemacs/set-leader-keys "gT" 'my-git-timemachine)
 (spacemacs/set-leader-keys "gR" 'magit-list-repositories)
 
+;; swiper
+(with-eval-after-load 'swiper
+  (define-key swiper-map (kbd "C-c C-e") 'spacemacs//counsel-edit))
+
 ;; expand region
 (bind-key* "C-s-." #'er/expand-region)
 (bind-key* "C-s-," #'er/contract-region)
