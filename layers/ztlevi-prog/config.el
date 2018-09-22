@@ -56,6 +56,11 @@
   (company-mode))
 (spacemacs/add-to-hooks #'spacemacs//javascript-setup-tide-company '(js2-mode-local-vars-hook rjsx-mode-local-vars-hook))
 
+;; map keys for tide-references-mode-map
+(define-key tide-references-mode-map "h" nil)
+(evil-set-initial-state 'tide-references-mode 'normal)
+(evil-make-overriding-map tide-references-mode-map 'normal)
+
 (defun +javascript|cleanup-tide-processes ()
   "Clean up dangling tsserver processes if there are no more buffers with
 `tide-mode' active that belong to that server's project."
