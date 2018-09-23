@@ -696,8 +696,8 @@ before packages are loaded."
                         charset
                         (font-spec :family "Microsoft Yahei" :size 18))))
 
-  ;; prevent ivy, counsel, dired to split window horizontally
-  (setq-default split-width-threshold nil)
+  ;; set the width threshold to split window horizontally
+  (setq-default split-width-threshold 120)
 
   ;; auto-mode-alist in config to make sure modes are added at top
   (dolist (m '(("Capstanfile\\'" . yaml-mode)

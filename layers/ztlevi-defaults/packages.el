@@ -16,6 +16,7 @@
     helpful
     (profiler :location built-in)
     (recentf :location built-in)
+    shackle
     ))
 
 (defun ztlevi-defaults/post-init-ranger ()
@@ -92,5 +93,15 @@
     :defer t
     :init
     (evilified-state-evilify profiler-report-mode profiler-report-mode-map)))
+
+(defun ztlevi-defaults/init-shackle ()
+  (use-package shackle
+    :defer t
+    :init
+    (shackle-mode)
+    :config
+    (setq shackle-rules '((ivy-occur-grep-mode :select t :align 'below :size 0.3)
+                          (tide-references-mode :select t :align 'below :size 0.3)))
+    ))
 
 ;;; packages.el ends here
