@@ -698,6 +698,10 @@
     :defer t
     :commands (live-server-preview)))
 
+(defun ztlevi-misc/pre-init-markdown-mode ()
+  (add-to-list 'spacemacs--prettier-modes 'markdown-mode)
+  (add-to-list 'spacemacs--prettier-modes 'gfm-mode))
+
 (defun ztlevi-misc/post-init-markdown-mode ()
   (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 
