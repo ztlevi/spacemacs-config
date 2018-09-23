@@ -149,10 +149,12 @@ This function should only modify configuration layer settings."
            web-mode-sql-indent-offset    2 ; web-mode
            web-mode-attr-value-indent-offset 2)
      ;; (java :variables c-basic-offset 2)
+     (tide :variables
+           tide-remap-xref-keybindings t)
      (javascript :variables
                  node-add-modules-path t
                  javascript-fmt-tool 'prettier
-                 javascript-backend nil
+                 javascript-backend 'tide
                  js2-basic-offset 2     ; javascript indent
                  js-indent-level  2     ; json indent
                  )

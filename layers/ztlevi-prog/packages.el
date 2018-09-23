@@ -266,6 +266,7 @@
                     '(javascript-jshint
                       json-jsonlist
                       typescript-tide
+                      javascript-tide
                       jsx-tide))
 
       ;; customize flycheck temp file prefix
