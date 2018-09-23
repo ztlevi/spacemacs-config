@@ -22,6 +22,7 @@
   ;; ranger and deer
   (spacemacs/set-leader-keys "fj" 'deer)
   (with-eval-after-load 'ranger
+    (define-key ranger-normal-mode-map (kbd "q") 'ranger-close-and-kill-inactive-buffers)
     (define-key ranger-normal-mode-map (kbd "f") 'counsel-find-file)
     (define-key ranger-normal-mode-map (kbd "C-<tab>") 'ranger-next-tab)
     (define-key ranger-normal-mode-map (kbd "C-S-<tab>") 'ranger-prev-tab)

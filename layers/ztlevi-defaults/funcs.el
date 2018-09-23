@@ -130,6 +130,12 @@ open and unsaved."
   (interactive)
   (find-alternate-file ".."))
 
+(defun ranger-close-and-kill-inactive-buffers ()
+  "ranger close current buffer and kill inactive ranger buffers"
+  (interactive)
+  (ranger-close)
+  (ranger-kill-buffers-without-window))
+
 ;; Copied from osx/post-init-exec-path-from-shell
 (defun osx/use-gls-when-available ()
   ;; Use GNU ls as `gls' from `coreutils' if available.  Add `(setq
