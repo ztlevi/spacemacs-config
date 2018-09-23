@@ -54,6 +54,7 @@
       "hhm" #'helpful-macro
       "hhv" #'helpful-variable)
     :config
+    (define-key helpful-mode-map (kbd "h") nil)
     (evil-set-initial-state 'helpful-mode 'normal)
     (evil-make-overriding-map helpful-mode-map 'normal)))
 
