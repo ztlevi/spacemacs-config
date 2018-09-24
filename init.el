@@ -81,7 +81,6 @@ This function should only modify configuration layer settings."
           magit-revision-show-gravatars nil)
      github
      docker
-     perforce
      (version-control :variables version-control-diff-tool 'diff-hl
                       version-control-diff-side 'left)
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
