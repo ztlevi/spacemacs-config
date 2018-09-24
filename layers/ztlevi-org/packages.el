@@ -433,8 +433,12 @@ holding contextual information."
     :hook (org-mode . worf-mode)))
 
 (defun ztlevi-org/post-init-deft ()
-  (progn
-    (setq deft-use-filter-string-for-filename t)
-    (setq deft-recursive t)
-    (setq deft-extension "org")
-    (setq deft-directory deft-dir)))
+  (setq deft-recursive t)
+  (setq deft-directory deft-dir)
+
+  ;; deft key prefix is C-c
+  (with-eval-after-load 'deft
+    (define-key deft-mode-map (kbd "s-w") 'quit-window)
+    (define-key deft-mode-map (kbd "C-w") 'deft-filter-decrement-word)
+    (define-key deft-mode-map (kbd "C-k") 'deft-filter-clear)
+    (define-key deft-mode-map (kbd "s-<backspace>") 'deft-filter-clear)))
