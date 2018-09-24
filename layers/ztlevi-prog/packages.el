@@ -131,7 +131,7 @@
              (figwheel-sidecar.repl-api/cljs-repl)")
       (cider-repl-return)))
 
-  (bind-key* "C-c C-f" #'ztlevi/cider-figwheel-repl))
+  (global-set-key (kbd "C-c C-f") 'ztlevi/cider-figwheel-repl))
 
 (defun ztlevi-prog/post-init-graphviz-dot-mode ()
   (with-eval-after-load 'graphviz-dot-mode

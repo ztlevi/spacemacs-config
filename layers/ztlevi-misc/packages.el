@@ -195,7 +195,7 @@
       ("g" customize-apropos-groups "groups")
       ("o" customize-apropos-options "options"))
 
-    (bind-key* "<f1>" #'hydra-hotspots/body)
+    (global-set-key (kbd "<f1>") 'hydra-hotspots/body)
     (spacemacs/set-leader-keys "oo" 'hydra-hotspots/body)
     (spacemacs/set-leader-keys "oh" 'hydra-apropos/body)
     ))
@@ -252,7 +252,7 @@
 (defun ztlevi-misc/post-init-elfeed ()
   (use-package elfeed
     :init
-    (bind-key* "C-x w" #'elfeed)
+    (global-set-key (kbd "C-x w") 'elfeed)
     :defer t
     :config
     (progn
@@ -406,24 +406,24 @@
     :commands (vr/select-replace vr/select-query-replace)
     :init
     (progn
-      (bind-key* "C-c r" #'vr/replace)
-      (bind-key* "C-c q" #'vr/query-replace))))
+      (global-set-key (kbd "C-c r") 'vr/replace)
+      (global-set-key (kbd "C-c q") 'vr/query-replace))))
 
 (defun ztlevi-misc/init-multiple-cursors ()
   (use-package multiple-cursors
     :defer t
     :init
     (progn
-      (bind-key* "C-s-l" #'mc/edit-lines)
-      (bind-key* "C-s-g" #'mc/mark-all-like-this)
-      (bind-key* "C->"   #'mc/mark-next-like-this)
-      (bind-key* "C-<"   #'mc/mark-previous-like-this)
-      (bind-key* "s->"   #'mc/unmark-next-like-this)
-      (bind-key* "s-<"   #'mc/unmark-previous-like-this)
+      (global-set-key (kbd "C-s-l") 'mc/edit-lines)
+      (global-set-key (kbd "C-s-g") 'mc/mark-all-like-this)
+      (global-set-key (kbd "C->")   'mc/mark-next-like-this)
+      (global-set-key (kbd "C-<")   'mc/mark-previous-like-this)
+      (global-set-key (kbd "s->")   'mc/unmark-next-like-this)
+      (global-set-key (kbd "s-<")   'mc/unmark-previous-like-this)
 
       ;; add mouse click
-      (bind-key* "M-<down-mouse-1>" nil)
-      (bind-key* "M-<mouse-1>" #'mc/add-cursor-on-click)
+      (global-unset-key (kbd "M-<down-mouse-1>"))
+      (global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
 
       ;; http://endlessparentheses.com/multiple-cursors-keybinds.html?source=rss
       (define-prefix-command 'endless/mc-map)
@@ -432,17 +432,17 @@
       (define-key ctl-x-map "m" 'endless/mc-map)
 
 ;;; Really really nice!
-      (define-key endless/mc-map "i" #'mc/insert-numbers)
-      (define-key endless/mc-map "h" #'mc-hide-unmatched-lines-mode)
-      (define-key endless/mc-map "a" #'mc/mark-all-like-this)
+      (define-key endless/mc-map "i" 'mc/insert-numbers)
+      (define-key endless/mc-map "h" 'mc-hide-unmatched-lines-mode)
+      (define-key endless/mc-map "a" 'mc/mark-all-like-this)
 
 ;;; Occasionally useful
-      (define-key endless/mc-map "d" #'mc/mark-all-symbols-like-this-in-defun)
-      (define-key endless/mc-map "r" #'mc/reverse-regions)
-      (define-key endless/mc-map "s" #'mc/sort-regions)
-      (define-key endless/mc-map "l" #'mc/edit-lines)
-      (define-key endless/mc-map "\C-a" #'mc/edit-beginnings-of-lines)
-      (define-key endless/mc-map "\C-e" #'mc/edit-ends-of-lines))
+      (define-key endless/mc-map "d" 'mc/mark-all-symbols-like-this-in-defun)
+      (define-key endless/mc-map "r" 'mc/reverse-regions)
+      (define-key endless/mc-map "s" 'mc/sort-regions)
+      (define-key endless/mc-map "l" 'mc/edit-lines)
+      (define-key endless/mc-map "\C-a" 'mc/edit-beginnings-of-lines)
+      (define-key endless/mc-map "\C-e" 'mc/edit-ends-of-lines))
     :config
     (setq mc/always-repeat-command t)
     (setq mc/always-run-for-all t)
@@ -462,7 +462,7 @@
 
 (defun ztlevi-misc/post-init-chinese-wbim ()
   (progn
-    (bind-key* ";" #'chinese-wbim-insert-ascii)
+    (global-set-key (kbd ";") 'chinese-wbim-insert-ascii)
     (setq chinese-wbim-punc-translate-p nil)
     (spacemacs/declare-prefix "ot" "Toggle")
     (spacemacs/set-leader-keys
@@ -619,8 +619,8 @@
 
 (defun ztlevi-misc/post-init-counsel ()
   (setq counsel-find-file-ignore-regexp "\\(?:^[#.]\\)\\|\\(?:[#~]$\\)\\|\\(?:^Icon?\\)"
-        counsel-describe-function-function #'helpful-callable
-        counsel-describe-variable-function #'helpful-variable
+        counsel-describe-function-function 'helpful-callable
+        counsel-describe-variable-function 'helpful-variable
         counsel-fzf-cmd "fzf -f %s"
         counsel-git-cmd "rg --files"
         ;; Add smart-casing and compressed archive searching (-zS) to default
