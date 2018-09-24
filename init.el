@@ -92,7 +92,6 @@ This function should only modify configuration layer settings."
             shell-default-shell 'ansi-term
             shell-default-term-shell "zsh")
      shell-scripts
-     deft
      chrome
      imenu-list
      ;; neotree
