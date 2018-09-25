@@ -34,8 +34,8 @@
                                ("replace"      "#F7786B" (hbar . 2))
                                ("evilified"    "#DAA520" box)
                                ("visual"       "gray"    (hbar . 2))
-                               ("motion"       "#9370DB" box)
-                               ("lisp"         "#6B5B95" box)
+                               ("motion"       "#20b2aa" box)
+                               ("lisp"         "#008080" box)
                                ("iedit"        "#E94B3C" box)
                                ("iedit-insert" "#E94B3C" (bar . 2))))
 
