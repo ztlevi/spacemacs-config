@@ -62,6 +62,7 @@
                                                   rjsx-mode-hook
                                                   json-mode-hook
                                                   css-mode-hook
+                                                  web-mode-hook
                                                   markdown-mode-hook
                                                   gfm-mode-hook)))))
 
