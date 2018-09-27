@@ -97,7 +97,7 @@
     4. Language Server Protocol: Install the [[https://langserver.org/][lsp]] for your languages. A few examples are listed below.
        #+BEGIN_SRC shell
          # Javascript
-         npm i -g typescript javascript-typescript-langserver
+         npm i -g typescript
 
          # Vue
          npm install vue-language-server -g
