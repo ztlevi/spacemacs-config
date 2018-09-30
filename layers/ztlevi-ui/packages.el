@@ -79,10 +79,6 @@
     ;; default to posframe display function
     (setf (alist-get t ivy-display-functions-alist) #'+ivy-display-at-frame-center-near-bottom)))
 
-(defun ztlevi-ui/init-icons-in-terminal ()
-  (use-package icons-in-terminal
-    :defer t))
-
 (defun ztlevi-ui/init-company-box ()
   (use-package company-box
     :defer t
