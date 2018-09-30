@@ -196,7 +196,7 @@ This function should only modify configuration layer settings."
      ;; spacemacs-completion
      default-helm-config ido-vertical-mode
      ;; spacemacs-editing
-     lorem-ipsum clean-aindent-mode smartparens
+     lorem-ipsum clean-aindent-mode smartparens password-generator
      ;; spacemacs-editing-visual
      volatile-highlights highlight-indentation lorem-ipsum
      ;; spacemacs-evil
