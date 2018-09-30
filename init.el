@@ -194,7 +194,7 @@ This function should only modify configuration layer settings."
      ;; spacemacs-bootstrap
      spacemacs-theme holy-mode
      ;; spacemacs-completion
-     default-helm-config ido-vertical-mode
+     default-helm-config ido-vertical-mode flx-ido
      ;; spacemacs-editing
      lorem-ipsum clean-aindent-mode smartparens password-generator
      ;; spacemacs-editing-visual
@@ -208,7 +208,7 @@ This function should only modify configuration layer settings."
      ;; spacemacs-modeline
      vim-powerline symon fancy-battery doom-modeline
      ;; spacemacs-navigation
-     flx-ido smooth-scrolling
+     smooth-scrolling
      ;; spacemacs-org
      org-bullets
 
