@@ -46,6 +46,16 @@
   )
 (add-hook 'web-mode-hook 'my-web-mode-hook)
 
+;; python mode hook
+(defun my-python-mode-hook ()
+  (modify-syntax-entry ?_ "w"))
+(add-hook 'python-mode-hook 'my-python-mode-hook)
+
+;; ruby mode hook
+(defun my-ruby-mode-hook ()
+  (modify-syntax-entry ?_ "w"))
+(add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
+
 ;; c++ hook
 (defun my-c++-mode-hook ()
   (add-hook 'write-contents-hooks

@@ -143,8 +143,6 @@
   (remove-hook 'emacs-lisp-mode-hook 'auto-compile-mode))
 
 (defun ztlevi-prog/post-init-python ()
-  (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
-
   ;; set python interpreters
   (setq importmagic-python-interpreter "python3")
   (setq pippel-python-command "python3")
