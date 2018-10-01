@@ -227,13 +227,11 @@
 (global-set-key (kbd "s-,")   'ztlevi/insert-comma-at-the-end-of-this-line)
 (global-set-key (kbd "s-;")   'ztlevi/insert-semicolon-at-the-end-of-this-line)
 (global-set-key (kbd "s-g")   'goto-line)
-(global-set-key (kbd "s-r")   'mc/reverse-regions)
-(global-set-key (kbd "s-y")   'aya-expand)
 (global-set-key [(shift return)] 'ztlevi/smart-open-line)
 (global-set-key [remap fill-paragraph] 'endless/fill-or-unfill)
 
 ;; keybindings for linux and macOS
-(when (or (spacemacs/system-is-linux) (spacemacs/system-is-mac))
+(when (or IS-LINUX IS-MAC)
   (global-set-key (kbd "s-p")   'counsel-git)
   (global-set-key (kbd "s-e")   'ivy-switch-buffer)
   (global-set-key (kbd "C-s")   'my-swiper-search)
@@ -243,7 +241,6 @@
   (global-set-key (kbd "s-w")   'delete-window-or-frame)
   (global-set-key (kbd "s-o")   'spacemacs/jump-to-last-layout)
   (global-set-key (kbd "C-s-o") 'other-frame)
-  (global-set-key (kbd "<C-s-268632079>") 'other-frame)
   (global-set-key (kbd "s-=")   'spacemacs/scale-up-font)
   (global-set-key (kbd "s--")   'spacemacs/scale-down-font)
   (global-set-key (kbd "s-0")   'spacemacs/reset-font-size)
@@ -260,7 +257,7 @@
   ;; iterm
   (spacemacs/set-leader-keys "o!" 'ztlevi/iterm-shell-command))
 ;; keybindings for Windows
-(when (spacemacs/system-is-mswindows)
+(when IS-WINDOWS
   (global-set-key (kbd "C-S-p") 'counsel-git)
   (global-set-key (kbd "C-S-e") 'ivy-switch-buffer)
   (global-set-key (kbd "C-f")   'my-swiper-search)

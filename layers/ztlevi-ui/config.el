@@ -17,10 +17,6 @@
 (with-eval-after-load 'org
   (doom-themes-org-config))
 
-;; set scrolling speed
-(setq mouse-wheel-scroll-amount '(2 ((shift) . 1) ((control) . nil)))
-(setq mouse-wheel-progressive-speed nil)
-
 ;; set initl screen size
 (setq initial-frame-alist
       '((width . 110)

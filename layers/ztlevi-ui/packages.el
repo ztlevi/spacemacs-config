@@ -15,8 +15,8 @@
     all-the-icons-dired
     spaceline-all-the-icons
     popwin
-    (ivy-posframe :toggle (version<= "26" emacs-version))
-    (company-box :toggle (version<= "26" emacs-version))
+    (ivy-posframe :toggle EMACS26+)
+    (company-box :toggle EMACS26+)
 
     ;; To use local repo, update the packages to clean up the cache
     ;; (doom-themes :location "~/Developer/Github/emacs-doom-themes")

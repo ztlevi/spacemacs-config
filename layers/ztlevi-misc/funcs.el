@@ -60,17 +60,13 @@
   (setq-local projectile-project-root-path (if (ignore-errors (projectile-project-root))
                                                (projectile-project-root) "."))
   (cond
-   ((or
-     (string-equal system-type "darwin")
-     (string-equal system-type "gnu/linux"))
+   ((or IS-LINUX IS-MAC)
     (shell-command (concat "code " projectile-project-root-path)))))
 
 (defun ztlevi/open-current-file-in-vscode ()
   (interactive)
   (cond
-   ((or
-     (string-equal system-type "darwin")
-     (string-equal system-type "gnu/linux"))
+   ((or IS-LINUX IS-MAC)
     (shell-command (concat "code " (buffer-file-name))))))
 
 (defun ztlevi/open-terminal-in-project-root ()
@@ -78,10 +74,9 @@
   (setq-local projectile-project-root-path (if (ignore-errors (projectile-project-root))
                                                (projectile-project-root) "."))
   (cond
-   ((string-equal system-type "darwin") (shell-command (concat "open -a iTerm " projectile-project-root-path)))
-   ((string-equal system-type "gnu/linux")
-    (let (
-          (process-connection-type nil)
+   (IS-MAC (shell-command (concat "open -a iTerm " projectile-project-root-path)))
+   (IS-LINUX
+    (let ((process-connection-type nil)
           (openFileProgram (if (file-exists-p "/usr/bin/konsole")
                                "/usr/bin/konsole"
                              "/usr/bin/gnome-terminal")))
@@ -90,8 +85,8 @@
 (defun ztlevi/open-terminal-in-current-dir ()
   (interactive)
   (cond
-   ((string-equal system-type "darwin") (shell-command (concat "open -a iTerm .")))
-   ((string-equal system-type "gnu/linux")
+   (IS-MAC (shell-command (concat "open -a iTerm .")))
+   (IS-LINUX
     (let (
           (process-connection-type nil)
           (openFileProgram (if (file-exists-p "/usr/bin/konsole")
@@ -105,12 +100,11 @@ URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'
 Version 2015-11-30"
   (interactive)
   (cond
-   ((string-equal system-type "windows-nt")
+   (IS-WINDOWS
     (w32-shell-execute "explore" (replace-regexp-in-string "/" "\\" default-directory t t)))
-   ((string-equal system-type "darwin") (shell-command "if [ -d '/Applications/ForkLift.app' ]; then open -a ForkLift .;else open .;fi;"))
-   ((string-equal system-type "gnu/linux")
-    (let (
-          (process-connection-type nil)
+   (IS-MAC (shell-command "if [ -d '/Applications/ForkLift.app' ]; then open -a ForkLift .;else open .;fi;"))
+   (IS-LINUX
+    (let ((process-connection-type nil)
           (openFileProgram (if (file-exists-p "/usr/bin/xdg-open")
                                "/usr/bin/xdg-open"
                              "/usr/bin/gvfs-open")))
@@ -121,12 +115,11 @@ Version 2015-11-30"
 (defun ztlevi/open-markdown-in-typora ()
   (interactive)
   (cond
-   ((string-equal system-type "darwin")
+   (IS-MAC
     (shell-command (concat "open -a Typora '" buffer-file-name "'")))
-   ((string-equal system-type "gnu/linux")
+   (IS-LINUX
     (let ((process-connection-type nil))
-      (start-process "" nil "typora" (concat  "'" buffer-file-name "'"))))
-   ))
+      (start-process "" nil "typora" (concat  "'" buffer-file-name "'"))))))
 
 ;; @see https://bitbucket.org/lyro/evil/issue/511/let-certain-minor-modes-key-bindings
 (defmacro adjust-major-mode-keymap-with-evil (m &optional r)

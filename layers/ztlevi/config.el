@@ -18,3 +18,10 @@
 (setq-default
  org-agenda-dir "~/Dropbox/Org-Notes"
  blog-admin-dir "~/Developer/Github/hexo_blog")
+
+(defconst EMACS26+ (> emacs-major-version 25))
+(defconst EMACS27+ (> emacs-major-version 26))
+
+(defconst IS-MAC     (eq system-type 'darwin))
+(defconst IS-LINUX   (eq system-type 'gnu/linux))
+(defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))

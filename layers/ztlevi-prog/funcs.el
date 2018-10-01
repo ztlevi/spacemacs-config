@@ -51,7 +51,7 @@ version 2015-08-21"
             ("php" . "php")
             ("pl" . "perl")
             ("py" . "python")
-            ("py3" . ,(if (string-equal system-type "windows-nt") "c:/Python32/python.exe" "python3"))
+            ("py3" . ,(if IS-WINDOWS "c:/Python32/python.exe" "python3"))
             ("rb" . "ruby")
             ("js" . "node") ; node.js
             ("sh" . "bash")

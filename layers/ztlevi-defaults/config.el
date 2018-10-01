@@ -32,9 +32,17 @@
   (let ((ffap-file-finder 'hexl-find-file))
     (call-interactively 'ffap)))
 
-(when (spacemacs/window-system-is-mac)
-  (osx/use-gls-when-available)
-  (setq ns-pop-up-frames nil))
+(when IS-MAC
+  (setq mac-redisplay-dont-reset-vscroll t ; sane trackpad/mouse scroll settings
+        mac-mouse-wheel-smooth-scroll nil
+        mouse-wheel-scroll-amount '(5 ((shift) . 2))  ; one line at a time
+        mouse-wheel-progressive-speed nil             ; don't accelerate scrolling
+        ;; Curse Lion and its sudden but inevitable fullscreen mode!
+        ;; NOTE Meaningless to railwaycat's emacs-mac build
+        ns-use-native-fullscreen nil
+        ;; Don't open files From The workspace in a new frame
+        ns-pop-up-frames nil)
+  (osx/use-gls-when-available))
 
 (setq-default fill-column 80)
 
