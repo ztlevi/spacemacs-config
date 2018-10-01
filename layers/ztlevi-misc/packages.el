@@ -303,6 +303,7 @@
   (use-package evil-multiedit
     :defer t
     :commands evil-multiedit-default-keybinds
+    :bind ((:map evil-multiedit-insert-state-map ("C-d" . delete-char)))
     :init
     (evil-multiedit-default-keybinds)
     (define-key evil-normal-state-map (kbd "s-d") #'evil-multiedit-match-symbol-and-next)
