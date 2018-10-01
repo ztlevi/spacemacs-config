@@ -25,6 +25,7 @@
     origami
     evil
     evil-surround
+    evil-multiedit
     evil-string-inflection
     evil-search-highlight-persist
     discover-my-major
@@ -297,6 +298,18 @@
         (kill-new (x-get-selection)))
 
       (ad-activate 'elfeed-show-yank))))
+
+(defun ztlevi-misc/init-evil-multiedit ()
+  (use-package evil-multiedit
+    :defer t
+    :commands evil-multiedit-default-keybinds
+    :init
+    (evil-multiedit-default-keybinds)
+    (define-key evil-normal-state-map (kbd "s-d") #'evil-multiedit-match-symbol-and-next)
+    (define-key evil-visual-state-map (kbd "s-d") #'evil-multiedit-match-and-next)
+    (define-key evil-normal-state-map (kbd "s-D") #'evil-multiedit-match-symbol-and-prev)
+    (define-key evil-visual-state-map (kbd "s-D") #'evil-multiedit-match-and-prev)
+    (define-key evil-insert-state-map (kbd "s-d") #'evil-multiedit-toggle-marker-here)))
 
 (defun ztlevi-misc/init-evil-string-inflection ()
   (use-package evil-string-inflection

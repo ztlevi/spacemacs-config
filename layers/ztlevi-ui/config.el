@@ -27,17 +27,19 @@
         (height . 65)))
 
 ;; set evil cursors colors
-(setq spacemacs-evil-cursors '(("normal"       "#4078F2" box)
-                               ("insert"       "#BFD641" (bar . 2))
-                               ("emacs"        "#A0BCF8" box)
-                               ("hybrid"       "#FF007F" (bar . 2))
-                               ("replace"      "#F7786B" (hbar . 2))
-                               ("evilified"    "#DAA520" box)
-                               ("visual"       "gray"    (hbar . 2))
-                               ("motion"       "#20b2aa" box)
-                               ("lisp"         "#008080" box)
-                               ("iedit"        "#E94B3C" box)
-                               ("iedit-insert" "#E94B3C" (bar . 2))))
+(setq spacemacs-evil-cursors '(("normal"           "#4078F2" box)
+                               ("insert"           "#BFD641" (bar . 2))
+                               ("emacs"            "#A0BCF8" box)
+                               ("hybrid"           "#FF007F" (bar . 2))
+                               ("replace"          "#F7786B" (hbar . 2))
+                               ("evilified"        "#DAA520" box)
+                               ("visual"           "gray"    (hbar . 2))
+                               ("motion"           "#20b2aa" box)
+                               ("lisp"             "#008080" box)
+                               ("multiedit"        "#E94B3C" box)
+                               ("multiedit-insert" "#E94B3C" (bar . 2))
+                               ("iedit"            "#E94B3C" box)
+                               ("iedit-insert"     "#E94B3C" (bar . 2))))
 
 (with-eval-after-load 'doom-themes
   ;; set faces after doom-one-light
