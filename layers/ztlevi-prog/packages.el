@@ -144,13 +144,14 @@
 
 (defun ztlevi-prog/post-init-python ()
   ;; set python interpreters
-  (setq importmagic-python-interpreter "python3")
-  (setq pippel-python-command "python3")
+  (setq pippel-python-command "python3"
+        importmagic-python-interpreter "python3"
+        flycheck-python-pylint-executable "pylint"
+        flycheck-python-flake8-executable "flake8")
 
   ;; if you use pyton2, then you could comment the following 3 lines
   ;; (setq python-shell-interpreter "python2")
   ;; (setq python-shell-interpreter-args "-i")
-  ;; (setq flycheck-python-pylint-executable "/usr/local/bin/pylint")
   )
 
 (defun ztlevi-prog/init-py-autopep8 ()
