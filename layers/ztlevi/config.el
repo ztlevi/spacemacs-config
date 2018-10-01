@@ -25,3 +25,6 @@
 (defconst IS-MAC     (eq system-type 'darwin))
 (defconst IS-LINUX   (eq system-type 'gnu/linux))
 (defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
+
+(defconst IS-EMACS-PLUS (file-exists-p "/usr/local/opt/emacs-plus"))
+(defconst IS-EMACS-MAC (file-exists-p "/usr/local/opt/emacs-mac"))

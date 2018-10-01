@@ -76,7 +76,7 @@
  '(lsp-intellij-face-code-lens-run ((t (:background "honeydew")))))
 
 ;; enable natural title bar for emacs-plus
-(if (is-emacs-plus)
+(if IS-EMACS-PLUS
     (progn
       (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
       (add-to-list 'default-frame-alist '(ns-appearance . light))))

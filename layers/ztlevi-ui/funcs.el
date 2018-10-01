@@ -70,6 +70,3 @@
         (pos (posframe-poshandler-frame-center info)))
     (cons (car pos)
           (truncate (/ (frame-pixel-height parent-frame) 2)))))
-
-(defun is-emacs-plus ()
-  (file-exists-p "/usr/local/opt/emacs-plus"))
