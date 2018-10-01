@@ -64,14 +64,7 @@
 (define-key launcher-map "a" 'sx-ask)
 (define-key launcher-map "s" 'sx-search)
 
-;; company complete
-(global-set-key (kbd "C-SPC") 'company-complete)
-
-;; comment
-(global-set-key (kbd "s-/") 'spacemacs/comment-or-uncomment-lines)
-
 ;; macro
-(global-set-key (kbd "s-m") 'call-last-kbd-macro)
 (spacemacs/set-leader-keys "om" 'kmacro-edit-macro)
 
 ;; git
@@ -81,10 +74,6 @@
 ;; swiper
 (with-eval-after-load 'swiper
   (define-key swiper-map (kbd "C-c C-e") 'spacemacs//counsel-edit))
-
-;; expand region
-(global-set-key (kbd "C-s-.") 'er/expand-region)
-(global-set-key (kbd "C-s-,") 'er/contract-region)
 
 ;; redefine C-i and S-tab
 (global-set-key (kbd "<C-i>") 'evil-shift-right-line)
@@ -100,7 +89,6 @@
     (bb/define-key helm-bookmark-map (kbd "C-e") 'helm-bookmark-run-edit)))
 
 ;; yasnippet
-(global-set-key (kbd "s-i")   #'yas-expand)
 (spacemacs/set-leader-keys "yr" 'yas-reload-all)
 (spacemacs/set-leader-keys "yd" 'yas-describe-tables)
 
@@ -210,6 +198,7 @@
 (spacemacs/set-leader-keys "ols" 'ztlevi/save-my-layout)
 
 ;; global key binding
+(global-set-key (kbd "C-SPC") 'company-complete)
 (global-set-key (kbd "<f1>")  'ztlevi/helm-hotspots)
 (global-set-key (kbd "<f5>")  'ztlevi/run-current-file)
 (global-set-key (kbd "<f8>")  'ztlevi/show-current-buffer-major-mode)
@@ -224,9 +213,6 @@
 (global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point+)
 (global-set-key (kbd "C-s-;") 'ztlevi/delete-semicolon-at-the-end-of-this-line)
 (global-set-key (kbd "M--")   'ztlevi/goto-match-paren)
-(global-set-key (kbd "s-,")   'ztlevi/insert-comma-at-the-end-of-this-line)
-(global-set-key (kbd "s-;")   'ztlevi/insert-semicolon-at-the-end-of-this-line)
-(global-set-key (kbd "s-g")   'goto-line)
 (global-set-key [(shift return)] 'ztlevi/smart-open-line)
 (global-set-key [remap fill-paragraph] 'endless/fill-or-unfill)
 
@@ -240,21 +226,16 @@
   (global-set-key (kbd "s-s")   'evil-write-all)
   (global-set-key (kbd "s-w")   'delete-window-or-frame)
   (global-set-key (kbd "s-o")   'spacemacs/jump-to-last-layout)
-  (global-set-key (kbd "s-`")   'other-frame)
-  (global-set-key (kbd "s-=")   'spacemacs/scale-up-font)
-  (global-set-key (kbd "s--")   'spacemacs/scale-down-font)
-  (global-set-key (kbd "s-0")   'spacemacs/reset-font-size)
-  (global-set-key (kbd "s-q")   'save-buffers-kill-terminal)
-  (global-set-key (kbd "s-v")   'yank)
-  (global-set-key (kbd "s-c")   'evil-yank)
-  (global-set-key (kbd "s-a")   'mark-whole-buffer)
-  (global-set-key (kbd "s-x")   'kill-region)
   (global-set-key (kbd "s-n")   'switch-to-buffer-other-frame)
-  (global-set-key (kbd "s-z")   'undo-tree-undo)
-  (global-set-key (kbd "s-Z")   'undo-tree-redo)
-  ;; hungry delete
+  (global-set-key (kbd "s-,")   'ztlevi/insert-comma-at-the-end-of-this-line)
+  (global-set-key (kbd "s-;")   'ztlevi/insert-semicolon-at-the-end-of-this-line)
+  (global-set-key (kbd "s-g")   'goto-line)
+  (global-set-key (kbd "s-/")   'spacemacs/comment-or-uncomment-lines)
+  (global-set-key (kbd "C-s-.") 'er/expand-region)
+  (global-set-key (kbd "C-s-,") 'er/contract-region)
+  (global-set-key (kbd "s-m")   'call-last-kbd-macro)
+  (global-set-key (kbd "s-i")   'yas-expand)
   (global-set-key (kbd "s-<backspace>") 'hungry-delete-backward)
-  ;; iterm
   (spacemacs/set-leader-keys "o!" 'ztlevi/iterm-shell-command))
 ;; keybindings for Windows
 (when IS-WINDOWS
@@ -275,5 +256,4 @@
   (global-set-key (kbd "C-S-x") 'kill-region)
   (global-set-key (kbd "C-S-n") 'switch-to-buffer-other-frame)
   (global-set-key (kbd "C-S-z") 'undo-tree-undo)
-  ;; hungry delete
   (global-set-key (kbd "C-<backspace>") 'hungry-delete-backward))
