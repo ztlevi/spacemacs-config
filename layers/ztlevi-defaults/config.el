@@ -44,8 +44,6 @@
         ns-pop-up-frames nil)
   (osx/use-gls-when-available))
 
-(setq-default fill-column 80)
-
 (setq recenter-positions '(top middle bottom))
 ;; delete the selection with a key press
 (delete-selection-mode t)
