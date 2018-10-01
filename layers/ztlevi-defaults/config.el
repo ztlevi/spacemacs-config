@@ -88,14 +88,7 @@
   (progn
     (and (fboundp 'recentf-cleanup)
          (recentf-cleanup))))
-
 (add-hook 'kill-emacs-hook #'ztlevi/cleanup-recentf)
-
-;; change evil initial mode state
-(menu-bar-mode t)
-
-;; cleanup whitespace when save
-;; (add-hook 'before-save-hook 'whitespace-cleanup)
 
 (defun create-dir-if-not-exist ()
   (when buffer-file-name
