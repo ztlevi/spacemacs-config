@@ -303,14 +303,22 @@
   (use-package evil-multiedit
     :defer t
     :commands evil-multiedit-default-keybinds
-    :bind ((:map evil-multiedit-insert-state-map ("C-d" . delete-char)))
     :init
-    (evil-multiedit-default-keybinds)
+    (define-key evil-visual-state-map "R" #'evil-multiedit-match-all)
     (define-key evil-normal-state-map (kbd "s-d") #'evil-multiedit-match-symbol-and-next)
     (define-key evil-visual-state-map (kbd "s-d") #'evil-multiedit-match-and-next)
     (define-key evil-normal-state-map (kbd "s-D") #'evil-multiedit-match-symbol-and-prev)
     (define-key evil-visual-state-map (kbd "s-D") #'evil-multiedit-match-and-prev)
-    (define-key evil-insert-state-map (kbd "s-d") #'evil-multiedit-toggle-marker-here)))
+    (define-key evil-insert-state-map (kbd "s-d") #'evil-multiedit-toggle-marker-here)
+    (define-key evil-visual-state-map (kbd "C-M-D") #'evil-multiedit-restore)
+    (with-eval-after-load 'evil-multiedit
+      (define-key evil-multiedit-state-map (kbd "RET") #'evil-multiedit-toggle-or-restrict-region)
+      (define-key evil-multiedit-state-map (kbd "C-n") #'evil-multiedit-next)
+      (define-key evil-multiedit-state-map (kbd "C-p") #'evil-multiedit-prev)
+      (define-key evil-multiedit-insert-state-map (kbd "C-n") #'evil-multiedit-next)
+      (define-key evil-multiedit-insert-state-map (kbd "C-p") #'evil-multiedit-prev)
+      (define-key evil-multiedit-insert-state-map (kbd "C-d") #'delete-char))
+    (evil-ex-define-cmd "ie[dit]" #'evil-multiedit-ex-match)))
 
 (defun ztlevi-misc/init-evil-string-inflection ()
   (use-package evil-string-inflection
