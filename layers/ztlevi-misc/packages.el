@@ -666,7 +666,8 @@
     :defer t
     :hook (rg-mode . wgrep-ag-setup)
     :config
-    (setq rg-group-result t)
+    (setq rg-group-result t
+          rg-command-line-flags '("--pcre2"))
     (evil-set-initial-state 'rg-mode 'normal)
     (evil-make-overriding-map rg-mode-map 'normal)))
 
