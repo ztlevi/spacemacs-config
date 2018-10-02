@@ -20,7 +20,6 @@
     ))
 
 (defun ztlevi-defaults/post-init-ranger ()
-  ;; ranger and deer
   (spacemacs/set-leader-keys "fj" 'deer)
   (with-eval-after-load 'ranger
     (define-key ranger-normal-mode-map (kbd "q") 'ranger-close-and-kill-inactive-buffers)
@@ -31,11 +30,16 @@
     (define-key ranger-normal-mode-map (kbd "u") 'dired-unmark)
     (define-key ranger-normal-mode-map (kbd "(") 'dired-hide-details-mode)
     (define-key ranger-normal-mode-map (kbd "+") 'dired-create-directory))
-  (setq ranger-omit-regexp "^\.DS_Store$")
-  (setq ranger-excluded-extensions '("mkv" "iso" "mp4"))
-  (setq ranger-deer-show-details nil)
-  (setq ranger-max-preview-size 10)
-)
+  (setq ranger-omit-regexp "^\.DS_Store$"
+        ranger-excluded-extensions '("mkv" "iso" "mp4")
+        ranger-deer-show-details nil
+        ranger-max-preview-size 10)
+
+  ;; do not kill buffer if exists in windows
+  (defun ranger-disable ()
+    "Interactively disable ranger-mode."
+    (interactive)
+    (ranger-revert)))
 
 (defun ztlevi-defaults/init-helpful ()
   (use-package helpful
