@@ -599,6 +599,11 @@
     (setq ivy-initial-inputs-alist nil)
     (setq ivy-format-function (quote ivy-format-function-arrow))
 
+    ;; force bind ivy-press-and-switch
+    (defun ivy-press-and-switch ()
+      (evil-local-set-key 'normal [return] #'ivy-occur-press-and-switch))
+    (add-hook 'ivy-occur-grep-mode-hook #'ivy-press-and-switch)
+
     (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-call-and-recenter)
     (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial-or-done)
     (define-key ivy-minibuffer-map (kbd "C-<return>") 'ivy-immediate-done)))
