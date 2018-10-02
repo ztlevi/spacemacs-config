@@ -678,6 +678,16 @@
                                  ?I "Browse issues" #'magithub-issue-browse))))
 
 (defun ztlevi-misc/post-init-git-link ()
+  (call-function--with-prefix-arg spacemacs/git-link)
+  (call-function--with-prefix-arg spacemacs/git-link-copy-url-only)
+  (call-function--with-prefix-arg spacemacs/git-link-commit)
+  (call-function--with-prefix-arg spacemacs/git-link-commit-copy-url-only)
+  (spacemacs/set-leader-keys
+    "gll" 'spacemacs/git-link--C-u
+    "glL" 'spacemacs/git-link-copy-url-only--C-u
+    "glc" 'spacemacs/git-link-commit--C-u
+    "glC" 'spacemacs/git-link-commit-copy-url-only--C-u)
+
   (eval-after-load 'git-link
     '(progn
        (add-to-list 'git-link-remote-alist

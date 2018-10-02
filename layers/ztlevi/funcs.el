@@ -13,6 +13,13 @@
   (interactive)
   (configuration-layer/update-packages t))
 
+(defmacro call-function--with-prefix-arg (func &rest arglist)
+  "defmacro to create functions call with prefix arg"
+  `(defun ,(intern (format "%S--C-u" func)) ,arglist
+     (interactive)
+     (let ((current-prefix-arg '(4)))
+       (call-interactively ',func))))
+
 ;; Utility functions
 (defun bb/define-key (keymap &rest bindings)
   (declare (indent 1))
