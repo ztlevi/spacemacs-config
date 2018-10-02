@@ -200,7 +200,8 @@ This function should only modify configuration layer settings."
      ;; spacemacs-editing-visual
      volatile-highlights highlight-indentation lorem-ipsum
      ;; spacemacs-evil
-     evil-args evil-mc evil-ediff evil-exchange evil-unimpaired evil-indent-plus vi-tilde-fringe evil-lisp-state evil-cleverparens evil-escape evil-goggles
+     evil-args evil-mc evil-ediff evil-exchange evil-unimpaired evil-indent-plus vi-tilde-fringe
+     evil-lisp-state evil-cleverparens evil-escape evil-goggles evil-iedit-state
      ;; spacemacs-layouts
      eyebrowse
      ;; spacemacs-misc
