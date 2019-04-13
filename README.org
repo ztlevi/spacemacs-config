@@ -1,4 +1,5 @@
 * My personal Emacs configuration
+** (Note): This configuration hasn't been updated for a while since I start to use doom emacs rather spacemacs.
 ** Screen shots
    #+HTML: <img src="./screenshots/1.jpg" alt="img" title="my emacs" width="100%"/>
 
